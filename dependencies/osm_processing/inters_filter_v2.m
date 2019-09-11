@@ -14,7 +14,7 @@ for i=1:size(inters,1)
                 if idx == 1
                     x = [r1.coords(idx, 1); r1.coords(idx+1, 1)];
                     y = [r1.coords(idx, 2); r1.coords(idx+1, 2)];
-                else % idx == size(r1.coords,1)
+                else 
                     x = [r1.coords(idx, 1); r1.coords(idx-1, 1)];
                     y = [r1.coords(idx, 2); r1.coords(idx-1, 2)];
                 end 
@@ -28,7 +28,7 @@ for i=1:size(inters,1)
                 if idx == 1
                     x = [r2.coords(idx+1, 1); r2.coords(idx, 1)];
                     y = [r2.coords(idx+1, 2); r2.coords(idx, 2)];
-                elseif idx == size(r2.coords,1)
+                else
                     x = [r2.coords(idx-1, 1); r2.coords(idx, 1)];
                     y = [r2.coords(idx-1, 2); r2.coords(idx, 2)];
                 end 

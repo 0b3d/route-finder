@@ -56,9 +56,9 @@ for i=1:length(roads3)
         for k=1:size(old.IDX, 2)
             idx = find(ismember(OIDX, old.IDX(k)));
             new = [new idx]; 
-            if isempty(idx)
-                disp('check')
-            end
+%             if isempty(idx)
+%                 disp('check')
+%             end
         end
         roads3(i).road_idx(j).IDX = new;
     end

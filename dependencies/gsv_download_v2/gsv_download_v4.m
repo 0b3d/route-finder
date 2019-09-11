@@ -51,8 +51,8 @@ for i=1:length(panos)
         panos(i).tiltpitch = tiltpitch;
         tiltpitch = tiltpitch * pi / 180;
         
-%         fname = fullfile(outfolder,sprintf('%s.xml',panoid));
-%         [~] = websave(fname,url);
+        % fname = fullfile(outfolder,sprintf('%s.xml',panoid));
+        % [~] = websave(fname,url);
 
         skip = false; % check previously downloaded
         Lia = ismember(panoidAll, panoid);
@@ -63,20 +63,20 @@ for i=1:length(panos)
             panoidAll{end+1} = panoid; 
         end
         
-        %downloadGSV(panoid, outfolder, zoom, skip); % only download panos
-        %downloadGSV_v1(panoid, outfolder, zoom); % only download panos
-        %downloadGSV_v2(panoid, yaw, tiltyaw, tiltpitch, outfolder, outfolder_s, zoom, skip); % panos with snapshots
-        %downloadGSV_v3(panoid, yaw, tiltyaw, tiltpitch, outfolder,outfolder_s, zoom, skip);% panos with snapshots
-        %downloadGSV_v4(panoid, yaw, tiltyaw, tiltpitch, outfolder, outfolder_s, zoom, skip, img_num);
+        % downloadGSV(panoid, outfolder, zoom, skip); % only download panos
+        % downloadGSV_v1(panoid, outfolder, zoom); % only download panos
+        % downloadGSV_v2(panoid, yaw, tiltyaw, tiltpitch, outfolder, outfolder_s, zoom, skip); % panos with snapshots
+        % downloadGSV_v3(panoid, yaw, tiltyaw, tiltpitch, outfolder,outfolder_s, zoom, skip);% panos with snapshots
+        % downloadGSV_v4(panoid, yaw, tiltyaw, tiltpitch, outfolder, outfolder_s, zoom, skip, img_num);
         
         count = count + 1;
         disp([city ' image ' num2str(count) ' took ' num2str(toc) ' seconds']);
         
-        %disp(count)
+        % disp(count)
 
     catch error
         disp(['Fail on image ' num2str(count)]);
-        delete(fname);
+        % delete(fname);
         panos(i).remove = true;
         disp(error);
     end 
