@@ -1,6 +1,9 @@
 function [inters, buildings, roads] = OSMProcessing_v2()
 %% Parse intersection, roads and building info from OSM map     
-system('python /Users/zhoumengjie/Desktop/route-finder/dependencies/map_parsing/parse_script.py');
+% system('python /Users/zhoumengjie/Desktop/route-finder/dependencies/map_parsing/parse_script.py');
+addpath(genpath('map_parsing'));
+system('python map_parsing/parse_script.py');
+
 % Read intersection and node coordinates previously extracted from map.osm
 intersections = csvread('intersections.txt'); % intersection coordinates
 boundary = csvread('boundary.txt');

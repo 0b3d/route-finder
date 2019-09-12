@@ -2,7 +2,9 @@
 clear all
 close all
 addpath(genpath('/Users/zhoumengjie/Desktop/route-finder/dependencies'));
+addpath(genpath('experiments'));
 load('london_BSD_new75_small.mat');
+% load('routes_small_withBSD_75.mat');
 load('test_route_new_500_small.mat');
 load('test_turn_new_500_small.mat');
 

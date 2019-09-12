@@ -19,11 +19,6 @@ for m=1 : max_route_length
         [R_, dist_] = Nclosest_v4(bad,R,routes,dist,N(m)); % filter based on sorting
     end
     
-%     [R_, dist_] = Nclosest_v4(bad,R,routes,dist,N(m)); % filter based on sorting
-%     if m > 1
-%         turn = T(m-1);
-%         [R_, dist_] = Turn_filter(R_, dist_, turn, routes, m, threshold); % filter based on turn
-%     end
        
     if size(R_, 1) > 0
         t_c = R_(1,:);
