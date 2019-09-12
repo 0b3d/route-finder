@@ -1,7 +1,10 @@
 % simulate CNN classifier
 clear all
-load('london_BSD_new80_small.mat');
-accuracy = 0.8;
+close all
+addpath(genpath('/Users/zhoumengjie/Desktop/route-finder/dependencies'));
+
+load('routes_small_withBSD.mat');
+accuracy = 0.75;
 count = 0;
 for i=1:length(routes)    
     good = routes(i).BSDs;
@@ -9,20 +12,11 @@ for i=1:length(routes)
         count = count+1;
         continue;
     end
-%     bad = bit_flipped(good, accuracy); 
-%     routes(i).CNNs = bad; 
+    bad = bit_flipped(good, accuracy); 
+    routes(i).CNNs = bad; 
 end
 
-for i=1:length(routes)    
-    good = routes(i).BSDs_t;
-    if isempty(good)
-        count = count+1;
-        continue;
-    end
-%     bad = bit_flipped(good, accuracy); 
-%     routes(i).CNNs_t = bad; 
-end
-% save('london_BSD_new80_small.mat','routes');
+save('routes_small_withBSD_75.mat','routes');
 % calculate the cnn accuracy
 p_bit1 = 0;
 p_bit2 = 0;
