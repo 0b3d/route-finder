@@ -25,7 +25,7 @@ def allWayNodes(children):
             #'services', 'motorway_junction','unclassified', 'path', 'pedestrian', 'track')
             
             # road types shouldn't be included in these types
-            road_types = ('footway', 'steps', 'cycleway')
+            road_types = ('footway', 'steps', 'cycleway', 'service', 'pedestrian', 'path')
 
             for item in child:
                 if item.tag == 'tag' and item.attrib['k'] == 'highway' and item.attrib['v'] not in road_types: 
