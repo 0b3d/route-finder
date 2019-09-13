@@ -9,7 +9,7 @@ for m=1 : max_route_length
     % offline
     % good = routes(location).BSDs;
     % bad = bit_flipped(good, accuracy);     
-    bad = routes(location).CNNs;
+    bad = routes(location).CNNs_t;
     [R_, dist_] = Nclosest_v4(bad,R,routes,dist,N(m)); % filter based on sorting
     
     if size(R_, 1) > 0
