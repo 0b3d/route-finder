@@ -1,7 +1,10 @@
 % localisation with fixed-route length
 clear all
 close all
-addpath(genpath('/Users/zhoumengjie/Desktop/route-finder/dependencies'));
+% Add repository path
+path =  fullfile(pwd)
+addpath(genpath(path));
+
 load('london_BSD_new75_small.mat');
 load('test_route_new_500_small.mat');
 load('test_turn_new_500_small.mat');
