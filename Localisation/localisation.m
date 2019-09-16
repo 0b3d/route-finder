@@ -9,8 +9,8 @@ addpath(genpath(path));
 load('Data/features/new.mat');
 % load('routes_small_withBSD_75.mat');
 % run 'Generate_random_routes' to get random test routes and turns
-load('Data/test_route_500.mat'); 
-load('Data/test_turn_500.mat');
+load('Localisation/test_route_500.mat'); 
+load('Localisation/test_turn_500.mat');
 
 
 accuracy = 0.75;
