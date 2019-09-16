@@ -6,10 +6,11 @@ close all
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load('london_BSD_new75_small.mat');
+load('Data/features/new.mat');
 % load('routes_small_withBSD_75.mat');
-load('test_route_new_500_small.mat');
-load('test_turn_new_500_small.mat');
+% run 'Generate_random_routes' to get random test routes and turns
+load('Data/test_route_500.mat'); 
+load('Data/test_turn_500.mat');
 
 
 accuracy = 0.75;
@@ -38,9 +39,9 @@ for i=1:test_num
     
 %     location = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
 %     location = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
-    location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
+%     location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
 %     location = RouteRearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
-%     location = RouteRearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);
+    location = RouteRearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);
     
     
     result(i,1) = t(1, size(t, 2));
