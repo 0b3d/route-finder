@@ -7,8 +7,8 @@ for m=1 : max_route_length
     location = t(m);
     t_r = t(1:m);
     % we can flip the BSDs based on CNN accuracy online or generate them offline
-%     good = routes(location).BSDs;
-%     bad = bit_flipped(good, accuracy);
+    % good = routes(location).BSDs;
+    % bad = bit_flipped(good, accuracy);
     bad = routes(location).CNNs;
     
     if m > 1

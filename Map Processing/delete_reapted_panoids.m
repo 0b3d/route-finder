@@ -1,9 +1,9 @@
 % delete repeated nodes with same panoid
 clear all
 close all
-addpath(genpath('/Users/zhoumengjie/Desktop/route-finder/dependencies'));
-load('routes.mat','routes');
-load('roads.mat','roads');
+addpath(genpath(pwd));
+load('Data/routes.mat','routes');
+load('Data/roads.mat','roads');
 
 %% Find Delete sets 
 Delete = [];
@@ -37,5 +37,5 @@ for i=1:length(routes2)
     routes2(i).gsv_yaw = routes(oidx).gsv_yaw;
 end
 routes = routes2;
-save('roads_small.mat','roads');
-save('routes_small.mat','routes');
+save('Data/roads_small.mat','roads');
+save('Data/routes_small.mat','routes');

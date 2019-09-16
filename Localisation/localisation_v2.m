@@ -1,11 +1,12 @@
 % localisation with consistency metric
 clear all
 close all
-addpath(genpath('/Users/zhoumengjie/Desktop/route-finder/dependencies'));
-addpath(genpath('experiments'));
-% load('london_BSD_new75_small.mat'); % load your own features
-load('routes_small_withBSDT_75.mat');
-% load('london_center_z20_model1.mat'); 
+
+% Add repository path
+path =  fullfile(pwd);
+addpath(genpath(path));
+
+load('london_BSD_new75_small.mat'); % load your own features
 load('test_route_new_500_small.mat'); % run 'Generat_random_routes' to generate
 load('test_turn_new_500_small_T.mat');
 

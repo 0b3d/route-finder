@@ -1,8 +1,11 @@
 % localisation with fixed-route length
 clear all
 close all
-addpath(genpath('/Users/zhoumengjie/Desktop/route-finder/dependencies'));
-addpath(genpath('experiments'));
+
+% Add repository path
+path =  fullfile(pwd);
+addpath(genpath(path));
+
 load('london_BSD_new75_small.mat');
 % load('routes_small_withBSD_75.mat');
 load('test_route_new_500_small.mat');
@@ -11,7 +14,7 @@ load('test_turn_new_500_small.mat');
 
 accuracy = 0.75;
 threshold = 60;
-max_route_length_init = 20;
+max_route_length_init = 20; % change the route length here
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 
@@ -23,26 +26,22 @@ end
 
 test_num = size(test_route, 1);
 result = zeros(test_num, 3);
-t_estimated = [];
-t_truth = [];
 failed_set = [];
 
 tic;
-parfor_progress('testing', test_num);
+parfor_progress('searching', test_num);
 for i=1:test_num  
 
     max_route_length = max_route_length_init;
     t = test_route(i,1:max_route_length);
     T = test_turn(i,1:max_route_length-1);
     
-%     location = RouteSearching_uc(routes, N, max_route_length, R_init, t);
-%     location = RouteSearching_uc_withT(routes, N, max_route_length, threshold, R_init, t, T);
-    [location,t_] = RouteSearching_v3(routes, accuracy, N, max_route_length, threshold, R_init, t, T); % bit_flipped
-%     location = RouteSearching_v9(routes, N, max_route_length, threshold, R_init, t, T); % cnn_classifier
-%     location = RouteSearching_v3_noT(routes, accuracy, N, max_route_length, R_init, t);
-%     location = RouteSearching_v9_noT(routes, N, max_route_length, R_init, t);
-    t_estimated = [t_estimated;t_];
-    t_truth = [t_truth; t];
+%     location = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
+%     location = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
+    location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
+%     location = RouteRearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
+%     location = RouteRearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);
+    
     
     result(i,1) = t(1, size(t, 2));
     if size(location) == 0
@@ -58,7 +57,7 @@ for i=1:test_num
         failed_set = [failed_set;result(i,:) i];
     end
       
-    parfor_progress('testing');
+    parfor_progress('searching');
 end
 time = toc;
 avg_time = time/test_num;

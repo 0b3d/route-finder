@@ -2,7 +2,9 @@
 clear all
 close all
 
-addpath(genpath('/Users/zhoumengjie/Desktop/route-finder/dependencies'));
+% Add repository path
+path =  fullfile(pwd)
+addpath(genpath(path));
 
 disp('OSM Processing......');
 [inters, buildings, roads] = OSMProcessing_v2();
@@ -10,6 +12,6 @@ disp('OSM Finished');
 
 disp('Dataset Generating......')
 [routes] = GenDataset_v2(roads);
-save('routes.mat', 'routes');
+save('Data/routes.mat', 'routes');
 disp('Dataset Finished');
 

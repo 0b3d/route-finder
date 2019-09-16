@@ -1,7 +1,7 @@
 function [location, location_, m_, flag, dist_] = RouteSearching_ES_withoutT(routes, N, max_route_length, R_init, t, overlap, s_number)
 R = R_init;
 dist = zeros(size(routes,2),1);
-loop = 0;
+loop = 1;
 
 for m=1 : max_route_length
     location = t(m);
