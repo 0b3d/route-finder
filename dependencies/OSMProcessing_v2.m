@@ -1,8 +1,6 @@
 function [inters, buildings, roads] = OSMProcessing_v2()
 %% Parse intersection, roads and building info from OSM map     
-%system('python /home/os17592/dev/route-finder/dependencies/map_parsing/parse_script.py');
 
-%dev_path = getenv('dev')
 filepath = fullfile(pwd, 'dependencies', 'map_parsing', 'parse_script.py');
 command = ['python', ' ', filepath];
 system(command);

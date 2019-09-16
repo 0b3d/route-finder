@@ -1,6 +1,6 @@
 % generate random routes
 clear all
-load('london_BSD_new75.mat');
+load('Data/features/new.mat');
 threshold = 60;
 max_route_length_init = 40;
 R_init = zeros(size(routes,2),1);
@@ -14,12 +14,12 @@ f = 1; % flag
 while f == 1 || size(test_route, 1) < 500 % 500 test routes
     f = 0;
     [t, max_route_length] = RandomRoutes(R_init, routes, max_route_length_init);
-    for i=1:max_route_length
-        if isempty(routes(t(i)).BSDs)% || isempty(routes(t(i)).x) 
-            f = 1;
-            break;
-        end  
-    end
+%     for i=1:max_route_length
+%         if isempty(routes(t(i)).BSDs)% || isempty(routes(t(i)).x) 
+%             f = 1;
+%             break;
+%         end  
+%     end
     if f == 0
         if ~isempty(test_route) && sum(ismember(test_route, t, 'rows')) % check the uniqueness 
             continue;
@@ -35,3 +35,5 @@ while f == 1 || size(test_route, 1) < 500 % 500 test routes
         end
     end
 end
+save('Data/test_turn_500.mat', 'test_turn');
+save('Data/test_route_500.mat','test_route');
