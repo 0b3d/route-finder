@@ -5,7 +5,7 @@ loop = 1;
 
 for m=1 : max_route_length
     location = t(m);
-    bad = routes(location).x;
+    bad = routes(location).y;
         
     if m > 1
         turn = T(m-1);

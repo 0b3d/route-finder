@@ -19,7 +19,7 @@ for i=1:length(routes)
     routes(i).CNNs = bad; 
 end
 
-save('routes_small_withBSD_75.mat','routes');
+save('Data/routes_small_withBSD_75.mat','routes');
 % calculate the cnn accuracy
 p_bit1 = 0;
 p_bit2 = 0;
