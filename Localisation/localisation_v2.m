@@ -6,9 +6,9 @@ close all
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load('london_BSD_new75_small.mat'); % load your own features
-load('test_route_new_500_small.mat'); % run 'Generat_random_routes' to generate
-load('test_turn_new_500_small_T.mat');
+load('Data/routes_small_withBSD_75.mat'); % load your own features
+load('Data/test_route_500.mat'); % run 'Generat_random_routes' to generate
+load('Data/test_turn_500.mat');
 
 % parameters
 threshold = 60; % if the degree between node is over 60 degree, there's a turn
@@ -16,11 +16,11 @@ max_route_length = 40;
 accuracy = 0.75; % CNN accuracy 75%
 failed_set = [];
 % thresholding
-N = [100, 100, 100, 100, 100, 100, 95, 95, 95, 90, 90, 90, 85, 85, 85, 80, 80, 80,...
-    75, 75, 75, 70, 70, 70, 65, 65, 65, 60, 60, 60, 55, 55, 55, 50, 50, 50, 45, 45, 45, 40];
+% N = [100, 100, 100, 100, 100, 100, 95, 95, 95, 90, 90, 90, 85, 85, 85, 80, 80, 80,...
+%     75, 75, 75, 70, 70, 70, 65, 65, 65, 60, 60, 60, 55, 55, 55, 50, 50, 50, 45, 45, 45, 40];
 % brute-force
-% N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
-%     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
+N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
+    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
      
     
 overlap = 0.8; % 80%
@@ -41,8 +41,8 @@ for i=1:test_num
     T = test_turn(i,:);
     
 %     [location, location_, m_, flag] = RouteSearching_onlyT_new(routes, max_route_length, R_init, t, T, overlap, s_number, threshold);
-    [location, location_, m_, flag, ~] = RouteSearching_BSD_withoutT_new(routes, N, max_route_length, R_init, t, overlap, s_number, accuracy);
-%     [location, location_, m_, flag, ~] = RouteSearching_BSD_withT_new(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold, accuracy);
+%     [location, location_, m_, flag, ~] = RouteSearching_BSD_withoutT_new(routes, N, max_route_length, R_init, t, overlap, s_number, accuracy);
+    [location, location_, m_, flag, ~] = RouteSearching_BSD_withT_new(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold, accuracy);
 %     [location, location_, m_, flag, ~] = RouteSearching_ES_withoutT(routes, N, max_route_length, R_init, t, overlap, s_number);
 %     [location, location_, m_, flag, ~] = RouteSearching_ES_withT(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold);
         

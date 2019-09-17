@@ -3,7 +3,7 @@ clear all
 close all
 
 % Add repository path
-path =  fullfile(pwd)
+path =  fullfile(pwd);
 addpath(genpath(path));
 
 disp('OSM Processing......');
