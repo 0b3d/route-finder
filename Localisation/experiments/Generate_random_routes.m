@@ -1,6 +1,7 @@
 % generate random routes
 clear all
-load('Data/features/new.mat');
+close all
+load('Data/routes_small_withBSD_75.mat');
 threshold = 60;
 max_route_length_init = 40;
 R_init = zeros(size(routes,2),1);
