@@ -3,8 +3,8 @@ sz1 = size(R, 1);
 sz2 = size(R, 2);
 for i=1:sz1      % slow
     k = R(i,sz2); % the final one
-    if ~isempty(routes(k).y)
-        desc_ = routes(k).y;  % slowest: since too many calls!!!
+    if ~isempty(routes(k).x)
+        desc_ = routes(k).x;  % slowest: since too many calls!!!
         dist(i,1) = dist(i,1) + eu_dist(desc_new, desc_); % fatser
     else
         dist(i,1) = 100; % max - similar to delete this route

@@ -40,8 +40,9 @@ for i=1:test_num
 %     location = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
 %     location = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
 %     location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
-%     location = RouteRearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
-    location = RouteRearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);
+%     location = RouteSearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
+%     location = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);
+      location = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T);
     
     
     result(i,1) = t(1, size(t, 2));
