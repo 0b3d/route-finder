@@ -31,28 +31,25 @@ end
 for i=1:size(search_areas.forward, 1)
     plot([location(2) search_areas.forward(i, 2)],[location(1) search_areas.forward(i, 1)],'-k');
     text(search_areas.forward(22, 2),search_areas.forward(22, 1),num2str(BSD(1)));
-    text(search_areas.forward(15, 2),search_areas.forward(15, 1),'front');
+    text(search_areas.forward(20, 2),search_areas.forward(22, 1),num2str(BSD(1)));
     hold on;
 end
 
 for i=1:size(search_areas.backward, 1)
     plot([location(2) search_areas.backward(i, 2)],[location(1) search_areas.backward(i, 1)],'-m');
     text(search_areas.backward(22, 2),search_areas.backward(22, 1),num2str(BSD(3)));
-    text(search_areas.backward(15, 2),search_areas.backward(15, 1),'back');
     hold on;
 end
 
 for i=1:size(search_areas.left, 1)
     plot([location(2) search_areas.left(i, 2)],[location(1) search_areas.left(i, 1)],'-b');
     text(search_areas.left(22, 2),search_areas.left(22, 1),num2str(BSD(4)));
-    text(search_areas.left(15, 2),search_areas.left(15, 1),'left');
     hold on;
 end
 
 for i=1:size(search_areas.right, 1)
     plot([location(2) search_areas.right(i, 2)],[location(1) search_areas.right(i, 1)],'-g');
     text(search_areas.right(22, 2),search_areas.right(22, 1),num2str(BSD(2)));
-    text(search_areas.right(15, 2),search_areas.right(15, 1),'right');
     hold on;
 end
     
