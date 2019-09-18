@@ -9,9 +9,8 @@ import numpy as np
 from scipy.io import loadmat
 import tables
 import cv2
-import os
+import os, sys
 import h5py
-
 
 num_threads = 6
 counter = 0
@@ -110,19 +109,21 @@ class RenderThread:
             self.q.task_done()
 
 directory = os.getcwd()
+# panos_directory = os.path.join(directory, 'Data', sys.argv[1], 'panos') 
 panos_directory = os.path.join(directory, 'Data', 'panos') 
 if not os.path.isdir(panos_directory):
     os.mkdir(panos_directory)
 
 # Open matlab file
-routes_file = os.path.join(os.getcwd(), 'Data', 'routes.mat')
+# routes_file = os.path.join(os.getcwd(), 'Data', sys.argv[1], 'routes_small.mat')
+routes_file = os.path.join(os.getcwd(), 'Data', 'routes_small.mat')
 test = loadmat(routes_file)
 routes = test['routes'].squeeze()
 
 # 0 -> coords
 # 1 yaw
 # 2 wayidx
-# 3 neigh 
+# 3 neighbor 
 # 4 pano_id 
 # 5 gsv_coords 
 # 6 gsv_yaw
