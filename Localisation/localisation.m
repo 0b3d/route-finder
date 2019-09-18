@@ -1,21 +1,22 @@
 % localisation with fixed-route length
 clear all
 close all
+parameters;
 
 % Add repository path
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load('Data/features/new.mat');
+load(['Data/',dataset,'/features/final_routes.mat']);
 % load('routes_small_withBSD_75.mat');
 % run 'Generate_random_routes' to get random test routes and turns
-load('Localisation/test_route_500.mat'); 
-load('Localisation/test_turn_500.mat');
+load(['Localisation/test_routes/route_',dataset,'_', num2str(test_num),'.mat']); 
+load(['Localisation/test_routes/turn_',dataset,'_', num2str(test_num),'.mat']);
 
 
 accuracy = 0.75;
-threshold = 60;
-max_route_length_init = 20; % change the route length here
+%threshold = 60;
+%max_route_length_init = 30; % change the route length here
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 
@@ -42,8 +43,19 @@ for i=1:test_num
 %     location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
 %     location = RouteSearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
 %     location = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);
-      location = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T);
-    
+   
+    option = [features_type, turns ,probs]; 
+    switch option
+        case 'EStruefalse'
+            location = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);       
+        case 'ESfalsefalse'
+            location = RouteSearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
+        case 'EStruetrue'
+            location = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T);
+        otherwise
+            warning('Unexpected configuration')
+        
+    end
     
     result(i,1) = t(1, size(t, 2));
     if size(location) == 0

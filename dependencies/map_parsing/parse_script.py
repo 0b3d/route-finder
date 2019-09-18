@@ -1,14 +1,14 @@
 import time
-import os
+import os, sys
 start = time.time()
 
-mapFile = os.path.join(os.getcwd(), 'OSM Files', 'map.osm')
+mapFile = os.path.join(os.getcwd(), 'OSM Files', sys.argv[2])
 print(mapFile)
 input_type = 'file'
 
-data_path = os.path.join(os.getcwd(), 'Data')
+data_path = os.path.join(os.getcwd(), 'Data', sys.argv[1])
 if not os.path.isdir(data_path):
-	os.mkdir(data_path)
+	os.makedirs(data_path)
 
 import xml.etree.ElementTree as ET
 if input_type == 'file':
@@ -20,7 +20,7 @@ elif input_type == 'str':
     children = tree.getchildren()
 
 import interOSM
-writeFile = os.path.join(os.getcwd(), 'Data', 'intersections.txt')
+writeFile = os.path.join(data_path, 'intersections.txt')
 f = open(writeFile, 'w')
 ic = interOSM.get_intersections(children)
 for coord in ic:
@@ -29,7 +29,7 @@ f.close()
 
 
 import allWayNodes
-writeFile = os.path.join(os.getcwd(), 'Data', 'ways.txt')
+writeFile = os.path.join(data_path, 'ways.txt')
 f = open(writeFile, 'w')
 nc = allWayNodes.allWayNodes(children)
 for coord in nc:
@@ -38,7 +38,7 @@ f.close()
 
 
 import allBuildingNodes
-writeFile = os.path.join(os.getcwd(), 'Data', 'buildings.txt')
+writeFile = os.path.join(data_path, 'buildings.txt')
 f = open(writeFile, 'w')
 nc = allBuildingNodes.allBuildingNodes(children)
 for coord in nc:
@@ -46,7 +46,7 @@ for coord in nc:
 f.close()
 
 import allNaturalNodes
-writeFile = os.path.join(os.getcwd(), 'Data', 'nature.txt')
+writeFile = os.path.join(data_path, 'nature.txt')
 f = open(writeFile, 'w')
 nc = allNaturalNodes.allNaturalNodes(children)
 for coord in nc:
@@ -54,7 +54,7 @@ for coord in nc:
 f.close()
 
 import allLeisureNodes
-writeFile = os.path.join(os.getcwd(), 'Data', 'leisure.txt')
+writeFile = os.path.join(data_path, 'leisure.txt')
 f = open(writeFile, 'w')
 nc = allLeisureNodes.allLeisureNodes(children)
 for coord in nc:
@@ -62,7 +62,7 @@ for coord in nc:
 f.close()
 
 import boundaryOSM
-writeFile = os.path.join(os.getcwd(), 'Data', 'boundary.txt')
+writeFile = os.path.join(data_path, 'boundary.txt')
 f = open(writeFile, 'w')
 nc = boundaryOSM.get_boundary(children)
 for coord in nc:

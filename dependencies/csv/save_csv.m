@@ -1,8 +1,9 @@
 % save .csv file
 clear all
-load('Data/routes_small.mat', 'routes');
+parameters;
+load(['Data/',dataset,'/routes_small.mat'], 'routes');
 
-filename = 'Data/routes.csv';
+filename = ['Data/',dataset,'/routes.csv'];
 fid = fopen(filename, 'w');
 fprintf(fid, [ '%s',',','%s',',','%s',',','%s',',','%s',',','%s',',','%s', ',', '%s', ',', '%s', ',', '%s', '\n'], ...
               'loc_id','osm_lat','osm_lon','osm_yaw','wayidx', 'neighbor', 'pano_id', 'gsv_lat', 'gsv_lon', 'gsv_yaw');   

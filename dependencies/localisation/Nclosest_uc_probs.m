@@ -16,10 +16,9 @@ for i=1:sz1      % slow
             x_1 = routes(k_1).x;
             yy_dist = eu_dist(y,y_1);
             xx_dist = eu_dist(x,x_1); 
-            xx_probs = normpdf(xx_dist, yy_dist, 1);
+            xx_probs = normpdf(xx_dist, yy_dist, 0.2);
             probs(i,1) = probs(i,1) * xx_probs;
         end       
-        
         
     else
         probs(i,1) = 0.0; % max - similar to delete this route

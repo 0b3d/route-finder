@@ -1,10 +1,11 @@
-function location = RouteRearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T)
+function location = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T)
+
+
 R = R_init;
 dist = zeros(size(routes,2),1);
 
-for m=1 : max_route_length
+for m=1:max_route_length
     bad = routes(t(m)).y;
-        
     if m > 1
         turn = T(m-1);
         [R_, dist_] = Turn_filter(R, dist, turn, routes, m, threshold); % filter based on turn

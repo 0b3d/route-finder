@@ -1,12 +1,13 @@
 % data generation
-clear all
+clearvars -except dataset
 close all
+parameters;
 
 % Add repository path
 path =  fullfile(pwd);
 addpath(genpath(path));
-load('Data/features/ES_london_center_09_19.mat');
-load('Data/routes_small.mat');
+load(['Data/',dataset,'/features/',dataset,'.mat']);
+load(['Data/',dataset,'/routes_small.mat']);
 routes2 = routes;
 
 %% generate delete set
@@ -28,4 +29,4 @@ for i=1:length(pano_id)
         routes(i).y = Y(i,:);
     end
 end
-save('Data/features/new.mat','routes');
+save(['Data/',dataset,'/features/final_routes.mat'],'routes');

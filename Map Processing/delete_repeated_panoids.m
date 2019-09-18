@@ -1,9 +1,10 @@
 % delete repeated nodes with same panoid
 clear all
 close all
+parameters;
 addpath(genpath(pwd));
-load('Data/routes.mat','routes');
-load('Data/roads.mat','roads');
+load(['Data/',dataset,'/routes.mat'],'routes');
+load(['Data/',dataset,'/roads.mat'],'roads');
 
 %% Find Delete sets 
 Delete = [];
@@ -37,5 +38,5 @@ for i=1:length(routes2)
     routes2(i).gsv_yaw = routes(oidx).gsv_yaw;
 end
 routes = routes2;
-save('Data/roads_small.mat','roads');
-save('Data/routes_small.mat','routes');
+save(['Data/',dataset,'/roads_small.mat'],'roads');
+save(['Data/',dataset,'/routes_small.mat'],'routes');
