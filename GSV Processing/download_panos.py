@@ -119,7 +119,7 @@ if not os.path.isdir(panos_directory):
 routes_file = os.path.join(os.getcwd(), 'Data', 'routes_small.mat')
 test = loadmat(routes_file)
 routes = test['routes'].squeeze()
-# 0 -> coords
+# 0 coords
 # 1 yaw
 # 2 wayidx
 # 3 neighbor 
