@@ -25,13 +25,12 @@ end
 Score(Score>=1000)=[];
 sz1 = size(Score,1);
 
-if key_frame > 16
-    cmin = min(Score);
+cmin = min(Score);
+cmax = max(Score);
+if cmin == cmax
     cmax = cmin+1;
-else
-    cmin = min(Score);
-    cmax = max(Score);
 end
+    
 title(strcat('Number of move #', num2str(16)));
 scatter(All(1:sz1,2), All(1:sz1,1), 25, Score, 'o', 'filled');
 hold on;

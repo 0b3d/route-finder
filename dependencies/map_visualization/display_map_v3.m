@@ -37,6 +37,7 @@ for i=1:length(naturals)
     else
         fill(curnat(:,2),curnat(:,1),'g');
         % plot(curnat(:,2),curnat(:,1),'MarkerFaceColor','g');
+    end
     hold on;
 end
 axis([boundary(2) boundary(4) boundary(1) boundary(3)])

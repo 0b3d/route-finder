@@ -7,13 +7,13 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load datas
-load('Data/ways.mat');
-load('Data/buildings.mat');
-load('Data/naturals.mat');
-load('Data/leisures.mat');
-load('Data/boundary.mat');
-load('Data/inters.mat');
-load('routes_small_withBSD.mat'); % descriptors
+load('Data/london_center/ways.mat');
+load('Data/london_center/buildings.mat');
+load('Data/london_center/naturals.mat');
+load('Data/london_center/leisures.mat');
+load('Data/london_center/boundary.mat');
+load('Data/london_center/inters.mat');
+load('Data/london_center/routes_small_withBSD.mat'); % descriptors
 
 % display the whole map
 f1 = figure(1);

@@ -7,19 +7,19 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load('Data/features/new.mat');
-load('Data/london_center/routes_small_withBSD_75.mat');
-% run 'Generate_random_routes' to get random test routes and turns
-load('Data/london_center/test_route_500.mat');
-load('Data/london_center/test_turn_500.mat');
-% load('Data/test_routes/route_tonbridge_500.mat'); 
-%load('Data/test_routes/turn_tonbridge_500.mat');
-% load('Data/test_routes/turn_tonbridge_500_30thresh.mat');
+% load('Data/london_center/routes_small_withBSD_75.mat'); % load your own features
+% load('Data/test_routes/route_london_center_09_19_500.mat');
+% load('Data/test_routes/turn_london_center_09_19_500.mat');
+load('Data/tonbridge/routes_small_withBSD_75.mat');
+load('Data/test_routes/route_tonbridge_500.mat'); 
+% load('Data/test_routes/turn_tonbridge_500.mat');
+load('Data/test_routes/turn_tonbridge_500_30thresh.mat');
 
 
 
 accuracy = 0.75;
-threshold = 60;
-max_route_length_init = 20; % change the route length here
+threshold = 30;
+max_route_length_init = 5; % change the route length here
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 
