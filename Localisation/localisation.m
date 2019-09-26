@@ -11,15 +11,14 @@ addpath(genpath(path));
 % load('Data/test_routes/route_london_center_09_19_500.mat');
 % load('Data/test_routes/turn_london_center_09_19_500.mat');
 load('Data/tonbridge/routes_small_withBSD_75.mat');
-load('Data/test_routes/route_tonbridge_500.mat'); 
-% load('Data/test_routes/turn_tonbridge_500.mat');
-load('Data/test_routes/turn_tonbridge_500_30thresh.mat');
+load('Data/test_routes/tonbridge_routes_500_30.mat'); 
+load('Data/test_routes/tonbridge_turns_500_30.mat');
 
 
 
 accuracy = 0.75;
-threshold = 30;
-max_route_length_init = 5; % change the route length here
+threshold = 60;
+max_route_length_init = 20; % change the route length here
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 

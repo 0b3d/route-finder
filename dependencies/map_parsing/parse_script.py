@@ -2,7 +2,7 @@ import time
 import os
 start = time.time()
 
-mapFile = os.path.join(os.getcwd(), 'OSM Files', 'tonbridge.osm')
+mapFile = os.path.join(os.getcwd(), 'OSM Files', 'cardiff.osm')
 print(mapFile)
 input_type = 'file'
 
