@@ -6,12 +6,12 @@ close all
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-% load('Data/london_center/routes_small_withBSD_75.mat'); % load your own features
-% load('Data/test_routes/route_london_center_09_19_500.mat');
-% load('Data/test_routes/turn_london_center_09_19_500.mat');
-load('Data/tonbridge/routes_small_withBSD_75.mat');
-load('Data/test_routes/route_tonbridge_500.mat'); 
-load('Data/test_routes/turn_tonbridge_500.mat');
+load('Data/routes_small_withBSD_75.mat'); % load your own features
+load('Data/test_route_500.mat');
+load('Data/test_turn_500.mat');
+% load('Data/tonbridge/routes_small_withBSD_75.mat');
+% load('Data/test_routes/route_tonbridge_500.mat'); 
+% load('Data/test_routes/turn_tonbridge_500.mat');
 % load('Data/test_routes/turn_tonbridge_500_30thresh.mat');
 
 % parameters

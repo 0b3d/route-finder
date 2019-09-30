@@ -1,7 +1,11 @@
-function label = getLabelBD(search_areas, buildings_in_circle, locaCoords)  
+function [label, record] = getLabelBD(search_areas, buildings_in_circle, locaCoords, id, flag)  
 BD = [];
 distBD = [];
 cutList = [];
+record.id = [];
+record.flag = [];
+record.dist = [];
+
 for i=1:size(search_areas, 1)
     candidates = [];
     csize = 1;
@@ -49,7 +53,6 @@ end
 % Label
 tmp = [diff(find(cutList == 0)) 2];
 zerL = diff([0 find(tmp~=1)]);
-zerLL = size(find(cutList == 0), 2);
 findGap = 0;
 
 if ~isempty(find(zerL >=3 ))
@@ -62,17 +65,33 @@ else
         if cutbd1 ~= cutbd2
             bd1 = buildings_in_circle(cutbd1).coords;
             bd2 = buildings_in_circle(cutbd2).coords;
-            findInter = intersect(bd1, bd2, 'rows');
-            if size(findInter, 1) == 0 % no intersections
-                Poly1.x = bd1(:,1);
-                Poly1.y = bd1(:,2);
-                Poly2.x = bd2(:,1);
-                Poly2.y = bd2(:,2);
-                min_d = min_dist_between_two_polygons(Poly1,Poly2); 
-                if min_d >= 10*-5 && min_d~=0
-                    findGap = 1;
+            xv1 = bd1(:,1)';
+            yv1 = bd1(:,2)';
+            xv2 = bd2(:,1)';
+            yv2 = bd2(:,2)';
+            [d_min, lat_closest, lon_closest, ~, ~] = poly_poly_dist(xv1, yv1, xv2, yv2);
+            if d_min > 0
+                dist_arc = distance(lat_closest(1),lon_closest(1),lat_closest(2),lon_closest(2));
+                dist = dist_arc / 360 * (2*earthRadius*pi); 
+                if dist > 5 % 5 meters
+                    findGap = 1;                 
+                    record.id = id;
+                    record.flag = flag;
+                    record.dist = dist;
                 end
             end
+                
+%             findInter = intersect(bd1, bd2, 'rows');
+%             if size(findInter, 1) == 0 % no intersections
+%                 Poly1.x = bd1(:,1);
+%                 Poly1.y = bd1(:,2);
+%                 Poly2.x = bd2(:,1);
+%                 Poly2.y = bd2(:,2);
+%                 min_d = min_dist_between_two_polygons(Poly1,Poly2); 
+%                 if min_d >= 10*-5 && min_d~=0   % weird??? needs to be checked
+%                     findGap = 1;
+%                 end
+%             end
         end
     end       
 end
@@ -83,7 +102,7 @@ else
     label = 2;
 end
 
-if zerLL == size(cutList, 2) % no building
+if zerL == size(cutList, 2) % no building
     label = 3;
 end
        

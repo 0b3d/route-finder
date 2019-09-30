@@ -75,7 +75,7 @@ class RenderThread:
 
 start = time.clock()
 directory = os.getcwd()
-snaps_directory = os.path.join(directory, 'Data', 'snaps_thread') 
+snaps_directory = os.path.join(directory, 'Data', 'snaps_fov100_r200') 
 if not os.path.isdir(snaps_directory):
     os.mkdir(snaps_directory)
 
