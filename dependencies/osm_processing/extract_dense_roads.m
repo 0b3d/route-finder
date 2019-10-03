@@ -4,7 +4,6 @@ roads(length(ways),1).coords = [];
 roads(length(ways),1).azs = [];
 roads(length(ways),1).dense_coords = [];
 roads(length(ways),1).dense_azs = [];
-%roads(length(ways),1).BSD = []; 
 roads(length(ways),1).inters = [];
 roads(length(ways),1).road_idx = [];
 roads(length(ways),1).sz = [];

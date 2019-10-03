@@ -7,7 +7,7 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load('Data/features/new.mat');
-load('Data/routes_small_withBSD_75.mat'); % load your own features
+load('Data/routes_small_withBSD_50_75.mat'); % load your own features
 load('Data/test_route_500.mat');
 load('Data/test_turn_500.mat');
 % load('Data/cardiff/routes_small_withBSD_75.mat');

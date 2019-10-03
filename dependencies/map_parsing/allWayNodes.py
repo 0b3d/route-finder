@@ -1,4 +1,4 @@
-def allWayNodes(children):
+def allWayNodes(children, road_types):
     """
     This method reads the passed osm file (xml) and extracts all highway nodes.
 
@@ -16,16 +16,8 @@ def allWayNodes(children):
         # If the current way is not a road,
         # continue without checking any nodes
             road = False
-            #road_types = ('motorway', 'trunk', 'primary','secondary','tertiary','residential','service',
-            #'unclassified','road','footway','path','pedestrain','track','living_street')
-            #'motorway_link','trunk_link','primary_link','secondary_link','tertiary_link')
-            
-            #road_types = ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 
-            #'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'residential', 'living_street', 'service',
-            #'services', 'motorway_junction','unclassified', 'path', 'pedestrian', 'track')
-            
             # road types shouldn't be included in these types
-            road_types = ('footway', 'steps', 'cycleway', 'service', 'pedestrian', 'path')
+            # road_types = ('footway', 'steps', 'cycleway')
 
             for item in child:
                 if item.tag == 'tag' and item.attrib['k'] == 'highway' and item.attrib['v'] not in road_types: 
@@ -41,8 +33,7 @@ def allWayNodes(children):
             oneway = False
             speed = 'undefined'
             numLanes = 'undefined'
-            cycleway = 'no'	  
-            #name = 'undefined'  
+            cycleway = 'no'	   
             for item in child:  # must keep in order 
                 # Add nodes
                 if item.tag == 'nd':
@@ -64,10 +55,6 @@ def allWayNodes(children):
                 # Bike path
                 if item.tag == 'tag' and item.attrib['k'] == 'cycleway':
                     cycleway = item.attrib['v']
-                # Street name
-                if item.tag == 'tag' and item.attrib['k'] == 'name':
-                    name = item.attrib['v']
-                    roads_with_name += 1
 
 
             if road_type == 'motorway':
@@ -80,8 +67,6 @@ def allWayNodes(children):
             node_coordinates.append('speed: ' + speed)
             node_coordinates.append('lanes: ' + numLanes)
             node_coordinates.append('cycleway: ' + cycleway)
-            #node_coordinates.append('name: ' + name)
-
 
 
         elif child.tag == 'node':

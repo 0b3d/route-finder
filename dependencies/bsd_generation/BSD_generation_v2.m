@@ -96,8 +96,7 @@ for p=1:size(panos, 2)
     descList(descList == 3) = 0;
     panos(p).BSDs = descList;
     
-    save('Data/Records.mat','RRecord');
     parfor_progress('BSD extraction');
 end
-
+    save('Data/Records.mat','RRecord');
 end

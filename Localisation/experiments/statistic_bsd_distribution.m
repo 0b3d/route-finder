@@ -1,7 +1,6 @@
-% experiment
-% % 1. BSDs distribution
+% BSDs distribution
 clear all
-load('london_BSD_small.mat','routes');
+load('Data/routes_small_withBSD_50_75.mat','routes');
 T = struct2table(routes);
 I = T.id;
 P = [];
@@ -21,8 +20,7 @@ for i=1:length(U)
     idx = find(ismember(P, curpano));
     t_idx = Q(idx);
     R(i).BSDs = routes(t_idx).BSDs;
-    %R(i).CNNs = routes(t_idx).CNNs;
-    R(i).CNNs = bit_flipped(R(i).BSDs, 0.9); 
+    R(i).CNNs = routes(t_idx).CNNs;
 end
 
 counts = zeros(2, 16);

@@ -20,18 +20,33 @@ elif input_type == 'str':
     children = tree.getchildren()
 
 import interOSM
+road_types = ('footway', 'steps', 'cycleway', 'service', 'pedestrian', 'path', 'proposed', 'construction')
 writeFile = os.path.join(os.getcwd(), 'Data', 'intersections.txt')
 f = open(writeFile, 'w')
-ic = interOSM.get_intersections(children)
+ic = interOSM.get_intersections(children, road_types)
 for coord in ic:
 	f.write(coord + '\n')
 f.close()
 
-
 import allWayNodes
 writeFile = os.path.join(os.getcwd(), 'Data', 'ways.txt')
 f = open(writeFile, 'w')
-nc = allWayNodes.allWayNodes(children)
+nc = allWayNodes.allWayNodes(children, road_types)
+for coord in nc:
+	f.write(coord + '\n')
+f.close()
+
+road_types = ('proposed', 'construction', 'steps')
+writeFile = os.path.join(os.getcwd(), 'Data', 'intersections_all.txt')
+f = open(writeFile, 'w')
+ic = interOSM.get_intersections(children, road_types)
+for coord in ic:
+	f.write(coord + '\n')
+f.close()
+
+writeFile = os.path.join(os.getcwd(), 'Data', 'ways_all.txt')
+f = open(writeFile, 'w')
+nc = allWayNodes.allWayNodes(children, road_types)
 for coord in nc:
 	f.write(coord + '\n')
 f.close()
@@ -68,6 +83,5 @@ nc = boundaryOSM.get_boundary(children)
 for coord in nc:
 	f.write(coord + '\n')
 f.close()
-
 
 print('It took', time.time()-start, 'seconds to parse the OSM map.')

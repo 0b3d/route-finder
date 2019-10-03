@@ -16,7 +16,7 @@ class Cropper():
         self.dir = os.getcwd()
     
     def crop_pano(self, pano_id):
-        img_path = os.path.join(self.dir, 'Data', 'panos', pano_id+'.jpg')
+        img_path = os.path.join(self.dir, 'Data', 'london_new', 'panos', pano_id+'.jpg')
         pano = cv2.imread(img_path)
         # Crop gsv 
         zoom = int(np.ceil(pano.shape[0] / 512))
@@ -28,7 +28,7 @@ class Cropper():
         equ = E2P.Equirectangular(pano)
 
         for i,tetha in enumerate([0,-90,90,180]):
-            snap = equ.GetPerspective(100, tetha, 0, 227, 227)  
+            snap = equ.GetPerspective(90, tetha, 0, 227, 227)  
             snaps.append(snap) # Must have shape [1, 224,224,3]
         return snaps 
 
@@ -75,13 +75,13 @@ class RenderThread:
 
 start = time.clock()
 directory = os.getcwd()
-snaps_directory = os.path.join(directory, 'Data', 'snaps_fov100_r200') 
+snaps_directory = os.path.join(directory, 'Data', 'london_new', 'snaps_fov90') 
 if not os.path.isdir(snaps_directory):
     os.mkdir(snaps_directory)
 
 # Open matlab file
 # routes_file = os.path.join(os.getcwd(), 'Data', sys.argv[1], 'routes_small.mat')
-routes_file = os.path.join(os.getcwd(), 'Data', 'routes_small.mat')
+routes_file = os.path.join(os.getcwd(), 'Data', 'london_new', 'routes_small.mat')
 test = loadmat(routes_file)
 routes = test['routes'].squeeze()
 # 0 coords

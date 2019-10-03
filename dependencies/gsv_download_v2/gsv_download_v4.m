@@ -1,16 +1,6 @@
 function panos = gsv_download_v4(panos, download_num)
 count = 0;
-outfolder = 'london_panos';
-outfolder_s = 'london_snaps';
 city = 'London';
-
-if ~exist(outfolder,'dir')
-    mkdir(outfolder)
-end
-
-if ~exist(outfolder_s,'dir')
-    mkdir(outfolder_s)
-end
 
 panoidAll = {'start'};
 

@@ -55,7 +55,7 @@ tmp = [diff(find(cutList == 0)) 2];
 zerL = diff([0 find(tmp~=1)]);
 findGap = 0;
 
-if ~isempty(find(zerL >=3 ))
+if ~isempty(find(zerL >=3))
     findGap = 1;
 else
     cutList(cutList == 0) = [];
@@ -71,9 +71,9 @@ else
             yv2 = bd2(:,2)';
             [d_min, lat_closest, lon_closest, ~, ~] = poly_poly_dist(xv1, yv1, xv2, yv2);
             if d_min > 0
-                dist_arc = distance(lat_closest(1),lon_closest(1),lat_closest(2),lon_closest(2));
+                dist_arc = distance(lat_closest(1,1),lon_closest(1,1),lat_closest(1,2),lon_closest(1,2));
                 dist = dist_arc / 360 * (2*earthRadius*pi); 
-                if dist > 5 % 5 meters
+                if dist > 2 % 2 meters
                     findGap = 1;                 
                     record.id = id;
                     record.flag = flag;
