@@ -37,14 +37,14 @@ for coord in nc:
 f.close()
 
 road_types = ('proposed', 'construction', 'steps')
-writeFile = os.path.join(os.getcwd(), 'Data', 'intersections_all.txt')
+writeFile = os.path.join(data_path, 'intersections_all.txt')
 f = open(writeFile, 'w')
 ic = interOSM.get_intersections(children, road_types)
 for coord in ic:
 	f.write(coord + '\n')
 f.close()
 
-writeFile = os.path.join(os.getcwd(), 'Data', 'ways_all.txt')
+writeFile = os.path.join(data_path, 'ways_all.txt')
 f = open(writeFile, 'w')
 nc = allWayNodes.allWayNodes(children, road_types)
 for coord in nc:

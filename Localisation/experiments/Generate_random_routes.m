@@ -28,12 +28,6 @@ else
     while f == 1 || size(test_route, 1) < test_num % 500 test routes
         f = 0;
         [t, max_route_length] = RandomRoutes(R_init, routes, max_route_length_init);
-    %     for i=1:max_route_length
-    %         if isempty(routes(t(i)).BSDs)% || isempty(routes(t(i)).x) 
-    %             f = 1;
-    %             break;
-    %         end  
-    %     end
         if f == 0
             if ~isempty(test_route) && sum(ismember(test_route, t, 'rows')) % check the uniqueness 
                 continue;

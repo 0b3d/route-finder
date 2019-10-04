@@ -7,7 +7,6 @@ import multiprocessing
 from subprocess import call
 import numpy as np
 from scipy.io import loadmat
-import tables
 import cv2
 import os, sys
 import h5py

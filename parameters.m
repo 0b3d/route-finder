@@ -9,6 +9,6 @@ accuracy = 0.75;
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 
-features_type = 'none'; % 'BSD' 'ES' or 'none'
-turns = 'false';
-probs = 'true';
+features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+turns = 'true';
+probs = 'false';
