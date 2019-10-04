@@ -7,15 +7,24 @@ def allBuildingNodes(children):
     lat = {}
     lon = {}
     buildings_num = 0
-    buildings_with_housenumber = 0
-    buldings_with_streetname = 0
-    buldings_is_amenity = 0
-    buildings_with_height = 0
-    buildings_with_level = 0
 
-    building_keys = ('building','shop')
-    building_types = ('fast_food','cafe','nightclub','restaurant','pub','bank',
-    'gym','police','place_of_worship','parking')
+    building_keys = ('building', 'shop', 'office', 'craft')
+
+    # for amenity
+    building_types_amenity = ('biergarten','bicycle_parking','bicycle_repair_station','bicycle_rental','boat_rental',
+    'boat_sharing','bus_station','car_sharing','charging_station','ferry_terminal','fuel','grit_bin','motorcycle_parking',
+    'parking','parking_space','taxi','fountain','public_bookcase','grave_yard','hunting_stand','kneipp_water_cure',
+    'marketplace','public_bath','recycling','sanitary_dump_station','shelter','shower','toilets','waste_transfer_station')
+    # for tourism
+    building_types_tourism = ('apartment','aquarium','chalet','gallery','guest_house','hostle',
+    'hotel','information','motel','museum')
+
+    # for leisure
+    building_types_leisure = ('adult_gaming_centre','amusement_arcade','dance','escape_game',
+    'fitness_centre','hackerspace','sports_centre','stadium')    
+
+    # for historic
+    building_types_historic = ('building','castle','church','fort','manor','monastery','tower')
 
 
     for child in children:
@@ -26,7 +35,6 @@ def allBuildingNodes(children):
             building = False
             for item in child:
                 if item.tag == 'tag' and item.attrib['k'] in building_keys: 
-                #if item.tag == 'tag' and item.attrib['k'] == 'building': 
                     building = True
                     buildings_num += 1
                     if item.attrib['v'] == 'yes':
@@ -36,13 +44,34 @@ def allBuildingNodes(children):
                             
                     node_coordinates.append('     ') # blank line between ways
                     node_coordinates.append('building id: ' + child.attrib['id']) # delineate start of new "way" (previously [345,345])
-
-                if item.tag == 'tag' and item.attrib['k'] == 'amenity' and item.attrib['v'] in building_types:
+                
+                if item.tag == 'tag' and item.attrib['k'] == 'amenity' and item.attrib['v'] not in building_types_amenity:
                     building = True
                     buildings_num += 1
                     building_type = item.attrib['v']                            
                     node_coordinates.append('     ') 
                     node_coordinates.append('building id: ' + child.attrib['id']) 
+
+                if item.tag == 'tag' and item.attrib['k'] == 'tourism' and item.attrib['v'] in building_types_tourism:
+                    building = True
+                    buildings_num += 1
+                    building_type = item.attrib['v']                            
+                    node_coordinates.append('     ') 
+                    node_coordinates.append('building id: ' + child.attrib['id'])                     
+                
+                if item.tag == 'tag' and item.attrib['k'] == 'leisure' and item.attrib['v'] in building_types_leisure:
+                    building = True
+                    buildings_num += 1
+                    building_type = item.attrib['v']                            
+                    node_coordinates.append('     ') 
+                    node_coordinates.append('building id: ' + child.attrib['id']) 
+
+                if item.tag == 'tag' and item.attrib['k'] == 'historic' and item.attrib['v'] in building_types_historic:
+                    building = True
+                    buildings_num += 1
+                    building_type = item.attrib['v']                            
+                    node_coordinates.append('     ') 
+                    node_coordinates.append('building id: ' + child.attrib['id'])                     
 
             if not building:
                 continue
@@ -52,34 +81,9 @@ def allBuildingNodes(children):
                 if item.tag == 'nd':
                     nd_ref = item.attrib['ref']
                     coordinate = lat[nd_ref] + ',' + lon[nd_ref]
-                    node_coordinates.append(coordinate)   
-                # The height of the building in meters
-                if item.tag == 'tag' and item.attrib['k'] == 'height':
-                    height = item.attrib['v']
-                    buildings_with_height += 1
-                # The number of visible levels in the building
-                if item.tag =='tag' and item.attrib['k'] == 'building:levels':
-                    building_level = item.attrib['v']
-                    buildings_with_level += 1
-                # Building amentity
-                if item.tag =='tag' and item.attrib['k'] == 'amenity':
-                    amenity = item.attrib['v']
-                    buldings_is_amenity += 1
-                # House number
-                if item.tag =='tag' and item.attrib['k'] == 'addr:housenumber':
-                    house_number = item.attrib['v']
-                    buildings_with_housenumber += 1  
-                # Street name
-                if item.tag =='tag' and item.attrib['k'] == 'addr:street':
-                    street_name = item.attrib['v']
-                    buldings_with_streetname += 1              
+                    node_coordinates.append(coordinate)                
 
             node_coordinates.append('building_type: ' + building_type)
-            #node_coordinates.append('height: ' + height)
-            #node_coordinates.append('building levels: ' + building_level)
-            #node_coordinates.append('amennity: ' + amenity)
-            #node_coordinates.append('house number: ' + house_number)
-            #node_coordinates.append('street name: ' + street_name)
 
         elif child.tag == 'node':
         # store lat and lon coordinates
@@ -88,9 +92,4 @@ def allBuildingNodes(children):
             lon[nd_ref] = child.attrib['lon']
 
     print('There are', buildings_num, 'buildings in this area.')
-    print('There are', buildings_with_height, 'buildings with height info.')
-    print('There are', buildings_with_level, 'buildings with level info.')
-    print('There are', buldings_is_amenity, 'buildings with amenity info.')
-    print('There are', buildings_with_housenumber, 'buildings with house number.')
-    print('There are', buldings_with_streetname, 'buildings with street name.')
     return node_coordinates

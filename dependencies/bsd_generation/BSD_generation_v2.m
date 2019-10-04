@@ -1,11 +1,15 @@
 function panos = BSD_generation_v2(panos, inters, buildings, radius)
 
 arclen = radius / (2*earthRadius*pi) * 360;  
+RRecord = struct();
+init = 1;
 
 parfor_progress('BSD extraction', size(panos,2));
 for p=1:size(panos, 2)
     locaCoords = cell2mat({panos(p).gsv_coords}');
     yaw = panos(p).gsv_yaw;
+    id = panos(p).id;
+   
     if isempty(locaCoords) || isempty(yaw)
         continue;
     end    
@@ -67,11 +71,26 @@ for p=1:size(panos, 2)
     descList(3) = blabel;
     
     %% Get Labels for gaps
-    llabel = getLabelBD(search_areas.left, buildings_in_circle, locaCoords);
+    [llabel, record] = getLabelBD(search_areas.left, buildings_in_circle, locaCoords, id, 1);
     descList(4) = llabel;
+    if ~isempty(record.id)
+        RRecord(init).idx = p;
+        RRecord(init).id = record.id;
+        RRecord(init).flag = record.flag;
+        RRecord(init).dist = record.dist;       
+        init = init + 1;
+    end
+        
     
-    rlabel = getLabelBD(search_areas.right, buildings_in_circle, locaCoords);
+    [rlabel, record] = getLabelBD(search_areas.right, buildings_in_circle, locaCoords, id, 2);
     descList(2) = rlabel;
+    if ~isempty(record.id)
+        RRecord(init).id = record.id;
+        RRecord(init).idx = p;
+        RRecord(init).flag = record.flag;
+        RRecord(init).dist = record.dist;
+        init = init + 1;
+    end
     
     descList(descList == 2) = 0;
     descList(descList == 3) = 0;
@@ -79,5 +98,5 @@ for p=1:size(panos, 2)
     
     parfor_progress('BSD extraction');
 end
-
+    save('Data/Records.mat','RRecord');
 end

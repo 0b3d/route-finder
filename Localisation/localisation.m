@@ -77,6 +77,15 @@ for i=1:test_num
         result(i,2) = location;
     end
     
+    idx = find(ismember(t, t_e));
+    overlap_ = size(idx,2)/size(t_e,2);
+    
+%     if (overlap_ >= overlap) && result(i,1) == result(i,2)
+%         result(i,3) = 1;
+%     else
+%         result(i,3) = 0;
+%     end
+    
     if result(i,1) == result(i,2)
         result(i,3) = 1;
     else

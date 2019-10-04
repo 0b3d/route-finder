@@ -1,4 +1,4 @@
-def get_intersections(children):
+def get_intersections(children, road_types):
     """
     This method reads the passed osm file (xml) and finds intersections (i.e., nodes that are shared by two or more roads).
 
@@ -14,17 +14,8 @@ def get_intersections(children):
             # If the current way is not a road,
             # continue without checking any nodes
             road = False
-            #road_types = ('motorway', 'trunk', 'primary', 'secondary', 'tertiary', 'residential', 'service',
-            #'unclassified', 'road', 'footway', 'path', 'pedestrian', 'track', 'living_street')
-		    #'motorway_link', 'trunk_link', 'primary_link', 'secondary_link', 'tertiary_link')
-            
-            #road_types = ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 
-            #'secondary', 'secondary_link', 'tertiary', 'tertiary_link','road', 'residential', 'living_street', 'service',
-            #'services', 'motorway_junction', 'unclassified', 'path', 'pedestrian', 'track')
-            
             # road types shouln't be included in these types
             # road_types = ('footway', 'steps', 'cycleway')
-            road_types = ('footway', 'steps', 'cycleway', 'service', 'pedestrian', 'path')
 
             for item in child:
                 if item.tag == 'tag' and item.attrib['k'] == 'highway' and item.attrib['v'] not in road_types: 

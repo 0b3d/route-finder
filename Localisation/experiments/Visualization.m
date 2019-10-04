@@ -1,18 +1,18 @@
 % visualization
 clear all
-load('ways.mat');
-load('buildings.mat');
-load('naturals.mat');
-load('leisures.mat');
-load('boundary.mat');
-load('test_route_london_center.mat');
-load('test_turn_london_center.mat');
-load('london_center_z20_model2.mat');
+load('Data/london_center/ways.mat');
+load('Data/london_center/buildings.mat');
+load('Data/london_center/naturals.mat');
+load('Data/london_center/leisures.mat');
+load('Data/london_center/boundary.mat');
+load('Data/london_center/routes_small_withBSD_75.mat');
+load('Data/test_routes/route_london_center_09_19_500.mat');
+load('Data/test_routes/turn_london_center_09_19_500.mat');
 
 % localization parameters
 threshold = 60; % Turn
 max_route_length = 25;
-N = [100, 100, 100, 100, 100, 100, 95, 95, 95, 90, 90, 90, 85, 85, 85, 80,...
+N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100];
 R_init = zeros(size(routes,2),1);
 for i = 1:size(routes,2)
@@ -33,8 +33,8 @@ for key_frame = 1:loops
     set(gcf, 'position', get(0,'screensize'));
     
     % display the route
-    t = test_route(2,:);
-    T = test_turn(2,:);
+    t = test_route(18,:);
+    T = test_turn(18,:);
     if key_frame < 2
         R = R_init;
         dist = zeros(size(routes,2),1);
@@ -52,7 +52,7 @@ for key_frame = 1:loops
 end
 % load('F_UNI.mat');
 % movie(F,1,1);
-v = VideoWriter('demo_london_v2.avi','Uncompressed AVI');
+v = VideoWriter('demo_london_BSD.avi','Uncompressed AVI');
 % v.Quality = 100;
 v.FrameRate = 1;
 open(v)

@@ -18,7 +18,7 @@ for i=1:length(routes)
     gsv_lon = routes(i).gsv_coords(2);
     gsv_yaw = routes(i).gsv_yaw;
     % we should check the precision here!
-    fprintf(fid, ['%d',',', '%.15f',',','%.15f',',','%.15e',',','%d', ',' , '%s', ',' , '%s', ',', '%.15f',',','%.15f',',','%.15e','\n'], ...
+    fprintf(fid, ['%d',',', '%.20f',',','%.20f',',','%.15e',',','%d', ',' , '%s', ',' , '%s', ',', '%.20f',',','%.20f',',','%.15e','\n'], ...
                      i, osm_lat, osm_lon, osm_yaw, wayidx, neigh, pano_id, gsv_lat, gsv_lon, gsv_yaw); 
 end
 fclose(fid);
