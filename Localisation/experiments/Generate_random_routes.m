@@ -4,8 +4,8 @@ close all
 parameters;
 
 directory = ['Localisation/test_routes/'];
-turn_filename = ['Localisation/test_routes/turn_', dataset,'_',num2str(test_num),'.mat'];
-route_filename = ['Localisation/test_routes/route_',dataset,'_',num2str(test_num),'.mat'];
+turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+route_filename = ['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
 
 if ~exist(directory, 'dir')
     mkdir(directory)

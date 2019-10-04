@@ -1,4 +1,4 @@
-function [inters, buildings, roads] = OSMProcessing_v2(dataset, map_file)
+function [inters, buildings, roads] = OSMProcessing_v2(dataset, map_file, road_dense_distance)
 %% Parse intersection, roads and building info from OSM map     
 
 filepath = fullfile(pwd, 'dependencies', 'map_parsing', 'parse_script.py');
@@ -43,8 +43,7 @@ save(['Data/',dataset,'/naturals.mat'], 'naturals');
 save(['Data/',dataset,'/leisures.mat'], 'leisures');
 
 %% Extract dense road nodes
-road_dense = 10; % interval between locations, 10 meters
-[roads] = extract_dense_roads(ways, inters, road_dense);
+[roads] = extract_dense_roads(ways, inters, road_dense_distance);
 save(['Data/',dataset,'/roads.mat'],'roads');
 
 end

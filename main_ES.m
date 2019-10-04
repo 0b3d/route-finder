@@ -1,7 +1,7 @@
 clear all
 close all 
 clc
-
+addpath(genpath(pwd));
 parameters; %load the parameters 
 
 %% Map parsing and gsv download
@@ -32,7 +32,7 @@ system(command);
 % final_routes.mat with all information for localization process.
 data_generation;
 
-% Generate test routes and save then in Localization/<dataset>.mat
+% Generate test routes and save then in Localization/test_routes/<dataset>.mat
 Generate_random_routes;
 
 % Localization
