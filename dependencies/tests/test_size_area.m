@@ -1,6 +1,6 @@
 % test size of the area
 clear all;
-boundary = csvread('boundary.txt');
+boundary = csvread('Data/boundary.txt');
 location1 = [boundary(1), boundary(2)];
 location2 = [boundary(1), boundary(4)];
 location3 = [boundary(3), boundary(2)];
