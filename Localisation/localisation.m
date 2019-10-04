@@ -7,21 +7,21 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load('Data/features/new.mat');
-load('Data/routes_small_withBSD_50_75.mat'); % load your own features
-load('Data/test_route_500.mat');
-load('Data/test_turn_500.mat');
-% load('Data/cardiff/routes_small_withBSD_75.mat');
-% load('Data/test_routes/tonbridge_routes_500_30.mat'); 
-% load('Data/test_routes/tonbridge_turns_500_30.mat');
+% load('Data/oxford/routes_small_withBSD_75.mat'); % load your own features
+% load('Data/test_route_500.mat');
+% load('Data/test_turn_500.mat');
+load('Data/tonbridge/routes_small_withBSD_75.mat');
+load('Data/test_routes/tonbridge_routes_500_60.mat'); 
+load('Data/test_routes/tonbridge_turns_500_60.mat');
 
 
 
 accuracy = 0.75;
 threshold = 60;
-max_route_length_init = 20; % change the route length here
+max_route_length_init = 10; % change the route length here
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
-
+overlap = 0.8;
 
 R_init = zeros(size(routes,2),1);
 for i = 1:size(routes,2)
@@ -42,7 +42,7 @@ for i=1:test_num
     
 %     location = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
 %     location = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
-    location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
+    [location,t_e] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
 %     location = RouteRearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
 %     location = RouteRearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);
     
@@ -54,11 +54,19 @@ for i=1:test_num
         result(i,2) = location;
     end
     
+    idx = find(ismember(t, t_e));
+    overlap_ = size(idx,2)/size(t_e,2);
+    
+%     if (overlap_ >= overlap) && result(i,1) == result(i,2)
+%         result(i,3) = 1;
+%     else
+%         result(i,3) = 0;
+%     end
+    
     if result(i,1) == result(i,2)
         result(i,3) = 1;
     else
         result(i,3) = 0;
-        failed_set = [failed_set;result(i,:) i];
     end
       
     parfor_progress('searching');

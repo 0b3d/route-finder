@@ -15,10 +15,10 @@ for m=1 : max_route_length
         turn = T(m-1);
         [R_, dist_] = Turn_filter(R, dist, turn, routes, m, threshold); % filter based on turn
         [R_, dist_] = Nclosest_v4(bad,R_,routes,dist_,N(m)); % filter based on sorting
-        % [R_, dist_] = Nclosest_v6(bad,R_,routes,dist_,N(m),accuracy); % using likelihood
+%         [R_, dist_] = Nclosest_v6(bad,R_,routes,dist_,N(m),accuracy); % using likelihood
     else
         [R_, dist_] = Nclosest_v4(bad,R,routes,dist,N(m)); % filter based on sorting
-        % [R_, dist_] = Nclosest_v6(bad,R,routes,dist,N(m),accuracy); % using likelihood
+%         [R_, dist_] = Nclosest_v6(bad,R,routes,dist,N(m),accuracy); % using likelihood
     end
     
        
