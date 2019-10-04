@@ -38,3 +38,6 @@ Generate_random_routes;
 % Localization
 localisation;
 
+% Results
+statistic_results;
+
