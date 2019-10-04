@@ -30,7 +30,7 @@ save_csv;
 
 % Prepare the struct file with all required information. This creates
 % final_routes.mat with all information for localization process.
-% data_generation;
+data_generation;
 
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
 Generate_random_routes;

@@ -1,6 +1,6 @@
-mapfile = 'test.osm';
-dataset = 'test'; %The name of the dataset, creates a folder in /Data
-test_num = 10; % The number of test routes
+mapfile = 'map.osm';
+dataset = 'london_center_09_19'; %The name of the dataset, creates a folder in /Data
+test_num = 500; % The number of test routes
 max_route_length_init = 20; % the lenght of the routes
 threshold = 60; % turn threshold
 road_dense_distance = 10;
@@ -9,6 +9,6 @@ accuracy = 0.75;
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
 turns = 'true';
-probs = 'false';
+probs = 'true';

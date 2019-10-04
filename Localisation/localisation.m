@@ -7,7 +7,7 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['Data/',dataset,'/features/final_routes.mat']);
+load(['Data/',dataset,'/features/',features_type,'_', dataset,'.mat']);
 % load('routes_small_withBSD_75.mat');
 % run 'Generate_random_routes' to get random test routes and turns
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
@@ -36,7 +36,7 @@ for i=1:test_num
     max_route_length = max_route_length_init;
     t = test_route(i,1:max_route_length);
     T = test_turn(i,1:max_route_length-1);
-   
+    
     option = [features_type, turns ,probs]; 
     switch option
         %% ES FEATURES
@@ -48,7 +48,7 @@ for i=1:test_num
             location = RouteSearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
         % ES with turns using probs
         case 'EStruetrue'
-            [location, rank, ranked_points] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T);
+            [location, rank, ranked_points, t_e] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T);
         
         %% BSD FEATURES
         % BSD without turns
@@ -135,7 +135,7 @@ for i=1:size(distance_thresholds,2)
 end
 
 %% Save localization test information
-if ~exists(['Data/',dataset,'/results'], 'dir')
+if ~exist(['Data/',dataset,'/results'], 'dir')
     mkdir(['Data/',dataset,'/results'])
 end
-save(['Data/',dataset,'/results/localisation_results.mat'])
+save(['Data/',dataset,'/results/',option,'.mat'])

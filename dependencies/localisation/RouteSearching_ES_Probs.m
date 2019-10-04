@@ -1,4 +1,4 @@
-function [location, rank, R] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T)
+function [location, rank, R, t_] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T)
 R = R_init;
 probs = ones(size(routes,2),1);
 rank = zeros(max_route_length,1);
@@ -42,7 +42,8 @@ end
 if size(R_, 1) > 0
     t_ = R_(1,:);
     location = t_(1, size(t_, 2));
-else 
+else
+    t_ = [];
     location = [];
 end
 
