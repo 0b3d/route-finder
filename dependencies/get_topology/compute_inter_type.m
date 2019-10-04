@@ -6,7 +6,7 @@ unfold = @(v) v{:}; % handle to unfold function
 [inters.type] = unfold(num2cell(zeros(size(inters))));
 
 parfor_progress('interType', length(inters));
-for i = 1:length(inters)
+parfor i = 1:length(inters)
     if(length(inters(i).ways) >= 4)
         inters(i).type = 7;
     else

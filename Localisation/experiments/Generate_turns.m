@@ -1,7 +1,7 @@
 % generate turn patterns
 parameters;
-load('Localisation/test_routes/route_tonbridge_500.mat'); % the test routes
-load('Data/tonbridge/routes_small.mat');
+load(['Data/',dataset,'/test_route_500.mat']); 
+load('Data/london_center/routes_small_withBSD_75.mat');
 test_turn = [];
 
 for i=1:size(test_route,1)
@@ -15,4 +15,4 @@ for i=1:size(test_route,1)
     end
     test_turn = [test_turn; T];
 end
-save('Localisation/test_routes/new_turns.mat','test_turn');
+save('Data/london_center/test_turn_500_30thresh.mat','test_turn');

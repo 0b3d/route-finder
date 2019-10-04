@@ -6,7 +6,7 @@ close all
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load('routes_small_withBSD.mat');
+load('Data/routes_small_withBSD_50.mat');
 accuracy = 0.75;
 count = 0;
 for i=1:length(routes)    
@@ -19,7 +19,7 @@ for i=1:length(routes)
     routes(i).CNNs = bad; 
 end
 
-save('Data/routes_small_withBSD_75.mat','routes');
+save('Data/routes_small_withBSD_50_75.mat','routes');
 % calculate the cnn accuracy
 p_bit1 = 0;
 p_bit2 = 0;

@@ -6,9 +6,12 @@ close all
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load('Data/routes_small_withBSD_75.mat'); % load your own features
-load('Data/test_route_500.mat'); % run 'Generat_random_routes' to generate
-load('Data/test_turn_500.mat');
+% load('Data/routes_small_withBSD_75.mat'); % load your own features
+% load('Data/test_route_500.mat');
+% load('Data/test_turn_500.mat');
+load('Data/tonbridge/routes_small_withBSD_75.mat');
+load('Data/test_routes/tonbridge_routes_500_60.mat'); 
+load('Data/test_routes/tonbridge_turns_500_60.mat');
 
 % parameters
 threshold = 60; % if the degree between node is over 60 degree, there's a turn
@@ -42,7 +45,7 @@ for i=1:test_num
     
 %     [location, location_, m_, flag] = RouteSearching_onlyT_new(routes, max_route_length, R_init, t, T, overlap, s_number, threshold);
 %     [location, location_, m_, flag, ~] = RouteSearching_BSD_withoutT_new(routes, N, max_route_length, R_init, t, overlap, s_number, accuracy);
-    [location, location_, m_, flag, ~] = RouteSearching_BSD_withT_new(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold, accuracy);
+    [location, location_, m_, flag, ~, t_r, t_e] = RouteSearching_BSD_withT_new(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold, accuracy);
 %     [location, location_, m_, flag, ~] = RouteSearching_ES_withoutT(routes, N, max_route_length, R_init, t, overlap, s_number);
 %     [location, location_, m_, flag, ~] = RouteSearching_ES_withT(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold);
         
@@ -52,12 +55,27 @@ for i=1:test_num
     else
         result(i,2) = location_;
     end
+    
+    idx = find(ismember(t_r, t_e));
+    overlap_ = size(idx,2)/size(t_e,2);
+%     
+%     if overlap_ >= overlap
+%         result(i,3) = 1;
+%     else
+%         result(i,3) = 0;
+%     end
 
     if result(i,1) == result(i,2)
         result(i,3) = 1;
     else
         result(i,3) = 0;
     end
+
+%     if (overlap_ >= overlap) && result(i,1) == result(i,2)
+%         result(i,3) = 1;
+%     else
+%         result(i,3) = 0;
+%     end
     
     
     result(i,4) = flag;

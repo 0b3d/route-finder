@@ -1,4 +1,4 @@
-function location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T)
+function [location,t_] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T)
 R = R_init;
 dist = zeros(size(routes,2),1);
 
@@ -26,6 +26,7 @@ if size(R_, 1) > 0
     t_ = R_(1,:);
     location = t_(1, size(t_, 2));
 else 
+    t_ = [];
     location = [];
 end
 

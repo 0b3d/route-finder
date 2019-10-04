@@ -6,25 +6,37 @@ command = ['python', ' ', filepath, ' ', dataset, ' ', map_file];
 system(command);
 
 % Read intersection and node coordinates previously extracted from map.osm
-intersections = csvread(['Data/',dataset,'/intersections.txt']); % intersection coordinates
-boundary = csvread(['Data/',dataset,'/boundary.txt']);
-save(['Data/',dataset,'/boundary.mat'], 'boundary');
-allNodesFile = ['Data/',dataset,'/ways.txt']; % all street coordinates and metadata
-
-% Read building node coordinates
-allBuildingsFile = fullfile(pwd,['Data/',dataset,'/buildings.txt']);
+intersections = csvread('Data/intersections_all.txt'); % intersection coordinates
+boundary = csvread('Data/boundary.txt');
+save('Data/boundary.mat', 'boundary');
+allNodesFile = 'Data/ways_all.txt'; % all street coordinates and metadata
 
 % Transfer intersection coordinates to an inters struct
 unfold = @(v) v{:}; % handle to unfold function
 inters(size(intersections,1),1).coords = [];
 [inters.coords] = unfold(num2cell(intersections,2));
-clear intersections;
 
+clear intersections;
 % Extract information about each way and intersection (origin of the ways struct)
 [ways, inters] = parse_txt_nodes_for_roads(allNodesFile, inters);
 inters = compute_inter_type(inters);
+save('Data/ways.mat', 'ways');
+save('Data/inters.mat', 'inters');
+clear inters;
+clear ways;
+
+%% Parse partial intersections and ways for localisation
+% Extract information about each intersection and way
+intersections = csvread('Data/intersections.txt'); 
+allNodesFile = 'Data/ways.txt'; 
+unfold = @(v) v{:}; 
+inters(size(intersections,1),1).coords = [];
+[inters.coords] = unfold(num2cell(intersections,2));
+clear intersections;
+[ways, inters] = parse_txt_nodes_for_roads(allNodesFile, inters);
 
 % Exract information about each building
+allBuildingsFile = 'Data/buildings.txt';
 [buildings] = parse_txt_nodes_for_buildings(allBuildingsFile);
 buildings = buildings_filter(buildings);
 

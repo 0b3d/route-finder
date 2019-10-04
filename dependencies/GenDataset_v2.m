@@ -67,9 +67,8 @@ for i = 1:length(roads)
 end
 
 % find associated pano_id, gsv_yaw, gsv_coords for each location
-zoom = 1;
 download_num = length(routes);
-panos = gsv_download_v4(routes, download_num, zoom); 
+panos = gsv_download_v4(routes, download_num); 
 for i=1:length(routes)
     routes(i).id = panos(i).id;
     routes(i).gsv_coords = panos(i).coords_t;

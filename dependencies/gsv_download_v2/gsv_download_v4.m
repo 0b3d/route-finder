@@ -1,16 +1,6 @@
-function panos = gsv_download_v4(panos, download_num, zoom)
+function panos = gsv_download_v4(panos, download_num)
 count = 0;
-outfolder = 'london_panos';
-outfolder_s = 'london_snaps';
 city = 'London';
-
-if ~exist(outfolder,'dir')
-    mkdir(outfolder)
-end
-
-if ~exist(outfolder_s,'dir')
-    mkdir(outfolder_s)
-end
 
 panoidAll = {'start'};
 
@@ -63,17 +53,9 @@ for i=1:length(panos)
             panoidAll{end+1} = panoid; 
         end
         
-        % downloadGSV(panoid, outfolder, zoom, skip); % only download panos
-        % downloadGSV_v1(panoid, outfolder, zoom); % only download panos
-        % downloadGSV_v2(panoid, yaw, tiltyaw, tiltpitch, outfolder, outfolder_s, zoom, skip); % panos with snapshots
-        % downloadGSV_v3(panoid, yaw, tiltyaw, tiltpitch, outfolder,outfolder_s, zoom, skip);% panos with snapshots
-        % downloadGSV_v4(panoid, yaw, tiltyaw, tiltpitch, outfolder, outfolder_s, zoom, skip, img_num);
-        
         count = count + 1;
         disp([city ' image ' num2str(count) ' took ' num2str(toc) ' seconds']);
-        
-        % disp(count)
-
+     
     catch error
         disp(['Fail on image ' num2str(count)]);
         % delete(fname);

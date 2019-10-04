@@ -7,6 +7,8 @@ for i=1:length(ways)
 end
 axis([boundary(2) boundary(4) boundary(1) boundary(3)])
 
+
+
 % buildings
 for i=1:length(buildings)
     curbuild = buildings(i).coords;
@@ -19,26 +21,26 @@ axis([boundary(2) boundary(4) boundary(1) boundary(3)])
 for i=1:length(leisures)
     curlei = leisures(i).coords;
     % plot(curlei(:,2),curlei(:,1),'g');
-%     plot(curlei(:,2),curlei(:,1),'MarkerFaceColor','g');
+    % plot(curlei(:,2),curlei(:,1),'MarkerFaceColor','g');
     fill(curlei(:,2),curlei(:,1),'g');
     hold on;
 end
 axis([boundary(2) boundary(4) boundary(1) boundary(3)])
 
 % naturals
-% for i=1:length(naturals)
-%     curnat = naturals(i).coords;
-%     type = naturals(i).natural_type;
-%     if type == 'water'
-%         fill(curnat(:,2),curnat(:,1),'b');
-%         plot(curnat(:,2),curnat(:,1),'MarkerFaceColor','b');
-%     else
-%         fill(curnat(:,2),curnat(:,1),'g');
-%         plot(curnat(:,2),curnat(:,1),'MarkerFaceColor','g');
-%     end
-%     hold on;
-% end
-% axis([boundary(2) boundary(4) boundary(1) boundary(3)])
+for i=1:length(naturals)
+    curnat = naturals(i).coords;
+    type = naturals(i).natural_type;
+    if type == 'water'
+        fill(curnat(:,2),curnat(:,1),'b');
+        % plot(curnat(:,2),curnat(:,1),'MarkerFaceColor','b');
+    else
+        fill(curnat(:,2),curnat(:,1),'g');
+        % plot(curnat(:,2),curnat(:,1),'MarkerFaceColor','g');
+    end
+    hold on;
+end
+axis([boundary(2) boundary(4) boundary(1) boundary(3)])
 
 
 end

@@ -6,7 +6,7 @@ for i=1:sz1      % slow
     desc_ = routes(k).BSDs;  % slowest: since too many calls!!!, tackled!!!
     dist(i,1) = dist(i,1) + size(find(desc_~=desc_new), 2); % fatser
 end
-%criteria: sort, find the k nearest neighbors
+% criteria: sort, find the k nearest neighbors
 [~, I] = sort(dist); % core
 p = floor(size(I,1)/100*P);  % not slow
 I = I(1:p,1);
