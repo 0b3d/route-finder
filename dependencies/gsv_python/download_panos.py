@@ -109,9 +109,9 @@ class RenderThread:
             self.q.task_done()
 
 directory = os.getcwd()
-panos_directory = os.path.join(directory, 'Data', sys.argv[1], 'panos') 
+panos_directory = os.path.join(directory, 'images', sys.argv[1], 'panos') 
 if not os.path.isdir(panos_directory):
-    os.mkdir(panos_directory)
+    os.makedirs(panos_directory)
 
 # Open matlab file
 routes_file = os.path.join(os.getcwd(), 'Data', sys.argv[1], 'routes.mat')

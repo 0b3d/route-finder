@@ -6,8 +6,8 @@ parameters;
 % Add repository path
 path =  fullfile(pwd);
 addpath(genpath(path));
-load(['Data/',dataset,'/features/',dataset,'.mat']);
-load(['Data/',dataset,'/routes_small.mat']);
+load(['features/',dataset,'/features/',dataset,'.mat']);
+load(['features/',dataset,'/routes_small.mat']);
 routes2 = routes;
 
 %% generate delete set
@@ -29,4 +29,4 @@ for i=1:length(pano_id)
         routes(i).y = Y(i,:);
     end
 end
-save(['Data/',dataset,'/features/','ES_',dataset,'.mat'],'routes');
+save(['/features/','ES_',dataset,'.mat'],'routes');

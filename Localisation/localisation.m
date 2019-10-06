@@ -7,7 +7,7 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['Data/',dataset,'/features/',features_type,'_', dataset,'.mat']);
+load(['/features/',features_type,'_', dataset,'.mat']);
 % load('routes_small_withBSD_75.mat');
 % run 'Generate_random_routes' to get random test routes and turns
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 

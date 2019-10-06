@@ -18,10 +18,10 @@ save_csv;
 
 % Download all pano_ids saved in routes.csv and save them in panos
 % Data/<dataset>/panos directory
-% parameters;
-% filepath = fullfile(pwd, 'dependencies', 'gsv_python', 'download_panos.py');
-% command = ['python', ' ', filepath, ' ', dataset];
-% system(command);
+parameters;
+filepath = fullfile(pwd, 'dependencies', 'gsv_python', 'download_panos.py');
+command = ['python', ' ', filepath, ' ', dataset];
+system(command);
 
 %% Localization 
 % For the next steps we assume the predictions file is present in Data/features directory. 
