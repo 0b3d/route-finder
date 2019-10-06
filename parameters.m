@@ -6,6 +6,8 @@ threshold = 60; % turn threshold
 road_dense_distance = 10;
 % drop threshold for routes
 accuracy = 0.75;
+overlap = 0.8; % 80%
+s_number = 5; % 5 successive locations
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
     100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
 

@@ -21,12 +21,12 @@ end
 test_num = size(test_route, 1);
 ks = [1, 5, 10, 15, 20]; % The top k metrics will be computed
 distance_thresholds = [0.1 0.2 0.3 0.4 0.5];
-result = zeros(test_num, 3);
+result_final = zeros(test_num, 3);
+result_overlap = zeros(test_num, 3);
 results = zeros(1,size(ks,2));
 accuracy_with_threshold = zeros(1,size(distance_thresholds,2));
 
 ranking = zeros(test_num, max_route_length_init);
-failed_set = [];
 ranked_points_of_routes = {max_route_length_init};
 
 tic;
@@ -53,49 +53,51 @@ for i=1:test_num
         %% BSD FEATURES
         % BSD without turns
         case 'BSDfalsefalse'
-        location = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
+        [location, rank, ranked_points, t_e] = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
         % BSD with turns
         case 'BSDtruefalse'
-        location = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
+        [location, rank, ranked_points, t_e] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
         
         %% JUST TURNS
         case 'anytrueany' 
-        location = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
+        [location, rank, ranked_points, t_e] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
         
         otherwise
             warning('Unexpected configuration')      
 
     end
     
-    result(i,1) = t(1, size(t, 2));
+    result_final(i,1) = t(1, size(t, 2));
+    result_overlap(i,1) = t(1, size(t, 2));
     ranking(i,:) = rank;
     ranked_points_of_routes{i} = ranked_points;
     
     if size(location) == 0
-        result(i,2) = 0;
+        result_final(i,2) = 0;
+        result_overlap(i,2) = 0;
     else
-        result(i,2) = location;
+        result_final(i,2) = location;
+        result_overlap(i,2) = location;
     end
-    
+   
+    % find the correct localisation based on the final node   
+    if result_final(i,1) == result_final(i,2)
+        result_final(i,3) = 1;
+    else
+        result_final(i,3) = 0;
+    end
+
+    % find the correct localisation based on the overlap 
     idx = find(ismember(t, t_e));
-    overlap_ = size(idx,2)/size(t_e,2);
-    
-%     if (overlap_ >= overlap) && result(i,1) == result(i,2)
-%         result(i,3) = 1;
-%     else
-%         result(i,3) = 0;
-%     end
-    
-    if result(i,1) == result(i,2)
-        result(i,3) = 1;
+    overlap_ = size(idx,2)/size(t_e,2);   
+    if overlap_ >= overlap
+        result_overlap(i,3) = 1;
     else
-        result(i,3) = 0;
-        failed_set = [failed_set;result(i,:) i];
+        result_overlap(i,3) = 0;
     end
-      
+     
     parfor_progress('searching');
 end
-
 
 time = toc;
 avg_time = time/test_num;
@@ -115,7 +117,7 @@ for m=1:test_num
     % get the gt_coords
     gt_coords = routes(gt_index).gsv_coords;
     % get the coords of the predict location
-    pred_index = result(m,2);
+    pred_index = result_final(m,2);
     pred_coords = routes(pred_index).gsv_coords;
     % compute the distance in meters of gt and pred locations
     d = distance(gt_coords(1), gt_coords(2), pred_coords(1), pred_coords(2));
