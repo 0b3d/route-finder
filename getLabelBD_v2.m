@@ -1,4 +1,4 @@
-function [label, record] = getLabelBD(search_areas, buildings_in_circle, locaCoords, id, flag)  
+function [label, record] = getLabelBD_v2(search_areas, buildings_in_circle, locaCoords, id, flag)  
 BD = [];
 distBD = [];
 cutList = [];
@@ -43,9 +43,10 @@ for i=1:size(search_areas, 1)
         BD = [BD; minBD];
         dist_arc = distance(minInter(1), minInter(2),locaCoords(1),locaCoords(2));
         dist = dist_arc / 360 * (2*earthRadius*pi);
-        distBD = [distBD; dist];
+        distBD = [distBD dist];
         cutList = [cutList minBD];
     else
+        distBD = [dist 100];
         cutList = [cutList 0];
     end        
 end
@@ -58,31 +59,17 @@ findGap = 0;
 if ~isempty(find(zerL >=2))
     findGap = 1;
 else
-    cutList(cutList == 0) = [];
-    for i=1:size(cutList, 2)-1
-        cutbd1 = cutList(i);
-        cutbd2 = cutList(i+1);
-        if cutbd1 ~= cutbd2
-            bd1 = buildings_in_circle(cutbd1).coords;
-            bd2 = buildings_in_circle(cutbd2).coords;
-            xv1 = bd1(:,1)';
-            yv1 = bd1(:,2)';
-            xv2 = bd2(:,1)';
-            yv2 = bd2(:,2)';
-            [d_min, lat_closest, lon_closest, ~, ~] = poly_poly_dist(xv1, yv1, xv2, yv2);
-            if d_min > 0
-                dist_arc = distance(lat_closest(1,1),lon_closest(1,1),lat_closest(1,2),lon_closest(1,2));
-                dist = dist_arc / 360 * (2*earthRadius*pi); 
-                if dist >= 2 % 2 meters
-                    findGap = 1;                 
-                    record.id = id;
-                    record.flag = flag;
-                    record.dist = dist;
-                end
-            end
+    for i=1:size(dist_BD, 2) 
+        dist_diff = dist_BD(i+1) - dist_BD(i);
+        if dist_diff > 5 % 5 meter
+            findGap = 1;
+            break;
         end
-    end       
-end
+    end
+    record.id = id;
+    record.flag = flag;
+    record.dist = dist_diff;
+end       
 
 if findGap == 1
     label = 1;
