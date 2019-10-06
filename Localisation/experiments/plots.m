@@ -4,7 +4,7 @@ clc
 parameters;
 
 
-datasets = {'london_center_09_19', 'tonbridge'};
+datasets = {'london_10_19', 'edinburgh_10_19','oxford_10_19'};
 turns = 'true';
 probs = 'true';
 
@@ -24,7 +24,7 @@ k = 1;
 for d=1:length(datasets)
     dataset = datasets{d};
     load(['Data/',dataset,'/results/',option,'.mat']); %the results
-    plot(sum(ranking <= k, 1)./test_num)
+    plot(sum(ranking <= k, 1)./size(ranking,1))
     hold on
 end
 

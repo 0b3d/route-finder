@@ -14,7 +14,7 @@ end
 if ( isfile(route_filename) || isfile(turn_filename))
     display('warning! file not created because it already existed. If you need a new one remove old file or rename it')
 else
-    load(['features/',features_type,'_',dataset,'.mat']);
+    load(['features/',features_type,'/',features_type,'_',dataset,'.mat']);
     %threshold = 60;
     max_route_length_init = 40;
     R_init = zeros(size(routes,2),1);
