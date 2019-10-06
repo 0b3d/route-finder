@@ -1,4 +1,4 @@
-function panos = BSD_generation_v2(panos, inters, buildings, radius)
+function [panos, RRecord] = BSD_generation_v2(panos, inters, buildings, radius)
 
 arclen = radius / (2*earthRadius*pi) * 360;  
 RRecord = struct();
@@ -6,6 +6,9 @@ init = 1;
 
 parfor_progress('BSD extraction', size(panos,2));
 for p=1:size(panos, 2)
+    if p == 12
+        disp('check');
+    end
     locaCoords = cell2mat({panos(p).gsv_coords}');
     yaw = panos(p).gsv_yaw;
     id = panos(p).id;
@@ -98,5 +101,4 @@ for p=1:size(panos, 2)
     
     parfor_progress('BSD extraction');
 end
-    save('Data/',dataset, '/Records.mat','RRecord');
 end

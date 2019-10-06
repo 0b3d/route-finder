@@ -46,7 +46,7 @@ for i=1:size(search_areas, 1)
         distBD = [distBD dist];
         cutList = [cutList minBD];
     else
-        distBD = [dist 100];
+        distBD = [distBD 100];
         cutList = [cutList 0];
     end        
 end
@@ -59,16 +59,17 @@ findGap = 0;
 if ~isempty(find(zerL >=2))
     findGap = 1;
 else
-    for i=1:size(dist_BD, 2) 
-        dist_diff = dist_BD(i+1) - dist_BD(i);
-        if dist_diff > 5 % 5 meter
+    for i=1:size(distBD, 2)-1 
+        dist_diff = abs(distBD(i+1) - distBD(i));
+        if dist_diff >= 5 % 5 meter
             findGap = 1;
+            record.id = id;
+            record.flag = flag;
+            record.dist = dist_diff;
             break;
         end
     end
-    record.id = id;
-    record.flag = flag;
-    record.dist = dist_diff;
+
 end       
 
 if findGap == 1

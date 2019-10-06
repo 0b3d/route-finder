@@ -1,5 +1,5 @@
-mapfile = 'london_new.osm';
-dataset = 'oxford_10_19'; %The name of the dataset, creates a folder in /Data
+mapfile = 'edinburgh.osm';
+dataset = 'edinburgh_v2'; %The name of the dataset, creates a folder in /Data
 test_num = 100; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
@@ -18,6 +18,6 @@ accuracy = 0.75;
 
 
 % choose features type
-features_type = 'ES'; % 'BSD' 'ES' or 'none'
+features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 turns = 'true';
-probs = 'true';
+probs = 'false';

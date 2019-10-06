@@ -31,7 +31,7 @@ axis([boundary(2) boundary(4) boundary(1) boundary(3)])
 for i=1:length(naturals)
     curnat = naturals(i).coords;
     type = naturals(i).natural_type;
-    if type == 'water'
+    if strcmp(type, 'water')
         fill(curnat(:,2),curnat(:,1),'b');
         % plot(curnat(:,2),curnat(:,1),'MarkerFaceColor','b');
     else
