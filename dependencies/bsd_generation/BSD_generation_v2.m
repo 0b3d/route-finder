@@ -1,4 +1,4 @@
-function panos = BSD_generation_v2(panos, inters, buildings, radius)
+function [panos, RRecord] = BSD_generation_v2(panos, inters, buildings, radius)
 
 arclen = radius / (2*earthRadius*pi) * 360;  
 RRecord = struct();
@@ -6,6 +6,9 @@ init = 1;
 
 parfor_progress('BSD extraction', size(panos,2));
 for p=1:size(panos, 2)
+    if p == 12
+        disp('check');
+    end
     locaCoords = cell2mat({panos(p).gsv_coords}');
     yaw = panos(p).gsv_yaw;
     id = panos(p).id;
@@ -15,8 +18,8 @@ for p=1:size(panos, 2)
     end    
     
     %% Find buildings in search area
-    circle = zeros(180, 2);  % search area, every 2 degree
-    [circle(:,1), circle(:,2)] = scircle1(locaCoords(1),locaCoords(2),arclen,[],[],[],180);
+    circle = zeros(72, 2);  % search area, every 5 degree
+    [circle(:,1), circle(:,2)] = scircle1(locaCoords(1),locaCoords(2),arclen,[],[],[],72);
     buildings_in_circle = [];
     junctions_in_circle = [];
     
@@ -71,7 +74,8 @@ for p=1:size(panos, 2)
     descList(3) = blabel;
     
     %% Get Labels for gaps
-    [llabel, record] = getLabelBD(search_areas.left, buildings_in_circle, locaCoords, id, 1);
+    % [llabel, record] = getLabelBD(search_areas.left, buildings_in_circle, locaCoords, id, 1);
+    [llabel, record] = getLabelBD_v2(search_areas.left, buildings_in_circle, locaCoords, id, 1);
     descList(4) = llabel;
     if ~isempty(record.id)
         RRecord(init).idx = p;
@@ -81,8 +85,7 @@ for p=1:size(panos, 2)
         init = init + 1;
     end
         
-    
-    [rlabel, record] = getLabelBD(search_areas.right, buildings_in_circle, locaCoords, id, 2);
+    [rlabel, record] = getLabelBD_v2(search_areas.right, buildings_in_circle, locaCoords, id, 2);
     descList(2) = rlabel;
     if ~isempty(record.id)
         RRecord(init).id = record.id;
@@ -98,5 +101,4 @@ for p=1:size(panos, 2)
     
     parfor_progress('BSD extraction');
 end
-    save('Data/Records.mat','RRecord');
 end

@@ -1,21 +1,20 @@
 % features generation
-clear all
+clearvars -except dataset
 close all
+parameters;
 
 % Add repository path
 path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load datas
-load('Data/inters.mat');
-load('Data/ways.mat');
-load('Data/buildings.mat');
-load('Data/routes_small.mat');
+load(['Data/',dataset,'/routes_small.mat']);
+load(['Data/',dataset,'/ways.mat']);
+load(['Data/',dataset,'/inters.mat']);
+load(['Data/',dataset,'/buildings.mat']);
 
-
-radius = 50; % search radius is 30m
-thresh = 10; % filter inters if their angles is below 10 degree
 inters = inters_filter_v2(inters, ways, thresh); 
-routes = BSD_generation_v2(routes, inters, buildings, radius);
-save('Data/routes_small_withBSD_50.mat','routes');
-save('Data/inters_new.mat', 'inters');
+[routes, RRecord] = BSD_generation_v2(routes, inters, buildings, radius);
+save(['features/','BSD_',dataset,'.mat'],'routes');
+save(['Data/',dataset,'/inters_after_filter.mat'], 'inters');
+save(['Data/',dataset,'/Records.mat'], 'RRecord');

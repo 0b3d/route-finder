@@ -32,6 +32,10 @@ system(command);
 % final_routes.mat with all information for localization process.
 data_generation;
 
+feature_generating;
+simulate_cnn;
+
+
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
 Generate_random_routes;
 

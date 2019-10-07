@@ -1,6 +1,5 @@
 function [inters, buildings, roads] = OSMProcessing_v2(dataset, map_file, road_dense_distance)
 %% Parse intersection, roads and building info from OSM map     
-
 filepath = fullfile(pwd, 'dependencies', 'map_parsing', 'parse_script.py');
 command = ['python', ' ', filepath, ' ', dataset, ' ', map_file];
 system(command);
@@ -39,9 +38,6 @@ clear intersections;
 allBuildingsFile = ['Data/',dataset,'/buildings.txt'];
 [buildings] = parse_txt_nodes_for_buildings(allBuildingsFile);
 buildings = buildings_filter(buildings);
-
-save(['Data/',dataset,'/inters.mat'], 'inters');
-save(['Data/',dataset,'/ways.mat'], 'ways');
 save(['Data/',dataset,'/buildings.mat'], 'buildings');
 
 % Exract information about each natural
