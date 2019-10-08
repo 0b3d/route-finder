@@ -35,10 +35,10 @@ pano_id = routes(str2num(index)).id;
 %path = ['Data/tonbridge/panos/',pano_id,'.jpg'];
 %pano = imread(path);
 % read the tile
-xpath = ['Data/',dataset,'/tiles/z19/',index,'.png'];
+xpath = ['images/',dataset,'/tiles/z19/',index,'.png'];
 tile = imread(xpath);
 
-[front, left, right, back] = crop_panorama(256, 90,pano_id, dataset);
+[front, left, right, back] = crop_pano(256, 90,pano_id, dataset);
 image = [tile, front, left, right, back];
 figure(2);
 imshow(image);

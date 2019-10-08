@@ -7,12 +7,13 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['Data/',dataset,'/features/final_routes.mat']);
+load(['features/',features_type,'/',features_type,'_',dataset,'.mat']);
 % load('routes_small_withBSD_75.mat');
 % run 'Generate_random_routes' to get random test routes and turns
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
 load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
-load(['Data/',dataset,'/results/localisation_results.mat']);
+option = [features_type, turns, probs];
+load(['Data/',dataset,'/results/',option,'.mat']);
 
 load(['Data/',dataset,'/buildings.mat'])
 load(['Data/',dataset,'/ways.mat'])
@@ -20,7 +21,7 @@ load(['Data/',dataset,'/naturals.mat'])
 load(['Data/',dataset,'/leisures.mat'])
 load(['Data/',dataset,'/boundary.mat'])
 %fH = axes;
-route = 39; %14
+route = 2; %14
 
 % Extract limits of the bounding box (ROI)
 indices = ranked_points_of_routes{route};
@@ -88,7 +89,7 @@ for i=1:max_route_length_init
 end
 
 %% Plot ground truth location
-ground_truth = test_route(route,20);
+ground_truth = test_route(route,max_route_length);
 coords_t = routes(ground_truth).gsv_coords;
 hgt = plot(coords_t(2),coords_t(1),'or','tag',num2str(ground_truth));
 hold on;

@@ -15,6 +15,7 @@ s_number = 5; % 5 successive locations
 radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 accuracy = 0.75;
+range = 2; % generate rays every _degree
 
 
 % choose features type

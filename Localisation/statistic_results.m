@@ -22,8 +22,8 @@ clc
 parameters;
 
 
-datasets = {'london_10_19', 'edinburgh_10_19','oxford_10_19'};
-color_map = {'r','b','g'};
+datasets = {'london_10_19', 'edinburgh_10_19','paris_10_19', 'new_york_10_19', 'washington_10_19', 'toronto_v1'};
+color_map = {'r','b','g','y','m','c'};
 turns = 'true';
 probs = 'true';
 
@@ -50,7 +50,7 @@ end
 
 xlabel('Node')
 ylabel('Percentage of routes ranked in top 1')
-legend_names = {'ES London','ES Edinburgh', 'ES Oxford'}
+legend_names = {'ES London','ES Edinburgh', 'ES Paris', 'ES New York', 'ES Washington', 'ES Toronto'}
 legend(string(legend_names))
 
 % %plot the top k accuracy

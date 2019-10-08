@@ -118,17 +118,21 @@ for m=1:test_num
     gt_coords = routes(gt_index).gsv_coords;
     % get the coords of the predict location
     pred_index = result_final(m,2);
-    pred_coords = routes(pred_index).gsv_coords;
-    % compute the distance in meters of gt and pred locations
-    d = distance(gt_coords(1), gt_coords(2), pred_coords(1), pred_coords(2));
-    geo_distance(m,1) = deg2km(d);
-    for d_thres = 1:size(distance_thresholds,2)
-        distance_threshold = distance_thresholds(d_thres);
-        if geo_distance(m,1) < distance_threshold
-            geo_distance(m,d_thres+1) = 1;
-        else
-            geo_distance(m,d_thres+1) = 0;
+    if pred_index ~= 0
+        pred_coords = routes(pred_index).gsv_coords;
+        % compute the distance in meters of gt and pred locations
+        d = distance(gt_coords(1), gt_coords(2), pred_coords(1), pred_coords(2));
+        geo_distance(m,1) = deg2km(d);
+        for d_thres = 1:size(distance_thresholds,2)
+            distance_threshold = distance_thresholds(d_thres);
+            if geo_distance(m,1) < distance_threshold
+                geo_distance(m,d_thres+1) = 1;
+            else
+                geo_distance(m,d_thres+1) = 0;
+            end
         end
+    else
+        geo_distance(m,d_thres+1) = 1;
     end
 end
 
