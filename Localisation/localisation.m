@@ -53,10 +53,10 @@ for i=1:test_num
         %% BSD FEATURES
         % BSD without turns
         case 'BSDfalsefalse'
-        [location, rank, ranked_points, t_e] = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
+            [location, rank, ranked_points, t_e] = RouteSearching_BSD_withoutT_v2(routes, N, max_route_length, R_init, t, accuracy);
         % BSD with turns
         case 'BSDtruefalse'
-        [location, rank, ranked_points, t_e] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
+            [location, rank, ranked_points, t_e] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
         
         %% JUST TURNS
         case 'anytrueany' 
@@ -64,7 +64,6 @@ for i=1:test_num
         
         otherwise
             warning('Unexpected configuration')      
-
     end
     
     result_final(i,1) = t(1, size(t, 2));

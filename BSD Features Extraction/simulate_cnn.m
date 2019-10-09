@@ -7,7 +7,7 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['/features/','BSD_',dataset,'.mat']);
+load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
 count = 0;
 for i=1:length(routes)    
     good = routes(i).BSDs;
@@ -18,7 +18,7 @@ for i=1:length(routes)
     bad = bit_flipped(good, accuracy); 
     routes(i).CNNs = bad; 
 end
-save(['/features/','BSD_',dataset,'_',accuracy,'.mat']);
+save(['features/',features_type,'/',features_type,'_', dataset,'.mat'],'routes');
 % check the cnn accuracy
 p_bit1 = 0;
 p_bit2 = 0;
@@ -47,4 +47,7 @@ p1 = p_bit1/(length(routes)-count);
 p2 = p_bit2/(length(routes)-count);
 p3 = p_bit3/(length(routes)-count);
 p4 = p_bit4/(length(routes)-count);
-disp(p1,p2,p3,p4);
+disp(p1);
+disp(p2);
+disp(p3);
+disp(p4);
