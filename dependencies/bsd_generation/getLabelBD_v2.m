@@ -1,10 +1,10 @@
 function [label, record] = getLabelBD_v2(search_areas, buildings_in_circle, locaCoords, id, flag)  
-BD = [];
 distBD = [];
 cutList = [];
 record.id = [];
 record.flag = [];
 record.dist = [];
+inters = [];
 
 for i=1:size(search_areas, 1)
     candidates = [];
@@ -37,10 +37,10 @@ for i=1:size(search_areas, 1)
     else
         minInter = [-99 -99];
         minBD = -99;   
-    end   
+    end
+    inters = [inters; minInter];
 
     if minBD ~= -99
-        BD = [BD; minBD];
         dist_arc = distance(minInter(1), minInter(2),locaCoords(1),locaCoords(2));
         dist = dist_arc / 360 * (2*earthRadius*pi);
         distBD = [distBD dist];
@@ -52,23 +52,34 @@ for i=1:size(search_areas, 1)
 end
 
 % Label
-tmp = [diff(find(cutList == 0)) 2];
-zerL = diff([0 find(tmp~=1)]);
+zerL = size(find(cutList == 0), 2);
 findGap = 0;
 
-if ~isempty(find(zerL >=2))
+if ~isempty(find(zerL > 0))
     findGap = 1;
 else
-    for i=1:size(distBD, 2)-1 
-        dist_diff = abs(distBD(i+1) - distBD(i));
-        if dist_diff >= 5 % 5 meter
-            findGap = 1;
-            record.id = id;
-            record.flag = flag;
-            record.dist = dist_diff;
-            break;
-        end
+    distBD = distBD - ones(1,size(distBD,2))*min(distBD);
+    pks = findpeaks(distBD);
+    if ~isempty(pks) && max(pks) >= 5
+        findGap = 1;
+        record.id = id;
+        record.flag = flag;
+        record.dist = max(pks);
+        record.inters = inters;
     end
+%     for i=1:size(distBD, 2)-1 
+%         dist_diff = abs(distBD(i+1) - distBD(i));
+%         if dist_diff >= 5 % 5 meter
+%             change = change+1;
+%             if change
+%             findGap = 1;
+%             record.id = id;
+%             record.flag = flag;
+%             record.dist = dist_diff;
+%             record.inters = inters;
+%             break;
+%         end
+%     end
 
 end       
 

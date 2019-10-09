@@ -1,9 +1,10 @@
 % compare BSDs
 clear all
 close all
-load('Data/routes_small_withBSD_50_75.mat');
+parameters;
+load(['features/BSD/','BSD2_',dataset,'.mat']);
 routes2 = routes;
-load('Data/routes_small_withBSD_75.mat');
+load(['features/BSD/','BSD5_',dataset,'.mat']);
 diff_count = 0;
 diff = [];
 for i=1:length(routes)
@@ -12,4 +13,4 @@ for i=1:length(routes)
         diff = [diff;i];
     end    
 end
-save('diff.mat','diff');
+save(['Data/',dataset,'/diff.mat'], 'diff');

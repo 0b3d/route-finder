@@ -14,7 +14,6 @@ load(['Data/',dataset,'/inters.mat']);
 load(['Data/',dataset,'/buildings.mat']);
 
 inters = inters_filter_v2(inters, ways, thresh); 
-[routes, RRecord] = BSD_generation_v2(routes, inters, buildings, radius);
-save(['features/','BSD_',dataset,'.mat'],'routes');
+routes = BSD_generation_v2(routes, inters, buildings, radius, range, thresh_jc, thresh_bd);
+save(['features/',features_type,'/',features_type,'_', dataset,'.mat'], 'routes');
 save(['Data/',dataset,'/inters_after_filter.mat'], 'inters');
-save(['Data/',dataset,'/Records.mat'], 'RRecord');

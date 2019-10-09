@@ -1,9 +1,8 @@
-function label = getLabelJC_v2(search_areas, junctions_in_circle, locaCoords)
-
-Area = [search_areas; locaCoords];
+function label = getLabelJC_v2(search_areas, junctions_in_circle, locaCoords, thresh_jc)
+Area = [locaCoords; search_areas; locaCoords];
 JC = [];
 distJC = [];
-for i=1:size(junctions_in_circle)
+for i=1:size(junctions_in_circle, 1)
     curjuction = junctions_in_circle(i).coords;
     [in, on] = inpolygon(curjuction(1), curjuction(2),Area(:,1), Area(:,2));
     if in == 1 || on == 1
@@ -17,9 +16,9 @@ end
 nearestJC = round(min(distJC));
 
 if ~isempty(nearestJC)
-    if nearestJC <= 30 && nearestJC >=1
+    if nearestJC <= thresh_jc && nearestJC >=1
         label = 1;
-    elseif nearestJC > 30   % too far
+    elseif nearestJC > thresh_jc   % too far
         label = 2;
     else                    % too close
         label = 3;
