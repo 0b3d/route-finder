@@ -28,6 +28,7 @@ accuracy_with_threshold = zeros(1,size(distance_thresholds,2));
 
 ranking = zeros(test_num, max_route_length_init);
 ranked_points_of_routes = {max_route_length_init};
+dist = {max_route_length_init};
 
 tic;
 parfor_progress('searching', test_num);
@@ -44,11 +45,12 @@ for i=1:test_num
         case 'EStruefalse'
             location = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);  
         % ES without turns using distances
-        case 'ESfalsefalse'
-            location = RouteSearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
+%         case 'ESfalsefalse'
+%             location = RouteSearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
+%         
         % ES with turns using probs
-        case 'EStruetrue'
-            [location, rank, ranked_points, t_e] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T);
+        case {'EStruetrue', 'ESfalsetrue'}
+            [location, rank, ranked_points, route_dist, t_e] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns);
         
         %% BSD FEATURES
         % BSD without turns
@@ -59,8 +61,8 @@ for i=1:test_num
             [location, rank, ranked_points, t_e] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T);
         
         %% JUST TURNS
-        case 'anytrueany' 
-        [location, rank, ranked_points, t_e] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
+        case 'ESonlyany' 
+        [location, rank, ranked_points, route_dist, t_e] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
         
         otherwise
             warning('Unexpected configuration')      
@@ -70,6 +72,7 @@ for i=1:test_num
     result_overlap(i,1) = t(1, size(t, 2));
     ranking(i,:) = rank;
     ranked_points_of_routes{i} = ranked_points;
+    dist{i} = route_dist;
     
     if size(location) == 0
         result_final(i,2) = 0;
@@ -143,4 +146,4 @@ end
 if ~exist(['Data/',dataset,'/results'], 'dir')
     mkdir(['Data/',dataset,'/results'])
 end
-save(['Data/',dataset,'/results/',option,'.mat'])
+save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
