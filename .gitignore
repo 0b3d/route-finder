@@ -3,3 +3,4 @@ images/
 *.m~
 Results/demo_london_BSD.avi
 Results/demo_london_BSD (Converted).mov
+Data/paris_10_19/results/ESfalsetrue.mat

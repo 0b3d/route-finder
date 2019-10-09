@@ -21,10 +21,10 @@ load(['Data/',dataset,'/naturals.mat'])
 load(['Data/',dataset,'/leisures.mat'])
 load(['Data/',dataset,'/boundary.mat'])
 %fH = axes;
-route = 2; %14
+route = 10; %14
 
 % Extract limits of the bounding box (ROI)
-indices = ranked_points_of_routes{route};
+indices = ranked_points_of_routes{route}{40};
 
 coords = zeros(test_num,2);
 for i=1:test_num 
@@ -35,7 +35,7 @@ limits = [min(coords(:,2)) max(coords(:,2)) min(coords(:,1)) max(coords(:,1))];
 %display_map_v3(ways, buildings, naturals, leisures, boundary)
 map = Map(limits); % plot OSM map
 hold on;
-
+max_route_length_init = 20;
 %% Extract most freuent points in the dataset
 % extract the most frequent points
 % points = reshape(indices,[size(indices,1)*size(indices,2),1]);
@@ -85,11 +85,11 @@ gt_indices = test_route(route,:);
 for i=1:max_route_length_init
     idx = gt_indices(i);
     coords = routes(idx).gsv_coords;
-    hr(i) = plot(coords(2),coords(1),'oy','tag',num2str(idx));
+    hr(i) = plot(coords(2),coords(1),'om','tag',num2str(idx));
 end
 
 %% Plot ground truth location
-ground_truth = test_route(route,max_route_length);
+ground_truth = test_route(route,max_route_length_init);
 coords_t = routes(ground_truth).gsv_coords;
 hgt = plot(coords_t(2),coords_t(1),'or','tag',num2str(ground_truth));
 hold on;
