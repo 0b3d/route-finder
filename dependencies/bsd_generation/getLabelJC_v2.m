@@ -1,6 +1,5 @@
-function label = getLabelJC_v2(search_areas, junctions_in_circle, locaCoords)
+function label = getLabelJC_v2(search_areas, junctions_in_circle, locaCoords, thresh_jc)
 Area = [locaCoords; search_areas; locaCoords];
-plot(Area(:,2),Area(:,1),'-m');
 JC = [];
 distJC = [];
 for i=1:size(junctions_in_circle, 1)
@@ -17,9 +16,9 @@ end
 nearestJC = round(min(distJC));
 
 if ~isempty(nearestJC)
-    if nearestJC <= 30 && nearestJC >=1
+    if nearestJC <= thresh_jc && nearestJC >=1
         label = 1;
-    elseif nearestJC > 30   % too far
+    elseif nearestJC > thresh_jc   % too far
         label = 2;
     else                    % too close
         label = 3;

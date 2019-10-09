@@ -7,26 +7,17 @@ arclen = radius / (2*earthRadius*pi) * 360;
 c_num = 360/range;
 circle = zeros(c_num, 2);
 [circle(:,1), circle(:,2)] = scircle1(location(1),location(2),arclen,[yaw, yaw+360],[],[],c_num);
-plot(circle(:,2), circle(:,1),'-r'); % plotm, plot a map
+plot(circle(:,2), circle(:,1),'-r'); % plot a map
 
 % search directions
 search_areas.forward = [];
 search_areas.backward = [];
 search_areas.left = [];
 search_areas.right = [];
-for i=1:size(circle, 1)
-    [~,az] = distance(location(1), location(2), circle(i,1), circle(i,2));
-    adjustedAZ = mod(yaw - az, 360);
-    if(adjustedAZ >= 45 && adjustedAZ < 135)
-        search_areas.left = [search_areas.left; circle(i,:)];
-    elseif(adjustedAZ >= 135 && adjustedAZ < 225)
-        search_areas.backward = [search_areas.backward; circle(i,:)];   
-    elseif(adjustedAZ >= 225 && adjustedAZ < 315)
-        search_areas.right = [search_areas.right; circle(i,:)];  
-    else
-        search_areas.forward = [search_areas.forward; circle(i,:)];  
-    end
-end
+[search_areas.forward(:,1), search_areas.forward(:,2)] = scircle1(location(1),location(2),arclen, [yaw-45, yaw+45],[],[],90/range);
+[search_areas.right(:,1), search_areas.right(:,2)] = scircle1(location(1),location(2),arclen, [yaw+45, yaw+135],[],[],90/range);
+[search_areas.backward(:,1), search_areas.backward(:,2)] = scircle1(location(1),location(2),arclen, [yaw+135, yaw+225],[],[],90/range);
+[search_areas.left(:,1), search_areas.left(:,2)] = scircle1(location(1),location(2),arclen, [yaw+225, yaw+315],[],[],90/range);
 
 % show search areas in four directions
 for i=1:size(search_areas.forward, 1)

@@ -8,14 +8,14 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load datas
-load(['features/BSD/','BSD2_',dataset,'.mat']);
+load(['features/BSD/','BSD_',dataset,'.mat']);
 load(['Data/',dataset,'/ways.mat']);
 load(['Data/',dataset,'/inters_after_filter.mat']);
 load(['Data/',dataset,'/buildings.mat']);
 load(['Data/',dataset,'/naturals.mat']);
 load(['Data/',dataset,'/leisures.mat']);
 load(['Data/',dataset,'/boundary.mat']);
-load(['Data/',dataset,'/Records_2.mat'],'RRecord');
+% load(['Data/',dataset,'/Records.mat'],'RRecord');
 
 % display the whole map
 % figure(1)
@@ -24,22 +24,23 @@ load(['Data/',dataset,'/Records_2.mat'],'RRecord');
 % hold on
 
 % randomly display the descriptors (100 times) and relevant cropped images
-for i=1:size(RRecord,2)
+for i=1:10
     figure(1)
     display_map_v3(ways, buildings, naturals, leisures, boundary);
     display_inters(inters, boundary);
     
-    idx = RRecord(i).idx;
-    inters_withBD = RRecord(i).inters;
+%     idx = RRecord(i).idx;
+%     inters_withBD = RRecord(i).inters;
+    idx = i;
     location = routes(idx).gsv_coords;
     yaw = routes(idx).gsv_yaw;
     BSD = routes(idx).BSDs;
     figure(1)
     display_searchcircles(location, yaw, radius, BSD, range);
-    for j=1:size(inters_withBD, 1)
-        plot(inters_withBD(j,2),inters_withBD(j,1),'*r');
-        text(inters_withBD(j,2),inters_withBD(j,1),num2str(j));
-    end
+%     for j=1:size(inters_withBD, 1)
+%         plot(inters_withBD(j,2),inters_withBD(j,1),'*r');
+%         text(inters_withBD(j,2),inters_withBD(j,1),num2str(j));
+%     end
        
     % new axes: zoom
     arclen = radius*2 / (2*earthRadius*pi) * 360;
