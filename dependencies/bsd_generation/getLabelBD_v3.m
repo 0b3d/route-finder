@@ -68,10 +68,9 @@ end
 % Label
 tmp = [diff(find(cutList == 0)) 2];
 zerL = diff([0 find(tmp~=1)]);
-% zerLL = size(find(cutList == 0), 2);
 findGap = 0;
 
-if ~isempty(find(zerL >= 2)) % 5 degree
+if ~isempty(find(zerL >= 3)) % 5 degree
     findGap = 1;
 else
     cutList(cutList == 0) = [];
