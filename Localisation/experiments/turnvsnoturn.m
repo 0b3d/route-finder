@@ -8,7 +8,7 @@ color_map = {'b','r','g','y','m','c','k'};
 turns_set = {'true','false'};
 figure(3)
 k = 1;
-probs = 'true'
+probs = 'true';
 
 
 for d=1:length(datasets)

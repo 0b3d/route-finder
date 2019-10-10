@@ -1,7 +1,8 @@
-function [location, rank, R, t_] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T)
+function [location, rank, R_, best_routes] = RouteSearching_BSD_withT_v2(routes, accuracy, N, max_route_length, threshold, R_init, t, T)
 R = R_init;
 dist = zeros(size(routes,2),1);
 rank = zeros(max_route_length,1);
+best_routes = {max_route_length};
 
 for m=1 : max_route_length
     % we can flip the BSDs based on CNN accuracy online or generate them
@@ -28,18 +29,23 @@ for m=1 : max_route_length
     if size(gt_indices) > 0
         point_rank = gt_indices(1);
     else 
-        point_rank = [gt_indices,1];
-    end
-    
+        point_rank = [gt_indices,1];  % check!!!!
+    end    
     rank(m,1) = point_rank;
+
+    % current best estimated route
+    if size(R_, 1) > 0
+        t_ = R_(1,:);
+    else
+        t_ = [];
+    end
+    best_routes{m} = t_;
     
 end
 
-if size(R_, 1) > 0
-    t_ = R_(1,:);
+if ~isempty(t_)
     location = t_(1, size(t_, 2));
 else 
-    t_ = [];
     location = [];
 end
 

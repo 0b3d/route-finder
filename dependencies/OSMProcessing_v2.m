@@ -1,5 +1,7 @@
 function [inters, buildings, roads] = OSMProcessing_v2(dataset, map_file, road_dense_distance)
-%% Parse intersection, roads and building info from OSM map     
+%% Parse intersection, roads and building info from OSM map 
+parameters;
+map_file = mapfile;
 filepath = fullfile(pwd, 'dependencies', 'map_parsing', 'parse_script.py');
 command = ['python', ' ', filepath, ' ', dataset, ' ', map_file];
 system(command);

@@ -35,7 +35,7 @@ def get_intersections(children, road_types):
     # might correspond to intersections
     # note: filter function is different between python 2 and 3 !
     # python 2:
-    #intersections = filter(lambda x: counter[x] > 1,  counter) 
+    # intersections = filter(lambda x: counter[x] > 1,  counter) 
     # python 3:
     intersections_filter = filter(lambda x: counter[x] > 1,  counter) 
     intersections = list(intersections_filter)

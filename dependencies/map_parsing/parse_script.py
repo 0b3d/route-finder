@@ -1,5 +1,6 @@
 import time
 import os, sys
+
 start = time.time()
 
 mapFile = os.path.join(os.getcwd(), 'OSM Files', sys.argv[2])
