@@ -1,6 +1,8 @@
-function location = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold)
+function [location, rank, best_routes, route_dist] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold)
 R = R_init;
 rank = zeros(max_route_length,1);
+best_routes = {max_route_length};
+route_dist = [];
 
 for m=1 : max_route_length
     if m > 1
@@ -22,16 +24,20 @@ for m=1 : max_route_length
     else 
         point_rank = [gt_indices,1];
     end
-    
     rank(m,1) = point_rank;
     
+    % current best estimated route
+    if size(R_, 1) > 0
+        t_ = R_(1,:);
+    else
+        t_ = [];
+    end
+    best_routes{m} = t_;   
 end
 
-if size(R_, 1) > 0
-    t_ = R_(1,:);
+if ~isempty(t_)
     location = t_(1, size(t_, 2));
 else 
-    t_ = [];
     location = [];
 end
 

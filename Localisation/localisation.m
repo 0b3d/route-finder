@@ -58,8 +58,8 @@ for i=1:test_num
             [location, rank, best_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, accuracy);
         
         %% JUST TURNS
-        case 'ESonlyany' 
-        [location, rank, ranked_points, route_dist, t_e] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, T, threshold);
+        case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
+        [location, rank, best_routes, route_dist] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold);
         
         otherwise
             warning('Unexpected configuration')      

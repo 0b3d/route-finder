@@ -1,41 +1,22 @@
 % localisation with consistency metric
 clear all
 close all
+parameters;
 
 % Add repository path
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-% load('Data/routes_small_withBSD_75.mat'); % load your own features
-% load('Data/test_route_500.mat');
-% load('Data/test_turn_500.mat');
-load('Data/tonbridge/routes_small_withBSD_75.mat');
-load('Data/test_routes/tonbridge_routes_500_60.mat'); 
-load('Data/test_routes/tonbridge_turns_500_60.mat');
-
-% parameters
-threshold = 60; % if the degree between node is over 60 degree, there's a turn
-max_route_length = 40;
-accuracy = 0.75; % CNN accuracy 75%
-failed_set = [];
-% thresholding
-% N = [100, 100, 100, 100, 100, 100, 95, 95, 95, 90, 90, 90, 85, 85, 85, 80, 80, 80,...
-%     75, 75, 75, 70, 70, 70, 65, 65, 65, 60, 60, 60, 55, 55, 55, 50, 50, 50, 45, 45, 45, 40];
-% brute-force
-N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
-    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
-     
-    
-overlap = 0.8; % 80%
-s_number = 5; % 5 successive locations
+load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+% run 'Generate_random_routes' to get random test routes and turns
+load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
+load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
 
 R_init = zeros(size(routes,2),1);
 for i = 1:size(routes,2)
     R_init(i) = i;   
 end
 
-% test 200/500/1500 routes
-test_num = size(test_route,1);
 result = zeros(test_num, 5);
 tic;
 parfor_progress('searching', test_num);
@@ -45,7 +26,7 @@ for i=1:test_num
     
 %     [location, location_, m_, flag] = RouteSearching_onlyT_new(routes, max_route_length, R_init, t, T, overlap, s_number, threshold);
 %     [location, location_, m_, flag, ~] = RouteSearching_BSD_withoutT_new(routes, N, max_route_length, R_init, t, overlap, s_number, accuracy);
-    [location, location_, m_, flag, ~, t_r, t_e] = RouteSearching_BSD_withT_new(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold, accuracy);
+    [location, location_, m_, flag, ~, t_r, t_e] = RouteSearching_BSD_withT_new(routes, N, max_route_length_init, R_init, t, T, overlap, s_number, threshold, accuracy);
 %     [location, location_, m_, flag, ~] = RouteSearching_ES_withoutT(routes, N, max_route_length, R_init, t, overlap, s_number);
 %     [location, location_, m_, flag, ~] = RouteSearching_ES_withT(routes, N, max_route_length, R_init, t, T, overlap, s_number, threshold);
         
@@ -121,8 +102,6 @@ for i=1:length(result)
         if route_length <= 40
             num_40 = num_40 + 1;
         end
-    else
-        failed_set = [failed_set;result(i,:) i];
     end    
 end
 percent_5 = num_5/test_num;
@@ -133,4 +112,4 @@ percent_25 = num_25/test_num;
 percent_30 = num_30/test_num;
 percent_35 = num_35/test_num;
 percent_40 = num_40/test_num;
-% save('failed_set.mat','failed_set');
+

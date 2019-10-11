@@ -22,5 +22,5 @@ thresh_bd = 3;  % 4 degree
 
 % choose features type
 features_type = 'BSD'; % 'BSD' 'ES' or 'none'
-turns = 'false';
-probs = 'false';
+turns = 'only'; % 'true', 'false', 'only'
+probs = 'false'; % for 'BSD', set this to 'false'
