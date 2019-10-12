@@ -1,9 +1,9 @@
-function [location, rank, ranked_points, probs_resume, t_] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns)
+function [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns)
 R = R_init;
 probs = ones(size(routes,2),1);
 rank = zeros(max_route_length,1);
-ranked_points = {max_route_length};
-probs_resume = {max_route_length};
+best_routes = {max_route_length};
+route_dist = {max_route_length};
 
 for m=1 : max_route_length
     y = routes(t(m)).y;
@@ -42,10 +42,15 @@ for m=1 : max_route_length
     end
     
     rank(m,1) = point_rank;
-    
-    % ranked_points
-    ranked_points{m} = R_;
-    probs_resume{m} = probs_;
+        % current best estimated route
+    if size(R_, 1) > 0
+        t_ = R_(1,:);
+    else
+        t_ = [];
+    end
+    best_routes{m} = t_;
+    %route_dist{m} = dist_;
+    route_dist{m} = probs_;
     
 end
 

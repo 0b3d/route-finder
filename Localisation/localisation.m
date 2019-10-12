@@ -51,7 +51,7 @@ for i=1:test_num
         
         % ES with turns using probs
         case {'EStruetrue', 'ESfalsetrue'}
-            [location, rank, ranked_points, route_dist, t_e] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns);
+            [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns);
         
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
