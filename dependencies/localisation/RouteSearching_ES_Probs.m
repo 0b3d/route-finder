@@ -65,11 +65,9 @@ for m=1 : max_route_length
     
 end
 
-if size(R_, 1) > 0
-    t_ = R_(1,:);
+if ~isempty(t_)
     location = t_(1, size(t_, 2));
-else
-    t_ = [];
+else 
     location = [];
 end
 
