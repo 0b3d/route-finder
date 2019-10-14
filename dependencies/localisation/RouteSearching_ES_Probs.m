@@ -1,31 +1,42 @@
-function [location, rank, ranked_points, probs_resume, t_] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns)
+function [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag)
 R = R_init;
 probs = ones(size(routes,2),1);
 rank = zeros(max_route_length,1);
-ranked_points = {max_route_length};
-probs_resume = {max_route_length};
+best_routes = {max_route_length};
+route_dist = {max_route_length};
 
 for m=1 : max_route_length
     y = routes(t(m)).y;
-    
-%     pano_id = routes(t(m)).id;
-%     impath = ['Data/london_center_09_19/panos/',pano_id,'.jpg']
-%     imshow(impath)
-%         
+            
     if m > 1
-        if strcmp(turns, 'true')
-            turn = T(m-1); 
-            %[R_, probs_] = fake_turn_filter(R, probs, turn, routes, m, threshold, t);
-            [R_, probs_] = Turn_filter(R, probs, turn, routes, m, threshold); % filter based on turn (normal)
-            %[R_, probs_] = yaw_filter(R, probs, routes, m, t); % filter based on turn  
-            [R_, probs_] = Nclosest_uc_probs(y,R_,routes,probs_,N(m),t,m); % filter based on sorting
+        if strcmp(probs_flag, 'true')
+            % probs
+            if strcmp(turns_flag, 'true')
+                turn = T(m-1); 
+                %[R_, probs_] = fake_turn_filter(R, probs, turn, routes, m, threshold, t);
+                [R_, probs_] = Turn_filter(R, probs, turn, routes, m, threshold); % filter based on turn (normal)
+                %[R_, probs_] = yaw_filter(R, probs, routes, m, t); % filter based on turn  
+                [R_, probs_] = Nclosest_uc_probs(y,R_,routes,probs_,N(m),t,m); % filter based on sorting
+            else
+                [R_, probs_] = Nclosest_uc_probs(y,R,routes,probs,N(m),t,m); % filter based on sorting
+            end
         else
-            [R_, probs_] = Nclosest_uc_probs(y,R,routes,probs,N(m),t,m); % filter based on sorting
-        end
+            % dist
+            if strcmp(turns_flag, 'true')
+                turn = T(m-1); 
+                [R_, probs_] = Turn_filter(R, probs, turn, routes, m, threshold); % filter based on turn (normal) 
+                [R_, probs_] = Nclosest_uc(y,R_,routes,probs_,N(m)); % filter based on sorting
+            else
+                [R_, probs_] = Nclosest_uc(y,R,routes,probs,N(m)); % filter based on sorting
+            end
+        end            
             
     else
-        %[R_, probs_] = yaw_filter(R, probs, routes, m, t);
-        [R_, probs_] = Nclosest_uc_probs(y,R,routes,probs,N(m),t,m); % filter based on sorting
+        if strcmp(probs_flag, 'true')
+            [R_, probs_] = Nclosest_uc_probs(y,R,routes,probs,N(m),t,m); % filter based on sorting
+        else
+            [R_, probs_] = Nclosest_uc(y,R,routes,probs,N(m)); % filter based on sorting 
+        end
     end
     
     if m < max_route_length
@@ -42,10 +53,15 @@ for m=1 : max_route_length
     end
     
     rank(m,1) = point_rank;
-    
-    % ranked_points
-    ranked_points{m} = R_;
-    probs_resume{m} = probs_;
+    % current best estimated route
+    if size(R_, 1) > 0
+        t_ = R_(1,:);
+    else
+        t_ = [];
+    end
+    best_routes{m} = t_;
+    %route_dist{m} = dist_;
+    route_dist{m} = probs_;
     
 end
 
