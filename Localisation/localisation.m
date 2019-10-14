@@ -43,15 +43,11 @@ for i=1:test_num
     switch option
         %% ES FEATURES
         % ES with turns using distances
-        case 'EStruefalse'
-            location = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T);  
-        % ES without turns using distances
-        % case 'ESfalsefalse'
-        %    location = RouteSearching_ES_withoutT_v2(routes, N, max_route_length, R_init, t);
-        
+        %case {'EStruefalse', 'ESfalsefalse'}
+        %    [location, rank, best_routes, route_dist] = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T, turns);        
         % ES with turns using probs
-        case {'EStruetrue', 'ESfalsetrue'}
-            [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns);
+        case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
+            [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns, probs);
         
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
@@ -111,15 +107,19 @@ for i = 1:size(rs, 2)
         dt = distance_thresholds(j);
         for p = 1:test_num
             gt_index = test_route(p,r);
-            pred_index = best_estimated_routes{1,p}{1,r}(r);
             gt_coords = routes(gt_index).gsv_coords;
-            if pred_index ~= 0
+            % !!! sometimes pred_index is empty and this generates an error
+            % rome  {1,110}{1,20}(20) for example
+            if ~isempty(best_estimated_routes{1,p}{1,r})
+                pred_index = best_estimated_routes{1,p}{1,r}(r);
                 pred_coords = routes(pred_index).gsv_coords;
                 d = distance(gt_coords(1), gt_coords(2), pred_coords(1), pred_coords(2));
                 geo_distance = deg2km(d);
                 if geo_distance < dt
                     accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j) + 1;
                 end
+            else
+                accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j) + 1; % !!!!check
             end
         end
         accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j)/test_num;        

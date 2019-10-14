@@ -5,9 +5,10 @@ for i=1:sz1      % slow
     k = R(i,sz2); % the final one
     if ~isempty(routes(k).x)
         desc_ = routes(k).x;  % slowest: since too many calls!!!
-        dist(i,1) = dist(i,1) + eu_dist(desc_new, desc_); % fatser
+        %dist(i,1) = dist(i,1) + eu_dist(desc_new, desc_); % fatser
+        dist(i,1) = dist(i,1) + sum(abs(desc_new-desc_));
     else
-        dist(i,1) = 100; % max - similar to delete this route
+        dist(i,1) = 1000; % max - similar to delete this route
     end
 end
 %criteria: sort, find the k nearest neighbors
