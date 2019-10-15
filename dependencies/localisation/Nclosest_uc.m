@@ -7,7 +7,7 @@ for i=1:sz1      % slow
         desc_ = routes(k).x;  % slowest: since too many calls!!!
         %dist(i,1) = dist(i,1) + eu_dist(desc_new, desc_); % Euclidean
         %dist(i,1) = dist(i,1) + sum(abs(desc_new-desc_)); % Manhattan
-        dist(i,1) = dist(i,1) + sum(abs((desc_new - desc_).^(.8)).^(1/0.8));
+        dist(i,1) = dist(i,1) + sum( abs(desc_new - desc_).^0.01 ).^(1/0.5); %fractional
     else
         dist(i,1) = 1000; % max - similar to delete this route
     end

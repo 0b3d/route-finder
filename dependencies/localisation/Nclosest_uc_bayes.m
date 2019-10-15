@@ -1,4 +1,8 @@
 function [R_, probs_] = Nclosest_uc_bayes(y,R,routes,probs,N,t,m)
+
+% Bayes rule
+%P(A|B) = P(B|A) P(A)/P(B)
+
 sz1 = size(R, 1);
 sz2 = size(R, 2);
 prior = probs;
@@ -6,18 +10,16 @@ prior = probs;
 for i=1:sz1      % slow
     k = R(i,sz2); % the final one
     if ~isempty(routes(k).x)
-        x = routes(k).x;  % slowest: since too many calls!!!
+        x = routes(k).x;  
         yx_dist = eu_dist(y,x);
-        %yx_probs = normcdf(yx_dist, 0, 1);
-        %probs(i,1) = probs(i,1) * yx_probs; % fatser
         
         % prior
         PA = prior(i,1);
         
         % evidence
-        Pba = normcdf([yx_dist 4], 0.6265, 0.1859);
+        Pba = normcdf([yx_dist 4], 0.719199, 0.173975);
         PBA =Pba(2) - Pba(1);
-        Pbna = normcdf([0 yx_dist], 0.8449, 0.2354);
+        Pbna = normcdf([0 yx_dist], 0.935696, 0.22992);
         PBNA =Pbna(2) - Pbna(1);
 
         PB = PA * PBA + (1 - PA) * PBNA  ;
@@ -27,17 +29,16 @@ for i=1:sz1      % slow
         
         % Bayes's rule 2
         if m > 1
-            PA = probs(i,1);      
+            %PA = probs(i,1);      
             
             y_1 = routes(t(m-1)).y;
             k_1 = R(i,sz2-1);
             x_1 = routes(k_1).x;
             yy_dist = eu_dist(y,y_1);
             xx_dist = eu_dist(x,x_1); 
-            %xx_probs = normpdf(xx_dist, yy_dist, 1);
-            xx_prob = normcdf([yy_dist xx_dist], yy_dist,1.0)
-            PBA = xx_probs;
-            PBNA = 1 - xx_probs;
+            xx_probs = normpdf(xx_dist, yy_dist, 0.173975);
+            %PBA = xx_prob;
+            %PBNA = 1 - xx_probs;
             probs(i,1) = probs(i,1) * xx_probs;
         end       
         
@@ -72,5 +73,5 @@ p = floor(size(I,1)/100*N);  % not slow
 I = I(1:p,1);    
 R_ = R(I,:);
 %probs_ = probs(I,1) ./ max(probs(:));
-probs_ = probs;
+probs_ = probs(I,1);
 end

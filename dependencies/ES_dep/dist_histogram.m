@@ -28,10 +28,12 @@ for k=1:ndatasets
         y = routes(idx1).y;
         d = sqrt(sum((x-y).^2));
         %d = sum(abs(x-y));
+        %d = sum( abs(x - y).^0.5 ).^(1/0.5); %fractional
         matched_pairs(1,n*(k-1)+i) = d;      
         xu = routes(idx2).x;
         d = sqrt(sum((xu-y).^2));
         %d = sum(abs(xu-y));
+        %d = sum( abs(xu - y).^0.5 ).^(1/0.5); %fractional
         unmatched_pairs(1,n*(k-1)+i) = d;
     end 
 end

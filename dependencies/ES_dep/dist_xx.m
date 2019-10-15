@@ -8,6 +8,24 @@ fig_title = 'Paris';
 
 %Read the features
 load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+% load testing routes 
+
+
+R_init = zeros(size(routes,2),1);
+for i = 1:size(routes,2)
+    R_init(i) = i;   
+end
+
+test_num = size(test_route, 1);
+
+if m < max_route_length
+    [R, probs] = RRextend_v5(R_, probs_, routes); 
+end
+
+
+
+
+
 
 n = size(routes,2);
 matched_pairs = zeros(1,n);
@@ -39,4 +57,3 @@ title(ax, fig_title);
 xlabel(ax, 'Distance')
 ylabel(ax, 'Number of pairs')
 grid on
-
