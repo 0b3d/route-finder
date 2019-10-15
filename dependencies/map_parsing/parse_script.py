@@ -1,5 +1,8 @@
+# encoding=utf8
 import time
 import os, sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 start = time.time()
 
