@@ -2,8 +2,8 @@ clc
 clear all;
 close all;
 parameters;
-dataset = 'washington_10_19';
-fig_title = 'Washington';
+dataset = 'rome_v1';
+fig_title = 'Rome';
 
 
 %Read the features
@@ -39,3 +39,4 @@ title(ax, fig_title);
 xlabel(ax, 'Distance')
 ylabel(ax, 'Number of pairs')
 grid on
+

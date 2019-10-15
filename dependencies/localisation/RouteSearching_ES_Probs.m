@@ -49,7 +49,7 @@ for m=1 : max_route_length
     if size(gt_indices) > 0
         point_rank = gt_indices(1);
     else 
-        point_rank = [gt_indices,1];
+        point_rank = size(R_init,1)+1;
     end
     
     rank(m,1) = point_rank;

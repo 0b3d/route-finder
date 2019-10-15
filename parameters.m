@@ -1,5 +1,5 @@
-mapfile = 'toronto.osm';
-dataset = 'toronto_v1'; %The name of the dataset, creates a folder in /Data
+mapfile = 'edinburgh.osm';
+dataset = 'paris_10_19'; %The name of the dataset, creates a folder in /Data
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
@@ -22,5 +22,5 @@ thresh_bd = 3;  % 4 degree
 
 % choose features type
 features_type = 'ES'; % 'BSD' 'ES' or 'none'
-turns = 'false'; % 'true', 'false', 'only'
-probs = 'true'; % for 'BSD', set this to 'false'
+turns = 'true'; % 'true', 'false', 'only'
+probs = 'false'; % for 'BSD', set this to 'false'

@@ -108,8 +108,8 @@ for i = 1:size(rs, 2)
         for p = 1:test_num
             gt_index = test_route(p,r);
             gt_coords = routes(gt_index).gsv_coords;
-            % !!! sometimes pred_index is empty and this generates an error
-            % rome  {1,110}{1,20}(20) for example
+            % I added the line bellow to prevent a bug when best estimated
+            % routes is empty
             if ~isempty(best_estimated_routes{1,p}{1,r})
                 pred_index = best_estimated_routes{1,p}{1,r}(r);
                 pred_coords = routes(pred_index).gsv_coords;
