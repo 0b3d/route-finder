@@ -17,7 +17,7 @@ for i=1:sz1      % slow
             x_1 = routes(k_1).x;
             yy_dist = eu_dist(y,y_1);
             xx_dist = eu_dist(x,x_1); 
-            xx_probs = normpdf(xx_dist, yy_dist, 1.0);
+            xx_probs = normpdf(abs(xx_dist - yy_dist), 0, 0.4511);
             probs(i,1) = probs(i,1) * xx_probs;
             %probs(i,1) = probs(i,1) + (yy_dist - xx_dist);
         end       

@@ -2,58 +2,62 @@ clc
 clear all;
 close all;
 parameters;
-dataset = 'paris_10_19';
-fig_title = 'Paris';
+%datasets = {'edinburgh_10_19', 'london_10_19', 'paris_10_19', 'rome_v1', 'newyork_10_19', 'washington_10_19', 'toronto_v1'};
+datasets = { 'rome_v1'};
+fig_title = 'Rome';
 
 
-%Read the features
-load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
-% load testing routes 
-
-
-R_init = zeros(size(routes,2),1);
-for i = 1:size(routes,2)
-    R_init(i) = i;   
+for d=1:size(datasets,2)
+    dataset = datasets{d};
+    distances = zeros(1,size(dataset,2));
+    distances_nn = zeros(1,size(dataset,2));
+    %Read the features
+    load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+    % load testing routes 
+    for i=1:size(routes,2)
+        neighbors = routes(i).neighbor;
+        xi = routes(i).x;
+        yi = routes(i).y;
+        k = randi(size(routes, 2));
+        xk = routes(k).x;
+         
+        if ~isempty(neighbors)
+            %for n=1:size(neighbors, 1)
+            j = neighbors(1,1);
+            xj = routes(j).x;
+            yj = routes(j).y;
+            dxixj = sqrt(sum((xi-xj).^2));
+            dxixk = sqrt(sum((xi-xk).^2));
+            dyiyj = sqrt(sum((yi-yj).^2));
+            
+            distances(i) = abs(dxixj - dyiyj); % distance between neighbords
+            distances_nn(i) =  abs(dxixk - dyiyj);
+            %end
+        else
+            distances(i) = 10;
+            distances_nn(i) = 10;
+        end
+    end
+    
 end
 
-test_num = size(test_route, 1);
-
-if m < max_route_length
-    [R, probs] = RRextend_v5(R_, probs_, routes); 
-end
-
-
-
-
-
-
+I = find(distances ~= 10);
+dist1 = distances(I);
+I = find(distances_nn ~= 10);
+dist2 = distances_nn(I);
+dist3 = [dist1,dist2];
 n = size(routes,2);
 matched_pairs = zeros(1,n);
 unmatched_pairs = zeros(1,n);
 
-% Extract matched and unmatched distances
-for i=1:n
-    x = routes(i).x;
-    y = routes(i).y;
-    d = sqrt(sum((x-y).^2));
-    matched_pairs(1,i) = d;
-    % unmatched example
-    j = randi(n,1);
-    while i==j
-        j = randi(n,1);
-    end
-    xu = routes(j).x;
-    d = sqrt(sum((xu-y).^2));
-    unmatched_pairs(1,i) = d;
-end 
-
-hm = histogram(matched_pairs, 100);
+hm = histogram(dist1, 100);
 hm.FaceColor = [0 1 0]; % green
 hold on
-hu = histogram(unmatched_pairs, 100);
+hu = histogram(dist2, 100);
 hu.FaceColor = [1 0 0]; % red
 ax = ancestor(hm, 'axes');
 title(ax, fig_title);
 xlabel(ax, 'Distance')
 ylabel(ax, 'Number of pairs')
+legend('Geographic neighbors','Random pairs')
 grid on
