@@ -3,8 +3,8 @@ close all;
 clear all;
 addpath(genpath(pwd));
 
-%datasets = {'edinburgh_10_19','london_10_19','oxford_10_19','paris_10_19','rome_v1','toronto_v1','washington_10_19'};
-datasets = {'tonbridge_v2','luton_v4'};
+datasets = {'edinburgh_10_19','london_10_19','oxford_10_19','paris_10_19','rome_v1','toronto_v1','washington_10_19'};
+%datasets = {'tonbridge', 'tonbridge_v2','luton_v4'};
 cases = {{'true','false'}}; %'true', 'false'}, {'false', 'false'}}; %turns, probs
 results = zeros(length(datasets) * length(cases), 8);
 
@@ -43,4 +43,4 @@ for dset =1:length(datasets)
     end
 end
 
-save(['features/',dataset,'_',option,'.mat'],  '-v7.3')
+save(['features/','general','_',option,'.mat'],  '-v7.3')

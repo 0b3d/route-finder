@@ -21,7 +21,7 @@ function [gm, pairwise_probs] = fitgmmodel(pairwise_distances)
 % 
 % data = [matched_pairs; unmatched_pairs];
 % gm = fitgmdist(data,2);
-    load('gm.mat', 'gm');
+    load('dependencies/ES_dep/gm.mat', 'gm');
 
     [R, C] = size(pairwise_distances);
     Zc = reshape(pairwise_distances, [R*C,1]);
