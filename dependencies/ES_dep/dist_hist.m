@@ -2,9 +2,10 @@ clc
 clear all;
 close all;
 parameters;
-dataset = 'paris_10_19';
-fig_title = 'Paris';
-
+data_generation;
+%dataset = 'london_10_19';
+%fig_title = 'London';
+fig_title = dataset;
 
 %Read the features
 load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);

@@ -2,9 +2,9 @@ clc
 clear all;
 close all;
 parameters;
-%datasets = {'edinburgh_10_19', 'london_10_19', 'paris_10_19', 'rome_v1', 'newyork_10_19', 'washington_10_19', 'toronto_v1'};
-datasets = { 'rome_v1'};
-fig_title = 'Rome';
+datasets = {'edinburgh_10_19', 'london_10_19', 'paris_10_19', 'rome_v1', 'newyork_10_19', 'washington_10_19', 'toronto_v1'};
+%datasets = { 'paris_10_19'};
+fig_title = 'All cities';
 
 
 for d=1:size(datasets,2)
@@ -30,8 +30,8 @@ for d=1:size(datasets,2)
             dxixk = sqrt(sum((xi-xk).^2));
             dyiyj = sqrt(sum((yi-yj).^2));
             
-            distances(i) = abs(dxixj - dyiyj); % distance between neighbords
-            distances_nn(i) =  abs(dxixk - dyiyj);
+            distances(i) = dxixj - dyiyj; % distance between neighbords
+            distances_nn(i) =  dxixk - dyiyj;
             %end
         else
             distances(i) = 10;

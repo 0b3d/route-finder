@@ -1,4 +1,4 @@
-function [R_, probs_] = Nclosest_uc_bayes(y,R,routes,probs,N,t,m)
+function [R_, probs_] = Nclosest_uc_bayes(y,R,routes,probs,N,t,m, pairwise_probs)
 
 % Bayes rule
 %P(A|B) = P(B|A) P(A)/P(B)
@@ -14,33 +14,29 @@ for i=1:sz1      % slow
         yx_dist = eu_dist(y,x);
         
         % prior
-        PA = prior(i,1);
-        
-        % evidence
-        Pba = normcdf([yx_dist 4], 0.719199, 0.173975);
-        PBA =Pba(2) - Pba(1);
-        Pbna = normcdf([0 yx_dist], 0.935696, 0.22992);
-        PBNA =Pbna(2) - Pbna(1);
+        PA = prior(i,1);       
+        PBNA = pairwise_probs(t(m),k);
+        PBA = 1.0 - PBNA; 
 
         PB = PA * PBA + (1 - PA) * PBNA  ;
         % Bayes's rule 1
         PAB = PA * PBA / PB;
         probs(i,1) = PAB;
         
-        % Bayes's rule 2
-        if m > 1
-            %PA = probs(i,1);      
-            
-            y_1 = routes(t(m-1)).y;
-            k_1 = R(i,sz2-1);
-            x_1 = routes(k_1).x;
-            yy_dist = eu_dist(y,y_1);
-            xx_dist = eu_dist(x,x_1); 
-            xx_probs = normpdf(xx_dist, yy_dist, 0.173975);
-            %PBA = xx_prob;
-            %PBNA = 1 - xx_probs;
-            probs(i,1) = probs(i,1) * xx_probs;
-        end       
+%         % Bayes's rule 2
+%         if m > 1
+%             %PA = probs(i,1);      
+%             
+%             y_1 = routes(t(m-1)).y;
+%             k_1 = R(i,sz2-1);
+%             x_1 = routes(k_1).x;
+%             yy_dist = eu_dist(y,y_1);
+%             xx_dist = eu_dist(x,x_1); 
+%             xx_probs = normpdf(xx_dist, yy_dist, 0.173975);
+%             %PBA = xx_prob;
+%             %PBNA = 1 - xx_probs;
+%             probs(i,1) = probs(i,1) * xx_probs;
+%         end       
         
 
 % %% Apprach 2
