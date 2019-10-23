@@ -17,6 +17,13 @@ for i = 1:size(routes,2)
     R_init(i) = i;   
 end
 
+% For eficiency pre-compute all pairwise distances in the dataset and its probabilities
+% This arrays are only used in case of ES features
+if strcmp(features_type, 'ES') 
+    pairwise_dist = pairwise_distances(routes);
+    [gm, pairwise_probs] = fitgmmodel(pairwise_dist);
+end
+
 test_num = size(test_route, 1);
 ks = [1, 5, 10, 15, 20]; % The top k metrics will be computed
 rs = [5, 10, 15, 20, 25, 30, 35, 40]; % different route length
