@@ -23,10 +23,11 @@ function [gm, pairwise_probs] = fitgmmodel(pairwise_distances)
 % gm = fitgmdist(data,2);
     load('gm.mat', 'gm');
 
-    [R, C] = size(pairwise_distances);
-    Zc = reshape(pairwise_distances, [R*C,1]);
-    dd = cdf(gm, Zc);
-    pairwise_probs = reshape(dd, [R, C]);
+    %[R, C] = size(pairwise_distances);
+    %Zc = reshape(pairwise_distances, [R*C,1]);
+    %dd = cdf(gm, Zc);
+    pairwise_probs = 1 - logncdf(pairwise_dist,0.465901,0.309151);
+    %pairwise_probs = reshape(dd, [R, C]);
 
 end
 

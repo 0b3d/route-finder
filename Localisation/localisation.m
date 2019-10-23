@@ -26,6 +26,8 @@ accuracy_with_different_length = zeros(2, size(rs,2)); % row 1: final location; 
 accuracy_within_topK = zeros(size(rs,2), size(ks,2));
 accuracy_with_threshold = zeros(size(rs,2),size(distance_thresholds,2));
 
+pairwise_dist = pairwise_distances(routes);
+pairwise_probs = 1 - logncdf(pairwise_dist,0.465901,0.309151);
 
 ranking = zeros(test_num, max_route_length_init);
 best_estimated_routes = {test_num};
@@ -47,7 +49,7 @@ for i=1:test_num
         %    [location, rank, best_routes, route_dist] = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T, turns);        
         % ES with turns using probs
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
-            [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns, probs);
+            [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns, probs, pairwise_dist, pairwise_probs);
         
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    

@@ -8,21 +8,21 @@ for i=1:sz1      % slow
         x = routes(k).x;  % slowest: since too many calls!!!
         %yx_dist = eu_dist(y,x);
         %yx_probs = 1.0 - cdf(gm, yx_dist);
-        yx_probs = 1.0 - pairwise_probs(t(m),k); 
+        yx_probs = pairwise_probs(t(m),k); 
         %yx_probs = normpdf(yx_dist, 0, 1.0);
         probs(i,1) = probs(i,1) * yx_probs; % fatser
         %probs(i,1) = probs(i,1) + yx_dist; % fatser
         
-%         if m > 1
-%             y_1 = routes(t(m-1)).y;
-%             k_1 = R(i,sz2-1);
-%             x_1 = routes(k_1).x;
-%             yy_dist = eu_dist(y,y_1);
-%             xx_dist = eu_dist(x,x_1); 
-%             xx_probs = normpdf(abs(xx_dist - yy_dist), 0.0, 0.789364);
-%             probs(i,1) = probs(i,1) * xx_probs;
-%             %probs(i,1) = probs(i,1) + (yy_dist - xx_dist);
-%         end       
+        if m > 1
+            y_1 = routes(t(m-1)).y;
+            k_1 = R(i,sz2-1);
+            x_1 = routes(k_1).x;
+            yy_dist = eu_dist(y,y_1);
+            xx_dist = eu_dist(x,x_1); 
+            xx_probs = normpdf(xx_dist - yy_dist, -0.201983, 0.503445);
+            probs(i,1) = probs(i,1) * xx_probs;
+            %probs(i,1) = probs(i,1) + (yy_dist - xx_dist);
+        end       
         
     else
         probs(i,1) = 0.0; % max - similar to delete this route

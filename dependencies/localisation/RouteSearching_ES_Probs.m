@@ -1,7 +1,5 @@
-function [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag)
-
-pairwise_dist = pairwise_distances(routes);
-[gm, pairwise_probs] = fitgmmodel(pairwise_dist);
+function [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag, pairwise_distances, pairwise_probs)
+%[gm, pairwise_probs] = fitgmmodel(pairwise_dist);
 
 R = R_init;
 if strcmp(probs_flag, 'false')
