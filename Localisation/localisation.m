@@ -34,6 +34,8 @@ accuracy_with_different_length = zeros(2, size(rs,2)); % row 1: final location; 
 accuracy_within_topK = zeros(size(rs,2), size(ks,2));
 accuracy_with_threshold = zeros(size(rs,2),size(distance_thresholds,2));
 
+pairwise_dist = pairwise_distances(routes);
+pairwise_probs = 1 - logncdf(pairwise_dist,0.465901,0.309151);
 
 ranking = zeros(test_num, max_route_length_init);
 best_estimated_routes = {test_num};
@@ -138,5 +140,7 @@ end
 if ~exist(['Data/',dataset,'/results'], 'dir')
     mkdir(['Data/',dataset,'/results'])
 end
+
 % save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
 save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+
