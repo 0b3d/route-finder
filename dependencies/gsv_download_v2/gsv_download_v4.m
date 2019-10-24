@@ -1,6 +1,6 @@
-function panos = gsv_download_v4(panos, download_num)
+function panos = gsv_download_v4(panos, download_num, dataset)
 count = 0;
-city = 'London';
+city = dataset;
 
 panoidAll = {'start'};
 

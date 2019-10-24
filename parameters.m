@@ -1,5 +1,5 @@
-mapfile = 'lunton_v4.osm';
-dataset = 'luton_v4'; %The name of the dataset, creates a folder in /Data
+mapfile = 'edinburgh_v2.osm';
+dataset = 'edinburgh_10_19'; %The name of the dataset, creates a folder in /Data
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
@@ -14,7 +14,7 @@ s_number = 5; % 5 successive locations
 % parameters for BSD freatures
 radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
-accuracy = 0.75;
+accuracy = 1;
 range = 2; % generate rays every _degree
 thresh_jc = 30; % 30m
 thresh_bd = 3;  % 4 degree

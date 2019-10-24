@@ -18,7 +18,7 @@ for i=1:length(routes)
     bad = bit_flipped(good, accuracy); 
     routes(i).CNNs = bad; 
 end
-save(['features/',features_type,'/',features_type,'_', dataset,'.mat'],'routes');
+save(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 % check the cnn accuracy
 p_bit1 = 0;
 p_bit2 = 0;
