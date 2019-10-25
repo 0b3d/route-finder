@@ -7,5 +7,5 @@ function pairwise_dist = pairwise_distances(routes)
         Y(i,:) = routes(i).y;
     end
 
-    pairwise_dist = pdist2(Y,X, 'cityblock');
+    pairwise_dist = pdist2(Y,X);
 end
