@@ -5,6 +5,7 @@ images/
 Results/demo_london_BSD.avi
 Results/demo_london_BSD (Converted).mov
 
+
 Data/edinburgh_10_19/results/BSDfalsefalse.mat
 Data/edinburgh_10_19/results/BSDtruefalse.mat
 Data/edinburgh_10_19/results/BSDtruefalse_100.mat
@@ -76,3 +77,13 @@ Data/paris_10_19/results/BSDtruefalse.mat
 Data/rome_v1/results/BSDtruefalse.mat
 Data/toronto_v1/results/BSDtruefalse.mat
 Data/washington_10_19/results/BSDtruefalse.mat
+
+
+Data/london_10_19/results/
+
+Data/oxford_10_19/results/
+
+Data/paris_10_19/results/
+
+Data/rome_v1/results/
+

@@ -1,10 +1,10 @@
-function [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag, pairwise_dist, pairwise_probs)
+function [location, rank, best_routes, route_dist] = RouteSearching_ES(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs)
 
 R = R_init;
 if strcmp(probs_flag, 'false')
-    probs = zeros(size(routes,2),1);
+    metric = zeros(size(routes,2),1);
 else 
-    probs = ones(size(routes,2),1);
+    metric = ones(size(routes,2),1)*0.5;
 end
 
 rank = zeros(max_route_length,1);
@@ -20,33 +20,33 @@ for m=1 : max_route_length
             if strcmp(turns_flag, 'true') %turn with turns 
                 turn = T(m-1); 
                 %[R_, probs_] = fake_turn_filter(R, probs, turn, routes, m, threshold, t);
-                [R_, probs_] = Turn_filter(R, probs, turn, routes, m, threshold); % filter based on turn (normal)
+                [R_, metric_] = Turn_filter(R, metric, turn, routes, m, threshold); % filter based on turn (normal)
                 %[R_, probs_] = yaw_filter(R, probs, routes, m, t); % filter based on turn  
-                [R_, probs_] = Nclosest_uc_probs(y,R_,routes,probs_,N(m),t,m, pairwise_probs); % filter based on sorting
+                [R_, metric_] = Nclosest_uc_probs(y, R_, routes, metric_, N(m), t, m, matched_pairwise_probs, unmatched_pairwise_probs); % filter based on sorting
             else
-                [R_, probs_] = Nclosest_uc_probs(y,R,routes,probs,N(m),t,m, pairwise_probs); % filter based on sorting
+                [R_, metric_] = Nclosest_uc_probs(y, R, routes, metric, N(m), t, m, matched_pairwise_probs, unmatched_pairwise_probs); % filter based on sorting
             end
         else
             %% dist
             if strcmp(turns_flag, 'true')
                 turn = T(m-1); 
-                [R_, probs_] = Turn_filter(R, probs, turn, routes, m, threshold); % filter based on turn (normal) 
-                [R_, probs_] = Nclosest_uc(t(m),R_,routes,probs_,N(m),pairwise_dist); % filter based on sorting
+                [R_, metric_] = Turn_filter(R, metric, turn, routes, m, threshold); % filter based on turn (normal) 
+                [R_, metric_] = Nclosest_uc( t(m), R_, metric_, N(m), pairwise_dist); % filter based on sorting
             else
-                [R_, probs_] = Nclosest_uc(t(m),R,routes,probs,N(m),pairwise_dist); % filter based on sorting
+                [R_, metric_] = Nclosest_uc( t(m), R, metric, N(m), pairwise_dist); % filter based on sorting
             end
         end            
             
     else % first observation
         if strcmp(probs_flag, 'true')
-            [R_, probs_] = Nclosest_uc_probs(y,R,routes,probs,N(m),t,m, pairwise_probs); % call probs
+            [R_, metric_] = Nclosest_uc_probs(y,R,routes,metric,N(m),t,m, matched_pairwise_probs, unmatched_pairwise_probs); % call probs
         else
-            [R_, probs_] = Nclosest_uc(t(m),R,routes,probs,N(m),pairwise_dist); % call dist filter 
+            [R_, metric_] = Nclosest_uc( t(m), R, metric, N(m), pairwise_dist); % call dist filter 
         end
     end
     
     if m < max_route_length
-        [R, probs] = RRextend_v5(R_, probs_, routes); 
+        [R, metric] = RRextend_v5(R_, metric_, routes); 
     end
     
     % rank of the current route
@@ -67,7 +67,7 @@ for m=1 : max_route_length
     end
     best_routes{m} = t_;
     %route_dist{m} = dist_;
-    route_dist{m} = probs_;
+    route_dist{m} = metric_;
     
 end
 
