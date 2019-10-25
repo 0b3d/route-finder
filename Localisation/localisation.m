@@ -21,7 +21,11 @@ end
 % This arrays are only used in case of ES features
 if strcmp(features_type, 'ES') 
     pairwise_dist = pairwise_distances(routes);
-    [gm, pairwise_probs] = fitgmmodel(pairwise_dist);
+    matched_pairwise_probs = lognpdf(pairwise_dist,0.465901,0.309151);
+    unmatched_pairwise_probs = evpdf(pairwise_dist, 4.34925, 0.489259);
+    %dxy_match_probs = norm
+    
+    %[gm, pairwise_probs] = fitgmmodel(pairwise_dist);
 end
 
 test_num = size(test_route, 1);
@@ -33,12 +37,10 @@ accuracy_with_different_length = zeros(2, size(rs,2)); % row 1: final location; 
 accuracy_within_topK = zeros(size(rs,2), size(ks,2));
 accuracy_with_threshold = zeros(size(rs,2),size(distance_thresholds,2));
 
-pairwise_dist = pairwise_distances(routes);
-pairwise_probs = 1 - logncdf(pairwise_dist,0.465901,0.309151);
-
 ranking = zeros(test_num, max_route_length_init);
 best_estimated_routes = {test_num};
 dist = {test_num};
+correct_estimated_routes = {};
 
 tic;
 parfor_progress('searching', test_num);
@@ -56,7 +58,7 @@ for i=1:test_num
         %    [location, rank, best_routes, route_dist] = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T, turns);        
         % ES with turns using probs
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
-            [location, rank, best_routes, route_dist] = RouteSearching_ES_Probs(routes, N, max_route_length, threshold, R_init, t, T, turns, probs, pairwise_dist, pairwise_probs);
+            [location, rank, best_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns, probs, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs);
         
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    

@@ -3,7 +3,7 @@ clear all;
 close all;
 parameters;
 data_generation;
-%dataset = 'london_10_19';
+dataset = 'manchester_10_19';
 %fig_title = 'London';
 fig_title = dataset;
 
