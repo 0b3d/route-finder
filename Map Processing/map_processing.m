@@ -18,7 +18,7 @@ end
 %generate routes dataset
 if ~isfile(['Data/',dataset,'/routes.mat'])
     disp('Dataset Generating......')
-    [routes] = GenDataset_v2(roads);
+    [routes] = GenDataset_v2(roads, dataset);
     save(['Data/',dataset,'/routes.mat'], 'routes');
     disp('Dataset Finished');
 else

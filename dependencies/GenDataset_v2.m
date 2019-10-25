@@ -1,4 +1,4 @@
-function [routes] = GenDataset_v2(roads)
+function [routes] = GenDataset_v2(roads, dataset)
 % generate BSDs dataset
 index = 0;
 cursz = zeros(size(roads, 1), 1);
@@ -68,7 +68,7 @@ end
 
 % find associated pano_id, gsv_yaw, gsv_coords for each location
 download_num = length(routes);
-panos = gsv_download_v4(routes, download_num); 
+panos = gsv_download_v4(routes, download_num, dataset); 
 for i=1:length(routes)
     routes(i).id = panos(i).id;
     routes(i).gsv_coords = panos(i).coords_t;

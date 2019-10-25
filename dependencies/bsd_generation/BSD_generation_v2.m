@@ -21,7 +21,7 @@ for p=1:size(panos, 2)
     for i=1:size(buildings,2)  % i=1:size(buildings,1)
         curcoord = buildings(i).coords;
         in = inpolygon(curcoord(:,1),curcoord(:,2),circle(:,1), circle(:,2));
-        if(sum(in)) >= 1
+        if(sum(in)) >= 1 && size(buildings(i).coords, 1) > 2
             buildings_in_circle = [buildings_in_circle; buildings(i)];
         end
     end

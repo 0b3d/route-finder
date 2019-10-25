@@ -7,7 +7,8 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+% load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
 % run 'Generate_random_routes' to get random test routes and turns
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
 load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
@@ -141,4 +142,7 @@ end
 if ~exist(['Data/',dataset,'/results'], 'dir')
     mkdir(['Data/',dataset,'/results'])
 end
-save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
+
+% save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
+save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+

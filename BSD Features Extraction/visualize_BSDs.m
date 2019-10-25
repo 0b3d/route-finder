@@ -8,7 +8,7 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load datas
-load(['features/BSD/','BSD_',dataset,'.mat']);
+load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
 load(['Data/',dataset,'/ways.mat']);
 load(['Data/',dataset,'/inters_after_filter.mat']);
 load(['Data/',dataset,'/buildings.mat']);
