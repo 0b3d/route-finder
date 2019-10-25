@@ -1,4 +1,4 @@
-function [location, rank, best_routes, route_dist] = RouteSearching_ES(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs)
+function [location, rank, best_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs)
 
 R = R_init;
 if strcmp(probs_flag, 'false')
@@ -66,7 +66,6 @@ for m=1 : max_route_length
         t_ = [];
     end
     best_routes{m} = t_;
-    %route_dist{m} = dist_;
     route_dist{m} = metric_;
     
 end
