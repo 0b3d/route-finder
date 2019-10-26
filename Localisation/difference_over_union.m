@@ -3,7 +3,7 @@ clear all
 close all
 
 top_k = 1;
-route_length = 20;
+route_length = 40;
 datasets = {'luton_v4', 'london_10_19'}; 
 test_num = 500;
 score = zeros(length(datasets),route_length);
@@ -12,7 +12,7 @@ union_accuracy = zeros(length(datasets),route_length);
 for dataset_index=1:length(datasets)
     dataset = datasets{dataset_index};
     % load BSD results
-    load(['Data/',dataset,'/','results/','BSDtruefalse_100.mat']);
+    load(['Data/',dataset,'/','results/','BSDtruefalse_80.mat']);
     ranking_bsd = ranking;
     best_estimated_routes_bsd = best_estimated_routes;
     
@@ -48,12 +48,12 @@ for dataset_index=1:length(datasets)
         intersect_set = intersect(BSD, ES, 'rows');
         difference_set = setdiff(ES,BSD,'rows'); 
         %union_accuracy(dataset_index, m) = size(union_set, 1)/test_num;
-        score(dataset_index,m) = size(difference_set,1) / size(union_set, 1);        
-        a = score;
+        score(dataset_index,m) = size(difference_set,1) / size(ES,1);%size(union_set, 1);    
+        a=score;
     end
 end
 plot(score')
 hold on
-plot(union_accuracy')
+%plot(union_accuracy')
 grid on
 legend(datasets)
