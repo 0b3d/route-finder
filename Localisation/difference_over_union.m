@@ -24,8 +24,6 @@ for dataset_index=1:length(datasets)
     for m = 1:route_length
         correct_estimated_routes_bsd = sum(ranking_bsd(:,m) <= top_k);
         correct_estimated_routes_es = sum(ranking_es(:,m) <= top_k);
-        num_bsd = 1;
-        num_es = 1;
 
         BSD = zeros(correct_estimated_routes_bsd,m);
         ES = zeros(correct_estimated_routes_es,m);
