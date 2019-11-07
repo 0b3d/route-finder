@@ -3,12 +3,12 @@ clear all;
 close all;
 parameters;
 %datasets = {'edinburgh_10_19', 'london_10_19', 'paris_10_19', 'rome_v1', 'newyork_10_19', 'washington_10_19', 'toronto_v1'};
-datasets = {'locations'};
+datasets = {'london_10_19'};
 fig_title = 'Euclidean';
 
 
 % For each datset get n samples of matched and unmatched pairs
-n = 10000;
+n = 5051;
 [~, ndatasets] = size(datasets);
 matched_pairs = zeros(1,ndatasets*n);
 unmatched_pairs = zeros(1,ndatasets*n);
@@ -26,8 +26,8 @@ for k=1:ndatasets
             j = randi(n,1);
         end
         
-        x = X(idx1,:);
-        y = Y(idx1,:);
+        x = X(i,:);
+        y = Y(i,:);
         d = sqrt(sum((x-y).^2));
         %d = sum(abs(x-y));
         %d = sum( abs(x - y).^0.5 ).^(1/0.5); %fractional
@@ -47,7 +47,7 @@ hold on
 hu = histogram(unmatched_pairs, 100);
 hu.FaceColor = [1 0 0]; % red
 ax = ancestor(hm, 'axes');
-title(ax, fig_title);
+%title(ax, fig_title);
 xlabel(ax, 'Distance')
 ylabel(ax, 'Number of pairs')
 grid on

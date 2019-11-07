@@ -1,5 +1,5 @@
 % data generation
-clearvars -except dataset
+clear all
 close all
 parameters;
 

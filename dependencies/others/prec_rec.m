@@ -46,7 +46,7 @@ function [prec, tpr, fpr, thresh] = prec_rec(score, target, varargin)
 % prec_rec(x2, y2, 'holdFigure', 1);
 % legend('baseline','x1/y1','x2/y2','Location','SouthEast');
 
-% Copyright © 9/22/2010 Stefan Schroedl
+% Copyright ï¿½ 9/22/2010 Stefan Schroedl
 % Updated     3/16/2010
 
 optargin = size(varargin, 2);
@@ -206,11 +206,11 @@ if (plot_pr || plot_roc)
             hold on
             hold all
             
-            plot([0; tpr], [1 ; prec], style); % add pseudo point to complete curve
+            plot([0; tpr], [1 ; prec], style, 'LineWidth',2); % add pseudo point to complete curve
             
             xlabel('recall');
             ylabel('precision');
-            title('precision-recall graph');
+            %title('precision-recall graph');
         end
         if (plot_roc)
             if (plot_pr)
@@ -224,11 +224,11 @@ if (plot_pr || plot_roc)
             hold on;
             hold all;
             
-            plot([0; fpr], [0; tpr], style); % add pseudo point to complete curve
+            plot([0; fpr], [0; tpr], style,  'LineWidth',2); % add pseudo point to complete curve
             
             xlabel('false positive rate');
             ylabel('true positive rate');
-            title('roc curve');
+            %title('roc curve');
             %axis([0 1 0 1]);
             if (plot_roc && plot_pr)
                 % double the width
@@ -243,14 +243,14 @@ if (plot_pr || plot_roc)
             if (plot_roc)
                 subplot(1,2,1);
             end
-            plot([0; tpr],[1 ; prec], style); % add pseudo point to complete curve
+            plot([0; tpr],[1 ; prec], style, 'LineWidth',2); % add pseudo point to complete curve
         end
         
         if (plot_roc)
             if (plot_pr)
                 subplot(1,2,2);
             end
-            plot([0; fpr], [0; tpr], style);
+            plot([0; fpr], [0; tpr], style, 'LineWidth',2);
         end
     end
 end
