@@ -14,7 +14,7 @@ s_number = 5; % 5 successive locations
 % parameters for BSD freatures
 radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
-accuracy = 1;
+accuracy = 0.75;
 range = 2; % generate rays every _degree
 thresh_jc = 30; % 30m
 thresh_bd = 3;  % 4 degree
@@ -22,5 +22,5 @@ thresh_bd = 3;  % 4 degree
 
 % choose features type
 features_type = 'BSD'; % 'BSD' 'ES' or 'none'
-turns = 'false'; % 'true', 'false', 'only'
+turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'
