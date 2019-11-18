@@ -7,8 +7,12 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
-%load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
+if strcmp(features_type, 'ES') 
+    load(['features/',features_type,'/','s2v700k_v1','/',features_type,'_', dataset,'.mat']);
+else
+    load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
+end
+
 % run 'Generate_random_routes' to get random test routes and turns
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
 load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
@@ -40,6 +44,7 @@ accuracy_with_threshold = zeros(size(rs,2),size(distance_thresholds,2));
 
 ranking = zeros(test_num, max_route_length_init);
 best_estimated_routes = {test_num};
+best_estimated_top5_routes = {test_num};
 dist = {test_num};
 correct_estimated_routes = {};
 
@@ -59,22 +64,23 @@ for i=1:test_num
         %    [location, rank, best_routes, route_dist] = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T, turns);        
         % ES with turns using probs
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
-            [location, rank, best_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns, probs, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns, probs, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs);
         
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
-            [location, rank, best_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, accuracy);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, accuracy);
         
         %% JUST TURNS
         case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
-        [location, rank, best_routes, route_dist] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold);
+        [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold);
         
         otherwise
             warning('Unexpected configuration')      
     end
     
     ranking(i,:) = rank;
-    best_estimated_routes{i} = best_routes;  
+    best_estimated_routes{i} = best_routes; 
+    best_estimated_top5_routes{i} = best_top5_routes;
     dist{i} = route_dist;
     parfor_progress('searching');
 end
@@ -143,6 +149,8 @@ if ~exist(['Data/',dataset,'/results'], 'dir')
     mkdir(['Data/',dataset,'/results'])
 end
 
-% save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
-save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
-
+if strcmp(features_type, 'ES') 
+    save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
+else
+    save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+end

@@ -1,8 +1,9 @@
-function [location, rank, best_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, accuracy)
+function [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, accuracy)
 R = R_init;
 dist = zeros(size(routes,2),1);
 rank = zeros(max_route_length,1);
 best_routes = {max_route_length};
+best_top5_routes = {max_route_length};
 route_dist = {max_route_length};
 
 for m=1 : max_route_length
@@ -46,6 +47,15 @@ for m=1 : max_route_length
     best_routes{m} = t_;
     route_dist{m} = dist_;
     % route_dist{m} = prob_;
+    
+    if size(R_, 1) > 5
+        top5 = R_(1:5,:);
+    else
+        top5 = R_;
+    end
+    best_top5_routes{m} = top5;
+    
+    
     
 end
 

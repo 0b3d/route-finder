@@ -1,8 +1,8 @@
-function [location, rank, best_routes, route_dist] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold)
+function [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold)
 R = R_init;
 rank = zeros(max_route_length,1);
 best_routes = {max_route_length};
-route_dist = [];
+best_top5_routes = {max_route_length};
 
 for m=1 : max_route_length
     if m > 1
@@ -32,7 +32,14 @@ for m=1 : max_route_length
     else
         t_ = [];
     end
-    best_routes{m} = t_;   
+    best_routes{m} = t_; 
+    
+    if size(R_, 1) > 5
+        top5 = R_(1:5,:);
+    else
+        top5 = R_;
+    end
+    best_top5_routes{m} = top5;
 end
 
 if ~isempty(t_)

@@ -7,7 +7,7 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
 count = 0;
 for i=1:length(routes)    
     good = routes(i).BSDs;

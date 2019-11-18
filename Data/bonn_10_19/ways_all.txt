@@ -1,0 +1,2314 @@
+     
+way id: 4373292
+50.7285974,7.0852707
+50.7286532,7.0851385
+50.7294245,7.0836834
+50.7294898,7.0835532
+50.7295378,7.0834550
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: opposite
+     
+way id: 4373999
+50.7244612,7.0845339
+50.7245945,7.0842285
+50.7247084,7.0840059
+50.7248869,7.0837523
+50.7250656,7.0835448
+50.7252968,7.0833487
+50.7261632,7.0827896
+oneway: true
+road_type: trunk
+speed: undefined
+lanes: 2
+cycleway: no
+     
+way id: 4399032
+50.7295378,7.0834550
+50.7292515,7.0832241
+50.7291799,7.0831665
+50.7288101,7.0828695
+50.7284469,7.0825791
+50.7283675,7.0825163
+50.7281335,7.0823291
+50.7278852,7.0821162
+50.7277177,7.0819697
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: opposite
+     
+way id: 4692929
+50.7319738,7.0864051
+50.7319843,7.0862830
+50.7319593,7.0861598
+50.7319164,7.0860858
+50.7318689,7.0860355
+50.7317926,7.0860200
+50.7311609,7.0862387
+50.7309122,7.0863660
+50.7297186,7.0877739
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 4814965
+50.7299073,7.0827212
+50.7288479,7.0812363
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 5446762
+50.7275287,7.0822453
+50.7273417,7.0824243
+50.7271413,7.0825768
+50.7270011,7.0826854
+50.7267170,7.0828992
+50.7265253,7.0830464
+50.7263893,7.0831883
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 5446778
+50.7256658,7.0891220
+50.7252544,7.0883928
+50.7252431,7.0883725
+50.7251453,7.0881967
+50.7242614,7.0867550
+50.7240984,7.0864892
+50.7239948,7.0863203
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 5461973
+50.7281297,7.0898109
+50.7276212,7.0891469
+50.7273875,7.0892842
+50.7268915,7.0885901
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 5462053
+50.7268915,7.0885901
+50.7266684,7.0882708
+50.7266511,7.0882460
+50.7266015,7.0881748
+50.7264232,7.0879411
+50.7263804,7.0879156
+50.7263457,7.0879473
+50.7260499,7.0884558
+50.7258927,7.0887267
+50.7258723,7.0887618
+50.7256658,7.0891220
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 9833283
+50.7292942,7.0950113
+50.7296856,7.0928979
+50.7299184,7.0917408
+50.7304226,7.0892844
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 9833285
+50.7296856,7.0928979
+50.7292356,7.0925409
+50.7290138,7.0923571
+50.7288776,7.0922246
+50.7285973,7.0919414
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: opposite
+     
+way id: 9833286
+50.7278696,7.0909570
+50.7276743,7.0906895
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 11639692
+50.7283076,7.0942251
+50.7286516,7.0933069
+50.7286593,7.0931975
+50.7286335,7.0931389
+50.7282936,7.0928135
+50.7282604,7.0927510
+50.7282544,7.0926602
+50.7282886,7.0925656
+50.7285973,7.0919414
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 15241545
+50.7291892,7.0866071
+50.7296186,7.0860247
+50.7300305,7.0854370
+50.7302843,7.0850389
+50.7306881,7.0844077
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: opposite
+     
+way id: 18669570
+50.7247145,7.0827000
+50.7249716,7.0827291
+50.7251622,7.0827341
+50.7254813,7.0827051
+50.7257693,7.0826414
+50.7260136,7.0825739
+50.7262679,7.0824546
+50.7264678,7.0823436
+50.7267304,7.0821750
+50.7270312,7.0819225
+50.7272030,7.0817657
+50.7274051,7.0815596
+50.7276377,7.0812440
+50.7279783,7.0806976
+50.7281995,7.0802968
+oneway: true
+road_type: motorway
+speed: undefined
+lanes: 2
+cycleway: no
+     
+way id: 23317219
+50.7265087,7.0893301
+50.7268220,7.0897144
+50.7268357,7.0897494
+50.7268841,7.0898729
+50.7270523,7.0900687
+50.7271635,7.0900640
+50.7273468,7.0902885
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 23377386
+50.7270202,7.0837081
+50.7271020,7.0838240
+50.7271432,7.0837596
+50.7271693,7.0837951
+50.7272056,7.0838445
+50.7272525,7.0837497
+50.7273364,7.0836416
+50.7275948,7.0831782
+50.7276736,7.0829453
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 23377391
+50.7272056,7.0838445
+50.7271507,7.0840167
+50.7271599,7.0841029
+50.7272434,7.0842327
+50.7272653,7.0842648
+50.7274041,7.0844653
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 23377410
+50.7268989,7.0872117
+50.7268911,7.0872277
+50.7267999,7.0871281
+50.7263984,7.0878308
+50.7263804,7.0879156
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 26170930
+50.7295378,7.0834550
+50.7295920,7.0833520
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 26170933
+50.7299073,7.0827212
+50.7303606,7.0818734
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: opposite
+     
+way id: 26170934
+50.7303350,7.0840596
+50.7305236,7.0835953
+50.7306118,7.0833908
+50.7306995,7.0832156
+50.7308559,7.0829100
+50.7309405,7.0827544
+50.7309307,7.0826569
+50.7308861,7.0825773
+50.7303606,7.0818734
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: opposite
+     
+way id: 26799261
+50.7295920,7.0833520
+50.7298042,7.0835575
+50.7303350,7.0840596
+50.7306881,7.0844077
+50.7308473,7.0845605
+50.7308719,7.0845840
+50.7312078,7.0849051
+50.7314597,7.0851541
+50.7319977,7.0856765
+50.7321738,7.0858543
+50.7322357,7.0858560
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 26814006
+50.7285973,7.0919414
+50.7283454,7.0916059
+50.7282156,7.0914553
+50.7280497,7.0912009
+50.7278696,7.0909570
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: opposite
+     
+way id: 31059359
+50.7276064,7.0868292
+50.7277122,7.0869589
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 32040350
+50.7246722,7.0828518
+50.7251573,7.0828996
+50.7255681,7.0828786
+50.7259288,7.0827713
+50.7264684,7.0825615
+oneway: true
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 32756787
+50.7254707,7.0913681
+50.7257410,7.0917110
+50.7258735,7.0918675
+50.7262089,7.0922641
+50.7263126,7.0923868
+50.7263611,7.0924395
+oneway: false
+road_type: tertiary
+speed: undefined
+lanes: undefined
+cycleway: lane
+     
+way id: 32757602
+50.7242372,7.0900300
+50.7244172,7.0901745
+50.7245426,7.0902757
+50.7246125,7.0903321
+50.7246835,7.0903893
+50.7247459,7.0904521
+50.7248222,7.0905443
+50.7248734,7.0906169
+50.7249198,7.0906881
+50.7250326,7.0908310
+50.7254707,7.0913681
+oneway: false
+road_type: tertiary
+speed: undefined
+lanes: undefined
+cycleway: shared_lane
+     
+way id: 33531693
+50.7290002,7.0918265
+50.7290859,7.0915714
+50.7292113,7.0914660
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531694
+50.7286457,7.0909388
+50.7283454,7.0916059
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531695
+50.7289873,7.0913537
+50.7290045,7.0915276
+50.7289968,7.0916809
+50.7290002,7.0918265
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531696
+50.7286177,7.0905968
+50.7285069,7.0908052
+50.7282505,7.0913862
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531697
+50.7289288,7.0911614
+50.7290214,7.0912166
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531698
+50.7290002,7.0918265
+50.7288776,7.0922246
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531699
+50.7292113,7.0914660
+50.7291649,7.0915043
+50.7290688,7.0914476
+50.7289873,7.0913537
+50.7289288,7.0911614
+50.7287842,7.0909291
+50.7286457,7.0909388
+50.7285069,7.0908052
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531700
+50.7291927,7.0924213
+50.7292966,7.0916036
+50.7293072,7.0915575
+50.7293710,7.0914050
+50.7293817,7.0912774
+50.7293143,7.0912384
+50.7292647,7.0913022
+50.7292113,7.0914660
+50.7293072,7.0915575
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 33531702
+50.7282505,7.0913862
+50.7282156,7.0914553
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 34242190
+50.7285974,7.0852707
+50.7285370,7.0850632
+50.7283400,7.0846144
+50.7281955,7.0842855
+50.7280571,7.0839630
+50.7279862,7.0838087
+50.7279634,7.0837568
+50.7278988,7.0836096
+50.7277828,7.0833271
+50.7276926,7.0830242
+50.7276736,7.0829453
+50.7276607,7.0828863
+50.7275641,7.0824325
+oneway: false
+road_type: tertiary
+speed: undefined
+lanes: undefined
+cycleway: track
+     
+way id: 37986621
+50.7268915,7.0885901
+50.7267938,7.0887768
+50.7266964,7.0889629
+50.7265087,7.0893301
+50.7264918,7.0893642
+50.7261606,7.0900336
+50.7261535,7.0900467
+50.7254707,7.0913681
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 44113695
+50.7293701,7.0828748
+50.7292515,7.0832241
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 44113696
+50.7289764,7.0825647
+50.7288101,7.0828695
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 44113700
+50.7282786,7.0818277
+50.7286242,7.0822182
+50.7287013,7.0821266
+50.7289955,7.0825257
+50.7290651,7.0824796
+50.7293850,7.0828272
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 49872889
+50.7270202,7.0837081
+50.7268227,7.0834222
+50.7267941,7.0833808
+50.7267272,7.0832874
+50.7267063,7.0832537
+50.7266601,7.0832388
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 51966858
+50.7297186,7.0877739
+50.7291892,7.0866071
+50.7290773,7.0863588
+50.7287929,7.0857439
+50.7286869,7.0855084
+50.7286331,7.0853850
+50.7285974,7.0852707
+oneway: false
+road_type: tertiary
+speed: undefined
+lanes: undefined
+cycleway: shared_lane
+     
+way id: 51966870
+50.7276743,7.0906895
+50.7275190,7.0904843
+50.7275173,7.0904836
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 54135351
+50.7283400,7.0846144
+50.7283716,7.0843248
+50.7282233,7.0839668
+50.7281873,7.0839561
+50.7280571,7.0839630
+oneway: true
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 54135352
+50.7279634,7.0837568
+50.7281360,7.0835869
+50.7284235,7.0832836
+50.7282334,7.0827692
+50.7283182,7.0826154
+50.7283675,7.0825163
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 54135353
+50.7281335,7.0823291
+50.7277384,7.0829521
+50.7276926,7.0830242
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 54135355
+50.7282334,7.0827692
+50.7280952,7.0829619
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 54146075
+50.7281853,7.0860574
+50.7283937,7.0863359
+50.7284905,7.0863828
+50.7285724,7.0864870
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 54146076
+50.7282383,7.0886279
+50.7283998,7.0882668
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 99464350
+50.7285208,7.0891646
+50.7283222,7.0889042
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 99464354
+50.7285602,7.0891113
+50.7284664,7.0888993
+50.7285439,7.0887032
+50.7284478,7.0885758
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 127058859
+50.7266601,7.0832388
+50.7266303,7.0832185
+50.7265253,7.0830464
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 141255350
+50.7274450,7.0904099
+50.7273916,7.0905166
+50.7270576,7.0911842
+50.7268044,7.0916902
+50.7266944,7.0919100
+50.7265892,7.0921203
+50.7264339,7.0924308
+50.7264063,7.0924858
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 141255352
+50.7264819,7.0914622
+50.7263770,7.0916738
+50.7263722,7.0917268
+50.7263993,7.0917592
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 142937226
+50.7267091,7.0916210
+50.7266648,7.0917088
+50.7265793,7.0918782
+50.7265497,7.0919370
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 142937227
+50.7261606,7.0900336
+50.7262836,7.0901810
+50.7265083,7.0904582
+50.7265647,7.0903421
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 142937228
+50.7270365,7.0873444
+50.7273917,7.0866416
+50.7273468,7.0865783
+50.7272851,7.0865074
+50.7269141,7.0872296
+oneway: true
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 142945660
+50.7255642,7.0919396
+50.7250375,7.0912878
+50.7249798,7.0912222
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 142947371
+50.7255642,7.0919396
+50.7256048,7.0919933
+50.7258017,7.0922349
+50.7261204,7.0926311
+50.7262882,7.0928402
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 142947393
+50.7255396,7.0921366
+50.7258838,7.0925832
+50.7262174,7.0930158
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 142947394
+50.7257410,7.0917110
+50.7257038,7.0917837
+50.7256048,7.0919933
+50.7255396,7.0921366
+50.7253673,7.0924811
+50.7252121,7.0927913
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 144138935
+50.7285974,7.0852707
+50.7281853,7.0860574
+50.7280652,7.0862862
+50.7278690,7.0866601
+50.7277122,7.0869589
+50.7277043,7.0869750
+50.7273422,7.0877067
+50.7268915,7.0885901
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 146493343
+50.7297186,7.0877739
+50.7290246,7.0885404
+50.7288142,7.0887725
+50.7287702,7.0888274
+50.7285602,7.0891113
+50.7285208,7.0891646
+50.7283005,7.0894926
+50.7281297,7.0898109
+50.7276743,7.0906895
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 146493481
+50.7269714,7.0929872
+50.7270446,7.0927822
+50.7272433,7.0922260
+50.7278696,7.0909570
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 172152696
+50.7277043,7.0869750
+50.7274848,7.0867273
+50.7273917,7.0866416
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 189083704
+50.7284234,7.0879391
+50.7285791,7.0880226
+50.7286136,7.0880411
+50.7287969,7.0882664
+50.7288281,7.0883033
+50.7289192,7.0884112
+50.7290246,7.0885404
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 189083711
+50.7280431,7.0875904
+50.7279005,7.0878855
+50.7280091,7.0880250
+50.7280770,7.0882610
+50.7281382,7.0883415
+50.7282247,7.0883603
+50.7284234,7.0879391
+50.7283419,7.0879284
+50.7280431,7.0875904
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352652
+50.7270011,7.0826854
+50.7270385,7.0828267
+50.7270194,7.0828690
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352655
+50.7269266,7.0830264
+50.7269626,7.0830700
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352657
+50.7267839,7.0831268
+50.7268036,7.0830944
+50.7268715,7.0830850
+50.7269140,7.0830112
+50.7269266,7.0830264
+50.7269849,7.0829314
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352659
+50.7271693,7.0837951
+50.7272101,7.0837329
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352660
+50.7272884,7.0835977
+50.7272494,7.0835413
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352662
+50.7275223,7.0838529
+50.7274568,7.0839209
+50.7274844,7.0839873
+50.7275050,7.0840367
+50.7275705,7.0839688
+50.7275223,7.0838529
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352663
+50.7275223,7.0838529
+50.7275341,7.0837553
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352664
+50.7275570,7.0835717
+50.7275667,7.0834871
+50.7276029,7.0834436
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352665
+50.7275341,7.0837553
+50.7275570,7.0835717
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352666
+50.7275705,7.0839688
+50.7276072,7.0839756
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352667
+50.7274844,7.0839873
+50.7274294,7.0840448
+50.7273704,7.0841065
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352668
+50.7272836,7.0841922
+50.7272434,7.0842327
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352669
+50.7273704,7.0841065
+50.7272836,7.0841922
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352670
+50.7276072,7.0839756
+50.7276467,7.0839310
+50.7277015,7.0838705
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352671
+50.7277015,7.0838705
+50.7277553,7.0838083
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352672
+50.7274568,7.0839209
+50.7274324,7.0838693
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352673
+50.7274324,7.0838693
+50.7273702,7.0837178
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 201352674
+50.7273702,7.0837178
+50.7273364,7.0836416
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 202211675
+50.7267563,7.0831719
+50.7267500,7.0831821
+50.7267446,7.0831910
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 236483506
+50.7304226,7.0892844
+50.7303708,7.0891975
+50.7303493,7.0891538
+50.7302211,7.0888928
+50.7298015,7.0879598
+50.7297186,7.0877739
+oneway: false
+road_type: tertiary
+speed: undefined
+lanes: undefined
+cycleway: shared_lane
+     
+way id: 352068692
+50.7302610,7.0892952
+50.7301876,7.0894137
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 352068693
+50.7303493,7.0891538
+50.7302610,7.0892952
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 352068694
+50.7293195,7.0897290
+50.7287702,7.0888274
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 352068695
+50.7295442,7.0900979
+50.7293195,7.0897290
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 352068696
+50.7301876,7.0894137
+50.7301220,7.0895023
+50.7299432,7.0893452
+50.7298367,7.0895845
+50.7296534,7.0899233
+50.7295581,7.0900756
+50.7295442,7.0900979
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 386690367
+50.7248734,7.0906169
+50.7251217,7.0901345
+50.7252173,7.0899515
+50.7253193,7.0897631
+50.7254095,7.0895966
+50.7255864,7.0892699
+50.7256658,7.0891220
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 445166103
+50.7288290,7.0832772
+50.7285913,7.0835120
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 445166104
+50.7288782,7.0832236
+50.7289690,7.0832316
+50.7291227,7.0834140
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 445166105
+50.7288782,7.0832236
+50.7288290,7.0832772
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 455035821
+50.7262089,7.0922641
+50.7262999,7.0920599
+50.7259740,7.0916667
+50.7258735,7.0918675
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 464930735
+50.7261632,7.0827896
+50.7264684,7.0825615
+50.7270071,7.0821237
+50.7273374,7.0817927
+50.7276427,7.0814519
+oneway: true
+road_type: trunk
+speed: undefined
+lanes: 2
+cycleway: no
+     
+way id: 492106101
+50.7267713,7.0916467
+50.7268044,7.0916902
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 492106103
+50.7267241,7.0915913
+50.7267594,7.0916319
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 492106104
+50.7270576,7.0911842
+50.7270194,7.0911434
+50.7269679,7.0910893
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496364302
+50.7268989,7.0872117
+50.7268115,7.0871019
+50.7267731,7.0870536
+50.7265067,7.0867111
+50.7261449,7.0862380
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496364303
+50.7255268,7.0842867
+50.7255837,7.0843587
+50.7261880,7.0851214
+50.7265378,7.0855671
+50.7265965,7.0856398
+50.7268974,7.0860132
+50.7271872,7.0863659
+50.7272851,7.0865074
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496364304
+50.7259586,7.0839131
+50.7260158,7.0839850
+50.7264611,7.0845486
+50.7267548,7.0849150
+50.7270345,7.0852670
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496364305
+50.7263893,7.0831883
+50.7263647,7.0833331
+50.7263617,7.0835797
+50.7262260,7.0836920
+50.7260886,7.0838056
+50.7259586,7.0839131
+50.7257967,7.0840531
+50.7256534,7.0841772
+50.7255268,7.0842867
+50.7253913,7.0844380
+50.7252602,7.0845844
+50.7249928,7.0850900
+50.7246702,7.0859215
+50.7245750,7.0861309
+50.7244782,7.0863227
+50.7243701,7.0865553
+50.7242933,7.0866988
+50.7242614,7.0867550
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496364306
+50.7263617,7.0835797
+50.7264608,7.0835608
+50.7265574,7.0835423
+50.7270938,7.0842192
+50.7275430,7.0847963
+50.7272776,7.0850420
+50.7270345,7.0852670
+50.7265965,7.0856398
+50.7263383,7.0859819
+50.7261449,7.0862380
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496364307
+50.7261449,7.0862380
+50.7261122,7.0863057
+50.7254284,7.0876411
+50.7251721,7.0881416
+50.7251453,7.0881967
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496384371
+50.7271872,7.0863659
+50.7277113,7.0853084
+50.7277909,7.0851477
+50.7275430,7.0847963
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 496384374
+50.7270938,7.0842192
+50.7267548,7.0849150
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661879
+50.7259586,7.0839131
+50.7256879,7.0835694
+50.7255201,7.0836646
+50.7253891,7.0837949
+50.7252508,7.0839326
+50.7251107,7.0840721
+50.7249788,7.0842034
+50.7252252,7.0845009
+50.7253462,7.0843566
+50.7254668,7.0842128
+50.7256197,7.0840857
+50.7257641,7.0839658
+50.7255201,7.0836646
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661880
+50.7253891,7.0837949
+50.7256197,7.0840857
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661881
+50.7254668,7.0842128
+50.7252508,7.0839326
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661883
+50.7256879,7.0835694
+50.7258648,7.0834692
+50.7260498,7.0833617
+50.7262744,7.0832313
+50.7262355,7.0835673
+50.7261959,7.0835995
+50.7260543,7.0837151
+50.7258648,7.0834692
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661884
+50.7261959,7.0835995
+50.7260498,7.0833617
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661907
+50.7261959,7.0835995
+50.7262260,7.0836920
+50.7262588,7.0837945
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661908
+50.7260543,7.0837151
+50.7260886,7.0838056
+50.7261207,7.0839027
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661909
+50.7257641,7.0839658
+50.7257967,7.0840531
+50.7258330,7.0841431
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661910
+50.7256197,7.0840857
+50.7256534,7.0841772
+50.7256873,7.0842691
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661911
+50.7254668,7.0842128
+50.7254829,7.0842326
+50.7255268,7.0842867
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 509661912
+50.7253462,7.0843566
+50.7253913,7.0844380
+50.7254368,7.0845106
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 512583456
+50.7280925,7.0869249
+50.7278690,7.0866601
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 527658758
+50.7267519,7.0861485
+50.7266534,7.0863866
+50.7263383,7.0859819
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 527658759
+50.7266085,7.0864950
+50.7266534,7.0863866
+50.7267067,7.0864531
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 536969839
+50.7244732,7.0864849
+50.7245624,7.0863265
+50.7247712,7.0859107
+50.7251533,7.0849666
+50.7254368,7.0845106
+50.7255837,7.0843587
+50.7256873,7.0842691
+50.7258330,7.0841431
+50.7260158,7.0839850
+50.7261207,7.0839027
+50.7262588,7.0837945
+50.7264641,7.0836335
+50.7264608,7.0835608
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 561785676
+50.7265934,7.0854582
+50.7265378,7.0855671
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 561785677
+50.7264611,7.0845486
+50.7261880,7.0851214
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 561785678
+50.7266311,7.0849103
+50.7266535,7.0848651
+50.7264522,7.0846032
+50.7264611,7.0845486
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 562007030
+50.7265680,7.0852080
+50.7265853,7.0852297
+50.7265940,7.0852120
+50.7265940,7.0852119
+50.7266035,7.0851925
+50.7266035,7.0851924
+50.7266107,7.0851777
+50.7265933,7.0851565
+50.7265680,7.0852080
+oneway: false
+road_type: elevator
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 562903340
+50.7266535,7.0848651
+50.7266879,7.0849043
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 562903341
+50.7267243,7.0849486
+50.7267327,7.0849592
+50.7267548,7.0849150
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 563666060
+50.7273546,7.0834831
+50.7273161,7.0834274
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 563666062
+50.7268227,7.0834222
+50.7268391,7.0833937
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 563666065
+50.7269948,7.0835292
+50.7269867,7.0835433
+50.7269671,7.0835773
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 563666072
+50.7270661,7.0836335
+50.7270585,7.0836459
+50.7270202,7.0837081
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 563666075
+50.7271291,7.0833743
+50.7271094,7.0833454
+50.7271007,7.0833602
+50.7270918,7.0833754
+50.7271118,7.0834039
+50.7271206,7.0833888
+50.7271291,7.0833743
+oneway: false
+road_type: elevator
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 568134140
+50.7274522,7.0853098
+50.7272776,7.0850420
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 569149564
+50.7276245,7.0852841
+50.7276080,7.0853160
+50.7275995,7.0853051
+50.7275919,7.0852952
+50.7276081,7.0852630
+50.7276245,7.0852841
+oneway: false
+road_type: elevator
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 569149628
+50.7269449,7.0855490
+50.7269550,7.0855766
+50.7269328,7.0855971
+50.7269280,7.0855838
+50.7269226,7.0855691
+50.7269449,7.0855490
+oneway: false
+road_type: elevator
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 572451960
+50.7264653,7.0918381
+50.7265497,7.0919370
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 572451961
+50.7263993,7.0917592
+50.7264653,7.0918381
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 572451962
+50.7262999,7.0920599
+50.7264122,7.0921943
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 572451963
+50.7267241,7.0915913
+50.7267000,7.0915652
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 572451964
+50.7266682,7.0915309
+50.7266547,7.0915162
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420466
+50.7262836,7.0901810
+50.7262569,7.0902345
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420473
+50.7260490,7.0899336
+50.7261535,7.0900467
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420475
+50.7259487,7.0898321
+50.7260026,7.0898744
+50.7260490,7.0899336
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420477
+50.7257461,7.0895837
+50.7259104,7.0897849
+50.7259258,7.0898040
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420483
+50.7260195,7.0895555
+50.7259316,7.0897403
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420490
+50.7257764,7.0895264
+50.7257461,7.0895837
+50.7254996,7.0900507
+50.7253706,7.0898804
+50.7253511,7.0898066
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420492
+50.7259028,7.0887970
+50.7258723,7.0887618
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420494
+50.7255864,7.0892699
+50.7256173,7.0893122
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420496
+50.7256657,7.0893786
+50.7259513,7.0888625
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574420497
+50.7256173,7.0893122
+50.7256657,7.0893786
+50.7257764,7.0895264
+50.7258681,7.0896229
+50.7261287,7.0891066
+50.7259513,7.0888625
+50.7259028,7.0887970
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427386
+50.7267962,7.0898245
+50.7268357,7.0897494
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427387
+50.7267189,7.0899710
+50.7267569,7.0898992
+50.7267962,7.0898245
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427388
+50.7266271,7.0901446
+50.7267063,7.0899949
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427389
+50.7267124,7.0899833
+50.7267663,7.0900525
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427391
+50.7267063,7.0899949
+50.7267124,7.0899833
+50.7267189,7.0899710
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427394
+50.7265780,7.0903147
+50.7266483,7.0901701
+50.7266271,7.0901446
+50.7265523,7.0900547
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427395
+50.7265647,7.0903421
+50.7265780,7.0903147
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574427396
+50.7265083,7.0904582
+50.7269974,7.0910231
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525227
+50.7274842,7.0905812
+50.7275190,7.0904843
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525231
+50.7273916,7.0905166
+50.7274684,7.0906153
+50.7274756,7.0905997
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525234
+50.7265065,7.0920178
+50.7265892,7.0921203
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525235
+50.7265497,7.0919370
+50.7265065,7.0920178
+50.7264122,7.0921943
+50.7263126,7.0923868
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525238
+50.7267373,7.0915647
+50.7267241,7.0915913
+50.7267091,7.0916210
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525240
+50.7269380,7.0911505
+50.7269210,7.0911880
+50.7268111,7.0914164
+50.7267373,7.0915647
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525242
+50.7273468,7.0902885
+50.7269974,7.0910231
+50.7269679,7.0910893
+50.7269380,7.0911505
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574525245
+50.7275173,7.0904836
+50.7274728,7.0904488
+50.7274450,7.0904099
+50.7273468,7.0902885
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533403
+50.7268767,7.0860508
+50.7268974,7.0860132
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533404
+50.7267519,7.0861485
+50.7268767,7.0860508
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533407
+50.7265382,7.0866443
+50.7266085,7.0864950
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533408
+50.7265067,7.0867111
+50.7265382,7.0866443
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533409
+50.7267608,7.0870849
+50.7267037,7.0870502
+50.7261122,7.0863057
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533410
+50.7267608,7.0870849
+50.7267731,7.0870536
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533412
+50.7258927,7.0887267
+50.7258642,7.0886763
+50.7255794,7.0882778
+50.7257136,7.0880511
+oneway: true
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533413
+50.7257136,7.0880511
+50.7259548,7.0883602
+50.7260027,7.0883978
+50.7260499,7.0884558
+oneway: true
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533414
+50.7257136,7.0880511
+50.7256847,7.0879385
+50.7256983,7.0878687
+50.7257696,7.0877561
+50.7258180,7.0877601
+50.7261177,7.0881826
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574533415
+50.7264918,7.0893642
+50.7262977,7.0892863
+50.7261287,7.0891066
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574784563
+50.7286256,7.0865546
+50.7287527,7.0867162
+50.7290773,7.0863588
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574784567
+50.7285724,7.0864870
+50.7286256,7.0865546
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574784574
+50.7273422,7.0877067
+50.7270520,7.0873628
+50.7270365,7.0873444
+50.7269141,7.0872296
+50.7268989,7.0872117
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574784583
+50.7267299,7.0832152
+50.7267231,7.0832261
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574784587
+50.7270385,7.0828267
+50.7267625,7.0829952
+50.7267635,7.0830192
+50.7267642,7.0830341
+50.7268036,7.0830944
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574784602
+50.7267500,7.0831821
+50.7266962,7.0831078
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574784605
+50.7271413,7.0825768
+50.7271627,7.0826505
+50.7272451,7.0827632
+50.7273665,7.0828061
+50.7274641,7.0829643
+50.7275906,7.0829482
+50.7276607,7.0828863
+oneway: true
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574826758
+50.7254284,7.0876411
+50.7253637,7.0875592
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574826760
+50.7263804,7.0879156
+50.7263622,7.0878392
+50.7259190,7.0872116
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574826774
+50.7257441,7.0875576
+50.7255064,7.0879412
+50.7252847,7.0883385
+50.7252544,7.0883928
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574880405
+50.7289088,7.0881867
+50.7288258,7.0880498
+50.7288096,7.0879546
+50.7288445,7.0879157
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574880406
+50.7288281,7.0883033
+50.7288504,7.0882523
+50.7289088,7.0881867
+50.7289387,7.0881531
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574880407
+50.7266015,7.0881748
+50.7268525,7.0876768
+50.7269463,7.0874906
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574880408
+50.7266511,7.0882460
+50.7267145,7.0881222
+50.7268444,7.0879050
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574880409
+50.7266684,7.0882708
+50.7265362,7.0885165
+50.7264929,7.0885339
+50.7264369,7.0884642
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 574983267
+50.7267941,7.0833808
+50.7268325,7.0833231
+50.7269867,7.0835433
+50.7270585,7.0836459
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 575032877
+50.7254095,7.0895966
+50.7253810,7.0895607
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 575032878
+50.7279862,7.0838087
+50.7278210,7.0839595
+50.7277553,7.0838083
+50.7276029,7.0834436
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 575032879
+50.7274294,7.0840448
+50.7273741,7.0840064
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 575032880
+50.7274294,7.0840448
+50.7274429,7.0841539
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 580368762
+50.7270520,7.0873628
+50.7268895,7.0877221
+50.7268525,7.0876768
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 602128129
+50.7277113,7.0853084
+50.7278733,7.0855272
+50.7278801,7.0855728
+50.7278682,7.0859349
+50.7280652,7.0862862
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 631280469
+50.7277828,7.0833271
+50.7277761,7.0831487
+50.7277384,7.0829521
+50.7275479,7.0819599
+oneway: false
+road_type: path
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 660754999
+50.7283005,7.0894926
+50.7286908,7.0902063
+oneway: false
+road_type: service
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 669540112
+50.7265574,7.0835423
+50.7267272,7.0832874
+oneway: false
+road_type: footway
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 672996652
+50.7295920,7.0833520
+50.7296295,7.0832789
+50.7299073,7.0827212
+oneway: true
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no
+     
+way id: 721174736
+50.7308619,7.0922058
+50.7299184,7.0917408
+oneway: false
+road_type: residential
+speed: undefined
+lanes: undefined
+cycleway: no

@@ -1,4 +1,4 @@
-function [location, rank, best_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs)
+function [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, probs_flag, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs)
 
 R = R_init;
 if strcmp(probs_flag, 'false')
@@ -9,6 +9,7 @@ end
 
 rank = zeros(max_route_length,1);
 best_routes = {max_route_length};
+best_top5_routes = {max_route_length};
 route_dist = {max_route_length};
 
 for m=1 : max_route_length
@@ -67,6 +68,13 @@ for m=1 : max_route_length
     end
     best_routes{m} = t_;
     route_dist{m} = metric_;
+    
+    if size(R_, 1) > 5
+        top5 = R_(1:5,:);
+    else
+        top5 = R_;
+    end
+    best_top5_routes{m} = top5;
     
 end
 

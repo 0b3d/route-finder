@@ -12,8 +12,8 @@ nouk_datasets = {'newyork_10_19', 'paris_10_19', 'rome_v1', 'toronto_v1', 'washi
 %all_datasets = {'scattered_london','edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'paris_10_19', 'rome_v1', 'toronto_v1'}
 %legend_text = {'LondonS', 'Edinburgh', 'LondonD', 'Luton', 'New York', 'Paris', 'Rome', 'Toronto'}
 
-cvpr_datasets = {'scattered_london', 'edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'toronto_v1'}
-legend_text = {'LondonS', 'Edinburgh', 'LondonD', 'Luton', 'New York', 'Toronto'}
+cvpr_datasets = {'edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'toronto_v1'}
+legend_text = {'Edinburgh', 'London', 'Luton', 'New York', 'Toronto'}
 
 datasets = cvpr_datasets
 top1p = zeros(1, length(dataset));
@@ -63,7 +63,8 @@ end
 
 xlabel('k (as a fraction of the dataset size)', 'FontName', 'Times','FontSize', 12)
 ylabel('Top k recall', 'FontName', 'Times','FontSize', 12)
-ylim([0.2,1]);
+%ylim([0,1]);
+%xlim([0.01,1]);
 legend(legend_text, 'FontName', 'Times','FontSize', 10)
 grid on
 
