@@ -6,7 +6,7 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
 % run 'Generate_random_routes' to get random test routes and turns
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
 load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
@@ -25,16 +25,16 @@ end
 idx = 1;
 loops = 30;
 F(loops) = struct('cdata',[],'colormap',[]);
-route_length = max_route_length_init;
+successful_route_length = 20; % successfully localised length
 
 parfor_progress('searching', loops);
 for key_frame = 1:loops
     % draw background image     
-    % display_map_v3(ways, buildings, naturals, leisures, boundary);
-    % hold on;
-    limits = [boundary(2) boundary(4) boundary(1) boundary(3)];
-    map = Map(limits); % plot OSM map
+    display_map_v3(ways, buildings, naturals, leisures, boundary);
     hold on;
+    limits = [boundary(2) boundary(4) boundary(1) boundary(3)];
+%     map = Map(limits); % plot OSM map
+%     hold on;
     
     set(gcf, 'position', get(0,'screensize'));
     
@@ -45,18 +45,18 @@ for key_frame = 1:loops
         R = R_init;
         dist = zeros(size(routes,2),1);
 
-    elseif key_frame < route_length+1
+    elseif key_frame < successful_route_length+1
         [R, dist] = RRextend_v5(R_, dist_, routes);
     else
-        [R, dist] = Bootstrapping(t_, min_dist, routes, route_length);
+        [R, dist] = Bootstrapping(t_, min_dist, routes, successful_route_length);
     end
     
     % display with turn
-    [R_, dist_, t_, min_dist] = display_route(t, routes, R, N(key_frame), dist, key_frame, T, threshold, route_length);
+    [R_, dist_, t_, min_dist] = display_route(t, routes, R, N(key_frame), dist, key_frame, T, threshold, successful_route_length);
     F(key_frame) = getframe(gcf);  
     parfor_progress('searching');
 end
-v = VideoWriter('demo_london_BSD_v2.avi','Uncompressed AVI');
+v = VideoWriter('demo_london_BSD.avi','Uncompressed AVI');
 v.FrameRate = 1;
 open(v)
 writeVideo(v,F)

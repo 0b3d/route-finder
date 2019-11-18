@@ -8,7 +8,7 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load datas
-load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
 load(['Data/',dataset,'/ways.mat']);
 load(['Data/',dataset,'/inters_after_filter.mat']);
 load(['Data/',dataset,'/buildings.mat']);
@@ -54,7 +54,7 @@ for i=1:10
     
     % display images
     id = routes(idx).id;
-    filepath = 'images/edinburgh_v2/snaps/';
+    filepath = 'images/london_10_19/snaps/';
     filename_f = strcat(filepath, id, '_front.jpg');
     filename_r = strcat(filepath, id, '_right.jpg');
     filename_b = strcat(filepath, id, '_back.jpg');
@@ -76,8 +76,8 @@ for i=1:10
     subplot(2,2,4), imshow(img_l);
     title(strcat('left', num2str(BSD(4))));
     disp(idx);
-    print(1, ['Results/','ex',num2str(i),'_osm'],'-djpeg');
-    print(2, ['Results/','ex',num2str(i),'_gsv'],'-djpeg');
+    print(1, ['Results_BSD/','ex',num2str(i),'_osm'],'-djpeg');
+    print(2, ['Results_BSD/','ex',num2str(i),'_gsv'],'-djpeg');
 end
  
 
