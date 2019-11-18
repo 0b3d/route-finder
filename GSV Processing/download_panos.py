@@ -110,13 +110,13 @@ class RenderThread:
 
 directory = os.getcwd()
 # panos_directory = os.path.join(directory, 'Data', sys.argv[1], 'panos') 
-panos_directory = os.path.join(directory, 'Data', 'london_new', 'panos') 
+panos_directory = os.path.join(directory, 'images', 'london_10_19', 'panos') 
 if not os.path.isdir(panos_directory):
-    os.mkdir(panos_directory)
+    os.makedirs(panos_directory)
 
 # Open matlab file
 # routes_file = os.path.join(os.getcwd(), 'Data', sys.argv[1], 'routes_small.mat')
-routes_file = os.path.join(os.getcwd(), 'Data', 'london_new', 'routes_small.mat')
+routes_file = os.path.join(os.getcwd(), 'Data', 'london_10_19', 'routes_small.mat')
 test = loadmat(routes_file)
 routes = test['routes'].squeeze()
 # 0 coords
