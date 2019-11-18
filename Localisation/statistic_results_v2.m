@@ -14,4 +14,3 @@ accuracy_with_threshold = accuracy_with_threshold';
 save(['ranking_',num2str(accuracy*100),'.mat'],  'ranking');
 save(['best_estimated_routes_',num2str(accuracy*100),'.mat'], 'best_estimated_routes');
 
-
