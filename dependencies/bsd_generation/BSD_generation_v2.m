@@ -3,7 +3,7 @@ function panos = BSD_generation_v2(panos, inters, buildings, radius, range, thre
 arclen = radius / (2*earthRadius*pi) * 360;  
 
 parfor_progress('BSD extraction', size(panos,2));
-for p=1:size(panos, 2)
+for p=108%1:size(panos, 2)
     locaCoords = cell2mat({panos(p).gsv_coords}');
     yaw = panos(p).gsv_yaw;
    
