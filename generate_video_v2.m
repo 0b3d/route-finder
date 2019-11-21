@@ -92,8 +92,8 @@ for key_frame = 1:loops
     end
     
     
-    bsdhd = display_top_routes(routes, key_frame, bsd_estimates, 'b', 20);
-    eshd = display_top_routes(routes, key_frame, es_estimates, 'g', 25);    
+    bsdhd = display_top_routes(routes, bsd_estimates, 'b', 20);
+    eshd = display_top_routes(routes, es_estimates, 'g', 25);    
     legend([hd(1) bsdhd(1) eshd(1)], 'Ground Truth', 'BSD', 'Embedding Space');
     F(key_frame) = getframe(map.ax);  
     delete(bsdhd);
