@@ -79,16 +79,16 @@ for key_frame = 1:loops
     % display the best estimated route
     if key_frame <= successful_route_length_bsd
         bsd_estimates = bsd_ber{1, route_index}{key_frame};
-    else
         min_dist = hamming_dist(gt, bsd_estimates);
-        [bsd_estimates, min_dist] = Bootstrapping_v2(bsd_estimates, min_dist, routes, successful_route_length_bsd);
+    else        
+        [bsd_estimates, min_dist] = Bootstrapping_v2(gt(key_frame), bsd_estimates, min_dist, routes, successful_route_length_bsd, 'BSD');
     end
 
     if key_frame <= successful_route_length_es
         es_estimates = es_ber{1, route_index}{key_frame};
-    else
         min_dist = hamming_dist(gt, es_estimates);
-        [es_estimates, min_dist] = Bootstrapping_v2(es_estimates, min_dist, routes, successful_route_length_es);
+    else        
+        [es_estimates, min_dist] = Bootstrapping_v2(gt(key_frame),es_estimates, min_dist, routes, successful_route_length_es, 'ES');
     end
     
     
