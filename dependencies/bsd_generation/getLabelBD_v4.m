@@ -2,11 +2,22 @@ function label = getLabelBD_v4(search_areas, buildings_in_circle, locaCoords, th
 distBD = [];
 cutList = [];
 
+% plot buildings
+for i=1:size(buildings_in_circle,1)     
+    curbuilding = buildings_in_circle(i).coords;
+    plot(curbuilding(:,2),curbuilding(:,1),'-m');
+    hold on
+end
+
 for i=1:size(search_areas, 1)
     candidates = [];
     csize = 1;
     curline_x = search_areas(i,1);
     curline_y = search_areas(i,2);
+    % plot rays
+    plot(locaCoords(2),locaCoords(1),'*r');
+    plot([curline_y, locaCoords(2)],[curline_x, locaCoords(1)],'-b');
+    hold on
     for j=1:size(buildings_in_circle,1)     
         curbuilding = buildings_in_circle(j).coords;
         [inter_x, inter_y] = polyxpoly([curline_x, locaCoords(1)], [curline_y, locaCoords(2)], curbuilding(:,1),curbuilding(:,2));
@@ -30,10 +41,15 @@ for i=1:size(search_areas, 1)
         minInter = candidates(1:2,index(1));
         minInter = minInter';
         minBD = candidates(4,index(1));
+        % plot inters
+        plot(minInter(2),minInter(1),'*r');
+        hold on
     else
         minInter = [curline_x curline_y];
         minBD = -99;   
     end
+    
+
 
     if minBD ~= -99
         dist_arc = distance(minInter(1), minInter(2),locaCoords(1),locaCoords(2));

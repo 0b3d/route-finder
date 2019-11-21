@@ -24,7 +24,7 @@ load(['Data/',dataset,'/boundary.mat']);
 % hold on
 
 % randomly display the descriptors (100 times) and relevant cropped images
-for i=1:10
+for i=100:110
     figure(1)
     display_map_v3(ways, buildings, naturals, leisures, boundary);
     display_inters(inters, boundary);
