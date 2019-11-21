@@ -2,7 +2,7 @@
 
 model = 's2v700k_v1'
 dataset = 'london_10_19';
-params.turns = 'true'
+params.turns = 'false'
 params.probs = 'false'
 
 % Load ranking 
