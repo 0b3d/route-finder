@@ -34,6 +34,8 @@ data_generation;
 
 feature_generating;
 simulate_cnn;
+load_features;
+
 
 
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
