@@ -11,7 +11,7 @@ if strcmp(features_type, 'ES')
     load(['features/',features_type,'/','s2v700k_v1','/',features_type,'_', dataset,'.mat']);
 else
     %load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
-    load(['features/',features_type,'/',features_type,'_', dataset,'_v2','.mat']);
+    load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
