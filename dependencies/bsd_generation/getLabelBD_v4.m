@@ -1,4 +1,4 @@
-function label = getLabelBD_v4(search_areas, buildings_in_circle, locaCoords, thresh_bd)  
+function label = getLabelBD_v4(search_areas, buildings_in_circle, locaCoords, thresh_bd, radius, thresh_dist)  
 distBD = [];
 cutList = [];
 
@@ -57,7 +57,7 @@ for i=1:size(search_areas, 1)
         distBD = [distBD dist];
         cutList = [cutList minBD];
     else
-        distBD = [distBD 35]; % radius
+        distBD = [distBD radius]; % radius
         cutList = [cutList 0];
     end        
 end
@@ -84,7 +84,7 @@ else
             d_min = poly_poly_dist(xv1, yv1, xv2, yv2);
             if d_min > 0 % no intersections
                 dist_diff = abs(distBD(i) - distBD(i+1));
-                if dist_diff >= 5 % 5m
+                if dist_diff >= thresh_dist % 5m
                     findGap = 1;                 
                 end
             end

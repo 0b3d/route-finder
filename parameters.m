@@ -23,6 +23,7 @@ accuracy_bdl = 0.8107;
 range = 2; % generate rays every _degree
 thresh_jc = 30; % 30m
 thresh_bd = 3;  % 4 degree
+thresh_dist = 5; % 5m
 
 
 % choose features type
