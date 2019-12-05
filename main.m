@@ -14,14 +14,14 @@ delete_repeated_panoids;
 
 % To create a csv file with all the nodes information (needed for gsv download)
 % The file will be in Data/<dataset>/routes.csv
-save_csv;
+% save_csv;
 
 % Download all pano_ids saved in routes.csv and save them in panos
 % Data/<dataset>/panos directory
-parameters;
-filepath = fullfile(pwd, 'dependencies', 'gsv_python', 'download_panos.py');
-command = ['python', ' ', filepath, ' ', dataset];
-system(command);
+% parameters;
+% filepath = fullfile(pwd, 'dependencies', 'gsv_python', 'download_panos.py');
+% command = ['python', ' ', filepath, ' ', dataset];
+% system(command);
 
 %% Localization 
 % For the next steps we assume the predictions file is present in Data/features directory. 
@@ -30,7 +30,7 @@ system(command);
 
 % Prepare the struct file with all required information. This creates
 % final_routes.mat with all information for localization process.
-data_generation;
+% data_generation;
 
 feature_generating;
 simulate_cnn;
