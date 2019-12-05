@@ -1,4 +1,4 @@
-function [et, min_dist] = Bootstrapping_v2(t_, min_dist, routes, route_length)
+function [et, min_dist] = Bootstrapping_v2(gt, t_, min_dist, routes, route_length, features_type)
 % remove the first descriptor and append the latest one
 idx = t_(route_length);
 neighbor = routes(idx).neighbor;
@@ -31,7 +31,14 @@ if loc_flag ~= 2
     disp('localisation end');
     exit;
 end
-et = R(1,:);
-min_dist = dist(1);
+
+if strcmp(features_type, 'BSD')
+    bad = routes(gt).CNNs;
+    [R_, dist_] = Nclosest_v4(bad,R,routes,dist,100);
+else
+    
+end
+et = R_(1,:);
+min_dist = dist_(1);
 
 end
