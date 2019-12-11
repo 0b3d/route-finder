@@ -11,7 +11,8 @@ if strcmp(features_type, 'ES')
     load(['features/',features_type,'/','s2v700k_v1','/',features_type,'_', dataset,'.mat']);
 else
     %load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
-    load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+    %load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
+    load(['features/',features_type,'_jc','/',features_type,'_', dataset,'_50m','_100','.mat']);
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
@@ -147,12 +148,12 @@ for i = 1:size(rs, 2)
 end
 
 %% Save localization test information
-if ~exist(['Data/',dataset,'/results'], 'dir')
-    mkdir(['Data/',dataset,'/results'])
-end
-
-if strcmp(features_type, 'ES') 
-    save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
-else
-    save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
-end
+% if ~exist(['Data/',dataset,'/results'], 'dir')
+%     mkdir(['Data/',dataset,'/results'])
+% end
+% 
+% if strcmp(features_type, 'ES') 
+%     save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
+% else
+%     save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+% end
