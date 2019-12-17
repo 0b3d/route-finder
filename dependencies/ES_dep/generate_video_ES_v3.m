@@ -13,7 +13,7 @@ params.test_num = 500;
 params.threshold = 60;
 params.accuracy = 75;
 loops = 20;
-route_index = 115;
+route_index = 200;
 
 % % Load ES best estimated routes
 results_filename = ['ES_results/',model,'/',dataset,'_','ES',params.turns,params.probs,'.mat'];
@@ -75,7 +75,7 @@ for key_frame = 1:loops
        
     hd(1) = plot(true_x1(:,1), true_y1(:,1), '*', 'MarkerFaceColor', 'r','MarkerSize', 5, 'MarkerEdgeColor','r');
     hd(2) = plot(true_x1(key_frame), true_y1(key_frame), 'o', 'MarkerEdgeColor', 'r','MarkerSize', 15, 'LineWidth', 5);
-    eshd = display_top_routes(routes, key_frame, es_estimates, 'g', 20);
+    eshd = display_top_routes(routes, es_estimates, 'g', 20);
     rankhd = display_ranked_points_on_map(routes, topk_indices, 'none', 12);
     
     %legend([hd(1) bsdhd(1) eshd(1)], 'Ground Truth', 'BSD', 'Embedding Space');
@@ -87,15 +87,16 @@ for key_frame = 1:loops
 end
 
 if strcmp(params.turns, 'false')
-    name = [dataset, '_', num2str(route_index), '_', 'without_turn.avi'];
+    name = [dataset, '_', num2str(route_index), '_', 'ESTop.avi'];
 else
-    name = [dataset, '_', num2str(route_index), '_', 'with_turn.avi'];
+    name = [dataset, '_', num2str(route_index), '_', 'Estop.avi'];
 end
     
-v = VideoWriter(name,'Uncompressed AVI');
+v = VideoWriter(name,'Motion JPEG AVI');
 v.FrameRate = 1;
 open(v)
 writeVideo(v,F)
+%v.Quality = 95;
 close(v)
 
 

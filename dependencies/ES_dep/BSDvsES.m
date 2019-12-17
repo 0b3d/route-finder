@@ -10,7 +10,7 @@ params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 %option = {features_type,turns, probs};
 
-dataset = 'luton_v4'
+dataset = 'london_10_19'
 range = 1:1:40;
 k = 1
 

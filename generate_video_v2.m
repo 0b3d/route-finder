@@ -15,10 +15,10 @@ params.probs = 'false';
 params.test_num = 500;
 params.threshold = 60;
 params.accuracy = 75;
-loops = 30;
+loops = 40;
 successful_route_length_es = 20; % successfully localised length for es
 successful_route_length_bsd = 20; % successfully localised length for bsd
-route_index = 365;
+route_index = 403;
 
 % Load BSD features and estimated routes
 %bsd_results_file = ['ES_results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_75.mat'];
@@ -33,19 +33,24 @@ end
 
 bsd_ber = best_estimated_routes;
 
+% Load BSD features
+load(['features/BSD/BSD_', dataset, '_75.mat'])
+bsd_routes = routes;
+
 
 % Load ES best estimated routes
 params.features_type = 'ES';
 results_filename = ['ES_results/',model,'/',dataset,'_',params.features_type,params.turns,params.probs,'.mat'];
 load(results_filename, 'best_estimated_routes', 'routes');
 es_ber = best_estimated_routes;
+es_routes = routes;
 
 %Find boundaries limits
 load(['Data/',dataset,'/boundary.mat']);
 limits = [boundary(2) boundary(4) boundary(1) boundary(3)];
 
 % Create the map
-map = Map(limits, [],[],-1);
+map = Map(limits, [],[],-2);
 hold on;
 
 
@@ -79,26 +84,30 @@ for key_frame = 1:loops
     % display the best estimated route
     if key_frame <= successful_route_length_bsd
         bsd_estimates = bsd_ber{1, route_index}{key_frame};
-        min_dist = hamming_dist(gt, bsd_estimates);
+        min_dist = 0;
     else        
-        [bsd_estimates, min_dist] = Bootstrapping_v2(gt(key_frame), bsd_estimates, min_dist, routes, successful_route_length_bsd, 'BSD');
+        [bsd_estimates, min_dist] = Bootstrapping_v2(gt(key_frame), bsd_estimates, min_dist, bsd_routes, successful_route_length_bsd, 'BSD');
     end
 
     if key_frame <= successful_route_length_es
         es_estimates = es_ber{1, route_index}{key_frame};
-        min_dist = hamming_dist(gt, es_estimates);
+        min_dist = 0;
     else        
-        [es_estimates, min_dist] = Bootstrapping_v2(gt(key_frame),es_estimates, min_dist, routes, successful_route_length_es, 'ES');
+        [es_estimates, min_dist] = Bootstrapping_v2(gt(key_frame),es_estimates, min_dist, es_routes, successful_route_length_es, 'ES');
     end
     
     
     bsdhd = display_top_routes(routes, bsd_estimates, 'b', 20);
     eshd = display_top_routes(routes, es_estimates, 'g', 25);    
-    legend([hd(1) bsdhd(1) eshd(1)], 'Ground Truth', 'BSD', 'Embedding Space');
+    legend([hd(1) bsdhd(1) eshd(1)], 'Ground Truth', 'BSD', 'Embedding Space', 'Location', 'NorthWest');
+    txhd = text(true_x1(key_frame) + 0.0005, true_y1(key_frame)+ 0.0005, num2str(key_frame));
     F(key_frame) = getframe(map.ax);  
-    delete(bsdhd);
-    delete(eshd);
-    delete(hd(2)); % delete gt circle
+    if key_frame ~= loops
+        delete(bsdhd);
+        delete(eshd);
+        delete(hd(2)); % delete gt circle
+        delete(txhd)
+    end
     parfor_progress('searching');
 end
 
@@ -108,8 +117,9 @@ else
     name = [dataset, '_', num2str(route_index), '_', 'with_turn.avi'];
 end
     
-v = VideoWriter(name,'Uncompressed AVI');
-v.FrameRate = 1;
+v = VideoWriter(name, 'Motion JPEG AVI');
+v.Quality = 95;
+v.FrameRate = 2;
 open(v)
 writeVideo(v,F)
 close(v)

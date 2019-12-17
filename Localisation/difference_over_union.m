@@ -5,7 +5,7 @@ close all
 model = 's2v700k_v1';
 top_k = 1;
 route_length = 40;
-datasets = {'luton_v4'}; 
+datasets = {'london_10_19'}; 
 test_num = 500;
 score = zeros(length(datasets),route_length);
 union_accuracy = zeros(length(datasets),route_length);

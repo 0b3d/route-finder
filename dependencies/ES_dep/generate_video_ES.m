@@ -9,7 +9,7 @@ addpath(genpath(path));
 % Configuration
 dataset = 'luton_v4';
 model = 's2v700k_v1';
-params.turns = 'true';
+params.turns = 'false';
 params.probs = 'false';
 params.test_num = 500;
 params.threshold = 60;

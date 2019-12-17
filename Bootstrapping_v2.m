@@ -32,10 +32,15 @@ if loc_flag ~= 2
     exit;
 end
 
+indices = any(find(R == 0), 1);
+R = R(indices, :);
+dist = dist(indices, :);
 if strcmp(features_type, 'BSD')
     bad = routes(gt).CNNs;
     [R_, dist_] = Nclosest_v4(bad,R,routes,dist,100);
 else
+    y = routes(gt).y;
+    [R_, dist_] = Nclosest_uc_boots(y,R, routes, dist, 100);
     
 end
 et = R_(1,:);
