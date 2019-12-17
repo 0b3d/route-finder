@@ -27,17 +27,17 @@ loops = 30;
 F(loops) = struct('cdata',[],'colormap',[]);
 successful_route_length = 20; % successfully localised length
 
+% draw background image     
+display_map_v3(ways, buildings, naturals, leisures, boundary);
+hold on;
+% limits = [boundary(2) boundary(4) boundary(1) boundary(3)];
+% map = Map(limits); % plot OSM map
+% hold on;
+set(gcf, 'position', get(0,'screensize'));
+
 parfor_progress('searching', loops);
 for key_frame = 1:loops
-    % draw background image     
-    display_map_v3(ways, buildings, naturals, leisures, boundary);
-    hold on;
-    limits = [boundary(2) boundary(4) boundary(1) boundary(3)];
-%     map = Map(limits); % plot OSM map
-%     hold on;
-    
-    set(gcf, 'position', get(0,'screensize'));
-    
+    title(strcat('Number of move #', num2str(key_frame)));
     % display the route
     t = test_route(idx,:);
     T = test_turn(idx,:);
@@ -52,8 +52,10 @@ for key_frame = 1:loops
     end
     
     % display with turn
-    [R_, dist_, t_, min_dist] = display_route(t, routes, R, N(key_frame), dist, key_frame, T, threshold, successful_route_length);
-    F(key_frame) = getframe(gcf);  
+    [R_, dist_, t_, min_dist, hd, hg] = display_route(t, routes, R, N(key_frame), dist, key_frame, T, threshold, successful_route_length);
+    legend([hg hd(3)], 'Ground Truth', 'BSD');
+    F(key_frame) = getframe(gcf); 
+    delete(hd);
     parfor_progress('searching');
 end
 v = VideoWriter('demo_london_BSD.avi','Uncompressed AVI');

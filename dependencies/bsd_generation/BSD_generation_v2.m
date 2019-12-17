@@ -1,9 +1,9 @@
-function panos = BSD_generation_v2(panos, inters, buildings, radius, range, thresh_jc, thresh_bd)
+function panos = BSD_generation_v2(panos, inters, buildings, radius, range, thresh_jc, thresh_bd, thresh_dist)
 
 arclen = radius / (2*earthRadius*pi) * 360;  
 
 parfor_progress('BSD extraction', size(panos,2));
-for p=108%1:size(panos, 2)
+for p=1:size(panos, 2)
     locaCoords = cell2mat({panos(p).gsv_coords}');
     yaw = panos(p).gsv_yaw;
    
@@ -58,11 +58,11 @@ for p=108%1:size(panos, 2)
     descList(3) = blabel;
     
     %% Get Labels for gaps
-    llabel = getLabelBD_v4(search_areas.left, buildings_in_circle, locaCoords, thresh_bd);
+    llabel = getLabelBD_v4(search_areas.left, buildings_in_circle, locaCoords, thresh_bd, radius, thresh_dist);
     descList(4) = llabel;
 
         
-    rlabel = getLabelBD_v4(search_areas.right, buildings_in_circle, locaCoords, thresh_bd);
+    rlabel = getLabelBD_v4(search_areas.right, buildings_in_circle, locaCoords, thresh_bd, radius, thresh_dist);
     descList(2) = rlabel;
     
     descList(descList == 2) = 0;

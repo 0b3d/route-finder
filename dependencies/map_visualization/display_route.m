@@ -1,4 +1,4 @@
-function [R_, dist_, t_, min_dist] = display_route(t, routes, R, N, dist, key_frame, T, threshold, route_length)
+function [R_, dist_, t_, min_dist, hd, hg] = display_route(t, routes, R, N, dist, key_frame, T, threshold, route_length)
 location = t(key_frame);
 bad = routes(location).CNNs; % .x
 [R_, dist_] = Nclosest_v4(bad,R,routes,dist,N); % filter based on sorting
@@ -31,8 +31,7 @@ if cmin == cmax
     cmax = cmin+1;
 end
     
-title(strcat('Number of move #', num2str(route_length)));
-scatter(All(1:sz1,2), All(1:sz1,1), 25, Score, 'o', 'filled');
+hd(1) = scatter(All(1:sz1,2), All(1:sz1,1), 25, Score, 'o', 'filled');
 hold on;
 colormap('jet');
 caxis([cmin,cmax]);
@@ -45,10 +44,9 @@ for i=1:key_frame
     true_x(i) = routes(t(i)).gsv_coords(2);
     true_y(i) = routes(t(i)).gsv_coords(1);
 end
-plot(true_x(:,1), true_y(:,1), '*r');
-hold on;
-plot(true_x(key_frame), true_y(key_frame), 'o', 'MarkerEdgeColor', 'r','MarkerSize', 40, 'LineWidth', 5);
-hold on;
+hg = plot(true_x(:,1), true_y(:,1), '*r');
+hd(2) = plot(true_x(key_frame), true_y(key_frame), 'o', 'MarkerEdgeColor', 'r','MarkerSize', 40, 'LineWidth', 5);
+
 % estimated location
 t_ = R_(1,:);
 min_dist = dist_(1);
@@ -59,8 +57,6 @@ for i=1:sz2
     estimated_x(i) = routes(t_(i)).gsv_coords(2);
     estimated_y(i) = routes(t_(i)).gsv_coords(1);
 end
-plot(estimated_x(:,1), estimated_y(:,1), '*b');
-hold on;
-plot(estimated_x(sz2), estimated_y(sz2), 'o', 'MarkerEdgeColor', 'b','MarkerSize', 30, 'LineWidth', 5);
-hold off;
+hd(3) = plot(estimated_x(:,1), estimated_y(:,1), '*b');
+hd(4) = plot(estimated_x(sz2), estimated_y(sz2), 'o', 'MarkerEdgeColor', 'b','MarkerSize', 30, 'LineWidth', 5);
 end

@@ -1,13 +1,13 @@
-function label = getLabelBD_v4(search_areas, buildings_in_circle, locaCoords, thresh_bd)  
+function label = getLabelBD_v4(search_areas, buildings_in_circle, locaCoords, thresh_bd, radius, thresh_dist)  
 distBD = [];
 cutList = [];
 
 % plot buildings
-for i=1:size(buildings_in_circle,1)     
-    curbuilding = buildings_in_circle(i).coords;
-    plot(curbuilding(:,2),curbuilding(:,1),'-m');
-    hold on
-end
+% for i=1:size(buildings_in_circle,1)     
+%     curbuilding = buildings_in_circle(i).coords;
+%     plot(curbuilding(:,2),curbuilding(:,1),'-m');
+%     hold on
+% end
 
 for i=1:size(search_areas, 1)
     candidates = [];
@@ -15,9 +15,9 @@ for i=1:size(search_areas, 1)
     curline_x = search_areas(i,1);
     curline_y = search_areas(i,2);
     % plot rays
-    plot(locaCoords(2),locaCoords(1),'*r');
-    plot([curline_y, locaCoords(2)],[curline_x, locaCoords(1)],'-b');
-    hold on
+%     plot(locaCoords(2),locaCoords(1),'*r');
+%     plot([curline_y, locaCoords(2)],[curline_x, locaCoords(1)],'-b');
+%     hold on
     for j=1:size(buildings_in_circle,1)     
         curbuilding = buildings_in_circle(j).coords;
         [inter_x, inter_y] = polyxpoly([curline_x, locaCoords(1)], [curline_y, locaCoords(2)], curbuilding(:,1),curbuilding(:,2));
@@ -42,8 +42,8 @@ for i=1:size(search_areas, 1)
         minInter = minInter';
         minBD = candidates(4,index(1));
         % plot inters
-        plot(minInter(2),minInter(1),'*r');
-        hold on
+%         plot(minInter(2),minInter(1),'*r');
+%         hold on
     else
         minInter = [curline_x curline_y];
         minBD = -99;   
@@ -57,7 +57,7 @@ for i=1:size(search_areas, 1)
         distBD = [distBD dist];
         cutList = [cutList minBD];
     else
-        distBD = [distBD 35]; % radius
+        distBD = [distBD radius]; % radius
         cutList = [cutList 0];
     end        
 end
@@ -84,7 +84,7 @@ else
             d_min = poly_poly_dist(xv1, yv1, xv2, yv2);
             if d_min > 0 % no intersections
                 dist_diff = abs(distBD(i) - distBD(i+1));
-                if dist_diff >= 5 % 5m
+                if dist_diff >= thresh_dist % 5m
                     findGap = 1;                 
                 end
             end
