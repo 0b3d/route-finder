@@ -54,5 +54,6 @@ for i=1:size(city_list, 1)
         end
         
         routes(j).BSDs = desc;
-    end        
+    end
+    save(['features/',features_type,'/',features_type,'_', dataset,'.mat'],'routes');
 end
