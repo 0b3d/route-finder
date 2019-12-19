@@ -1,4 +1,4 @@
-function [zerL, d_min, dist_diff] = getAttribute_BD(search_areas, buildings_in_circle, locaCoords)  
+function [zerL, d_min, dist_diff] = getAttribute_BD(search_areas, buildings_in_circle, locaCoords, radius)  
 distBD = [];
 cutList = [];
 
@@ -77,9 +77,11 @@ for i=1:size(cutList, 2)-1
         yv1 = bd1(:,2)';
         xv2 = bd2(:,1)';
         yv2 = bd2(:,2)';
-        d_min = poly_poly_dist(xv1, yv1, xv2, yv2);
-        if d_min > 0 % no intersections
-            dist_diff = abs(distBD(i) - distBD(i+1));
+        d_min_tmp = poly_poly_dist(xv1, yv1, xv2, yv2);       
+        if d_min_tmp > 0 % no intersections
+            d_min = [d_min, d_min_tmp];
+            dist_diff_tmp = abs(distBD(i) - distBD(i+1));
+            dist_diff = [dist_diff, dist_diff_tmp];
         end
     end
 end

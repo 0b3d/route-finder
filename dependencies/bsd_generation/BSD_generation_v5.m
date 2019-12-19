@@ -1,4 +1,4 @@
-function panos = BSD_generation_v3(panos, inters, buildings, radius, range)
+function panos = BSD_generation_v5(panos, inters, buildings, radius, range)
 
 arclen = radius / (2*earthRadius*pi) * 360;  
 
@@ -54,8 +54,8 @@ for p=1:size(panos, 2)
     dist_b = getAttribute_JC(search_areas.backward, junctions_in_circle, locaCoords);
        
     %% Get Attributes for gaps
-    [zerL_l, d_min_l, dist_diff_l] = getAttribute_BD(search_areas.left, buildings_in_circle, locaCoords);
-    [zerL_r, d_min_r, dist_diff_r] = getAttribute_BD(search_areas.right, buildings_in_circle, locaCoords);
+    [zerL_l, d_min_l, dist_diff_l] = getAttribute_BD(search_areas.left, buildings_in_circle, locaCoords, radius);
+    [zerL_r, d_min_r, dist_diff_r] = getAttribute_BD(search_areas.right, buildings_in_circle, locaCoords, radius);
             
     panos(p).dist_f = dist_f;
     panos(p).dist_b = dist_b;
