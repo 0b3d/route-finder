@@ -6,7 +6,7 @@ sys.setdefaultencoding('utf8')
 
 start = time.time()
 
-mapFile = os.path.join(os.getcwd(), 'OSM Files', sys.argv[2])
+mapFile = os.path.join(os.getcwd(), 'OSM_Files', sys.argv[2])
 print(mapFile)
 input_type = 'file'
 
