@@ -27,6 +27,6 @@ thresh_dist = 5; % 5m
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
 turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'

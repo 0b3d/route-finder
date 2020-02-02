@@ -50,4 +50,5 @@ ax = ancestor(hm, 'axes');
 %title(ax, fig_title);
 xlabel(ax, 'Distance')
 ylabel(ax, 'Number of pairs')
+legend('Matched pairs', 'Unmatched pairs')
 grid on
