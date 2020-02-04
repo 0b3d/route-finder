@@ -9,9 +9,6 @@ parameters; %load the parameters
 % next script, otherwise comment line
 map_processing;
 
-% To delete repeated pano_ids 
-delete_repeated_panoids;
-
 % To create a csv file with all the nodes information (needed for gsv download)
 % The file will be in Data/<dataset>/routes.csv
 % save_csv;
@@ -33,8 +30,9 @@ delete_repeated_panoids;
 % data_generation;
 
 feature_generating;
-simulate_cnn;
-load_features;
+assign_lables;
+simulate_cnn;    % simulated CNN
+% load_features; % true CNN
 
 
 

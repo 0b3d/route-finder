@@ -10,14 +10,12 @@ addpath(genpath(path));
 if strcmp(features_type, 'ES') 
     load(['features/',features_type,'/','s2v700k_v1','/',features_type,'_', dataset,'.mat']);
 else
-    %load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
-    %load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
-    load(['features/',features_type,'_test','/',features_type,'_', dataset,'.mat']);
+    load(['features/',features_type,'/',features_type,'_', dataset,'_',area,'_',num2str(accuracy*100),'.mat'],'routes');
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
-load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
-load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
+load(['Localisation/test_routes/',area,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
+load(['Localisation/test_routes/',area,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
 
 R_init = zeros(size(routes,2),1);
 for i = 1:size(routes,2)
@@ -148,12 +146,12 @@ for i = 1:size(rs, 2)
 end
 
 %% Save localization test information
-% if ~exist(['Data/',dataset,'/results'], 'dir')
-%     mkdir(['Data/',dataset,'/results'])
-% end
-% 
-% if strcmp(features_type, 'ES') 
-%     save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
-% else
-%     save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
-% end
+if ~exist(['Data/',area,'/results'], 'dir')
+    mkdir(['Data/',area,'/results'])
+end
+
+if strcmp(features_type, 'ES') 
+    save(['Data/',area,'/results/',option,'.mat'],  '-v7.3')
+else
+    save(['Data/',area,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+end

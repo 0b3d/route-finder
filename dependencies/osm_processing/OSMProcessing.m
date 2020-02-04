@@ -50,8 +50,4 @@ allLeisuresFile = ['Data/',dataset,'/leisure.txt'];
 save(['Data/',dataset,'/naturals.mat'], 'naturals');
 save(['Data/',dataset,'/leisures.mat'], 'leisures');
 
-%% Extract dense road nodes
-[roads] = extract_dense_roads(ways, inters, road_dense_distance);
-save(['Data/',dataset,'/roads.mat'],'roads');
-
 end
