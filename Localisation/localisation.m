@@ -10,7 +10,7 @@ addpath(genpath(path));
 if strcmp(features_type, 'ES') 
     load(['features/',features_type,'/','s2v700k_v1','/',features_type,'_', dataset,'.mat']);
 else
-    load(['features/',features_type,'/',features_type,'_', dataset,'_',area,'_',num2str(accuracy*100),'.mat'],'routes');
+    load(['features/',features_type,'/',area,'/',features_type,'_', dataset,'_',area,'_',num2str(accuracy*100),'.mat'],'routes');
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
@@ -146,12 +146,12 @@ for i = 1:size(rs, 2)
 end
 
 %% Save localization test information
-if ~exist(['Data/',area,'/results'], 'dir')
-    mkdir(['Data/',area,'/results'])
+if ~exist(['results/',area], 'dir')
+    mkdir(['results/',area])
 end
 
 if strcmp(features_type, 'ES') 
-    save(['Data/',area,'/results/',option,'.mat'],  '-v7.3')
+    save(['results/',area,'/',option,'.mat'],  '-v7.3')
 else
-    save(['Data/',area,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+    save(['results/',area,'/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end

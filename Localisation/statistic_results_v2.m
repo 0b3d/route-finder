@@ -11,6 +11,6 @@ end
 accuracy_within_topK = accuracy_within_topK';
 accuracy_with_threshold = accuracy_with_threshold';
 
-% save(['ranking_',num2str(accuracy*100),'.mat'],  'ranking');
-% save(['best_estimated_routes_',num2str(accuracy*100),'.mat'], 'best_estimated_routes');
+% save(['results/',area,'/',ranking_',num2str(accuracy*100),'.mat'],  'ranking');
+% save(['results/',area,'/','best_estimated_routes_',num2str(accuracy*100),'.mat'], 'best_estimated_routes');
 
