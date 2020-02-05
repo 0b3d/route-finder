@@ -1,6 +1,6 @@
-mapfile = 'manhattan.osm';
-dataset = 'manhattan'; %The name of the dataset, creates a folder in /Data
-area = 'wallstreet5k';
+mapfile = 'pittsburgh.osm';
+dataset = 'pittsburgh'; %The name of the dataset, creates a folder in /Data
+area = 'cmu5k';
 
 %% parameters for the localisation
 test_num = 500; % The number of test routes
@@ -19,7 +19,7 @@ radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 range = 2; % generate rays every _degree
 
-accuracy = 1; % CNN accuracy
+accuracy = 0.9; % CNN accuracy
 % accuracy_jcf = 1;
 % accuracy_bdr = 0.8;
 % accuracy_jcb = 1;

@@ -37,7 +37,7 @@ simulate_cnn;    % simulated CNN
 
 
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
-Generate_random_routes;
+generate_random_routes;
 
 % Localization
 localisation;
