@@ -1,5 +1,5 @@
 mapfile = 'pittsburgh.osm';
-dataset = 'pittsburgh_01_20'; %The name of the dataset, creates a folder in /Data
+dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
@@ -27,6 +27,8 @@ thresh_dist = 5; % 5m
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
+model = 'v4_25e'
+tile_test_zoom = 'z18' 
 turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'
