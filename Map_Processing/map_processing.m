@@ -8,8 +8,8 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 disp('OSM Processing......');
-if ~exist(['Data/',dataset],'dir')
-    [inters, buildings, roads] = OSMProcessing(dataset, mapfile, road_dense_distance);
+if ~exist(['Data/',city],'dir')
+    [inters, buildings, roads] = OSMProcessing(city, mapfile);
     disp('OSM Finished');
 else
     disp('Folder in Data already exists')

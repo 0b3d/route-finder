@@ -9,7 +9,7 @@ addpath(genpath(path));
 parameters;
 
 % load data
-load(['features/',features_type,'/',area,'/',features_type,'_', dataset,'_',area,'.mat'],'routes');
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
 for j=1:length(routes)
     % junctions
     if ~isempty(routes(j).dist_f) && routes(j).dist_f <= thresh_jc && routes(j).dist_f >= 1
@@ -46,4 +46,4 @@ for j=1:length(routes)
     routes(j).BSDs = desc;
 
 end
-save(['features/',features_type,'/',area,'/',features_type,'_', dataset,'_',area,'.mat'],'routes');
+save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');

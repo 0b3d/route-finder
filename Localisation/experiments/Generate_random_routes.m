@@ -3,9 +3,9 @@ clear all
 close all 
 parameters;
 
-directory = ['Localisation/test_routes/'];
-turn_filename = ['Localisation/test_routes/',area,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
-route_filename = ['Localisation/test_routes/',area,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+directory = 'Localisation/test_routes/';
+turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+route_filename = ['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
 
 if ~exist(directory, 'dir')
     mkdir(directory)
@@ -14,7 +14,7 @@ end
 if ( isfile(route_filename) || isfile(turn_filename))
     display('warning! file not created because it already existed. If you need a new one remove old file or rename it')
 else
-    load(['features/',features_type,'/',features_type,'_', dataset,'_',area,'.mat'],'routes');
+    load(['Data/','streetlearn/',dataset,'.mat'],'routes');
     R_init = zeros(size(routes,2),1);
     for i = 1:size(routes,2)
         R_init(i) = i;   
