@@ -6,13 +6,13 @@ close all
 %             'tonbridge_v2', 'toronto_v1', 'washington_10_19','oxford_10_19'};
 
 datasets = {'london_10_19', 'scattered_london', 'edinburgh_10_19', 'luton_v4', 'paris_10_19', 'newyork_10_19'};
-
+model = 's2v700k_v2';
 
 for dset_index=1:length(datasets)
     dataset = datasets{dset_index}
     % load routes file 
     %routes_file = ['Data/',dataset,'/routes_small.mat'];
-    features_file = ['features/ES/',dataset,'.mat'];
+    features_file = ['features/ES/',model,'/',dataset,'.mat'];
     load(features_file, 'gsv_lat', 'gsv_lon', 'X', 'Y', 'pano_id');
     %load(routes_file);
     [pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);

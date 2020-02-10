@@ -1,12 +1,11 @@
 mapfile = 'pittsburgh.osm';
-dataset = 'manhattan'; %The name of the dataset, creates a folder in /Data
-area = 'unionsquare5k';
+
+dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
 lowerlat = 40.7171;
 upperlat = 40.7535;
 lowerlon = -74.028;
 upperlon = -73.940;
 
-%% parameters for the localisation
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
@@ -34,7 +33,10 @@ thresh_bd = 3;  % 4 degree
 thresh_dist = 5; % 5m
 max_rays = 43; % 90/2 - 2
 
-%% choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+
+% choose features type
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
+model = 'v4_25e'
+tile_test_zoom = 'z18' 
 turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'
