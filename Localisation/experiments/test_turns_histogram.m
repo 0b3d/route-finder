@@ -1,5 +1,9 @@
 % turns histogram
-load('Data/test_routes/tonbridge_turns_500_60.mat');
+clear all
+close all
+parameters;
+
+load(['Localisation/test_routes/',area,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
 
 histogram = zeros(500, 3);
 for i=1:size(test_turn,1)

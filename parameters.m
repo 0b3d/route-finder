@@ -1,6 +1,10 @@
 mapfile = 'pittsburgh.osm';
-dataset = 'pittsburgh'; %The name of the dataset, creates a folder in /Data
-area = 'cmu5k';
+dataset = 'manhattan'; %The name of the dataset, creates a folder in /Data
+area = 'unionsquare5k';
+lowerlat = 40.7171;
+upperlat = 40.7535;
+lowerlon = -74.028;
+upperlon = -73.940;
 
 %% parameters for the localisation
 test_num = 500; % The number of test routes
