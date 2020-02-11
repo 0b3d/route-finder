@@ -1,10 +1,10 @@
-mapfile = 'pittsburgh.osm';
+mapfile = 'manhattan.osm';
 city = 'manhattan';
 dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
-lowerlat = 40.7171;
-upperlat = 40.7535;
-lowerlon = -74.028;
-upperlon = -73.940;
+% lowerlat = 40.7171;
+% upperlat = 40.7535;
+% lowerlon = -74.028;
+% upperlon = -73.940;
 
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
@@ -22,7 +22,7 @@ radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 range = 2; % generate rays every _degree
 
-accuracy = 0.9; % CNN accuracy
+accuracy = 1; % CNN accuracy
 % accuracy_jcf = 1;
 % accuracy_bdr = 0.8;
 % accuracy_jcb = 1;
@@ -35,8 +35,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'ES'; % 'BSD' 'ES' or 'none'
-model = 'v1'
-tile_test_zoom = 'z19' 
-turns = 'true'; % 'true', 'false', 'only'
+features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+model = 'v1';
+tile_test_zoom = 'z19' ;
+turns = 'false'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'

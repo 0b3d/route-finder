@@ -146,17 +146,16 @@ for i = 1:size(rs, 2)
 end
 
 %% Save localization test information
-% if ~exist(['Data/',dataset,'/results'], 'dir')
-%     mkdir(['Data/',dataset,'/results'])
-% end
-% 
 if strcmp(features_type, 'ES')
     resultsPath = ['results/', features_type, '/', model, '/', tile_test_zoom, '/', dataset];
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
     save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
-%else
-%    save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
-%    save(['results/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+else
+    resultsPath = ['results/', features_type,'/',dataset];
+    if ~exist(resultsPath, 'dir')
+        mkdir(resultsPath)
+    end
+    save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end

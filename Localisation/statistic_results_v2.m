@@ -4,9 +4,11 @@ close all
 parameters;
 option = [features_type, turns ,probs]; 
 if strcmp(features_type, 'ES') 
-    load(['Data/',dataset,'/results/',option,'.mat']);
+    resultsPath = ['results/', features_type, '/', model, '/', tile_test_zoom, '/', dataset];
+    load( [resultsPath,'/', option ,'.mat'])
 else
-    load(['results/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'])
+    resultsPath = ['results/', features_type,'/',dataset];
+    load([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat']);
 end
 accuracy_within_topK = accuracy_within_topK';
 accuracy_with_threshold = accuracy_with_threshold';
