@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-models = {'s2v700k_v1', 's2v700k_v2'};
+models = {'v1', 'v4'};
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'

@@ -6,27 +6,16 @@ parameters;
 % Add repository path
 path =  fullfile(pwd);
 addpath(genpath(path));
-load(['features/ES/',dataset,'.mat']);
-load(['Data/',dataset,'/routes_small.mat']);
-routes2 = routes;
+load(['features/ES/',model,'/',tile_test_zoom, '/',  dataset,'.mat']); % Load features
+load(['Data/streetlearn/',dataset,'.mat']);
 
 %% generate delete set
-str = 'None                  ';
 for i=1:length(pano_id)
-    if strcmp(pano_id(i,:), str)
-        routes(i).id = [];
-        routes(i).gsv_coords = [];
-        routes(i).gsv_yaw = [];
-        routes(i).neighbor = [];
-        routes(i).x = [];
-        routes(i).y = [];
-    else
-        routes(i).id = pano_id(i,:);
-        routes(i).gsv_coords = [gsv_lat(i), gsv_lon(i)];
-        routes(i).gsv_yaw = gsv_yaw(i);
-        routes(i).neighbor = routes2(i).neighbor;
-        routes(i).x = X(i,:);
-        routes(i).y = Y(i,:);
-    end
+        if index(1,i) == routes(i).oidx
+            routes(i).x = X(i,:);
+            routes(i).y = Y(i,:);
+        else
+            error("Indices not match, check files ...")
+        end
 end
-save(['features/ES/','ES_',dataset,'.mat'],'routes');
+save(['features/ES/', model,'/' , tile_test_zoom, '/','ES_',dataset,'.mat'],'routes');

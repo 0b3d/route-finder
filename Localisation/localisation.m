@@ -8,11 +8,9 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 if strcmp(features_type, 'ES') 
-    load(['features/',features_type,'/','s2v700k_v1','/',features_type,'_', dataset,'.mat']);
+    load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
 else
-    %load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
-    %load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
-    load(['features/',features_type,'_test','/',features_type,'_', dataset,'.mat']);
+    load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
@@ -152,8 +150,13 @@ end
 %     mkdir(['Data/',dataset,'/results'])
 % end
 % 
-% if strcmp(features_type, 'ES') 
-%     save(['Data/',dataset,'/results/',option,'.mat'],  '-v7.3')
-% else
-%     save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
-% end
+if strcmp(features_type, 'ES')
+    resultsPath = ['results/', features_type, '/', model, '/', tile_test_zoom, '/', dataset];
+    if ~exist(resultsPath, 'dir')
+        mkdir(resultsPath)
+    end
+    save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
+%else
+%    save(['Data/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+%    save(['results/',dataset,'/results/',option,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+end

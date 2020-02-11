@@ -1,17 +1,29 @@
-function label = getLabelJC(Inter, buildings_in_circle, locaCoords)
+function label = getLabelJC(search_areas, junctions_in_circle, locaCoords, thresh_jc)
+Area = [locaCoords; search_areas; locaCoords];
+JC = [];
+distJC = [];
+for i=1:size(junctions_in_circle, 1)
+    curjuction = junctions_in_circle(i).coords;
+    [in, on] = inpolygon(curjuction(1), curjuction(2),Area(:,1), Area(:,2));
+    if in == 1 || on == 1
+        JC = [JC; curjuction];
+        dist_arc = distance(curjuction(1), curjuction(2),locaCoords(1),locaCoords(2));
+        dist = dist_arc / 360 * (2*earthRadius*pi);
+        distJC = [distJC; dist];
+    end    
+end
 
-tmp = isnan(Inter);
-label = 1;
-if tmp(1) == 0 && tmp(2) == 0
-    for i=1:size(buildings_in_circle, 1)
-        curbuilding = buildings_in_circle(i).coords;
-        [inter_x, inter_y] = polyxpoly([Inter(1), locaCoords(1)], [Inter(2), locaCoords(2)], curbuilding(:,1),curbuilding(:,2));
-        if size(inter_x) > 0
-            label = 2;
-            continue;
-        end
+nearestJC = round(min(distJC));
+
+if ~isempty(nearestJC)
+    if nearestJC <= thresh_jc && nearestJC >=1
+        label = 1;
+    elseif nearestJC > thresh_jc   % too far
+        label = 2;
+    else                    % too close
+        label = 3;
     end
-else 
+else
     label = 2;
 end
 
