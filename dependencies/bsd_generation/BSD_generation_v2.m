@@ -1,18 +1,18 @@
-function panos = BSD_generation_v2(panos, inters, buildings, radius, range, thresh_jc, thresh_bd, thresh_dist)
+function panos = BSD_generation_v2(panos, inters, buildings, radius, range)
 
 arclen = radius / (2*earthRadius*pi) * 360;  
 
 parfor_progress('BSD extraction', size(panos,2));
 for p=1:size(panos, 2)
     locaCoords = cell2mat({panos(p).gsv_coords}');
-    yaw = panos(p).gsv_yaw;
+    yaw = double(panos(p).gsv_yaw);
    
     if isempty(locaCoords) || isempty(yaw)
         continue;
     end    
     
     %% Find buildings in search area
-    circle = zeros(360/range, 2);  % search area, every 5 degree
+    circle = zeros(360/range, 2);  % search area, every 2 degree
     [circle(:,1), circle(:,2)] = scircle1(locaCoords(1),locaCoords(2),arclen, [],[],[],360/range);
     buildings_in_circle = [];
     junctions_in_circle = [];
@@ -44,30 +44,28 @@ for p=1:size(panos, 2)
     search_areas.backward = [];
     search_areas.left = [];
     search_areas.right = [];
+
     [search_areas.forward(:,1), search_areas.forward(:,2)] = scircle1(locaCoords(1),locaCoords(2),arclen, [yaw-45, yaw+45],[],[],90/range);
     [search_areas.right(:,1), search_areas.right(:,2)] = scircle1(locaCoords(1),locaCoords(2),arclen, [yaw+45, yaw+135],[],[],90/range);
     [search_areas.backward(:,1), search_areas.backward(:,2)] = scircle1(locaCoords(1),locaCoords(2),arclen, [yaw+135, yaw+225],[],[],90/range);
     [search_areas.left(:,1), search_areas.left(:,2)] = scircle1(locaCoords(1),locaCoords(2),arclen, [yaw+225, yaw+315],[],[],90/range);
-    
-    %% Get Labels for junctions
-    descList = zeros(1, 4);
-    flabel = getLabelJC_v2(search_areas.forward, junctions_in_circle, locaCoords, thresh_jc);
-    descList(1) = flabel;
-    
-    blabel = getLabelJC_v2(search_areas.backward, junctions_in_circle, locaCoords, thresh_jc);  
-    descList(3) = blabel;
-    
-    %% Get Labels for gaps
-    llabel = getLabelBD_v4(search_areas.left, buildings_in_circle, locaCoords, thresh_bd, radius, thresh_dist);
-    descList(4) = llabel;
 
-        
-    rlabel = getLabelBD_v4(search_areas.right, buildings_in_circle, locaCoords, thresh_bd, radius, thresh_dist);
-    descList(2) = rlabel;
-    
-    descList(descList == 2) = 0;
-    descList(descList == 3) = 0;
-    panos(p).BSDs = descList;
+    %% Get Attributes for junctions
+    dist_f = getAttribute_JC(search_areas.forward, junctions_in_circle, locaCoords);
+    dist_b = getAttribute_JC(search_areas.backward, junctions_in_circle, locaCoords);
+       
+    %% Get Attributes for gaps
+    [zerL_l, d_min_l, dist_diff_l] = getAttribute_BD(search_areas.left, buildings_in_circle, locaCoords, radius);
+    [zerL_r, d_min_r, dist_diff_r] = getAttribute_BD(search_areas.right, buildings_in_circle, locaCoords, radius);
+            
+    panos(p).dist_f = dist_f;
+    panos(p).dist_b = dist_b;
+    panos(p).zerL_l = zerL_l;
+    panos(p).d_min_l = d_min_l;
+    panos(p).dist_diff_l = dist_diff_l;
+    panos(p).zerL_r = zerL_r;
+    panos(p).d_min_r = d_min_r;
+    panos(p).dist_diff_r = dist_diff_r;
     
     parfor_progress('BSD extraction');
 end
