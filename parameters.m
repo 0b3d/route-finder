@@ -28,7 +28,7 @@ thresh_dist = 5; % 5m
 
 % choose features type
 features_type = 'ES'; % 'BSD' 'ES' or 'none'
-model = 'v4_25e'
-tile_test_zoom = 'z18' 
+model = 'v1'
+tile_test_zoom = 'z19' 
 turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'

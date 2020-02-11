@@ -27,19 +27,14 @@ thresh_dist = 5; % 5m
 
 
 % choose features type
-features_type = 'ES'; % 'BSD' 'ES' or 'none'
-model = 'v4_25e'
-tile_test_zoom = 'z18' 
-turns = 'true'; % 'true', 'false', 'only'
-probs = 'false'; % for 'BSD', set this to 'false'
-
-
 params = struct 
-params.model = 'v4_25e'
+params.features_type = 'ES'
+params.dataset = 'wallstreet5k'
+params.model = 'v1'
 params.tile_test_zoom = 'z18'
 params.turns = 'true'
 params.probs = 'false'
 
-params.option = [features_type, turns ,probs];
-params.resultsPath = ['results/', model, '/', params.tile_test_zoom, '/' , dataset, '/',params.option,'.mat']
-%params.resultsPath = ['results/', model, '/', params.tile_test_zoom, '/' , dataset, '/results/',params.option,'.mat']
+params.option = [params.features_type, params.turns ,params.probs];
+params.ESResultsPath = fullfile('results/ES', params.model, params.tile_test_zoom, params.dataset,[params.option,'.mat'])
+params.ESFeaturesPath = fullfile('features/ES',params.model, params.tile_test_zoom, [params.dataset, '.mat'])

@@ -1,13 +1,10 @@
 clc
 clear all;
 close all;
-% parameters;
-dataset = 'scattered_london';
-fig_title = 'LondonS';
+ESparams;
 
 %Read the features
-load(['features/ES/', dataset,'.mat'], 'X', 'Y', 'pano_id');
-[pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
+load(params.ESfeaturesPath, 'X', 'Y', 'pano_id');
 n = size(Y,1);
 matched_pairs = zeros(1,n);
 unmatched_pairs = zeros(1,n);
