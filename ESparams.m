@@ -1,7 +1,7 @@
 % choose features type
 params = struct 
 params.features_type = 'ES'
-params.dataset = 'wallstreet5k'
+params.dataset = 'unionsquare5k'
 params.model = 'v1'
 params.tile_test_zoom = 'z18'
 params.turns = 'true'
