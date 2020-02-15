@@ -1,5 +1,6 @@
+clear all
 ESparams;
-load(params.ESResultsPath, 'ranking', 'test_route')
+load(params.ESResultsPath, 'ranking', 'test_turn')
 
 m = 20;
 k = 1
