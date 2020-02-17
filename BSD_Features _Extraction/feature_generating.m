@@ -23,9 +23,10 @@ end
 
 directory = ['features/',features_type,'/',dataset,'/'];
 if ~exist(directory, 'dir')
+    mkdir(directory);
     % routes = BSD_generation(routes, inters, buildings, radius, range, thresh_jc, thresh_bd, thresh_dist);
     routes = BSD_generation_v2(routes, inters, buildings, radius, range);
-    save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+    save([directory, features_type,'_', city,'_',dataset,'.mat'],'routes');
     disp('BSD Finishes');
 else
     disp('Folder in features already exists')
