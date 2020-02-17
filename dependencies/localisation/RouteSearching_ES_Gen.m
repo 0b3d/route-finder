@@ -76,6 +76,7 @@ for m=1 : max_route_length
     end
     best_top5_routes{m} = top5;
     
+    %rdhist(metric_, metric_(point_rank));
 end
 
 if ~isempty(t_)

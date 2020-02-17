@@ -8,7 +8,23 @@ end
 
 %criteria: sort, find the k nearest neighbors
 [~, I] = sort(dist); % core
-p = floor(size(I,1)/100*N);  % not slow
+% Check!! if only one route candidate is left, then it will produce an
+% empty dist_, and rank will be declared 5001
+sI = size(I,1);
+
+p = max(floor(size(I,1)/100*N), 100); % let 100 survive as minimum  % not slow
+% if sI > 1000
+%     max_dist = max(dist); 
+%     mu = mean(dist);
+%     %sigma = std(distances);
+%     th = (max_dist - mu)/2 + mu;
+%     p = size(find( dist <= th),1);
+% else
+%     p = 1000;
+% end
+
+
+p = min(p,sI);
 I = I(1:p,1);    
 R_ = R(I,:);
 dist_ = dist(I,1);
