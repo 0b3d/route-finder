@@ -65,15 +65,15 @@ for i=1:test_num
         % ES with turns using probs
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
             [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns, probs, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs);
-        
+            dist{i} = route_dist;
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
             [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, accuracy);
-        
+            dist{i} = route_dist;
         %% JUST TURNS
         case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
-        [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold);
-        
+            [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold);
+            
         otherwise
             warning('Unexpected configuration')      
     end
@@ -81,7 +81,7 @@ for i=1:test_num
     ranking(i,:) = rank;
     best_estimated_routes{i} = best_routes; 
     best_estimated_top5_routes{i} = best_top5_routes;
-    dist{i} = route_dist;
+
     parfor_progress('searching');
 end
 

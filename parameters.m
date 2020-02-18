@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
-city = 'train';
-dataset = 'trainstreetlearn'; %The name of the dataset, creates a folder in /Data
+city = 'pittsburgh';
+dataset = 'cmu5k'; %The name of the dataset, creates a folder in /Data
 % lowerlat = 40.7171;
 % upperlat = 40.7535;
 % lowerlon = -74.028;
@@ -38,5 +38,5 @@ max_rays = 43; % 90/2 - 2
 features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 model = 'v1';
 tile_test_zoom = 'z19' ;
-turns = 'true'; % 'true', 'false', 'only'
+turns = 'only'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'
