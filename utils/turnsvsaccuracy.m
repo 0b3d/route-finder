@@ -1,11 +1,17 @@
 clear all
-ESparams;
-load(params.ESResultsPath, 'ranking', 'test_turn')
+% ESparams;
+% load(params.ESResultsPath, 'ranking', 'test_turn')
+
+parameters;
+option = [features_type, turns ,probs]; 
+load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
+resultsPath = ['results/', features_type,'/',dataset];
+load([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat']);
 
 m = 20;
-k = 1
+k = 1;
 acc = zeros(4,1);
-count = zeros(4,2)
+count = zeros(4,2);
 
 for th=0:4
     routes_subset_indices = find(sum(test_turn(:,1:m-1),2) >= th);
@@ -17,7 +23,7 @@ for th=0:4
     acc(th+1,1) = num_routes_top1 / num_routes_subset;
 end
     
-b = bar(count, 'stack')
+b = bar(count, 'stack');
 xtips1 = b(1).XEndPoints;
 ytips1 = b(1).YEndPoints;
 labels1 = string(acc);
