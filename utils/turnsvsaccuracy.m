@@ -10,11 +10,15 @@ load([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat']);
 
 m = 20;
 k = 1;
-acc = zeros(4,1);
-count = zeros(4,2);
+
+num_turns_route = sum(test_turn(:,1:m-1), 2);
+max_num_turns = max(num_turns_route);
+
+acc = zeros(num_turns_route,1);
+count = zeros(num_turns_route,2);
 xtips1 = [];
 ytips1 = [];
-for th=0:4
+for th=0:num_turns_route
     routes_subset_indices = find(sum(test_turn(:,1:m-1),2) >= th);
     routes_subset_rankings = ranking(routes_subset_indices,m);
     num_routes_subset = size(routes_subset_rankings, 1);
@@ -35,5 +39,5 @@ text(xtips1,ytips1,labels1,'HorizontalAlignment','center',...
 legend({'Localised routes', 'Not localised routes'})
 xlabel('Minimum number of turns in routes')
 ylabel('Number of routes')
-xticklabels(0:4)
+xticklabels(0:num_turns_route)
 title('Localisation accuracy (route length=20)')
