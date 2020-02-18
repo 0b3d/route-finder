@@ -5,7 +5,7 @@ clc
 
 
 routes_manhattan = load(['Data/manhattan_train.mat']);
-routes_pittsburgh = load(['Data/pittsburgh_train.mat']);
+routes_pittsburgh = load(['Data/pittsburgh_train2.mat']);
 
 routes_manhattan = routes_manhattan(1).routes;
 routes_pittsburgh = routes_pittsburgh(1).routes;
@@ -27,4 +27,4 @@ for idx=1:length(routes_pittsburgh)
     routes(i).city = 'pittsburgh';
 end
 
-save('Data/trainstreetlearn.mat','routes');
+save('Data/trainstreetlearn2.mat','routes');
