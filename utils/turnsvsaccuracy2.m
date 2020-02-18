@@ -17,7 +17,8 @@ max_num_turns = max(num_turns_route);
 
 acc = zeros(max_num_turns,1);
 count = zeros(max_num_turns,2);
-
+xtips1 = [];
+ytips1 = [];
 for th=0:max_num_turns
     routes_subset_indices = find(num_turns_route == th);
     routes_subset_rankings = ranking(routes_subset_indices,m);
@@ -26,11 +27,13 @@ for th=0:max_num_turns
     %count(th,:) = [size(routes_subset_rankings, 1), size(find(routes_subset_rankings(:,20) == 1), 1)];
     count(th+1,:) = [num_routes_top1, num_routes_subset - num_routes_top1];
     acc(th+1,1) = num_routes_top1 / num_routes_subset;
+    xtips1 = [xtips1;th+1];
+    ytips1 = [ytips1;count(th+1,1)];
 end
     
 b = bar(count, 'stack');
-xtips1 = b(1).XEndPoints;
-ytips1 = b(1).YEndPoints;
+% xtips1 = b(1).XEndPoints;
+% ytips1 = b(1).YEndPoints;
 labels1 = string(acc);
 text(xtips1,ytips1,labels1,'HorizontalAlignment','center',...
     'VerticalAlignment','bottom')
