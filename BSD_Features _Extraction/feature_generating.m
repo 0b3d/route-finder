@@ -9,12 +9,12 @@ addpath(genpath(path));
 
 % load datas
 load(['Data/','streetlearn/',dataset,'.mat']);
-load(['Data/',city,'/ways.mat']);
-load(['Data/',city,'/inters.mat']);
 load(['Data/',city,'/buildings.mat']);
 
 file = ['Data/',city,'/inters_after_filter.mat'];
 if ~exist(file,'file')
+    load(['Data/',city,'/inters.mat']);
+    load(['Data/',city,'/ways.mat']);
     inters = inters_filter_v2(inters, ways, thresh); 
     save(['Data/',city,'/inters_after_filter.mat'], 'inters');
 else
