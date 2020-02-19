@@ -41,7 +41,6 @@ else
                     theta2 = routes(t(i+1)).gsv_yaw;
                     T(i) = turn_pattern(theta1, theta2, threshold);
                 end
-                disp(highway_flag(t));
                 test_route = [test_route; t];
                 test_turn = [test_turn; T];
             end

@@ -32,7 +32,7 @@ else
         f = 0;
         [t, max_route_length] = RandomRoutes(R_init, routes, max_route_length_init);
         if f == 0
-            if ~isempty(test_route) && sum(ismember(test_route, t, 'rows')) && sum(highway_flag(t(:)))% check the uniqueness 
+            if (~isempty(test_route) && sum(ismember(test_route, t, 'rows'))) || sum(highway_flag(t(:)))% check the uniqueness 
                 continue;
             else
                 T = zeros(1, size(t, 2)-1);
