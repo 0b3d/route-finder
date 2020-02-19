@@ -32,7 +32,7 @@ else
         f = 0;
         [t, max_route_length] = RandomRoutes(R_init, routes, max_route_length_init);
         if f == 0
-            if ~isempty(test_route) && sum(ismember(test_route, t, 'rows')) && sum(highway_flag(t(:)))% check the uniqueness 
+            if (~isempty(test_route) && sum(ismember(test_route, t, 'rows'))) || sum(highway_flag(t))% check the uniqueness 
                 continue;
             else
                 T = zeros(1, size(t, 2)-1);
@@ -41,6 +41,7 @@ else
                     theta2 = routes(t(i+1)).gsv_yaw;
                     T(i) = turn_pattern(theta1, theta2, threshold);
                 end
+                disp(highway_flag(t));
                 test_route = [test_route; t];
                 test_turn = [test_turn; T];
             end
