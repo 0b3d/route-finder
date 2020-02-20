@@ -22,7 +22,7 @@ radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 range = 2; % generate rays every _degree
 
-accuracy = 0.75; % CNN accuracy
+accuracy = 1; % CNN accuracy
 % accuracy_jcf = 1;
 % accuracy_bdr = 0.8;
 % accuracy_jcb = 1;
