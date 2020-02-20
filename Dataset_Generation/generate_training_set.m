@@ -3,20 +3,17 @@ clear all
 clc
 
 city = 'pittsburgh';
-name = 'train2';
+name = 'train';
 %areas = {'hudsonriver','unionsquare', 'wallstreet'};
-areas = {'southshore'};
+areas = {'cmu'};
 
-
-cityFilePath = fullfile('Data',city,[city,'.mat']);
-load(cityFilePath); 
+load(['Data/',city,'.mat']); 
 
 
 % for each area extract indices
 for a=1:length(areas)
     area = areas{a};
-    areaPath = fullfile('Data/streetlearn',[area, '5k.mat']);
-    testareas{a} = load(areaPath, 'routes');
+    testareas{a} = load(['Data/',city,'_', area,'5k.mat'], 'routes');
 end
 
 testindices = [];
