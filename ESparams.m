@@ -2,6 +2,7 @@
 params = struct 
 params.features_type = 'ES'
 params.dataset = 'cmu5k'
+params.subset = 'combined'
 params.model = 'v1'
 params.tile_test_zoom = 'z18'
 params.turns = 'true'
