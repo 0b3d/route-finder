@@ -14,8 +14,8 @@ else
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
-load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
-load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
+load(['Localisation/test_routes/','old_',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
+load(['Localisation/test_routes/','old_',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
 
 R_init = zeros(size(routes,2),1);
 for i = 1:size(routes,2)
