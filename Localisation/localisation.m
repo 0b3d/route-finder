@@ -14,8 +14,13 @@ else
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
-load(['Localisation/test_routes/','old_',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
-load(['Localisation/test_routes/','old_',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
+if strcmp(dataset,"cmu5k")
+    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat']);
+    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat']);
+else
+    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
+    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
+end
 
 R_init = zeros(size(routes,2),1);
 for i = 1:size(routes,2)
@@ -147,13 +152,25 @@ end
 
 %% Save localization test information
 if strcmp(features_type, 'ES')
-    resultsPath = ['results/', features_type, '/', model, '/', tile_test_zoom, '/', dataset];
+    if strcmp(dataset,"cmu5k")
+        resultsPath = ['results/', features_type, '/', model, '/', tile_test_zoom, '/', dataset,'_',subset];
+    else
+        resultsPath = ['results/', features_type, '/', model, '/', tile_test_zoom, '/', dataset];
+    end
+    
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
     save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
 else
-    resultsPath = ['results/', features_type,'/',dataset];
+
+    if strcmp(dataset,"cmu5k")
+        resultsPath = ['results/', features_type,'/',dataset,'_',subset];
+    else
+        resultsPath = ['results/', features_type,'/',dataset,'_',subset];
+    end
+    
+
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end

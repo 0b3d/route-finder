@@ -1,6 +1,7 @@
 mapfile = 'manhattan.osm';
 city = 'manhattan';
-dataset = 'hudsonriver5k'; %The name of the dataset, creates a folder in /Data
+dataset = 'cmu5k'; %The name of the dataset, creates a folder in /Data
+subset = 'suburb'
 % lowerlat = 40.7171;
 % upperlat = 40.7535;
 % lowerlon = -74.028;
@@ -35,8 +36,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
 model = 'v1';
-tile_test_zoom = 'z19' ;
-turns = 'false'; % 'true', 'false', 'only'
+tile_test_zoom = 'z18' ;
+turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'
