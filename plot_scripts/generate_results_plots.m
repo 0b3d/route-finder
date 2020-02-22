@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-model = 's2v700k_v1';
+model = 'v1';
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
@@ -10,13 +10,6 @@ params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 %option = {features_type,turns, probs};
 
-% uk_datasets = { 'scattered_london', 'edinburgh_10_19', 'london_10_19','luton_v4','oxford_10_19', 'tonbridge_v2'}
-% legend_text = {'Locations Eval','Edinburgh','London','Luton', 'Oxford', 'Tonbridge'};
-nouk_datasets = {'newyork_10_19', 'paris_10_19', 'rome_v1', 'toronto_v1', 'washington_10_19'}
-% legend_text = {'New York','Paris', 'Rome', 'Toronto','Washington'};
-
-%all_datasets = {'edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'paris_10_19', 'rome_v1', 'toronto_v1'}
-%legend_text = {'Edinburgh', 'LondonD', 'Luton', 'New York', 'Paris', 'Rome', 'Toronto'}
 
 cvpr_datasets = {'edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'toronto_v1'}
 legend_text = {'Edinburgh', 'LondonD', 'Luton', 'New York', 'Toronto'}

@@ -2,20 +2,11 @@ clc
 clear all
 close all
 
-models = {'s2v700k_v1'};
+models = {'v1'};
+zoom = 'z18'
+datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
+legend_text = {'Hudson River','Union Square', 'Wallstreet'};
 
-% uk_datasets = { 'scattered_london', 'edinburgh_10_19', 'london_10_19','luton_v4','oxford_10_19', 'tonbridge_v2'}
-% legend_text = {'Locations Eval','Edinburgh','London','Luton', 'Oxford', 'Tonbridge'};
-nouk_datasets = {'newyork_10_19', 'paris_10_19', 'rome_v1', 'toronto_v1', 'washington_10_19'}
-% legend_text = {'New York','Paris', 'Rome', 'Toronto','Washington'};
-
-%all_datasets = {'scattered_london','edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'paris_10_19', 'rome_v1', 'toronto_v1'}
-%legend_text = {'LondonS', 'Edinburgh', 'LondonD', 'Luton', 'New York', 'Paris', 'Rome', 'Toronto'}
-
-cvpr_datasets = {'edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'toronto_v1'}
-legend_text = {'Edinburgh', 'London', 'Luton', 'New York', 'Toronto'}
-
-datasets = cvpr_datasets
 top1p = zeros(1, length(dataset));
 ax = gca;
 
@@ -24,7 +15,7 @@ for mdl=1:length(models)
     ax.ColorOrderIndex = 1;
     for dset_index=1:length(datasets)
         dataset = datasets{dset_index};
-        features_filename = ['features/ES/',model,'/',dataset,'.mat'];
+        features_filename = ['features/ES/',model,'/', zoom, '/', dataset,'.mat'];
         % regenerate to be sure to use latest features
         load(features_filename)
         [pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
@@ -49,7 +40,7 @@ for mdl=1:length(models)
 
         x = labels / size(labels,2);
 
-        if strcmp(model, 's2v700k_v1')
+        if strcmp(model, 'v1')
             linestyle = '-';
         else
             linestyle = '--';
@@ -63,8 +54,8 @@ end
 
 xlabel('k (as a fraction of the dataset size)', 'FontName', 'Times','FontSize', 12)
 ylabel('Top k recall', 'FontName', 'Times','FontSize', 12)
-%ylim([0,1]);
-%xlim([0.01,1]);
+ylim([0,1]);
+xlim([0,0.8]);
 legend(legend_text, 'FontName', 'Times','FontSize', 10)
 grid on
 

@@ -2,10 +2,11 @@
 clear all
 close all
 
-model = 's2v700k_v1';
+model = 'v1';
+zoom = 'z18'
 top_k = 1;
 route_length = 40;
-datasets = {'london_10_19'}; 
+datasets = {'wallstreet5k'}; 
 test_num = 500;
 score = zeros(length(datasets),route_length);
 union_accuracy = zeros(length(datasets),route_length);
@@ -19,17 +20,18 @@ for dataset_index=1:length(datasets)
         acc = accuracies{a};
         dataset = datasets{dataset_index};
         % load BSD results
-        bsd_results_file = ['ES_results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_', acc,'.mat'];
+        bsd_results_file = fullfile('sub_results/BSD',dataset,params.turns,['ranking_', acc, '.mat'])
         load(bsd_results_file, 'ranking');
         ranking_bsd = ranking;
-        bsd_results_file = ['ES_results/BSD/results/',dataset,'/results/best_estimated_route_', acc,'.mat'];
+        bsd_results_file = fullfile('sub_results/BSD',dataset,params.turns,['best_estimated_routes_',acc, '.mat']);
         load(bsd_results_file, 'best_estimated_routes');
         best_estimated_routes_bsd = best_estimated_routes;
 
         % load ES results
         params.features_type = 'ES'
-        results_filename = ['ES_results/',model,'/',dataset,'_',params.features_type,params.turns,params.probs,'.mat'];
-        load(results_filename, 'accuracy_with_different_length', 'ranking','best_estimated_routes');
+        ESresults_filename =  fullfile('results/ES', model, zoom, dataset,['ES',params.turns,params.probs,'.mat']);
+        load(ESresults_filename, 'ranking', 'best_estimated_routes');
+    
         ranking_es = ranking;
         best_estimated_routes_es = best_estimated_routes;
 

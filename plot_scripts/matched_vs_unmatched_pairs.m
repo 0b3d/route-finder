@@ -1,15 +1,16 @@
 clc
 clear all;
 close all;
-datasets = {'newyork_10_19', 'edinburgh_10_19'};
+datasets = {'unionsquare5k', 'cmu5k_combined'};
 norm = 'count';
 % parameters;
 dataset = datasets{1};
-fig_title = 'LondonS';
-model = 's2v700k_v1'
+fig_title = 'Union Square';
+model = 'v1';
+zoom = 'z18';
 
 %Read the features
-load(['features/ES/',model,'/', dataset,'.mat'], 'X', 'Y', 'pano_id');
+load(['features/ES/',model,'/',zoom, '/', dataset,'.mat'], 'X', 'Y', 'pano_id');
 [pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
 n = size(Y,1);
 matched_pairs = zeros(1,n);
@@ -38,16 +39,16 @@ ax = ancestor(hm, 'axes');
 xlim([0, 6]);
 xlabel(ax, 'Distance','FontName', 'Times','FontSize',12)
 ylabel(ax, 'Number of pairs','FontName', 'Times','FontSize',12)
-legend({'Matched pairs New York', 'Unmatched pairs New York'},'FontName', 'Times','FontSize',10)
+legend({'Matched pairs Union Square', 'Unmatched pairs Union Square'},'FontName', 'Times','FontSize',10)
 grid on
 
 % parameters;
 dataset = datasets{2};
-fig_title = 'LondonD';
+fig_title = 'Wallstreet';
 
 %Read the features
 subplot(2,1,2)
-load(['features/ES/',model,'/', dataset,'.mat'], 'X', 'Y', 'pano_id');
+load(['features/ES/',model,'/', zoom, '/', dataset,'.mat'], 'X', 'Y', 'pano_id');
 [pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
 n = size(Y,1);
 matched_pairs = zeros(1,n);
@@ -76,5 +77,5 @@ ax = ancestor(hm, 'axes');
 xlim([0, 6]);
 xlabel(ax, 'Distance','FontName', 'Times','FontSize',12)
 ylabel(ax, 'Number of pairs','FontName', 'Times','FontSize',12)
-legend({'Matched pairs Edinburgh','Unmatched pairs Edinburgh'},'FontName', 'Times','FontSize',10)
+legend({'Matched pairs Wallstreet','Unmatched pairs Wallstreet'},'FontName', 'Times','FontSize',10)
 grid on

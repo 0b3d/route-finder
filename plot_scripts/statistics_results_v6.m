@@ -4,19 +4,29 @@ close all
 
 top_k = 1;
 route_length = 40;
-datasets = {'london_10_19'} %, 'london_10_19'}; 
+datasets = {'unionsquare5k'}; 
 test_num = 500;
 score = zeros(length(datasets),route_length);
+
+model = 'v1'
+zoom = 'z18'
+params.turns = 'true'
+params.probs = 'false'
+params.BSDacc = '100'
 
 for dataset_index=1:length(datasets)
     dataset = datasets{dataset_index};
     % load BSD results
-    load(['Data/',dataset,'/','results/','BSDtruefalse_100.mat']);
+    BSDresults_filename = fullfile('sub_results/BSD',dataset,params.turns,['ranking_',params.BSDacc, '.mat'])
+    load(BSDresults_filename, 'ranking');
     ranking_bsd = ranking;
+    BSDresults_filename = fullfile('sub_results/BSD',dataset,params.turns,['best_estimated_routes_',params.BSDacc, '.mat'])
+    load(BSDresults_filename, 'best_estimated_routes');
     best_estimated_routes_bsd = best_estimated_routes;
     
     % load ES results
-    load(['Data/',dataset,'/','results/','EStruefalse.mat']);
+    ESresults_filename =  fullfile('results/ES', model, zoom, dataset,['ES',params.turns,params.probs,'.mat']);
+    load(ESresults_filename, 'ranking', 'best_estimated_routes');
     ranking_es = ranking;
     best_estimated_routes_es = best_estimated_routes;
         

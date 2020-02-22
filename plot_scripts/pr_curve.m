@@ -3,22 +3,11 @@ clear all;
 close all;
 parameters;
 
-model = 's2v700k_v1';
+model = 'v1';
+zoom = 'z18'
 
-%cvpr_datasets = {'edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'toronto_v1'}
-%legend_text = {'Edinburgh', 'London', 'Luton', 'New York', 'Toronto'}
-
-%cvpr_datasets = {'edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'toronto_v1'}
-%legend_text = {'Edinburgh', 'London', 'Luton', 'New York', 'Toronto'}
-
-% datasets = { 'edinburgh_10_19', 'london_10_19','luton_v4','oxford_10_19', 'tonbridge_v2'}
-% legend_text = {'Random', 'Edinburgh','London','Luton', 'Oxford', 'Tonbridge'};
-
-%datasets = {'newyork_10_19', 'paris_10_19', 'rome_v1', 'toronto_v1', 'washington_10_19'}
-%legend_text = {'Random','New York','Paris', 'Rome', 'Toronto','Washington'};
-
-datasets = {'scattered_london','edinburgh_10_19', 'london_10_19', 'luton_v4', 'newyork_10_19', 'toronto_v1'}
-legend_text = {'Random','LondonS','Edinburgh', 'London', 'Luton', 'New York', 'Toronto'}
+datasets = {'hudsonriver5k','unionsquare5k', 'wallstreet5k'}
+legend_text = {'Random','Hudson River', 'Union Square', 'Wallstreet'}
 
 fig_title = 'Euclidean';
 [~, ndatasets] = size(datasets);
@@ -27,7 +16,7 @@ for k=1:ndatasets
     %Read the features
     dataset = datasets{k};
     %load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
-    features_filename = ['features/ES/',model,'/',dataset,'.mat'];
+    features_filename = ['features/ES/',model,'/', zoom, '/',dataset,'.mat'];
     % regenerate to be sure to use latest features
     load(features_filename, 'X', 'Y', 'pano_id');
     [pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);

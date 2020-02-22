@@ -2,17 +2,17 @@ clc
 clear all
 close all
 
-model = 's2v700k_v1';
+model = 'v1';
+zoom = 'z18'
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
+params.BSDacc = '75'
 %option = {features_type,turns, probs};
 
-dataset = 'london_10_19'
-load('ES_results/BSD_accuracies.mat')
-
+dataset = 'unionsquare5k'
 groups = 8;
 range = 5:5:20;
 data = zeros(size(range,2),5); 
@@ -23,8 +23,9 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'only'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-results_filename = ['ES_results/',model,'/',dataset,'_',params.features_type,params.turns,params.probs,'.mat'];
-load(results_filename, 'ranking');
+ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
+load(ESresults_filename, 'ranking');
+
 acc = sum(ranking == 1, 1)/size(ranking,1);
 col = acc(1,range)';
 data(:,1) = col;
@@ -34,8 +35,9 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-results_filename = ['ES_results/',model,'/',dataset,'_',params.features_type,params.turns,params.probs,'.mat'];
-load(results_filename, 'ranking');
+ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
+load(ESresults_filename, 'ranking');
+
 acc = sum(ranking == 1, 1)/size(ranking,1);
 col = acc(1,range)';
 data(:,4) = col;
@@ -46,8 +48,9 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-results_filename = ['ES_results/',model,'/',dataset,'_',params.features_type,params.turns,params.probs,'.mat'];
-load(results_filename, 'ranking');
+ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
+load(ESresults_filename, 'ranking');
+
 acc = sum(ranking == 1, 1)/size(ranking,1);
 col = acc(1,range)';
 data(:,5) = col;
@@ -58,8 +61,10 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-bsd_results_file = ['ES_results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_75.mat'];
-load(bsd_results_file, 'ranking')
+
+BSDresults_filename = fullfile('sub_results/BSD',dataset,params.turns,['ranking_',params.BSDacc, '.mat'])
+load(BSDresults_filename, 'ranking');
+
 acc = sum(ranking == 1, 1)/size(ranking,1);
 col = acc(1,range)';
 data(:,2) = col;
@@ -70,14 +75,13 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-bsd_results_file = ['ES_results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_75.mat'];
-load(bsd_results_file, 'ranking')
+BSDresults_filename = fullfile('sub_results/BSD',dataset,params.turns,['ranking_',params.BSDacc, '.mat'])
+load(BSDresults_filename, 'ranking');
+
 acc = sum(ranking == 1, 1)/size(ranking,1);
 col = acc(1,range)';
 data(:,3) = col;
 data = 100 * data;
-
-
 
 %% Make plot
 b = bar(range, data, 'FaceColor','flat','EdgeColor',[1 1 1])
@@ -103,7 +107,7 @@ grid on
 % accs = {'70','80','90','100'};
 % for i = 1:length(accs)
 %     acc = accs{i};
-%     bsd_results_file = ['ES_results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_', acc,'.mat'];
+%     bsd_results_file = ['results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_', acc,'.mat'];
 %     load(bsd_results_file, 'ranking')
 %     res = sum(ranking <= k, 1)/size(ranking,1);
 %     plot(range, res(range),  'LineStyle','--', 'LineWidth',2.0)
