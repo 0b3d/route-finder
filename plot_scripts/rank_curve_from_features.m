@@ -6,6 +6,7 @@ models = {'v1'};
 zoom = 'z18'
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
 legend_text = {'Hudson River','Union Square', 'Wallstreet'};
+%colormap = {'r','b','o'};
 
 top1p = zeros(1, length(dataset));
 ax = gca;
@@ -18,7 +19,7 @@ for mdl=1:length(models)
         features_filename = ['features/ES/',model,'/', zoom, '/', dataset,'.mat'];
         % regenerate to be sure to use latest features
         load(features_filename)
-        [pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
+        %[pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
 
         % get pairwise distances
         distances = pdist2(Y,X); %y-x distances
@@ -46,16 +47,22 @@ for mdl=1:length(models)
             linestyle = '--';
         end
 
-        plot(x,accuracy, 'LineStyle', linestyle, 'LineWidth',1.5)
+        plot(ax, x,accuracy,  'LineStyle', linestyle, 'LineWidth',1.5, 'Marker', '.', 'MarkerSize',3)
+        dataset
+        accuracy(1,50)
         hold on
 
     end
 end
 
-xlabel('k (as a fraction of the dataset size)', 'FontName', 'Times','FontSize', 12)
-ylabel('Top k recall', 'FontName', 'Times','FontSize', 12)
-ylim([0,1]);
-xlim([0,0.8]);
-legend(legend_text, 'FontName', 'Times','FontSize', 10)
-grid on
+xlim(ax,[0,0.8]);
+set(ax,'Ytick',0:0.2:1)
+
+xlabel(ax,'k (as a fraction of the dataset size)')
+ylabel(ax,'Top k recall')
+legend(ax,legend_text, 'Location','southeast')
+basic_plot_configuration;
+fig.PaperPosition = [0 0 8 4];
+filename = fullfile('results_for_eccv', 'charts', 'ESTopK');
+saveas(ax, filename,'epsc')
 
