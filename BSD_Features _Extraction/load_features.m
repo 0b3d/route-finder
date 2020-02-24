@@ -8,14 +8,14 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load features
-load('models/junctions_features.mat','features')
+load('models/cmu_junctions_features.mat','features')
 jc_features = features';
-load('models/gaps_features.mat','features')
+load('models/cmu_gaps_features.mat','features')
 bd_features = features';
 
 % load image path for junctions
-jc_outfolder = ['images/JUNCTIONS/','test/','junctions'];
-jc_outfolder_n = ['images/JUNCTIONS/','test/','non_junctions'];
+jc_outfolder = ['images/JUNCTIONS/','test_cmu/','junctions'];
+jc_outfolder_n = ['images/JUNCTIONS/','test_cmu/','non_junctions'];
 files = dir([jc_outfolder '/*.jpg']);
 files = {files.name}';
 files_n = dir([jc_outfolder_n '/*.jpg']);
@@ -30,8 +30,8 @@ for i=1:(length(files)+length(files_n))
 end
 
 % load image path for gaps
-bd_outfolder = ['images/GAPS/','test/','gaps'];
-bd_outfolder_n = ['images/GAPS/','test/','non_gaps'];
+bd_outfolder = ['images/GAPS/','test_cmu/','gaps'];
+bd_outfolder_n = ['images/GAPS/','test_cmu/','non_gaps'];
 files = dir([bd_outfolder '/*.jpg']);
 files = {files.name}';
 files_n = dir([bd_outfolder_n '/*.jpg']);
@@ -46,7 +46,7 @@ for i=1:(length(files)+length(files_n))
 end
 
 % correlate features
-load(['features/',features_type,'/',features_type,'_', dataset,'_',num2str(accuracy*100),'.mat']);
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
 for i=1:length(routes)
     id = routes(i).id;
     id_f = [id,'_front.jpg'];
@@ -67,7 +67,7 @@ for i=1:length(routes)
     bad(bad == 2) = 0;
     routes(i).CNNs = bad;    
 end
-save(['features/',features_type,'/',features_type,'_', dataset,'.mat'],'routes');
+save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
 
 
 
