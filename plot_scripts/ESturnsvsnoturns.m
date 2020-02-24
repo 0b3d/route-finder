@@ -41,12 +41,15 @@ end
 
 xlabel(ax, 'Route length')
 ylabel(ax, 'Correct localisations (%)')
+%set(ax,'Ytick',0:20:100)
+
 %ylim([0.2,1]);
-legend(ax, legend_text, 'location', 'southeast')
+
 grid on
 basic_plot_configuration;
+legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 7)
 fig = gcf
-fig.PaperPosition = [0 0 12 8];
+fig.PaperPosition = [0 0 8 6];
 filename = fullfile('results_for_eccv', 'charts', 'ES_turns_vs_noturns');
 saveas(ax, filename,'epsc')
 

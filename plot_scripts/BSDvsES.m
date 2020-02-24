@@ -7,11 +7,11 @@ zoom = 'z18'
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
-params.turns = 'false'; % 'true', 'false', 'only'
+params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 %option = {features_type,turns, probs};
 
-dataset = 'wallstreet5k'
+dataset = 'unionsquare5k'
 range = 1:1:40;
 k = 1
 
@@ -43,8 +43,8 @@ set(ax,'Ytick',0:20:100)
 
 fig = gcf
 basic_plot_configuration;
+legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 8)
 fig.PaperPosition = [0 0 8 6];
-legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
 filename = fullfile('results_for_eccv', 'charts', ['ESvsBSD_turns_',params.turns,'_',dataset]);
 saveas(ax, filename,'epsc')
 
