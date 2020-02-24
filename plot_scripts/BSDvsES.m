@@ -45,6 +45,6 @@ fig = gcf
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
-filename = fullfile('results_for_eccv', 'charts', ['ESvsBSD_tunrs_',params.turns,'_',dataset]);
+filename = fullfile('results_for_eccv', 'charts', ['ESvsBSD_turns_',params.turns,'_',dataset]);
 saveas(ax, filename,'epsc')
 
