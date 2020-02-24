@@ -98,25 +98,15 @@ b(5).FaceColor  = [0 0 1];
 % for k = 1:5
 %     b(k).FaceColor = cmap(10*k,:);
 % end
-xlabel('Route length', 'FontName', 'Times','FontSize', 12)
-ylabel('Correct localisations (%)', 'FontName', 'Times', 'FontSize', 12)
-legend({'Turns', 'BSD', 'BSD+Turns', 'ES', 'ES+Turns'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 10)
+xlabel('Route length', 'FontName', 'Times','FontSize', 10)
+ylabel('Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
+legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 8)
 grid on 
 
+ax = gca
+basic_plot_configuration;
+fig.PaperPosition = [0 0 8 5.33];
+filename = fullfile('results_for_eccv', 'charts', 'bars');
+saveas(ax, filename,'epsc')
 
-% accs = {'70','80','90','100'};
-% for i = 1:length(accs)
-%     acc = accs{i};
-%     bsd_results_file = ['results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_', acc,'.mat'];
-%     load(bsd_results_file, 'ranking')
-%     res = sum(ranking <= k, 1)/size(ranking,1);
-%     plot(range, res(range),  'LineStyle','--', 'LineWidth',2.0)
-%     hold on
-% end
-% 
-% res = sum(ranking_ES <= k, 1)/size(ranking,1);
-% plot(range, res(range),  'LineStyle','-', 'LineWidth',2.0)
-% grid on
-% 
-% legend_text = {'BSD 70%','BSD 80%','BSD 90%','BSD 100%', 'ES'}
-% legend(legend_text, 'Location', 'southeast')
+

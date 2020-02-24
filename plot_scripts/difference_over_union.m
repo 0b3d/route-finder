@@ -6,7 +6,7 @@ model = 'v1';
 zoom = 'z18'
 top_k = 1;
 route_length = 40;
-datasets = {'wallstreet5k'}; 
+datasets = {'unionsquare5k'}; 
 test_num = 500;
 score = zeros(length(datasets),route_length);
 union_accuracy = zeros(length(datasets),route_length);
@@ -62,15 +62,28 @@ for dataset_index=1:length(datasets)
             %union_accuracy(dataset_index, m) = size(union_set, 1)/test_num;
             score(dataset_index,m) = size(difference_set,1) / size(ES,1);%size(union_set, 1);    
         end
-        plot(score', 'LineStyle','-', 'LineWidth',1.5)
+        plot(score', 'LineStyle','-', 'LineWidth',1)
         hold on
     end
 end
 
+ax = gca
 %plot(union_accuracy')
-xlabel('Route length', 'FontName', 'Times', 'FontSize', 12)
-ylabel('S_{diff}', 'FontName', 'Times', 'FontSize', 12)
+xlabel(ax,'Route length', 'FontName', 'Times', 'FontSize', 10)
+ylabel(ax,'S_{diff}', 'FontName', 'Times', 'FontSize', 10)
+ylim([0, 1]);
+set(ax,'Ytick',0:0.2:1)
 grid on
 
 legend_text= {'BSD 75%','BSD 80%','BSD 90%','BSD 100%'}; 
-legend(legend_text,'FontName', 'Times', 'FontSize', 10)
+
+fig = gcf
+basic_plot_configuration;
+fig.PaperPosition = [0 0 8 6];
+if strcmp(dataset,"unionsquare5k")
+    legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
+else
+    legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'southeast')
+end
+filename = fullfile('results_for_eccv', 'charts', ['difference_over_union_',params.turns,'_',dataset]);
+saveas(ax, filename,'epsc')

@@ -33,15 +33,22 @@ for t = 1:2
             linestyle = '--';
         end
         x = 5:5:40;
-        plot(x, 100*accuracy_with_different_length(1,:), 'LineStyle', linestyle, 'LineWidth',1.5)
+        plot(ax, x, 100*accuracy_with_different_length(1,:), 'LineStyle', linestyle, 'LineWidth',1.5)
         grid on
         hold on
     end
 end
 
-xlabel('Route length', 'FontName', 'Times','FontSize', 12)
-ylabel('Correct localisations (%)', 'FontName', 'Times','FontSize', 12)
+xlabel(ax, 'Route length')
+ylabel(ax, 'Correct localisations (%)')
 %ylim([0.2,1]);
-legend(legend_text, 'FontName', 'Times', 'Location', 'southeast','FontSize', 10)
+legend(ax, legend_text, 'location', 'southeast')
 grid on
+basic_plot_configuration;
+fig = gcf
+fig.PaperPosition = [0 0 12 8];
+filename = fullfile('results_for_eccv', 'charts', 'ES_turns_vs_noturns');
+saveas(ax, filename,'epsc')
+
+
 

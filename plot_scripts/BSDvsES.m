@@ -25,17 +25,26 @@ plot(range, 100*res(range),  'LineStyle','-', 'LineWidth',2.0)
 hold on 
 
 accs = {'70','75','80','90','100'};
+ax = gca
 for i = 1:length(accs)
     acc = accs{i};
     BSDresults_filename = fullfile('sub_results/BSD',dataset,params.turns,['ranking_',acc, '.mat'])
     load(BSDresults_filename, 'ranking')
     res = sum(ranking <= k, 1)/size(ranking,1);
-    plot(range, 100*res(range),  'LineStyle','--', 'LineWidth',1.5)
+    plot(ax, range, 100*res(range),  'LineStyle','--', 'LineWidth',1)
     hold on
 end
 
 grid on
-xlabel('Route length', 'FontName', 'Times', 'FontSize', 12)
-ylabel('Correct localisations (%)', 'FontName', 'Times', 'FontSize', 12)
+xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
+ylabel(ax, 'Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 legend_text = {'ES','BSD 70 %','BSD 75 %','BSD 80 %','BSD 90 %','BSD 100 %'}
-legend(legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 10)
+set(ax,'Ytick',0:20:100)
+
+fig = gcf
+basic_plot_configuration;
+fig.PaperPosition = [0 0 8 6];
+legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
+filename = fullfile('results_for_eccv', 'charts', ['ESvsBSD_tunrs_',params.turns,'_',dataset]);
+saveas(ax, filename,'epsc')
+
