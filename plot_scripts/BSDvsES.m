@@ -7,7 +7,7 @@ zoom = 'z18'
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
-params.turns = 'true'; % 'true', 'false', 'only'
+params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 %option = {features_type,turns, probs};
 
@@ -43,7 +43,7 @@ set(ax,'Ytick',0:20:100)
 
 fig = gcf
 basic_plot_configuration;
-legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 8)
+legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
 fig.PaperPosition = [0 0 8 6];
 filename = fullfile('results_for_eccv', 'charts', ['ESvsBSD_turns_',params.turns,'_',dataset]);
 saveas(ax, filename,'epsc')

@@ -42,10 +42,17 @@ for k=1:ndatasets
     new_score = 1 - score / 6.0;
     prec_rec(new_score, target, 'holdFigure', 1, 'plotROC', 0, 'plotPR', 1, 'plotBaseline', 1, 'holdFigure', 1);
 end
-
+ax =gca
 legend(legend_text)
 ylim([0.4 1])
+set(ax,'Ytick',0.5:0.1:1)
 grid on
+basic_plot_configuration;
+legend(ax,legend_text, 'Location','west','FontName', 'Times', 'FontSize', 8)
+fig.PaperPosition = [0 0 8 6];
+filename = fullfile('results_for_eccv', 'charts', 'precision_recall');
+saveas(ax, filename,'epsc')
+
 
 % 
 % figure
