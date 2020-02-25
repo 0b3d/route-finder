@@ -5,9 +5,9 @@ plot(location(2),location(1),'*r');
 % show search circle
 arclen = radius / (2*earthRadius*pi) * 360;
 c_num = 360/range;
-circle = zeros(c_num, 2);
-[circle(:,1), circle(:,2)] = scircle1(location(1),location(2),arclen,[yaw, yaw+360],[],[],c_num);
-plot(circle(:,2), circle(:,1),'-r'); % plot a map
+% circle = zeros(c_num, 2);
+% [circle(:,1), circle(:,2)] = scircle1(location(1),location(2),arclen,[yaw, yaw+360],[],[],c_num);
+% plot(circle(:,2), circle(:,1),'-r'); % plot a map
 
 % search directions
 search_areas.forward = [];
