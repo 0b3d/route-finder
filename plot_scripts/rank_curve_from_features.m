@@ -5,7 +5,7 @@ close all
 models = {'v1'};
 zoom = 'z18'
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
-legend_text = {'Hudson River','Union Square', 'Wallstreet'};
+legend_text = {'Hudson River (32.3 %)','Union Square (31.84 %)', 'Wallstreet (27.26 %)'};
 %colormap = {'r','b','o'};
 
 top1p = zeros(1, length(dataset));
@@ -60,9 +60,9 @@ set(ax,'Ytick',0:0.2:1)
 
 xlabel(ax,'k (as a fraction of the dataset size)')
 ylabel(ax,'Top k recall')
-legend(ax,legend_text, 'Location','southeast')
 basic_plot_configuration;
-fig.PaperPosition = [0 0 8 4];
+legend(ax,legend_text, 'Location','southeast','FontName', 'Times', 'FontSize', 8)
+fig.PaperPosition = [0 0 8 6];
 filename = fullfile('results_for_eccv', 'charts', 'ESTopK');
 saveas(ax, filename,'epsc')
 

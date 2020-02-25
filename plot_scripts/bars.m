@@ -100,12 +100,12 @@ b(5).FaceColor  = [0 0 1];
 % end
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
-legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 8)
 grid on 
 
 ax = gca
 basic_plot_configuration;
-fig.PaperPosition = [0 0 8 5.33];
+fig.PaperPosition = [0 0 8 6];
+legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
 filename = fullfile('results_for_eccv', 'charts', 'bars');
 saveas(ax, filename,'epsc')
 

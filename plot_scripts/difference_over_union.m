@@ -11,7 +11,7 @@ test_num = 500;
 score = zeros(length(datasets),route_length);
 union_accuracy = zeros(length(datasets),route_length);
 
-params.turns = 'false';
+params.turns = 'true';
 params.probs = 'false';
 accuracies = {'75','80','90','100'};
 
@@ -80,10 +80,6 @@ legend_text= {'BSD 75%','BSD 80%','BSD 90%','BSD 100%'};
 fig = gcf
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
-if strcmp(dataset,"unionsquare5k")
-    legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
-else
-    legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'southeast')
-end
+legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
 filename = fullfile('results_for_eccv', 'charts', ['difference_over_union_',params.turns,'_',dataset]);
 saveas(ax, filename,'epsc')

@@ -95,6 +95,6 @@ grid on
 
 fig = gcf 
 basic_plot_configuration;
-fig.PaperPosition = [0 0 12 6]; % 12 x 9  cm 
+fig.PaperPosition = [0 0 12 6]; % 12 x 6  cm 
 filename = fullfile('results_for_eccv', 'charts', 'ES_distance_histogram');
 saveas(ax, filename,'epsc')
