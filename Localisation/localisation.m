@@ -170,7 +170,7 @@ else
     if strcmp(dataset,"cmu5k")
         resultsPath = ['results/', features_type,'/',dataset,'_',subset];
     else
-        resultsPath = ['results/', features_type,'/',dataset,'_',subset];
+        resultsPath = ['results/', features_type,'/',dataset];
     end
     
 

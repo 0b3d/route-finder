@@ -66,6 +66,10 @@ fig_title = 'Wall Street';
 %Read the features
 subplot(1,2,2)
 load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
+
+% load all the possible routes
+
+
 %[pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
 routes = struct2table(routes);
 Y = routes.CNNs;
@@ -106,5 +110,5 @@ grid on
 fig = gcf 
 basic_plot_configuration;
 fig.PaperPosition = [0 0 12 6]; % 12 x 9  cm 
-filename = fullfile('results_for_eccv', 'charts', 'ES_distance_histogram');
+filename = fullfile('results_for_eccv', 'charts', 'BSD_distance_histogram');
 saveas(ax, filename,'epsc')

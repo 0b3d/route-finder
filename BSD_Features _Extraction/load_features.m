@@ -8,14 +8,14 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load features
-load('models/cmu_junctions_features.mat','features')
+load('models/new/uq_junctions_features.mat','features')
 jc_features = features';
-load('models/cmu_gaps_features.mat','features')
+load('models/new/uq_gaps_features.mat','features')
 bd_features = features';
 
 % load image path for junctions
-jc_outfolder = ['images/JUNCTIONS/','test_cmu/','junctions'];
-jc_outfolder_n = ['images/JUNCTIONS/','test_cmu/','non_junctions'];
+jc_outfolder = ['images/JUNCTIONS/','test_uq/','junctions'];
+jc_outfolder_n = ['images/JUNCTIONS/','test_uq/','non_junctions'];
 files = dir([jc_outfolder '/*.jpg']);
 files = {files.name}';
 files_n = dir([jc_outfolder_n '/*.jpg']);
@@ -30,8 +30,8 @@ for i=1:(length(files)+length(files_n))
 end
 
 % load image path for gaps
-bd_outfolder = ['images/GAPS/','test_cmu/','gaps'];
-bd_outfolder_n = ['images/GAPS/','test_cmu/','non_gaps'];
+bd_outfolder = ['images/GAPS/','test_uq/','gaps'];
+bd_outfolder_n = ['images/GAPS/','test_uq/','non_gaps'];
 files = dir([bd_outfolder '/*.jpg']);
 files = {files.name}';
 files_n = dir([bd_outfolder_n '/*.jpg']);
