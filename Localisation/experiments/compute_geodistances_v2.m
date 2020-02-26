@@ -4,9 +4,9 @@
 
 % load routes file 
 clear all
-dataset = 'unionsquare5k';
-model = 'v1'
-zoom = 'z18'
+dataset = 'wallstreet5k';
+model = 'v1';
+zoom = 'z18';
 
 % Load routes struct
 load(fullfile('Data/streetlearn/', [dataset,'.mat']));
@@ -16,12 +16,19 @@ load(fullfile('localisation/test_routes/', [dataset,'_routes_500_60.mat']));
 load(fullfile('localisation/test_routes/', [dataset,'_turns_500_60.mat']));
 
 % Load ES best estimated routes
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.turns = 'false';
 params.probs = 'false';
-ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
-%load(ESresults_filename, 'ranking');
-load(ESresults_filename, 'best_estimated_top5_routes');
+if strcmp(params.features_type, 'ES') 
+    ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
+    %load(ESresults_filename, 'ranking');
+    load(ESresults_filename, 'best_estimated_top5_routes');
+else
+    option = [params.features_type, params.turns ,params.probs]; 
+    accuracy = 0.75;
+    BSDresults_filename = fullfile(['results/BSD/', dataset,'/', option ,'_',num2str(accuracy*100),'.mat']); 
+    load(BSDresults_filename, 'best_estimated_top5_routes');
+end
 
 % Now for each test route check if the estimated point is within a radius R of the gt
 geo_distances = ones(500,40)*3000;
@@ -42,4 +49,8 @@ for r=1:500
 end
 
 % Save results in specified folder
-save(fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'_distance_threshold.mat']), 'geo_distances')
+if strcmp(params.features_type, 'ES') 
+    save(fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'_distance_threshold.mat']), 'geo_distances')
+else
+    save(['results/BSD/',dataset,'/',option,'_distance_threshold_5.mat'],'geo_distances');
+end
