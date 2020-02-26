@@ -7,13 +7,13 @@ zoom = 'z18'
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
-params.turns = 'false'; % 'true', 'false', 'only'
+params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 %option = {features_type,turns, probs};
 
 dataset = 'unionsquare5k'
 range = 1:1:40;
-k = 1
+k = 5
 
 % load ES data
 ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
@@ -45,6 +45,6 @@ fig = gcf
 basic_plot_configuration;
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'charts', ['ESvsBSD_turns_',params.turns,'_',dataset]);
+filename = fullfile('results_for_eccv', 'charts', ['ESvsBSD_turns_',params.turns,'_',dataset,'_top_',num2str(k)]);
 saveas(ax, filename,'epsc')
 
