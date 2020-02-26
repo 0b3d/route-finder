@@ -1,6 +1,6 @@
 % Basic Configuration of plots
 
-font = 'Times'
+font = 'Times';
 ax.FontName = font;
 ax.FontSize = 10;
 
