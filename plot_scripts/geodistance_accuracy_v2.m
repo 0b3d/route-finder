@@ -3,7 +3,7 @@ clear all
 dataset = 'wallstreet5k';
 zoom = 'z18';
 model = 'v1';
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.turns = 'false';
 params.probs = 'false';
 thresholds = [0,10,20,30];
@@ -13,7 +13,7 @@ if strcmp(params.features_type, 'ES')
 else
     option = [params.features_type, params.turns ,params.probs]; 
     accuracy = 0.75;
-    fileName = fullfile(['results/BSD/',dataset,'/',option,'_distance_threshold_5.mat']); 
+    fileName = fullfile(['sub_results/BSD/',dataset,'/',option,'_',num2str(accuracy*100),'_distance_threshold_5.mat']); 
 end
 load(fileName);
 
@@ -35,5 +35,5 @@ fig = gcf;
 basic_plot_configuration;
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'charts/top5_vs_threshold/', ['accuracy_',params.features_type,params.turns,'_',dataset,'_distance_thresholds']);
+filename = fullfile('results_for_eccv', 'charts/top5_vs_threshold/', ['accuracy_',params.features_type,params.turns,'_',dataset,'_',num2str(accuracy*100),'_distance_thresholds']);
 saveas(ax, filename,'epsc')

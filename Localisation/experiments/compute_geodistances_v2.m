@@ -4,7 +4,7 @@
 
 % load routes file 
 clear all
-dataset = 'cmu5k';
+dataset = 'unionsquare5k';
 model = 'v1';
 zoom = 'z18';
 
@@ -16,7 +16,7 @@ load(fullfile('localisation/test_routes/', [dataset,'_routes_500_60.mat']));
 load(fullfile('localisation/test_routes/', [dataset,'_turns_500_60.mat']));
 
 % Load ES best estimated routes
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.turns = 'false';
 params.probs = 'false';
 if strcmp(params.features_type, 'ES') 
@@ -25,7 +25,7 @@ if strcmp(params.features_type, 'ES')
     load(ESresults_filename, 'best_estimated_top5_routes');
 else
     option = [params.features_type, params.turns ,params.probs]; 
-    accuracy = 0.75;
+    accuracy = 0.5;
     BSDresults_filename = fullfile(['results/BSD/', dataset,'/', option ,'_',num2str(accuracy*100),'.mat']); 
     load(BSDresults_filename, 'best_estimated_top5_routes');
 end
@@ -52,5 +52,5 @@ end
 if strcmp(params.features_type, 'ES') 
     save(fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'_distance_threshold.mat']), 'geo_distances')
 else
-    save(['results/BSD/',dataset,'/',option,'_distance_threshold_5.mat'],'geo_distances');
+    save(['sub_results/BSD/',dataset,'/',option,'_',num2str(accuracy*100),'_distance_threshold_5.mat'],'geo_distances');
 end
