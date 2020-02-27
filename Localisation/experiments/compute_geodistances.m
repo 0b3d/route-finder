@@ -1,4 +1,4 @@
-% This script will compute accuracy based on the top-k last point
+% This script will compute the distance from the  based on the top-k last point
 % This means a route will be given by localised if the last point of the
 % estimated route is within a radius of R meters from the gt 
 
@@ -16,7 +16,7 @@ load(fullfile('localisation/test_routes/', [dataset,'_routes_500_60.mat']));
 load(fullfile('localisation/test_routes/', [dataset,'_turns_500_60.mat']));
 
 % Load ES best estimated routes
-params.features_type = 'BSD';
+params.features_type = 'ES';
 params.turns = 'false';
 params.probs = 'false';
 if strcmp(params.features_type, 'ES') 
@@ -42,9 +42,6 @@ for r=1:500
        d = distance(gt_coords(1), gt_coords(2), pred_coords(1), pred_coords(2));
        geo_distance = deg2km(d)*1000;
        geo_distances(r,m) = geo_distance; 
-       %if geo_distance < R
-       %     results(r,m) = 1;
-       %end
    end
 end
 
