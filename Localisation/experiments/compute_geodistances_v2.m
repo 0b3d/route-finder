@@ -1,10 +1,10 @@
-% This script will compute accuracy based on the top-k last point
-% This means a route will be given by localised if the last point of the
-% estimated route is within a radius of R meters from the gt 
+% This script will compute geographic distances (in meters) from the gt point in each route
+% to the top-5 best estimated points in each localisation step (m)
+% It will save a 3-D matrix with shape (500,40,5) into the results folder
 
 % load routes file 
 clear all
-dataset = 'wallstreet5k';
+dataset = 'cmu5k';
 model = 'v1';
 zoom = 'z18';
 
@@ -16,7 +16,7 @@ load(fullfile('localisation/test_routes/', [dataset,'_routes_500_60.mat']));
 load(fullfile('localisation/test_routes/', [dataset,'_turns_500_60.mat']));
 
 % Load ES best estimated routes
-params.features_type = 'BSD';
+params.features_type = 'ES';
 params.turns = 'false';
 params.probs = 'false';
 if strcmp(params.features_type, 'ES') 
@@ -30,8 +30,9 @@ else
     load(BSDresults_filename, 'best_estimated_top5_routes');
 end
 
-% Now for each test route check if the estimated point is within a radius R of the gt
-geo_distances = ones(500,40)*3000;
+% Now for each test route compute the distance in meters to the top-5 best
+% estimated points
+geo_distances = ones(500,40)*3000; %Initialization
 for r=1:500
    for m=1:40
        gt_index = test_route(r,m);
@@ -43,7 +44,6 @@ for r=1:500
             d = distance(gt_coords(1), gt_coords(2), pred_coords(1), pred_coords(2));
             geo_distance = deg2km(d)*1000;
             geo_distances(r,m,p) = geo_distance; 
-   
        end
    end
 end

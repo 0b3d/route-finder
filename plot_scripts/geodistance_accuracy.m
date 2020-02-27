@@ -1,10 +1,10 @@
 % Load geodistances file and then check the accuracy given a threshold
 clear all
-dataset = 'wallstreet5k';
+dataset = 'unionsquare5k';
 zoom = 'z18';
 model = 'v1';
-params.features_type = 'BSD';
-params.turns = 'false';
+params.features_type = 'ES';
+params.turns = 'true';
 params.probs = 'false';
 thresholds = [0,10,20,30];
 
@@ -24,7 +24,7 @@ for th=1:size(thresholds,2)
 end
 
 legend_text = {'0 m','10 m','20 m','30 m'};
-plot(acc','LineWidth',2.0)
+plot(acc','LineWidth',1.0)
 grid on
 
 %%% Save plot
