@@ -177,6 +177,6 @@ else
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
-    save([resultsPath,'/', option ,'.mat'],  '-v7.3')
-    % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+    % save([resultsPath,'/', option ,'.mat'],  '-v7.3')
+    save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
