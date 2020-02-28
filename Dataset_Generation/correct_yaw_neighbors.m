@@ -1,7 +1,7 @@
 % correct gsv_yaw and neighbors
 clear all
 close all
-city = 'manhattan'; % manhattan, pittsburgh
+city = 'pittsburgh'; % manhattan, pittsburgh
 load(['Data/', city ,'/', city, '.mat'],'s');
 
 for i=1:length(s)
@@ -14,6 +14,7 @@ for i=1:length(s)
     if size(neighbors, 1) > 1
         init = ones(size(neighbors ,1), 1)*yaw;
         minus = abs(init - bearings); 
+        minus(minus > 180) = 360 - minus(minus > 180);
         [m,index] = max(minus);
         neighbors(index,:)=[];
         bearings(index,:) = [];
