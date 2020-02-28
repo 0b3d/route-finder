@@ -25,7 +25,7 @@ if strcmp(params.features_type, 'ES')
     load(ESresults_filename, 'best_estimated_top5_routes');
 else
     option = [params.features_type, params.turns ,params.probs]; 
-    accuracy = 0.5;
+    accuracy = 0.7;
     BSDresults_filename = fullfile(['results/BSD/', dataset,'/', option ,'_',num2str(accuracy*100),'.mat']); 
     load(BSDresults_filename, 'best_estimated_top5_routes');
 end

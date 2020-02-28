@@ -1,20 +1,19 @@
 % correct gsv_yaw and neighbors
 clear all
 close all
-city = 'manhattan';
-name = 'wallstreet';
-load(['Data/', city ,'_', name,'.mat'],'routes');
+city = 'manhattan'; % manhattan, pittsburgh
+load(['Data/', city ,'/', city, '.mat'],'s');
 
-for i=1:length(routes)
-    yaw = double(routes(i).gsv_yaw);
-    neighbors = routes(i).neighbor;
-    bearings = double(routes(i).bearing);
+for i=1:length(s)
+    yaw = double(s(i).gsv_yaw);
+    neighbors = s(i).neighbor;
+    bearings = (double(s(i).bearing))';% bearings should be coloum, check that!
     if yaw < 0
-        routes(i).gsv_yaw = yaw + 360;
+        yaw = yaw + 360;
     end
     if size(neighbors, 1) > 1
         init = ones(size(neighbors ,1), 1)*yaw;
-        minus = abs(init - bearings);
+        minus = abs(init - bearings); 
         [m,index] = max(minus);
         neighbors(index,:)=[];
         bearings(index,:) = [];
@@ -26,11 +25,16 @@ for i=1:length(routes)
             bearings = [];
         end
         catch
-            disp('the size of neighbors is not equal to the size of bearings');
+            if size(neighbors, 1) == 0 || size(bearings, 1) == 0
+                disp('the size of neighbors and bearings is 0');
+            else
+                disp('the size of neighbors is not equal to the size of bearings');
+            end
         end
     end
-    routes(i).neighbor = neighbors;
-    routes(i).bearing = bearings;
+    s(i).gsv_yaw = yaw;
+    s(i).neighbor = neighbors;
+    s(i).bearing = bearings;
 end
 
-save(['Data/', city ,'_', name,'.mat'],'routes');
+save(['Data/',city,'_new','.mat'],'s');

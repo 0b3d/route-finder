@@ -62,7 +62,7 @@ figure(1)
 display_buildings_and_inters(buildings_in_circle, junctions_in_circle);
 
 figure(1)
-display_searchcircles(location, yaw, radius, BSD, range);
+display_searchcircles(location, yaw, radius, BSD, range); % need to comment circles
       
 % new axes: zoom
 % arclen = radius*2 / (2*earthRadius*pi) * 360;
