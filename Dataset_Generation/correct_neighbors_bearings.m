@@ -2,8 +2,8 @@
 clear all
 close all
 
-city = 'manhattan'; % manhattan,pittsburgh
-dataset = 'wallstreet5k';
+city = 'pittsburgh'; % manhattan,pittsburgh
+dataset = 'cmu5k';
 load(['Data/',city,'_new','.mat'],'s');
 load(['Data/streetlearn/',dataset,'.mat'],'routes');
 

@@ -9,7 +9,7 @@ addpath(genpath(path));
 
 directory = 'Localisation/test_routes/';
 
-if strcmp(dataset,"cmu5k")
+if strcmp(dataset,'cmu5k')
     turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat'];
     route_filename = ['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat'];
 else
@@ -25,8 +25,12 @@ end
 if ( isfile(route_filename) || isfile(turn_filename))
     display('warning! file not created because it already existed. If you need a new one remove old file or rename it')
 else
-    load(['Data/','streetlearn/',dataset,'.mat'],'routes');
-    load(['Data/','streetlearn/',dataset,'_','highwayflags','.mat'],'highway_flag');
+    load(['Data/','streetlearn/',dataset,'_new','.mat'],'routes');
+    if strcmp(dataset,'wallstreet5k') || strcmp(dataset,'hudsonriver5k')
+        load(['Data/','streetlearn/',dataset,'_','highwayflags','.mat'],'highway_flag');
+    else
+        highway_flag = zeros(1,5000);
+    end
     R_init = zeros(size(routes,2),1);
     for i = 1:size(routes,2)
         R_init(i) = i;   
