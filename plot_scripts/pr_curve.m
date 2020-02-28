@@ -7,7 +7,7 @@ model = 'v1';
 zoom = 'z18'
 
 datasets = {'hudsonriver5k','unionsquare5k', 'wallstreet5k'}
-legend_text = {'Random','Hudson River', 'Union Square', 'Wallstreet'}
+legend_text = {'Random','Hudson River', 'Union Square', 'Wall Street'}
 
 fig_title = 'Euclidean';
 [~, ndatasets] = size(datasets);

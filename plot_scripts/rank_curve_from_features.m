@@ -5,7 +5,7 @@ close all
 models = {'v1'};
 zoom = 'z18'
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
-legend_text = {'Hudson River (32.3 %)','Union Square (31.84 %)', 'Wallstreet (27.26 %)'};
+legend_text = {'Hudson River (32.3 %)','Union Square (31.84 %)', 'Wall Street (27.26 %)'};
 %colormap = {'r','b','o'};
 
 top1p = zeros(1, length(dataset));

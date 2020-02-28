@@ -12,7 +12,7 @@ params.zoom = 'z18'
 %option = {features_type,turns, probs};
 
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
-legend_text = {'Hudson River ES+T', 'Union Square ES+T', 'Wallstreet ES+T','Hudson River ES', 'Union Square ES', 'Wallstreet ES'}
+legend_text = {'Hudson River ES+T', 'Union Square ES+T', 'Wall Street ES+T','Hudson River ES', 'Union Square ES', 'Wall Street ES'}
 
 ndatasets = length(datasets);
 
