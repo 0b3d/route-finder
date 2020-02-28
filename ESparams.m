@@ -1,12 +1,12 @@
 % choose features type
 params = struct 
 params.features_type = 'ES'
-params.dataset = 'cmu5k'
+params.dataset = 'hudsonriver5k'
 params.subset = 'combined'
 params.model = 'v1'
 params.tile_test_zoom = 'z18'
 params.turns = 'true'
-params.probs = 'false'
+params.probs = 'true'
 
 params.option = [params.features_type, params.turns ,params.probs];
 params.ESResultsPath = fullfile('results/ES', params.model, params.tile_test_zoom, params.dataset,[params.option,'.mat'])

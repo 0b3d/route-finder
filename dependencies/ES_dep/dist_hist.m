@@ -4,7 +4,9 @@ close all;
 ESparams;
 
 %Read the features
-load(params.ESfeaturesPath, 'X', 'Y', 'pano_id');
+params.dataset = 'hudsonriver5k'
+params.ESFeaturesPath = fullfile('features/ES',params.model, params.tile_test_zoom, [params.dataset, '.mat'])
+load(params.ESFeaturesPath, 'X', 'Y', 'pano_id');
 n = size(Y,1);
 matched_pairs = zeros(1,n);
 unmatched_pairs = zeros(1,n);
