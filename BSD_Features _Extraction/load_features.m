@@ -12,6 +12,14 @@ load('models/new/uq_junctions_features.mat','features')
 jc_features = features';
 load('models/new/uq_gaps_features.mat','features')
 bd_features = features';
+clear features
+
+% load image paths
+load('models/new/uq_junctions_ids_labels.mat','panoids')
+jc_panoid = panoids;
+load('models/new/uq_gaps_ids_labels.mat','panoids')
+bd_panoid = panoids;
+clear panoids
 
 % load image path for junctions
 jc_outfolder = ['images/JUNCTIONS/','test_uq/','junctions'];
@@ -27,6 +35,8 @@ for i=1:(length(files)+length(files_n))
     else
         jc_img{i} = files_n{i-length(files)};
     end
+    disp(jc_img{i});
+    disp(jc_panoid(i));
 end
 
 % load image path for gaps
@@ -43,6 +53,8 @@ for i=1:(length(files)+length(files_n))
     else
         bd_img{i} = files_n{i-length(files)};
     end
+    disp(bd_img{i});
+    disp(bd_panoid(i,:));
 end
 
 % correlate features
