@@ -44,7 +44,7 @@ end
 test_num = size(test_route, 1);
 ks = [1, 5, 10, 15, 20]; % The top k metrics will be computed
 rs = [5, 10, 15, 20, 25, 30, 35, 40]; % different route length
-distance_thresholds = [0.1 0.2 0.3 0.4 0.5];
+distance_thresholds = [0 0.01 0.02 0.03];
 
 accuracy_with_different_length = zeros(2, size(rs,2)); % row 1: final location; row 2: overlap
 accuracy_within_topK = zeros(size(rs,2), size(ks,2));
