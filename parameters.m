@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
-city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'unionsquare5k'; %The name of the dataset, creates a folder in /Data
+city = 'pittsburgh'; % manhattan, pittsburgh, train
+dataset = 'cmu5k'; %The name of the dataset, creates a folder in /Data
 subset = 'combined'; %combined
 % lowerlat = 40.7171;
 % upperlat = 40.7535;
@@ -10,7 +10,7 @@ subset = 'combined'; %combined
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
-threshold_ = 60;
+threshold_ = 30;
 road_dense_distance = 10;
 % drop threshold for routes
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
