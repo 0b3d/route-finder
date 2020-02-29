@@ -18,11 +18,11 @@ end
 
 % run 'Generate_random_routes' to get random test routes and turns
 if strcmp(dataset,"cmu5k")
-    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat']);
+    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) , '_', subset,'.mat']);
     load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat']);
 else
+    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold_),'.mat']);
     load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
-    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
 end
 
 R_init = zeros(size(routes,2),1);
