@@ -25,7 +25,7 @@ for i=1:size(test_route,1)
     for j=1:size(t, 2)-1
         theta1 = routes(t(j)).gsv_yaw;
         theta2 = routes(t(j+1)).gsv_yaw;
-        T(j) = turn_pattern(theta1, theta2, threshold);
+        T(j) = turn_pattern(theta1, theta2, threshold_);
     end
     test_turn = [test_turn; T];
 end
