@@ -142,7 +142,7 @@ for i = 1:size(rs, 2)
                 pred_coords = routes(pred_index).gsv_coords;
                 d = distance(gt_coords(1), gt_coords(2), pred_coords(1), pred_coords(2));
                 geo_distance = deg2km(d);
-                if geo_distance < dt
+                if geo_distance <= dt
                     accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j) + 1;
                 end
             else
