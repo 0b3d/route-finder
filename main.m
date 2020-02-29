@@ -38,6 +38,7 @@ assign_lables;
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
 connectivity_correction;
 generate_random_routes;
+generate_turns;
 
 % Localization
 localisation;

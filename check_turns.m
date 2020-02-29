@@ -19,6 +19,7 @@ end
 
 T2 = zeros(1, size(t, 2)-1);
 for i=1:size(t, 2)-1
+    threshold = 45;
     theta1 = routes(t(i)).gsv_yaw;
     theta2 = routes(t(i+1)).gsv_yaw;
     T2(i) = turn_pattern(theta1, theta2, threshold);

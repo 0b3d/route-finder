@@ -1,9 +1,25 @@
 % generate turn patterns
+clear all
+close all 
 parameters;
-load(['Data/',dataset,'/test_route_500.mat']); 
-load('Data/london_center/routes_small_withBSD_75.mat');
-test_turn = [];
 
+% Add repository path
+path =  fullfile(pwd);
+addpath(genpath(path));
+
+if strcmp(dataset,'cmu5k')
+    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat']);
+    threshold = 45;
+    turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat'];
+else
+    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']);
+    threshold = 45;
+    turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+end
+
+load(['Data/','streetlearn/',dataset,'_new','.mat'],'routes');
+
+test_turn = [];
 for i=1:size(test_route,1)
     t = test_route(i,:);
     % true turn patterns
@@ -15,4 +31,4 @@ for i=1:size(test_route,1)
     end
     test_turn = [test_turn; T];
 end
-save('Data/london_center/test_turn_500_30thresh.mat','test_turn');
+save(turn_filename, 'test_turn');
