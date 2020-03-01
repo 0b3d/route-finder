@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
-city = 'pittsburgh'; % manhattan, pittsburgh, train
-dataset = 'cmu5k'; %The name of the dataset, creates a folder in /Data
+city = 'manhattan'; % manhattan, pittsburgh, train
+dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
 subset = 'combined'; %combined
 % lowerlat = 40.7171;
 % upperlat = 40.7535;
@@ -10,7 +10,7 @@ subset = 'combined'; %combined
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
-threshold_ = 30;
+threshold_ = 45;
 road_dense_distance = 10;
 % drop threshold for routes
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
@@ -37,7 +37,7 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
 model = 'v1';
 tile_test_zoom = 'z18' ;
 turns = 'true'; % 'true', 'false', 'only'
