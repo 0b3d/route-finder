@@ -10,7 +10,7 @@ subset = 'combined'; %combined
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
-threshold_ = 45;
+threshold_ = 60;
 road_dense_distance = 10;
 % drop threshold for routes
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
