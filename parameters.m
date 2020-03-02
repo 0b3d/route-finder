@@ -10,7 +10,7 @@ subset = 'combined'; %combined
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
-threshold_ = 60;
+threshold_ = 30;
 road_dense_distance = 10;
 % drop threshold for routes
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
@@ -37,8 +37,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'ES'; % 'BSD' 'ES' or 'none'
+features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 model = 'v1';
 tile_test_zoom = 'z18' ;
-turns = 'true'; % 'true', 'false', 'only'
+turns = 'false'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'

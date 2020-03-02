@@ -1,7 +1,7 @@
 clear all
 close all
 
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
@@ -10,6 +10,7 @@ turns = {'false'};
 params.probs = 'false';
 params.threshold_ = 60;
 ks = [1,5];
+rs = [5, 10, 15, 20, 25, 30, 35, 40]; % different route length
 N = 5;
 
 for t=1:length(turns)
@@ -18,6 +19,7 @@ for t=1:length(turns)
         params.dataset = params.datasets{d};
         fileName = fullfile('Localisation/test_routes/',[params.dataset,'_routes_500_',num2str(params.threshold_),'.mat']);
         load(fileName);
+        accuracy = zeros(2, size(rs,2));
 
         for j=1:size(ks,2)
             %% Load the routes file
@@ -31,7 +33,7 @@ for t=1:length(turns)
             else
                 option = [params.features_type, params.turns ,params.probs]; 
                 accuracy = 0.75;
-                fileName = fullfile(['results/BSD/',params.dataset,'/',option,'.mat']); 
+                fileName = fullfile(['results/BSD/',params.dataset,'/',option,'_',num2str(accuracy*100),'.mat']); 
             end
             load(fileName, 'best_estimated_top5_routes');
 
@@ -50,10 +52,21 @@ for t=1:length(turns)
                 end
             end
 
-            acc = sum(res, 1)/500;
-            plot(100*acc)
-            hold on
+%             acc = sum(res, 1)/500;
+%             plot(100*acc)
+%             hold on
+            
+            % Accuracy with different route length
+            for i = 1:size(rs,2)
+                r = rs(i);
+                accuracy(1,i) = sum(res(:,r) == 1)/500;
+            end
+            plot(rs,accuracy*100);
+            hold on;
+            
         end
+        load(fileName, 'accuracy_with_different_length');
+        plot(rs,accuracy_with_different_length(1,:)*100);
     end
 end
 grid on
@@ -62,7 +75,7 @@ fig = gcf;
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
 ylabel(ax, 'Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 basic_plot_configuration;
-legend_text = {'Union Square Top 1', 'Union Square Top 5', 'Wallstreet Top 1', 'Wallstreet Top 5'};
+legend_text = {'Union Square Top 1', 'Union Square Top 5', 'Union Square Baseline', 'Wall Street Top 1', 'Wall Street Top 5', 'Wall Street Baseline'};
 
 legend(legend_text, 'Location', 'southeast')
 filename = fullfile('results_for_eccv/charts/ESvsBSD_top1_top5_overlap', ['top1_top5_overlap_N',num2str(N),params.features_type,params.turns]);
