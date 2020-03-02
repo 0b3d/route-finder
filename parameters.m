@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
 city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
+dataset = 'hudsonriver5k'; %The name of the dataset, creates a folder in /Data
 subset = 'combined'; %combined
 % lowerlat = 40.7171;
 % upperlat = 40.7535;
@@ -24,7 +24,7 @@ radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 range = 2; % generate rays every _degree
 
-accuracy = 0.75; % CNN accuracy
+accuracy = 1; % CNN accuracy
 % accuracy_jcf = 1;
 % accuracy_bdr = 0.8;
 % accuracy_jcb = 1;
@@ -40,5 +40,5 @@ max_rays = 43; % 90/2 - 2
 features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 model = 'v1';
 tile_test_zoom = 'z18' ;
-turns = 'false'; % 'true', 'false', 'only'
+turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'

@@ -1,7 +1,7 @@
 clear all
 close all
 
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
@@ -75,11 +75,11 @@ fig = gcf;
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
 ylabel(ax, 'Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 basic_plot_configuration;
-legend_text = {'Union Square Top 1', 'Union Square Top 5', 'Union Square Baseline', 'Wall Street Top 1', 'Wall Street Top 5', 'Wall Street Baseline'};
+legend_text = {'US Top 1', 'US Top 5', 'US Baseline', 'WS Top 1', 'WS Top 5', 'WS Baseline'};
 
 legend(legend_text, 'Location', 'southeast')
 filename = fullfile('results_for_eccv/charts/ESvsBSD_top1_top5_overlap', ['top1_top5_overlap_N',num2str(N),params.features_type,params.turns]);
 saveas(ax, filename, 'png')
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 6)
-fig.PaperPosition = [0 0 8 6];
+% fig.PaperPosition = [0 0 8 6];
 saveas(ax, filename,'epsc')
