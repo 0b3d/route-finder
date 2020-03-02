@@ -1,7 +1,7 @@
 clear all
 close all
 
-params.features_type = 'BSD';
+params.features_type = 'ES';
 params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
@@ -19,7 +19,7 @@ for t=1:length(turns)
         params.dataset = params.datasets{d};
         fileName = fullfile('Localisation/test_routes/',[params.dataset,'_routes_500_',num2str(params.threshold_),'.mat']);
         load(fileName);
-        accuracy = zeros(2, size(rs,2));
+        accuracy_new = zeros(1, size(rs,2));
 
         for j=1:size(ks,2)
             %% Load the routes file
@@ -59,14 +59,14 @@ for t=1:length(turns)
             % Accuracy with different route length
             for i = 1:size(rs,2)
                 r = rs(i);
-                accuracy(1,i) = sum(res(:,r) == 1)/500;
+                accuracy_new(1,i) = sum(res(:,r) == 1)/500;
             end
-            plot(rs,accuracy*100);
+            plot(rs,accuracy_new*100);
             hold on;
             
         end
         load(fileName, 'accuracy_with_different_length');
-        plot(rs,accuracy_with_different_length(1,:)*100);
+        plot(rs,accuracy_with_different_length(1,:)*100, 'LineStyle', '--');
     end
 end
 grid on
