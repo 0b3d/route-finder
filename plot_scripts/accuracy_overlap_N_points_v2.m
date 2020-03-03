@@ -6,7 +6,7 @@ params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
 params.model = 'v1';
-turns = {'true'};
+turns = {'false'};
 params.probs = 'false';
 params.threshold_ = 60;
 ks = [1,5];
@@ -19,7 +19,7 @@ for t=1:length(turns)
         params.dataset = params.datasets{d};
         fileName = fullfile('Localisation/test_routes/',[params.dataset,'_routes_500_',num2str(params.threshold_),'.mat']);
         load(fileName);
-        accuracy_new = zeros(1, size(rs,2));
+        accuracy = zeros(2, size(rs,2));
 
         for j=1:size(ks,2)
             %% Load the routes file
@@ -59,14 +59,14 @@ for t=1:length(turns)
             % Accuracy with different route length
             for i = 1:size(rs,2)
                 r = rs(i);
-                accuracy_new(1,i) = sum(res(:,r) == 1)/500;
+                accuracy(1,i) = sum(res(:,r) == 1)/500;
             end
-            plot(rs,accuracy_new*100);
+            plot(rs,accuracy*100);
             hold on;
             
         end
         load(fileName, 'accuracy_with_different_length');
-        plot(rs,accuracy_with_different_length(1,:)*100, 'LineStyle', '--');
+        plot(rs,accuracy_with_different_length(1,:)*100);
     end
 end
 grid on
@@ -75,9 +75,9 @@ fig = gcf;
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
 ylabel(ax, 'Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 basic_plot_configuration;
-legend_text = {'US Top 1', 'US Top 5', 'US Baseline', 'WS Top 1', 'WS Top 5', 'WS Baseline'};
+legend_text = {'Union Square Top 1', 'Union Square Top 5', 'Union Square Baseline', 'Wall Street Top 1', 'Wall Street Top 5', 'Wall Street Baseline'};
 
-legend(legend_text, 'Location', 'southeast',  'FontSize', 8)
+legend(legend_text, 'Location', 'southeast')
 filename = fullfile('results_for_eccv/charts/ESvsBSD_top1_top5_overlap', ['top1_top5_overlap_N',num2str(N),params.features_type,params.turns]);
 saveas(ax, filename, 'png')
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 6)

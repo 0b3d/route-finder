@@ -71,3 +71,4 @@ legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 
 fig.PaperPosition = [0 0 8 6];
 filename = fullfile('results_for_eccv', 'charts/top5_vs_threshold/', ['top1_top5_and_distance_threshold_accuracy_comparison_',params.features_type,params.turns]);
 saveas(ax, filename,'epsc')
+saveas(ax, filename,'png')
