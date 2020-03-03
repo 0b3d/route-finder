@@ -1,7 +1,7 @@
 clear all
 close all
 
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
@@ -81,5 +81,5 @@ legend(legend_text, 'Location', 'southeast',  'FontSize', 8)
 filename = fullfile('results_for_eccv/charts/ESvsBSD_top1_top5_overlap', ['top1_top5_overlap_N',num2str(N),params.features_type,params.turns]);
 saveas(ax, filename, 'png')
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 6)
-fig.PaperPosition = [0 0 8 6];
+% fig.PaperPosition = [0 0 8 6];
 saveas(ax, filename,'epsc')

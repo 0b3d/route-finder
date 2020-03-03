@@ -40,5 +40,5 @@ max_rays = 43; % 90/2 - 2
 features_type = 'ES'; % 'BSD' 'ES' or 'none'
 model = 'v1';
 tile_test_zoom = 'z18' ;
-turns = 'false'; % 'true', 'false', 'only'
+turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'
