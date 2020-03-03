@@ -1,7 +1,7 @@
 clear all
 close all
 
-params.features_type = 'BSD';
+params.features_type = 'ES';
 params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
