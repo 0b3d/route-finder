@@ -31,7 +31,7 @@ map_processing;
 
 feature_generating;
 assign_lables;
-% simulate_cnn;    % simulated CNN
+simulate_cnn;    % simulated CNN
 % load_features; % true CNN
 
 
