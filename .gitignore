@@ -25,10 +25,10 @@ Data/toronto_v1/results/
 
 Data/washington_10_19/results/
 
+OSM_Files/
 Data/newyork_10_19/results/
-
-
 ES_results/
 Results/
-OSM_Files/
-OSM_Files/*
+
+OSM Files
+results_version_v1/

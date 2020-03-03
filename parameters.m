@@ -24,7 +24,7 @@ radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 range = 2; % generate rays every _degree
 
-accuracy = 0.7; % CNN accuracy
+accuracy = 0.75; % CNN accuracy
 % accuracy_jcf = 1;
 % accuracy_bdr = 0.8;
 % accuracy_jcb = 1;
@@ -37,7 +37,7 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
 model = 'v1';
 tile_test_zoom = 'z18' ;
 turns = 'true'; % 'true', 'false', 'only'
