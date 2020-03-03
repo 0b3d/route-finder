@@ -7,7 +7,7 @@ zoom = 'z18'
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
-params.turns = 'true'; % 'true', 'false', 'only'
+params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 %option = {features_type,turns, probs};
 
