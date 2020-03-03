@@ -11,7 +11,7 @@ test_num = 500;
 score = zeros(length(datasets),route_length);
 union_accuracy = zeros(length(datasets),route_length);
 
-params.turns = 'true';
+params.turns = 'false';
 params.probs = 'false';
 accuracies = {'75','80','90','100'};
 

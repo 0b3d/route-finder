@@ -13,7 +13,7 @@ params.probs = 'false'; % for 'BSD', set this to 'false'
 
 dataset = 'unionsquare5k'
 range = 1:1:40;
-k = 5
+k = 1
 
 % load ES data
 ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
