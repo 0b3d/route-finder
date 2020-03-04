@@ -1,7 +1,7 @@
 clear all
 close all
 
-params.features_type = 'BSD';
+params.features_type = 'ES';
 params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
@@ -24,7 +24,7 @@ for t=1:length(turns)
 
         for j=1:size(ks,2)
             %% Load the routes file
-            k = ks(1,j);
+            topk = ks(1,j);
 
             %% Load best estimated routes
             if strcmp(params.features_type, 'ES')
@@ -47,7 +47,7 @@ for t=1:length(turns)
             for r=1:500
                 for m=N:40
                     best_estimated_routes = best_estimated_top5_routes{1,r}{1,m}; %size is (5,m)
-                    k = min(size(best_estimated_routes,1), k);
+                    k = min(size(best_estimated_routes,1), topk);
                     %best_estimated_route = best_estimated_routes(1:k,:); 
                     lidx = m - N + 1;
                     uidx = m;
@@ -56,7 +56,7 @@ for t=1:length(turns)
                     res(r,m) = any(ismember(estimated,gt_route,'rows'));
                 end
             end
-            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(ks(1,j)),'/',params.turns];
+            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
             if ~exist(sub_resultsPath,'dir')
                 mkdir(sub_resultsPath);
             end

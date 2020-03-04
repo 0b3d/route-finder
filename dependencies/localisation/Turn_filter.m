@@ -16,6 +16,6 @@ R_ = R_(k,:);
 dist_ = dist_(k,:);
 
 % check turns
-kk = find(T_ ~= turns);
+kk = find(T_ ~= turn);
 T_ = T_(kk,:);
 end
