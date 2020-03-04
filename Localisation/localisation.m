@@ -59,7 +59,7 @@ failed_estimated_routes = {size(rs, 2)};
 tic;
 parfor_progress('searching', test_num);
 for i=1:test_num
-    
+    i = 11;
     max_route_length = max_route_length_init;
     t = test_route(i,1:max_route_length);
     T = test_turn(i,1:max_route_length-1);
