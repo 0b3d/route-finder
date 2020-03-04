@@ -6,10 +6,10 @@ params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
 params.model = 'v1';
-turns = {'true','false','only'};
+turns = {'false'};
 params.probs = 'false';
 params.threshold_ = 60;
-ks = [1,5];
+ks = [5];
 rs = [5, 10, 15, 20, 25, 30, 35, 40]; % different route length
 N = 5;
 
@@ -45,22 +45,18 @@ for t=1:length(turns)
             %% Compute accuracy checking if last N points match gt
             res = zeros(500, 40);
             for r=1:500
-                for m=N:40
+                for m=1:40
                     best_estimated_routes = best_estimated_top5_routes{1,r}{1,m}; %size is (5,m)
                     k = min(size(best_estimated_routes,1), k);
-                    %best_estimated_route = best_estimated_routes(1:k,:); 
-                    lidx = m - N + 1;
-                    uidx = m;
-                    gt_route = test_route(r,lidx:uidx); % [1,N]
-                    estimated = best_estimated_routes(1:k,lidx:uidx); %[k,N]
+                    gt_route = test_route(r,1:m); % [1,N]
+                    estimated = best_estimated_routes(1:k,1:m); %[k,N]
                     res(r,m) = any(ismember(estimated,gt_route,'rows'));
                 end
             end
-            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(ks(1,j)),'/',params.turns];
-            if ~exist(sub_resultsPath,'dir')
-                mkdir(sub_resultsPath);
-            end
-            save([sub_resultsPath,'/',outName],  'res');
+            acc = sum(res, 1)/500;
+            plot(100*acc)
+            hold on
+
         end
     end
 end
