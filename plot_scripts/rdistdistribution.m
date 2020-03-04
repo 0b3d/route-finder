@@ -13,12 +13,13 @@ params.option = [params.features_type, params.turns ,params.probs];
 params.ESResultsPath = fullfile('results/ES', params.model, params.tile_test_zoom, params.dataset,[params.option,'.mat'])
 params.ESFeaturesPath =  fullfile('features/ES',params.model, params.tile_test_zoom, ['ES_',params.dataset, '.mat'])
 
-route_index = 33;
+route_index = 320;
 step_index = 10;
+bins = 50;
 
 load(params.ESResultsPath, 'dist', 'ranking');
 distances = dist{1,route_index}{1, step_index};
-h = histogram(distances, 50)
+h = histogram(distances, bins)
 hold on
 % Plot a line over the histogram corresponding to the gt distance
 gt_rank = ranking(route_index, step_index);
@@ -34,3 +35,19 @@ sigma = std(distances);
 th = (max_dist - mu)/2 + mu;
 I = find( distances <= th);
 % R = R_(I, :)
+
+grid on 
+
+ax = gca
+xlabel(ax, 'distance', 'FontName', 'Times', 'FontSize', 10)
+ylabel(ax, 'Number of routes', 'FontName', 'Times', 'FontSize', 10)
+%legend_text = {'ES','BSD 70 %','BSD 75 %','BSD 80 %','BSD 90 %','BSD 100 %'}
+%set(ax,'Ytick',0:20:100)
+
+fig = gcf
+basic_plot_configuration;
+%legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
+fig.PaperPosition = [0 0 8 6];
+filename = fullfile('results_for_eccv', 'charts','route_distance_histograms', ['route',num2str(route_index),'_length_',params.dataset,'_',params.option]);
+saveas(ax, filename,'epsc')
+saveas(ax, filename, 'png')

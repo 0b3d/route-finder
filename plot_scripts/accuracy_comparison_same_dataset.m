@@ -6,7 +6,7 @@ params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
 params.model = 'v1';
-params.turns = 'true';
+params.turns = 'false';
 params.probs = 'false';
 
 %colors = {'r','b', 'g', 'm'};
