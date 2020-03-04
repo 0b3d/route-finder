@@ -1,7 +1,7 @@
 clear all
 close all
 
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.datasets = {'unionsquare5k', 'wallstreet5k'};
 
 params.zoom = 'z18';
@@ -35,7 +35,7 @@ for t=1:length(turns)
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'.mat']); 
                     outName = ['ranking','.mat'];
                 else
-                    accuracy = 0.75;
+                    accuracy = 1;
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'_',num2str(accuracy*100),'.mat']); 
                     outName = ['ranking_',num2str(accuracy*100),'.mat'];
                 end
