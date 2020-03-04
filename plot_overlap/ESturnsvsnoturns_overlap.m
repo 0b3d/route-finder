@@ -7,12 +7,13 @@ model = 'v1';
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 turns = {'true','false'};
 params.probs = 'false'; % for 'BSD', set this to 'false'
-params.zoom = 'z18'
+params.zoom = 'z18';
+params.top = 'top1';
 
 %option = {features_type,turns, probs};
 
-datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
-legend_text = {'Hudson River ES+T', 'Union Square ES+T', 'Wall Street ES+T','Hudson River ES', 'Union Square ES', 'Wall Street ES'}
+datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'};
+legend_text = {'Hudson River ES+T', 'Union Square ES+T', 'Wall Street ES+T','Hudson River ES', 'Union Square ES', 'Wall Street ES'};
 
 ndatasets = length(datasets);
 
@@ -23,9 +24,10 @@ for t = 1:2
     turn_flag = turns{t};
     for dset_index=1:ndatasets
         dataset = datasets{dset_index};
-        results_filename = ['results/ES/',model,'/', params.zoom, '/', dataset,'/',params.features_type,turn_flag,params.probs,'.mat'];
+        results_filename = fullfile('sub_results/ES/',dataset, params.top,turn_flag,'ranking.mat');
         % regenerate to be sure to use latest features
-        load(results_filename, 'accuracy_with_different_length')
+        load(results_filename, 'res')
+        ranking = sum(res == 1, 1)/size(res,1);
 
         if strcmp(turn_flag, 'true')
             linestyle = '-';
@@ -33,7 +35,7 @@ for t = 1:2
             linestyle = '--';
         end
         x = 5:5:40;
-        plot(ax, x, 100*accuracy_with_different_length(1,:), 'LineStyle', linestyle, 'LineWidth',1.5)
+        plot(ax, x, 100*ranking(x), 'LineStyle', linestyle, 'LineWidth',1.5)
         grid on
         hold on
     end
@@ -48,9 +50,9 @@ ylabel(ax, 'Correct localisations (%)')
 grid on
 basic_plot_configuration;
 legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 7)
-fig = gcf
+fig = gcf;
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'charts', 'ES_turns_vs_noturns');
+filename = fullfile('results_for_eccv', 'charts_overlap', 'ES_turns_vs_noturns');
 saveas(ax, filename,'epsc')
 
 

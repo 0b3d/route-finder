@@ -3,30 +3,31 @@ clear all
 close all
 
 model = 'v1';
-zoom = 'z18'
+zoom = 'z18';
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
-params.BSDacc = '75'
+params.BSDacc = '75';
+params.top = 'top1';
 %option = {features_type,turns, probs};
 
-dataset = 'unionsquare5k'
+dataset = 'unionsquare5k';
 groups = 8;
 range = 5:5:20;
 data = zeros(size(range,2),5); 
 
 
 %% load ranking using only turn information
-params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
+params.features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 params.turns = 'only'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
-load(ESresults_filename, 'ranking');
+ESresults_filename =  fullfile('sub_results/BSD',dataset,params.top,params.turns,'ranking.mat');
+load(ESresults_filename, 'res');
 
-acc = sum(ranking == 1, 1)/size(ranking,1);
+acc = sum(res == 1, 1)/size(res,1);
 col = acc(1,range)';
 data(:,1) = col;
 
@@ -35,10 +36,10 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
-load(ESresults_filename, 'ranking');
+ESresults_filename =  fullfile('sub_results/ES',dataset,params.top, params.turns,'ranking.mat');
+load(ESresults_filename, 'res');
 
-acc = sum(ranking == 1, 1)/size(ranking,1);
+acc = sum(res == 1, 1)/size(res,1);
 col = acc(1,range)';
 data(:,4) = col;
 
@@ -48,24 +49,23 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-ESresults_filename =  fullfile('results/ES', model, zoom, dataset,[params.features_type,params.turns,params.probs,'.mat']);
-load(ESresults_filename, 'ranking');
+ESresults_filename =  fullfile('sub_results/ES',dataset,params.top, params.turns,'ranking.mat');
+load(ESresults_filename, 'res');
 
-acc = sum(ranking == 1, 1)/size(ranking,1);
+acc = sum(res == 1, 1)/size(res,1);
 col = acc(1,range)';
 data(:,5) = col;
 
 
 %% load ranking using BSD w/o turns
-params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
+params.features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
+BSDresults_filename = fullfile('sub_results/BSD',dataset,params.top,params.turns,['ranking_',num2str(params.BSDacc),'.mat']);
+load(BSDresults_filename, 'res');
 
-BSDresults_filename = fullfile('sub_results/BSD',dataset,params.turns,['ranking_',params.BSDacc, '.mat'])
-load(BSDresults_filename, 'ranking');
-
-acc = sum(ranking == 1, 1)/size(ranking,1);
+acc = sum(res == 1, 1)/size(res,1);
 col = acc(1,range)';
 data(:,2) = col;
 
@@ -75,16 +75,16 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-BSDresults_filename = fullfile('sub_results/BSD',dataset,params.turns,['ranking_',params.BSDacc, '.mat'])
-load(BSDresults_filename, 'ranking');
+BSDresults_filename = fullfile('sub_results/BSD',dataset,params.top,params.turns,['ranking','_',num2str(params.BSDacc),'.mat']);
+load(BSDresults_filename, 'res');
 
-acc = sum(ranking == 1, 1)/size(ranking,1);
+acc = sum(res == 1, 1)/size(res,1);
 col = acc(1,range)';
 data(:,3) = col;
 data = 100 * data;
 
 %% Make plot
-b = bar(range, data, 'FaceColor','flat','EdgeColor',[1 1 1])
+b = bar(range, data, 'FaceColor','flat','EdgeColor',[1 1 1]);
 
 
 b(1).FaceColor = [0.75 0.75 0.75];
@@ -98,15 +98,16 @@ b(5).FaceColor  = [0 0 1];
 % for k = 1:5
 %     b(k).FaceColor = cmap(10*k,:);
 % end
+
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
 
-ax = gca
+ax = gca;
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
-filename = fullfile('results_for_eccv', 'charts', 'bars');
+filename = fullfile('results_for_eccv', 'charts_overlap', ['bars_',params.top]);
 saveas(ax, filename,'epsc')
 
 
