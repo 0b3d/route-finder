@@ -12,7 +12,7 @@ union_accuracy = zeros(length(datasets),route_length);
 
 params.turns = 'false';
 params.probs = 'false';
-params.top = 'top5';
+params.top = 'top1';
 accuracies = {'75','80','90','100'};
 
 for dataset_index=1:length(datasets)
@@ -76,6 +76,7 @@ ylabel(ax,'S_{diff}', 'FontName', 'Times', 'FontSize', 10)
 ylim([0, 1]);
 set(ax,'Ytick',0:0.2:1)
 grid on
+title('Union Square');
 
 legend_text= {'BSD 75%','BSD 80%','BSD 90%','BSD 100%'}; 
 

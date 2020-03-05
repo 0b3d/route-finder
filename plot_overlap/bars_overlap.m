@@ -10,7 +10,7 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 params.BSDacc = '75';
-params.top = 'top5';
+params.top = 'top1';
 %option = {features_type,turns, probs};
 
 dataset = 'unionsquare5k';
@@ -100,10 +100,13 @@ b(5).FaceColor  = [0 0 1];
 % end
 
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
-ylabel('Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
+ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
+title('Union Square');
 
 ax = gca;
+set(ax,'Ytick',0:10:100)
+ylim([0,100]);
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
