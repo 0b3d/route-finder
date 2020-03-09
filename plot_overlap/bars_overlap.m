@@ -10,7 +10,7 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 params.BSDacc = '75';
-params.top = 'top5';
+params.top = 'top1';
 %option = {features_type,turns, probs};
 
 dataset = 'unionsquare5k';

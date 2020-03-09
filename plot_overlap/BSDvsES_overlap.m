@@ -7,13 +7,13 @@ zoom = 'z18';
 
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
-params.turns = 'false'; % 'true', 'false', 'only'
+params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 params.top = 'top5';
 %option = {features_type,turns, probs};
 
 dataset = 'unionsquare5k';
-range = 1:1:40;
+range = 5:1:40;
 
 % load ES data
 ESresults_filename =  fullfile('sub_results/ES',dataset,params.top,params.turns,'ranking.mat');

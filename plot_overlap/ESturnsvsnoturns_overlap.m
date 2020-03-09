@@ -42,17 +42,16 @@ for t = 1:2
 end
 
 xlabel(ax, 'Route length')
-ylabel(ax, 'Correct localisations (%)')
-%set(ax,'Ytick',0:20:100)
-
-%ylim([0.2,1]);
+ylabel(ax, 'Top-1 Localisations (%)')
+set(ax,'Ytick',0:20:100)
+ylim([0,100]);
 
 grid on
 basic_plot_configuration;
 legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 7)
 fig = gcf;
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'charts_overlap', 'ES_turns_vs_noturns');
+filename = fullfile('results_for_eccv', 'charts_overlap', ['ES_turns_vs_noturns_', params.top]);
 saveas(ax, filename,'epsc')
 
 
