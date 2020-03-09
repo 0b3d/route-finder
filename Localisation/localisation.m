@@ -59,7 +59,6 @@ failed_estimated_routes = {size(rs, 2)};
 tic;
 parfor_progress('searching', test_num);
 for i=1:test_num
-    i = 11;
     max_route_length = max_route_length_init;
     t = test_route(i,1:max_route_length);
     T = test_turn(i,1:max_route_length-1);
@@ -76,7 +75,7 @@ for i=1:test_num
             dist{i} = route_dist;
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
-            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold_, R_init, t, T, turns, accuracy);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold_, R_init, t, T, turns);
             dist{i} = route_dist;
         %% JUST TURNS
         case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
@@ -178,7 +177,7 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    save([resultsPath,'/', option ,'.mat'],  '-v7.3')
+    % save([resultsPath,'/', option ,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end

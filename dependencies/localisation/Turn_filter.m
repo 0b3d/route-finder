@@ -1,4 +1,4 @@
-function [R_,dist_,T_] = Turn_filter(R_, dist_, turn, routes, m, threshold)
+function [R_,dist_] = Turn_filter(R_, dist_, turn, routes, m, threshold)
 T_ = zeros(size(R_, 1), 1);
 for i=1:size(R_, 1)
     idx1 = R_(i, m-1);
@@ -15,7 +15,4 @@ k = find(T_ == turn);
 R_ = R_(k,:);
 dist_ = dist_(k,:);
 
-% check turns
-kk = find(T_ ~= turn);
-T_ = T_(kk,:);
 end

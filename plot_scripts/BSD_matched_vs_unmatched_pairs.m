@@ -18,11 +18,12 @@ lim_x = 50;
 % load(['features/BSD/',model,'/',zoom, '/', dataset,'.mat'], 'X', 'Y', 'pano_id');
 features_type = 'BSD';
 city = 'manhattan';
-accuracy = 0.75;
-load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
+% accuracy = 0.75;
+% load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
 
 % load all the possible routes
-load(['sub_results/','routes_uq_10.mat'], 'R');
+load(['sub_results/','routes_uq_20.mat'], 'R');
 Y = [];
 X = [];
 for i=1:size(R,1)
@@ -82,10 +83,11 @@ fig_title = 'Wall Street';
 
 %Read the features
 subplot(1,2,2)
-load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
+% load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
 
 % load all the possible routes
-load(['sub_results/','routes_ws_10.mat'], 'R');
+load(['sub_results/','routes_ws_20.mat'], 'R');
 Y = [];
 X = [];
 for i=1:size(R,1)
@@ -141,5 +143,5 @@ basic_plot_configuration;
 fig.PaperPosition = [0 0 12 6]; % 12 x 9  cm 
 % set(fig, 'InvertHardCopy', 'off');
 % set(fig, 'Color', [1 1 1]);
-filename = fullfile('results_for_eccv', 'charts', 'BSD_distance_histogram_10');
+filename = fullfile('results_for_bsd', 'BSD_distance_histogram_20');
 saveas(ax, filename,'png')

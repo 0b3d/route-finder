@@ -1,6 +1,10 @@
 % BSDs distribution
 clear all
-load('Data/routes_small_withBSD_50_75.mat','routes');
+close all
+parameters;
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
+% load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+
 T = struct2table(routes);
 I = T.id;
 P = [];

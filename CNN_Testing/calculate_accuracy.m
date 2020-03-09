@@ -7,7 +7,8 @@ parameters;
 path =  fullfile(pwd);
 addpath(genpath(path));
 
-load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+% load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 
 % check the cnn accuracy
 p_bit1 = 0;
