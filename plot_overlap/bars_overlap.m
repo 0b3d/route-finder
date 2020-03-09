@@ -100,10 +100,13 @@ b(5).FaceColor  = [0 0 1];
 % end
 
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
-ylabel('Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
+ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
+title('Union Square');
 
 ax = gca;
+set(ax,'Ytick',0:10:100)
+ylim([0,100]);
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)

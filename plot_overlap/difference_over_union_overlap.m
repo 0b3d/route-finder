@@ -76,6 +76,7 @@ ylabel(ax,'S_{diff}', 'FontName', 'Times', 'FontSize', 10)
 ylim([0, 1]);
 set(ax,'Ytick',0:0.2:1)
 grid on
+title('Union Square');
 
 legend_text= {'BSD 75%','BSD 80%','BSD 90%','BSD 100%'}; 
 
@@ -83,5 +84,5 @@ fig = gcf;
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
-filename = fullfile('results_for_eccv', 'charts_overlap', ['difference_over_union_',params.turns,'_',dataset]);
+filename = fullfile('results_for_eccv', 'charts_overlap', ['difference_over_union_',params.turns,'_',params.top,'_',dataset]);
 saveas(ax, filename,'epsc')

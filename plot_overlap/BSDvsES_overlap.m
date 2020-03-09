@@ -9,7 +9,7 @@ zoom = 'z18';
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
-params.top = 'top5';
+params.top = 'top1';
 %option = {features_type,turns, probs};
 
 dataset = 'unionsquare5k';
@@ -35,9 +35,10 @@ for i = 1:length(accs)
 end
 
 grid on
+title('Union Square')
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
-ylabel(ax, 'Correct localisations (%)', 'FontName', 'Times', 'FontSize', 10)
-legend_text = {'ES','BSD 70 %','BSD 75 %','BSD 80 %','BSD 90 %','BSD 100 %'};
+ylabel(ax, 'Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
+legend_text = {'ES+T','BSD+T 70 %','BSD+T 75 %','BSD+T 80 %','BSD+T 90 %','BSD+T 100 %'};
 set(ax,'Ytick',0:20:100)
 
 fig = gcf;
