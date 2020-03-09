@@ -8,55 +8,53 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % Configuration
-dataset = 'luton_v4';
-model = 's2v700k_v1';
-params.turns = 'true';
+dataset = 'unionsquare5k';
+city = 'manhattan';
+model = 'v1';
+zoom = 'z18';
+params.turns = 'false';
 params.probs = 'false';
 params.test_num = 500;
-params.threshold = 60;
-params.accuracy = 75;
+params.accuracy = '75';
 loops = 40;
 successful_route_length_es = 20; % successfully localised length for es
 successful_route_length_bsd = 20; % successfully localised length for bsd
-route_index = 403;
+route_index = 25;
 
-% Load BSD features and estimated routes
+% Load BSD features and best estimated routes
 %bsd_results_file = ['ES_results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_75.mat'];
 %load(bsd_results_file, 'ranking')
-if strcmp(params.turns, 'true')
-    bsd_estimated_routes_file = ['ES_results/BSD/results/',dataset,'/results/BSD', params.turns, params.probs, '_75.mat'];
-    load(bsd_estimated_routes_file, 'best_estimated_routes');
-else
-    bsd_estimated_routes_file = ['ES_results/BSD/results/',dataset,'/results/', 'best_estimated_route','_',num2str(params.accuracy),'.mat'];
-    load(bsd_estimated_routes_file, 'best_estimated_routes');
-end
-
+path = fullfile('sub_results/old/BSD/', dataset, params.turns, ['best_estimated_routes_', params.accuracy, '.mat']);
+load(path, 'best_estimated_routes');
 bsd_ber = best_estimated_routes;
 
 % Load BSD features
-load(['features/BSD/BSD_', dataset, '_75.mat'])
+load(['features/BSD/',dataset,'/BSD','_', city,'_',dataset,'_',params.accuracy,'.mat'],'routes');
 bsd_routes = routes;
 
 
 % Load ES best estimated routes
 params.features_type = 'ES';
-results_filename = ['ES_results/',model,'/',dataset,'_',params.features_type,params.turns,params.probs,'.mat'];
+results_filename = ['results/ES/',model,'/',zoom,'/',dataset,'/',params.features_type,params.turns,params.probs,'.mat'];
 load(results_filename, 'best_estimated_routes', 'routes');
 es_ber = best_estimated_routes;
 es_routes = routes;
 
 %Find boundaries limits
-load(['Data/',dataset,'/boundary.mat']);
-limits = [boundary(2) boundary(4) boundary(1) boundary(3)];
+coords = zeros(5000,2);
+for i=1:5000 
+    coords(i,:) = es_routes(i).gsv_coords;
+end
+limits = [min(coords(:,2)) max(coords(:,2)) min(coords(:,1)) max(coords(:,1))];  
 
 % Create the map
-map = Map(limits, [],[],-2);
+map = Map(limits, [],[],-1);
 hold on;
 
 
 % load testing routes and turn information
-load(['Localisation/test_routes/',dataset,'_routes_', num2str(params.test_num),'_' , num2str(params.threshold) ,'.mat']); 
-load(['Localisation/test_routes/',dataset,'_turns_', num2str(params.test_num), '_' , num2str(params.threshold),'.mat']);
+load(['Localisation/test_routes/',dataset,'_routes_', num2str(params.test_num),'_' , '60','.mat']); 
+load(['Localisation/test_routes/',dataset,'_turns_', num2str(params.test_num), '_' , '30','.mat']);
 
 F(loops) = struct('cdata',[],'colormap',[]);
 parfor_progress('searching', loops);

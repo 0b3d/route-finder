@@ -12,7 +12,7 @@ union_accuracy = zeros(length(datasets),route_length);
 
 params.turns = 'false';
 params.probs = 'false';
-params.top = 'top1';
+params.top = 'top5';
 accuracies = {'75','80','90','100'};
 
 for dataset_index=1:length(datasets)
