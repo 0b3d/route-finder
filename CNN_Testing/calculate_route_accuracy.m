@@ -1,7 +1,7 @@
 % calculate accuracy for each route
-load(['features/',features_type,'/',features_type,'_', dataset,'_v2','.mat']);
-load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
-load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_v2','.mat'],'routes'); 
+load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , '60' ,'.mat']); 
+real = 'simulated';
 
 total_num = 20;
 p_bit = zeros(size(test_route, 1), 4);
@@ -35,5 +35,5 @@ for i=1:size(test_route,1)
    p_bit(i,3) = p_bit3/total_num;
    p_bit(i,4) = p_bit4/total_num;
 end
-save('route_accuracy_v2.mat','p_bit');
+save(['results_for_bsd/',dataset,'_route_accuracy_',real,'.mat'],'p_bit');
 

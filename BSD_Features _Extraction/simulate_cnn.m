@@ -16,12 +16,12 @@ for i=1:length(routes)
         continue;
     end
     % bad = bit_flipped(good, accuracy);
-    % bad = bit_flipped_v2(good, accuracy_jcf, accuracy_bdr, accuracy_jcb, accuracy_bdl);
-    bad = bit_flipped_v3(good, accuracy_jc, accuracy_njc, accuracy_bd, accuracy_nbd);
+    bad = bit_flipped_v2(good, accuracy_jcf, accuracy_bdr, accuracy_jcb, accuracy_bdl);
+    % bad = bit_flipped_v3(good, accuracy_jc, accuracy_njc, accuracy_bd, accuracy_nbd);
     routes(i).CNNs = bad; 
 end
 % save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
-save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_','v2','.mat'],'routes');
+save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_','test','.mat'],'routes');
 
 % check the cnn accuracy
 p_bit1 = 0;

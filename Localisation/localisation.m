@@ -101,6 +101,8 @@ for i = 1:size(rs,2)
     accuracy_with_different_length(1,i) = sum(ranking(:,r) == 1)/test_num;
     failed_estimated_routes{i} = find(ranking(:,r) ~= 1);
 end
+real = 'simulated';
+save(['results_for_bsd/',dataset,'_failed_routes_',real,'.mat'],'failed_estimated_routes');
 
 % Accuracy with different route length based on overlap
 for i = 1:size(rs,2)
