@@ -1,4 +1,6 @@
 % calculate accuracy for each route
+clear all
+parameter;
 load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_v2','.mat'],'routes'); 
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , '60' ,'.mat']); 
 real = 'simulated';
