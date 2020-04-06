@@ -13,6 +13,6 @@ for i=1:size(junctions_in_circle, 1)
     end    
 end
 
-nearestJC = min(distJC); %round(min(distJC))
+nearestJC = min(distJC); 
 
 end

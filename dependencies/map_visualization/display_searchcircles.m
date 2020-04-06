@@ -22,29 +22,29 @@ search_areas.right = [];
 % show search areas in four directions
 for i=1:size(search_areas.forward, 1)
     plot([location(2) search_areas.forward(i, 2)],[location(1) search_areas.forward(i, 1)],'-k');
-    text(search_areas.forward(floor(c_num/4/2), 2),search_areas.forward(floor(c_num/4/2), 1),num2str(BSD(1)));
-    text(search_areas.forward(floor(c_num/4/2+3), 2),search_areas.forward(floor(c_num/4/2+3), 1),'front');
+    % text(search_areas.forward(floor(c_num/4/2), 2),search_areas.forward(floor(c_num/4/2), 1),num2str(BSD(1)));
+    % text(search_areas.forward(floor(c_num/4/2+3), 2),search_areas.forward(floor(c_num/4/2+3), 1),'front');
     hold on;
 end
 
 for i=1:size(search_areas.backward, 1)
     plot([location(2) search_areas.backward(i, 2)],[location(1) search_areas.backward(i, 1)],'-m');
-    text(search_areas.backward(floor(c_num/4/2), 2),search_areas.backward(floor(c_num/4/2), 1),num2str(BSD(3)));
-    text(search_areas.backward(floor(c_num/4/2+3), 2),search_areas.backward(floor(c_num/4/2+3), 1),'back');
+    % text(search_areas.backward(floor(c_num/4/2), 2),search_areas.backward(floor(c_num/4/2), 1),num2str(BSD(3)));
+    % text(search_areas.backward(floor(c_num/4/2+3), 2),search_areas.backward(floor(c_num/4/2+3), 1),'back');
     hold on;
 end
 
 for i=1:size(search_areas.left, 1)
     plot([location(2) search_areas.left(i, 2)],[location(1) search_areas.left(i, 1)],'-b');
-    text(search_areas.left(floor(c_num/4/2), 2),search_areas.left(floor(c_num/4/2), 1),num2str(BSD(4)));
-    text(search_areas.left(floor(c_num/4/2+3), 2),search_areas.left(floor(c_num/4/2+3), 1),'left');
+    % text(search_areas.left(floor(c_num/4/2), 2),search_areas.left(floor(c_num/4/2), 1),num2str(BSD(4)));
+    % text(search_areas.left(floor(c_num/4/2+3), 2),search_areas.left(floor(c_num/4/2+3), 1),'left');
     hold on;
 end
 
 for i=1:size(search_areas.right, 1)
     plot([location(2) search_areas.right(i, 2)],[location(1) search_areas.right(i, 1)],'-g');
-    text(search_areas.right(floor(c_num/4/2), 2),search_areas.right(floor(c_num/4/2), 1),num2str(BSD(2)));
-    text(search_areas.right(floor(c_num/4/2+3), 2),search_areas.right(floor(c_num/4/2+3), 1),'right');
+    % text(search_areas.right(floor(c_num/4/2), 2),search_areas.right(floor(c_num/4/2), 1),num2str(BSD(2)));
+    % text(search_areas.right(floor(c_num/4/2+3), 2),search_areas.right(floor(c_num/4/2+3), 1),'right');
     hold on;
 end
     

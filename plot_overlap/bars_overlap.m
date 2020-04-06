@@ -111,6 +111,7 @@ basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
 filename = fullfile('results_for_eccv', 'charts_overlap', ['bars_',params.top]);
+% filename = fullfile('results_for_bsd', ['bars_',params.top]);
 saveas(ax, filename,'epsc')
 
 

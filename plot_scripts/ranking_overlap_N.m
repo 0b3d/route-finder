@@ -1,8 +1,8 @@
 clear all
 close all
 
-params.features_type = 'ES';
-params.datasets = { 'hudsonriver5k'};
+params.features_type = 'BSD';
+params.datasets = {'hudsonriver5k'};
 
 params.zoom = 'z18';
 params.model = 'v1';
@@ -35,7 +35,7 @@ for t=1:length(turns)
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'.mat']); 
                     outName = ['ranking','.mat'];
                 else
-                    accuracy = 1;
+                    accuracy = 0.7;
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'_',num2str(accuracy*100),'.mat']); 
                     outName = ['ranking_',num2str(accuracy*100),'.mat'];
                 end

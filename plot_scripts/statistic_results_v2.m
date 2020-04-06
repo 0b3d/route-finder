@@ -10,7 +10,7 @@ if strcmp(features_type, 'ES')
 else
     resultsPath = ['results/', features_type,'/',dataset];
     load([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat']);
-    sub_resultsPath = ['sub_results/', features_type,'/',dataset,'/',turns];
+    sub_resultsPath = ['sub_results/old/', features_type,'/',dataset,'/',turns];
 end
 accuracy_within_topK = accuracy_within_topK';
 accuracy_with_threshold = accuracy_with_threshold';
