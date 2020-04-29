@@ -51,7 +51,7 @@ basic_plot_configuration;
 legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 7)
 fig = gcf;
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'charts_overlap', ['ES_turns_vs_noturns_', params.top]);
+filename = fullfile('results_for_bsd', 'charts_overlap', ['ES_turns_vs_noturns_', params.top]);
 saveas(ax, filename,'epsc')
 
 

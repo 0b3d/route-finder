@@ -36,7 +36,7 @@ for i=1:(length(files)+length(files_n))
         jc_img{i} = files_n{i-length(files)};
     end
     disp(jc_img{i});
-    disp(jc_panoid(i));
+    disp(jc_panoid(i,:));
 end
 
 % load image path for gaps

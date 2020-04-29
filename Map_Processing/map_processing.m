@@ -9,7 +9,7 @@ addpath(genpath(path));
 
 disp('OSM Processing......');
 if ~exist(['Data/',city],'dir')
-    [inters, buildings, roads] = OSMProcessing(city, mapfile);
+    [inters, buildings] = OSMProcessing(city, mapfile);
     disp('OSM Finished');
 else
     disp('Folder in Data already exists')

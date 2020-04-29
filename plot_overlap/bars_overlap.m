@@ -13,7 +13,7 @@ params.BSDacc = '75';
 params.top = 'top1';
 %option = {features_type,turns, probs};
 
-dataset = 'unionsquare5k';
+dataset = 'wallstreet5k';
 groups = 8;
 range = 5:5:20;
 data = zeros(size(range,2),5); 
@@ -102,7 +102,7 @@ b(5).FaceColor  = [0 0 1];
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
-title('Union Square');
+title('Wall Street');
 
 ax = gca;
 set(ax,'Ytick',0:10:100)
@@ -110,8 +110,7 @@ ylim([0,100]);
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
-filename = fullfile('results_for_eccv', 'charts_overlap', ['bars_',params.top]);
-% filename = fullfile('results_for_bsd', ['bars_',params.top]);
+filename = fullfile('results_for_bsd', 'charts_overlap', ['bars_',dataset,'_',params.BSDacc,'_',params.top]);
 saveas(ax, filename,'epsc')
 
 

@@ -50,4 +50,4 @@ for j=1:length(routes)
     routes(j).BSDs = desc;
 
 end
-save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_better','.mat'],'routes');
