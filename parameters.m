@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
-city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
+city = 'train'; % manhattan, pittsburgh, train
+dataset = 'trainstreetlearn'; %The name of the dataset, creates a folder in /Data
 subset = 'combined'; %combined
 % lowerlat = 40.7171;
 % upperlat = 40.7535;
