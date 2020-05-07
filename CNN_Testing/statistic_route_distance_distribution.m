@@ -5,19 +5,19 @@ params.feature_type = 'BSD';
 params.turns = 'true';
 params.probs = 'false';
 
-dataset = 'unionsquare5k';
+dataset = 'wallstreet5k';
 city = 'manhattan';
 
 % load routes
 load(['Localisation/test_routes/',dataset,'_routes_500_60','.mat']);
-index = 30;
+index = 120;
 t = test_route(index,1:20);
 
 % load features
-load(['features/',params.feature_type,'/',dataset,'/',params.feature_type,'_', city,'_',dataset,'_v2','.mat'],'routes');
+load(['features/',params.feature_type,'/',dataset,'/',params.feature_type,'_', city,'_',dataset,'_v3','.mat'],'routes');
 
 % load results
-load(['results/BSD/',dataset,'/',params.feature_type,params.turns,params.probs,'_v2','.mat'],'dist');
+load(['results/BSD/',dataset,'/',params.feature_type,params.turns,params.probs,'_v3','.mat'],'dist');
 
 dist_t = dist{1,index};
 truth_dist = 0;

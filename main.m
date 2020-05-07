@@ -34,7 +34,7 @@ connectivity_correction;
 % assign_lables;
 assign_lables_better;
 simulate_cnn;    % simulated CNN
-% load_features; % true CNN
+load_features; % true CNN
 
 
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat

@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
-city = 'train'; % manhattan, pittsburgh, train
-dataset = 'trainstreetlearn'; %The name of the dataset, creates a folder in /Data
+city = 'manhattan'; % manhattan, pittsburgh, train
+dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
 subset = 'combined'; %combined
 % lowerlat = 40.7171;
 % upperlat = 40.7535;
@@ -24,16 +24,16 @@ radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 range = 2; % generate rays every _degree
 
-accuracy = 0.75; % CNN accuracy
-% accuracy_jcf = 0.8492;
-% accuracy_bdr = 0.8632;
-% accuracy_jcb = 0.8558;
-% accuracy_bdl = 0.8578;
+% accuracy = 1; % CNN accuracy
+accuracy_jcf = 0.815;
+accuracy_bdr = 0.8658;
+accuracy_jcb = 0.8252;
+accuracy_bdl = 0.8608;
 
-% accuracy_jc = 0.6664;
-% accuracy_njc = 0.9383;
-% accuracy_bd = 0.8564;
-% accuracy_nbd = 0.8636;
+accuracy_jc = 0.7883;
+accuracy_njc = 0.8347;
+accuracy_bd = 0.8769;
+accuracy_nbd = 0.8531;
 
 thresh_jc = 30; % 30m
 thresh_bd = 3;  % 4 degree

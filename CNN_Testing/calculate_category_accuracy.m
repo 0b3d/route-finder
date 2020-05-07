@@ -1,9 +1,9 @@
 % calculate categories accuracy for each route
 clear all
 parameters;
-load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes'); 
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_v3','.mat'],'routes'); 
 load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , '60' ,'.mat']); 
-real = 'simulated';
+real = 'v3';
 
 total_num = 20;
 p_bit = zeros(size(test_route, 1), 4);
@@ -51,12 +51,12 @@ for i=1:size(test_route,1)
             end 
         end    
     end
-   p_bit(i,1) = jc/total_jc;
-   p_bit(i,2) = njc/total_njc;
-   p_bit(i,3) = bd/total_nbd;
-   p_bit(i,4) = nbd/total_nbd;
+    p_bit(i,1) = jc/total_jc;
+    p_bit(i,2) = njc/total_njc;
+    p_bit(i,3) = bd/total_bd;
+    p_bit(i,4) = nbd/total_nbd;
 end
-% save(['results_for_bsd/',dataset,'_route_accuracy_',real,'.mat'],'p_bit');
+save(['results_for_bsd/',dataset,'_category_accuracy_',real,'.mat'],'p_bit');
 
 
 

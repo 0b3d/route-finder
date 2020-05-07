@@ -3,7 +3,7 @@ clear all
 close all
 parameters;
 % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
-load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_v3','.mat'],'routes');
 
 T = struct2table(routes);
 I = T.id;
@@ -39,3 +39,7 @@ for i=1:length(R)
     end
 end 
 bar(counts')
+ax = gca;
+ylim([0,1600]);
+filename = fullfile('results_for_bsd', ['BSD_distribution',dataset,'_v3']);
+saveas(ax, filename,'png')
