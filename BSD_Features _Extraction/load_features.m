@@ -8,16 +8,16 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load features
-load('models/googlenet/hd_junctions_features.mat','features')
+load('models/vgg/uq_junctions_features.mat','features')
 jc_features = features';
-load('models/googlenet/hd_gaps_features.mat','features')
+load('models/vgg/uq_gaps_features.mat','features')
 bd_features = features';
 clear features
 
 % load image paths
-load('models/googlenet/hd_junctions_ids_labels.mat','panoids')
+load('models/vgg/uq_junctions_ids_labels.mat','panoids')
 jc_panoid = panoids;
-load('models/googlenet/hd_gaps_ids_labels.mat','panoids')
+load('models/vgg/uq_gaps_ids_labels.mat','panoids')
 bd_panoid = panoids;
 clear panoids
 
