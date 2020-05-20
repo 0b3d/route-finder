@@ -8,22 +8,22 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load features
-load('models/new/uq_junctions_features.mat','features')
+load('models/vgg/uq_junctions_features.mat','features')
 jc_features = features';
-load('models/new/uq_gaps_features.mat','features')
+load('models/vgg/uq_gaps_features.mat','features')
 bd_features = features';
 clear features
 
 % load image paths
-load('models/new/uq_junctions_ids_labels.mat','panoids')
+load('models/vgg/uq_junctions_ids_labels.mat','panoids')
 jc_panoid = panoids;
-load('models/new/uq_gaps_ids_labels.mat','panoids')
+load('models/vgg/uq_gaps_ids_labels.mat','panoids')
 bd_panoid = panoids;
 clear panoids
 
 % load image path for junctions
-jc_outfolder = ['images/JUNCTIONS/','test_uq/','junctions'];
-jc_outfolder_n = ['images/JUNCTIONS/','test_uq/','non_junctions'];
+jc_outfolder = ['images/JUNCTIONS/',dataset,'/','junctions'];
+jc_outfolder_n = ['images/JUNCTIONS/',dataset,'/','non_junctions'];
 files = dir([jc_outfolder '/*.jpg']);
 files = {files.name}';
 files_n = dir([jc_outfolder_n '/*.jpg']);
@@ -36,12 +36,12 @@ for i=1:(length(files)+length(files_n))
         jc_img{i} = files_n{i-length(files)};
     end
     disp(jc_img{i});
-    disp(jc_panoid(i));
+    disp(jc_panoid(i,:));
 end
 
 % load image path for gaps
-bd_outfolder = ['images/GAPS/','test_uq/','gaps'];
-bd_outfolder_n = ['images/GAPS/','test_uq/','non_gaps'];
+bd_outfolder = ['images/GAPS/',dataset,'/','gaps'];
+bd_outfolder_n = ['images/GAPS/',dataset,'/','non_gaps'];
 files = dir([bd_outfolder '/*.jpg']);
 files = {files.name}';
 files_n = dir([bd_outfolder_n '/*.jpg']);
@@ -79,7 +79,7 @@ for i=1:length(routes)
     bad(bad == 2) = 0;
     routes(i).CNNs = bad;    
 end
-save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
 
 
 

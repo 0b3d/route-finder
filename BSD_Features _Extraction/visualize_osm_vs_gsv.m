@@ -17,10 +17,12 @@ load(['Data/',city,'/inters_after_filter.mat']);
 % load(['Data/',city,'/boundary.mat']);
 
 % input the id
-id = '--2c7yawIqdmNp7pzjIqoQ';
-T = struct2table(routes);
-ID = T.id;
-idx = find(ismember(ID,id));
+% id = '--2c7yawIqdmNp7pzjIqoQ';
+% T = struct2table(routes);
+% ID = T.id;
+% idx = find(ismember(ID,id));
+
+idx = 256;
 
 % display the descriptors and relevant cropped images
 location = routes(idx).gsv_coords;

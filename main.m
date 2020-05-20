@@ -30,13 +30,14 @@ map_processing;
 % data_generation;
 
 feature_generating;
-assign_lables;
+connectivity_correction;
+% assign_lables;
+assign_lables_better;
 simulate_cnn;    % simulated CNN
-% load_features; % true CNN
+load_features; % true CNN
 
 
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
-connectivity_correction;
 generate_random_routes;
 generate_turns;
 

@@ -1,9 +1,9 @@
-% statistic results v3
+% statistic results v6
 clear all
 close all
 
-top_k = 1;
-route_length = 40;
+top_k = 1
+route_length = 40
 datasets = {'unionsquare5k'}; 
 test_num = 500;
 score = zeros(length(datasets),route_length);

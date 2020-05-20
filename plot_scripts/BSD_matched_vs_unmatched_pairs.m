@@ -14,8 +14,7 @@ step_y = 100;
 step_x = 10;
 lim_y = 1500;
 lim_x = 50;
-%Read the features
-% load(['features/BSD/',model,'/',zoom, '/', dataset,'.mat'], 'X', 'Y', 'pano_id');
+% Read the features
 features_type = 'BSD';
 city = 'manhattan';
 % accuracy = 0.75;
@@ -81,7 +80,7 @@ basic_plot_configuration;
 dataset = datasets{2};
 fig_title = 'Wall Street';
 
-%Read the features
+% Read the features
 subplot(1,2,2)
 % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');

@@ -26,13 +26,13 @@ clear ways;
 
 %% Parse partial intersections and ways for localisation
 % Extract information about each intersection and way
-intersections = csvread(['Data/',dataset,'/intersections.txt']); 
-allNodesFile = ['Data/',dataset,'/ways.txt']; 
-unfold = @(v) v{:}; 
-inters(size(intersections,1),1).coords = [];
-[inters.coords] = unfold(num2cell(intersections,2));
-clear intersections;
-[ways, inters] = parse_txt_nodes_for_roads(allNodesFile, inters);
+% intersections = csvread(['Data/',dataset,'/intersections.txt']); 
+% allNodesFile = ['Data/',dataset,'/ways.txt']; 
+% unfold = @(v) v{:}; 
+% inters(size(intersections,1),1).coords = [];
+% [inters.coords] = unfold(num2cell(intersections,2));
+% clear intersections;
+% [ways, inters] = parse_txt_nodes_for_roads(allNodesFile, inters);
 
 % Exract information about each building
 allBuildingsFile = ['Data/',dataset,'/buildings.txt'];

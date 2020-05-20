@@ -11,7 +11,7 @@ if strcmp(features_type, 'ES')
     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
 else
     % real classifier
-    load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes'); 
+    load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
     % simulated classifier
     % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 end
@@ -101,8 +101,8 @@ for i = 1:size(rs,2)
     accuracy_with_different_length(1,i) = sum(ranking(:,r) == 1)/test_num;
     failed_estimated_routes{i} = find(ranking(:,r) ~= 1);
 end
-real = 'simulated';
-save(['results_for_bsd/',dataset,'_failed_routes_',real,'.mat'],'failed_estimated_routes');
+% real = 'simulated';
+% save(['results_for_bsd/',dataset,'_failed_routes_',real,'.mat'],'failed_estimated_routes');
 
 % Accuracy with different route length based on overlap
 for i = 1:size(rs,2)
@@ -179,7 +179,7 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    % save([resultsPath,'/', option ,'.mat'],  '-v7.3')
+    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
