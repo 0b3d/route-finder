@@ -179,7 +179,8 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+    % save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+    save([resultsPath,'/', option,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end

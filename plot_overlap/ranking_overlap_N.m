@@ -2,7 +2,7 @@ clear all
 close all
 
 params.features_type = 'BSD';
-params.datasets = {'wallstreet5k','unionsquare5k'};
+params.datasets = {'hudsonriver5k','wallstreet5k','unionsquare5k'};
 
 params.zoom = 'z18';
 params.model = 'v1';
@@ -33,14 +33,20 @@ for t=1:length(turns)
             else
                 if strcmp(params.turns,'only')
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'.mat']); 
-                    outName = ['ranking','.mat'];
+                    outName_1 = ['ranking','.mat'];
+                    outName_2 = ['best_estimated_routes','.mat'];
                 else
-                    accuracy = 1;
-                    fileName = fullfile(['results/BSD/',params.dataset,'/',option,'_',num2str(accuracy*100),'.mat']); 
-                    outName = ['ranking_',num2str(accuracy*100),'.mat'];
+                    network = 'googlenet';
+                    fileName = fullfile(['results/BSD/',params.dataset,'/',option,'_', network,'.mat']); 
+                    outName_1 = ['ranking_',network,'.mat'];
+                    outName_2 = ['best_estimated_routes_', network,'.mat'];
                 end
             end
             load(fileName, 'best_estimated_top5_routes');
+            load (fileName, 'best_estimated_routes');
+            
+            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
+            save([sub_resultsPath,'/',outName_2],  'best_estimated_routes');
 
             %% Compute accuracy checking if last N points match gt
             res = zeros(500, 40);
@@ -48,7 +54,7 @@ for t=1:length(turns)
                 for m=N:40
                     best_estimated_routes = best_estimated_top5_routes{1,r}{1,m}; %size is (5,m)
                     k = min(size(best_estimated_routes,1), topk);
-                    %best_estimated_route = best_estimated_routes(1:k,:); 
+                    % best_estimated_route = best_estimated_routes(1:k,:); 
                     lidx = m - N + 1;
                     uidx = m;
                     gt_route = test_route(r,lidx:uidx); % [1,N]
@@ -56,11 +62,11 @@ for t=1:length(turns)
                     res(r,m) = any(ismember(estimated,gt_route,'rows'));
                 end
             end
-            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
+
             if ~exist(sub_resultsPath,'dir')
                 mkdir(sub_resultsPath);
             end
-            save([sub_resultsPath,'/',outName],  'res');
+            save([sub_resultsPath,'/',outName_1],  'res');
         end
     end
 end

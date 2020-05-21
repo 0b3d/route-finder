@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
 city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
+dataset = 'hudsonriver5k'; %The name of the dataset, creates a folder in /Data
 subset = 'combined'; %combined
 network = 'vgg';
 % lowerlat = 40.7171;
@@ -46,5 +46,5 @@ max_rays = 43; % 90/2 - 2
 features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 model = 'v1';
 tile_test_zoom = 'z18' ;
-turns = 'false'; % 'true', 'false', 'only'
+turns = 'only'; % 'true', 'false', 'only'
 probs = 'false'; % for 'BSD', set this to 'false'

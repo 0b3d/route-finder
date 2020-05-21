@@ -6,14 +6,11 @@ model = 'v1';
 zoom = 'z18';
 
 % choose features type
-params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
-params.turns = 'true'; % 'true', 'false', 'only'
-params.probs = 'false'; % for 'BSD', set this to 'false'
-params.BSDacc = '75';
+params.network = 'resnet18';
 params.top = 'top1';
-%option = {features_type,turns, probs};
+% option = {features_type,turns, probs};
 
-dataset = 'wallstreet5k';
+dataset = 'unionsquare5k';
 groups = 8;
 range = 5:5:20;
 data = zeros(size(range,2),5); 
@@ -62,7 +59,7 @@ params.features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-BSDresults_filename = fullfile('sub_results/BSD',dataset,params.top,params.turns,['ranking_',num2str(params.BSDacc),'.mat']);
+BSDresults_filename = fullfile('sub_results/BSD',dataset,params.top,params.turns,['ranking_',params.network,'.mat']);
 load(BSDresults_filename, 'res');
 
 acc = sum(res == 1, 1)/size(res,1);
@@ -71,11 +68,11 @@ data(:,2) = col;
 
 
 %% load ranking BSD + turn
-params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
+params.features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 params.turns = 'true'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
-BSDresults_filename = fullfile('sub_results/BSD',dataset,params.top,params.turns,['ranking','_',num2str(params.BSDacc),'.mat']);
+BSDresults_filename = fullfile('sub_results/BSD',dataset,params.top,params.turns,['ranking','_',params.network,'.mat']);
 load(BSDresults_filename, 'res');
 
 acc = sum(res == 1, 1)/size(res,1);
@@ -102,7 +99,7 @@ b(5).FaceColor  = [0 0 1];
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
-title('Wall Street');
+title('Resnet18');
 
 ax = gca;
 set(ax,'Ytick',0:10:100)
@@ -110,7 +107,7 @@ ylim([0,100]);
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
-filename = fullfile('results_for_bsd', 'charts_overlap', ['bars_',dataset,'_',params.BSDacc,'_',params.top]);
+filename = fullfile('results_for_bsd', 'charts_network', ['bars_',dataset,'_',params.network,'_',params.top]);
 saveas(ax, filename,'epsc')
 
 
