@@ -22,6 +22,7 @@ for i=1:length(routes)
     right = routes(i).BSDs(2);
     back = routes(i).BSDs(3);
     left = routes(i).BSDs(4);
+    label = bi2de(routes(i).BSDs);
     if strcmp(city,'train')
         city = routes2(i).city;
         % check
@@ -31,7 +32,7 @@ for i=1:length(routes)
         end
     end
     % we should check the precision here!
-    fprintf(fid, ['%s', ',', '%.20f',',','%.20f',',','%f',',','%f',',','%f',',','%f',',','%f',',','%s','\n'], ...
-                     pano_id, gsv_lat, gsv_lon, gsv_yaw, front, right, back, left, city); 
+    fprintf(fid, ['%s', ',', '%.20f',',','%.20f',',','%f',',','%f',',','%f',',','%f',',','%f',',','%f',',','%s','\n'], ...
+                     pano_id, gsv_lat, gsv_lon, gsv_yaw, front, right, back, left, label, city); 
 end
 fclose(fid);

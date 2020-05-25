@@ -36,7 +36,7 @@ for j=1:length(routes)
 
     desc(2) = 0;
     if ~isempty(find(routes(j).zerL_r >= thresh_bd)) && isempty(find(routes(j).zerL_r >= max_rays)) % 5 degree
-        desc(2) = 1; % right
+        desc(2) = 1;  % right errors:desc(3) = 1
     else
         if ~isempty(find(routes(j).dist_diff_r >= thresh_dist))
             desc(2) = 1;
