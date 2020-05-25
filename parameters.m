@@ -1,6 +1,6 @@
 mapfile = 'manhattan.osm';
 city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'hudsonriver5k'; %The name of the dataset, creates a folder in /Data
+dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
 subset = 'combined'; %combined
 network = 'vgg';
 % lowerlat = 40.7171;
@@ -25,7 +25,7 @@ radius = 35; % search radius is 35m
 thresh = 10; % filter inters if their angles is below 10 degree
 range = 2; % generate rays every _degree
 
-% accuracy = 1; % CNN accuracy
+accuracy = 0.75; % CNN accuracy
 accuracy_jcf = 0.815;
 accuracy_bdr = 0.8658;
 accuracy_jcb = 0.8252;

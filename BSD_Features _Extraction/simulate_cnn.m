@@ -15,8 +15,8 @@ for i=1:length(routes)
         count = count+1;
         continue;
     end
-    % bad = bit_flipped(good, accuracy);
-    bad = bit_flipped_v2(good, accuracy_jcf, accuracy_bdr, accuracy_jcb, accuracy_bdl);
+    bad = bit_flipped(good, accuracy);
+    % bad = bit_flipped_v2(good, accuracy_jcf, accuracy_bdr, accuracy_jcb, accuracy_bdl);
     % bad = bit_flipped_v3(good, accuracy_jc, accuracy_njc, accuracy_bd, accuracy_nbd);
     routes(i).CNNs = bad; 
 end

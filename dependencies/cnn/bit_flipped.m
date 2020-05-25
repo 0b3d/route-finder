@@ -20,7 +20,8 @@ BSD16 = bi2de([~desc(1), ~desc(2), ~desc(3), ~desc(4)]); prob16 = (1-accuracy)*(
 
 alphabet = [BSD1 BSD2 BSD3 BSD4 BSD5 BSD6 BSD7 BSD8 BSD9 BSD10 BSD11 BSD12 BSD13 BSD14 BSD15 BSD16];
 prob = [prob1 prob2 prob3 prob4 prob5 prob6 prob7 prob8 prob9 prob10 prob11 prob12 prob13 prob14 prob15 prob16];
-desc_new = de2bi(randsrc(1, 1, [alphabet;prob]),4);
+rand = randsrc(1, 1, [alphabet;prob]);
+desc_new = de2bi(rand,4);
 
 
 
