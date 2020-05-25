@@ -5,7 +5,7 @@ close all
 model = 'v1';
 zoom = 'z18';
 route_length = 40;
-datasets = {'wallstreet5k'}; 
+datasets = {'unionsquare5k'}; 
 test_num = 500;
 score = zeros(length(datasets),route_length);
 union_accuracy = zeros(length(datasets),route_length);
@@ -13,7 +13,7 @@ union_accuracy = zeros(length(datasets),route_length);
 params.turns = 'false';
 params.probs = 'false';
 params.top = 'top1';
-networks = {'resnet18','resnet50','alexnet','vgg','googlenet'};
+networks = {'resnet18','resnet50','densenet161','alexnet','vgg','googlenet'};
 
 for dataset_index=1:length(datasets)
     for a = 1:length(networks)
@@ -76,9 +76,9 @@ ylabel(ax,'S_{diff}', 'FontName', 'Times', 'FontSize', 10)
 ylim([0, 1]);
 set(ax,'Ytick',0:0.2:1)
 grid on
-title('Wall Street');
+title('Union Square');
 
-legend_text= {'BSD resnet18','BSD resnet50','BSD alexnet','BSD vgg','BSD googlenet'}; 
+legend_text= {'BSD resnet18','BSD resnet50','BSD densenet161','BSD alexnet','BSD vgg','BSD googlenet'}; 
 
 fig = gcf;
 basic_plot_configuration;
