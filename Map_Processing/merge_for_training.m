@@ -1,4 +1,4 @@
-% merge ways, intersections and buildings for training
+% merge ways, intersections and buildings to get labels of training data
 clear all
 city = 'train';
 city_1 = 'manhattan';

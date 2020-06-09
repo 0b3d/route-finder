@@ -26,7 +26,9 @@ for j=1:length(routes)
 
     % gaps
     desc(4) = 0;
-    if ~isempty(find(routes(j).zerL_l >= thresh_bd)) && isempty(find(routes(j).zerL_l >= max_rays)) % 5 degree
+    zerL_l = routes(j).zerL_l;
+    zerL_l(zerL_l >= max_rays) = 0;
+    if ~isempty(find(zerL_l >= thresh_bd))
         desc(4) = 1; % left
     else
         if ~isempty(find(routes(j).dist_diff_l >= thresh_dist))
@@ -35,8 +37,10 @@ for j=1:length(routes)
     end
 
     desc(2) = 0;
-    if ~isempty(find(routes(j).zerL_r >= thresh_bd)) && isempty(find(routes(j).zerL_r >= max_rays)) % 5 degree
-        desc(2) = 1;  % right errors:desc(3) = 1
+    zerL_r = routes(j).zerL_r;
+    zerL_r(zerL_r >= max_rays) = 0;
+    if ~isempty(find(zerL_r >= thresh_bd))
+        desc(2) = 1; % right
     else
         if ~isempty(find(routes(j).dist_diff_r >= thresh_dist))
             desc(2) = 1;
@@ -46,4 +50,4 @@ for j=1:length(routes)
     routes(j).BSDs = desc;
 
 end
-save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+save(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_better','.mat'],'routes');

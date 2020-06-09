@@ -13,19 +13,16 @@ for m=1 : max_route_length
         if strcmp(turns, 'true')
             turn = T(m-1);
             [R_, dist_] = Turn_filter(R, dist, turn, routes, m, threshold); % filter based on turn
-            [R_, dist_] = Nclosest_v4(bad,R_,routes,dist_,N(m)); % filter based on sorting
-            % [R_, dist_, prob_] = Nclosest_v6(bad,R_,routes,dist_,N,accuracy);
+            [R_, dist_] = Nclosest_bsd(bad,R_,routes,dist_,N(m)); % filter based on sorting
         else
-            [R_, dist_] = Nclosest_v4(bad,R,routes,dist,N(m)); % filter based on sorting
-            % [R_, dist_, prob_] = Nclosest_v6(bad,R,routes,dist,N,accuracy);
+            [R_, dist_] = Nclosest_bsd(bad,R,routes,dist,N(m)); % filter based on sorting
         end
     else
-        [R_, dist_] = Nclosest_v4(bad,R,routes,dist,N(m)); % filter based on sorting
-        % [R_, dist_, prob_] = Nclosest_v6(bad,R,routes,dist,N,accuracy);
+        [R_, dist_] = Nclosest_bsd(bad,R,routes,dist,N(m)); % filter based on sorting
     end
     
     if m < max_route_length
-        [R, dist] = RRextend_v5(R_, dist_, routes); 
+        [R, dist] = RRextend(R_, dist_, routes); 
     end
     
     % rank of the current route

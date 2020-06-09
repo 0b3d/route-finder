@@ -1,4 +1,4 @@
-% correlate each image with features
+% correlate each image with features from seperated networks
 clear all
 close all
 parameters;

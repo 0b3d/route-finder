@@ -1,5 +1,5 @@
  function [d_min, xc_is, yc_is, idxc_is, is_vertex] = poly_poly_dist(xv1, yv1, xv2, yv2)
-%poly_poly_dist Find minimum distance between two polylines.
+% poly_poly_dist Find minimum distance between two polylines.
 %
 % Description:
 % Polyline is defined as a set of nv-1 segments connecting nv ordered 

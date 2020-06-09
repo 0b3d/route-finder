@@ -1,3 +1,4 @@
+% parameters of BSD Extraction and Lolcaisation
 mapfile = 'manhattan.osm';
 city = 'manhattan'; % manhattan, pittsburgh, train
 dataset = 'wallstreet5k'; %The name of the dataset, creates a folder in /Data
