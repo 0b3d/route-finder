@@ -34,7 +34,10 @@ connectivity_correction;
 % assign_lables;
 assign_lables_better;
 simulate_cnn;    % simulated CNN
-load_features; % true CNN
+
+save_lable_csv;  % true CNN
+load_features; 
+load_features_v2;
 
 
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
@@ -43,6 +46,8 @@ generate_turns;
 
 % Localization
 localisation;
+% localisation_v2; % bootstrapping
+% localisation_v3; % dense map
 
 % Results
 statistic_results_v2;

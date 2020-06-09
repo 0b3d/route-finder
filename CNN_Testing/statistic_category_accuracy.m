@@ -2,7 +2,7 @@
 clear all
 close all
 parameters;
-load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_v3','.mat'],'routes');
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
 % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 
 jc = 0;
