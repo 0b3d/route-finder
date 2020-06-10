@@ -1,11 +1,10 @@
-% generate video -v2
 % generate video
 clear all;
 close all;
 
 % Add repository path
 path =  fullfile(pwd);
-addpath(genpath(path));
+addpath(genpath(path)); 
 
 % Configuration
 dataset = 'unionsquare5k';

@@ -36,9 +36,9 @@ if strcmp(features_type, 'ES')
     pairwise_dist = pairwise_distances(routes);
     matched_pairwise_probs = lognpdf(pairwise_dist,0.465901,0.309151);
     unmatched_pairwise_probs = evpdf(pairwise_dist, 4.34925, 0.489259);
-    %dxy_match_probs = norm
+    % dxy_match_probs = norm
     
-    %[gm, pairwise_probs] = fitgmmodel(pairwise_dist);
+    % [gm, pairwise_probs] = fitgmmodel(pairwise_dist);
 end
 
 test_num = size(test_route, 1);

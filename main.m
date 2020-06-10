@@ -46,7 +46,8 @@ generate_turns;
 
 % Localisation
 localisation;
-% localisation_v2; % bootstrapping
+% localisation_v2; % bootstrapping (need to be imporved further )
+% localisation_ds; % dense map sampling localisation (need to be implemented further)
 
 % Statistic Results
 statistic_results;

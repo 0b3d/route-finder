@@ -1,4 +1,4 @@
-function [location, t_] = RouteSearching_v8(routes, tests, accuracy, N, max_route_length, threshold, R_init, t, T, interv)
+function [location, t_] = RouteSearching_ds(routes, tests, accuracy, N, max_route_length, threshold, R_init, t, T, interv)
 R = R_init;
 dist = zeros(size(routes,2),1);
 
