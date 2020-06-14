@@ -51,9 +51,7 @@ for m=1 : max_route_length
         top5 = R_;
     end
     best_top5_routes{m} = top5;
-    
-    
-    
+        
 end
 
 if ~isempty(t_)

@@ -45,7 +45,7 @@ load(results_filename, 'best_estimated_routes', 'routes');
 es_ber = best_estimated_routes;
 es_routes = routes;
 
-%Find boundaries limits
+% Find boundaries limits
 coords = zeros(5000,2);
 for i=1:5000 
     coords(i,:) = es_routes(i).gsv_coords;

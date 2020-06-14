@@ -9,9 +9,11 @@ addpath(genpath(path));
 
 if strcmp(features_type, 'ES') 
     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
+%     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'_pr','.mat']);
 else
     % real classifier
-    load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
+%     load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
+    load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_pr','.mat'],'routes');
     % simulated classifier
     % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 end
@@ -63,7 +65,7 @@ for i=1:test_num
     t = test_route(i,1:max_route_length);
     T = test_turn(i,1:max_route_length-1);
     
-    option = [features_type, turns ,probs]; 
+    option = [features_type, turns, probs]; 
     switch option
         %% ES FEATURES
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
@@ -159,7 +161,7 @@ if strcmp(features_type, 'ES')
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
-    save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
+    % save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
 else
 
     if strcmp(dataset,"cmu5k")
@@ -173,7 +175,7 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+    % save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
