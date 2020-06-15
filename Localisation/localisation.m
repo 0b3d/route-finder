@@ -8,8 +8,8 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 if strcmp(features_type, 'ES') 
-    load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
-%     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'_pr','.mat']);
+%     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
+    load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'_pr2 ','.mat']);
 else
     % real classifier
 %     load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
