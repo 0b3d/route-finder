@@ -6,7 +6,7 @@ model = 'v1';
 zoom = 'z18';
 
 % choose features type
-params.network = 'resnet18';
+params.network = 'alexnet3';
 params.top = 'top1';
 % option = {features_type,turns, probs};
 
@@ -99,7 +99,7 @@ b(5).FaceColor  = [0 0 1];
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
-title('Resnet18');
+title('Alexnet');
 
 ax = gca;
 set(ax,'Ytick',0:10:100)

@@ -8,12 +8,12 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 if strcmp(features_type, 'ES') 
-%     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
-    load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'_pr2 ','.mat']);
+    load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
+    % load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'_pr2 ','.mat']);
 else
     % real classifier
-%     load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
-    load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_pr','.mat'],'routes');
+    load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
+    % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_pr','.mat'],'routes');
     % simulated classifier
     % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 end
@@ -161,7 +161,7 @@ if strcmp(features_type, 'ES')
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
-    % save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
+    save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
 else
 
     if strcmp(dataset,"cmu5k")
@@ -175,7 +175,9 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    % save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
+
+% endofscript;

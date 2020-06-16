@@ -13,7 +13,7 @@ union_accuracy = zeros(length(datasets),route_length);
 params.turns = 'false';
 params.probs = 'false';
 params.top = 'top1';
-networks = {'resnet18','resnet50','densenet161','alexnet','vgg','googlenet'};
+networks = {'resnet18','resnet50','densenet161','alexnet3','vgg','googlenet'};
 
 for dataset_index=1:length(datasets)
     for a = 1:length(networks)

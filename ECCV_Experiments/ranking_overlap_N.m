@@ -36,7 +36,7 @@ for t=1:length(turns)
                     outName_1 = ['ranking','.mat'];
                     outName_2 = ['best_estimated_routes','.mat'];
                 else
-                    network = 'alexnet2';
+                    network = 'combined3';
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'_', network,'.mat']); 
                     outName_1 = ['ranking_',network,'.mat'];
                     outName_2 = ['best_estimated_routes_', network,'.mat'];

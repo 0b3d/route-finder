@@ -6,7 +6,7 @@ model = 'v1';
 zoom = 'z18';
 
 % choose features type
-params.turns = 'true'; % 'true', 'false', 'only'
+params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 params.top = 'top1';
 % option = {features_type,turns, probs};
@@ -23,7 +23,7 @@ plot(range, 100*ranking(range),  'LineStyle','-', 'LineWidth',2.0)
 hold on 
 
 % load BSD data
-networks = {'resnet18','resnet50','densenet161','alexnet','vgg','googlenet'};
+networks = {'resnet18','resnet50','densenet161','alexnet3','vgg','googlenet'};
 ax = gca;
 for i = 1:length(networks)
     network = networks{i};
@@ -38,7 +38,7 @@ grid on
 title('Union Square')
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
 ylabel(ax, 'Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
-legend_text = {'ES+T','BSD resnet18+T','BSD resnet50+T','BSD densenet161+T','BSD alexnet+T','BSD vgg+T','BSD googlenet+T'};
+legend_text = {'ES','BSD resnet18','BSD resnet50','BSD densenet161','BSD alexnet','BSD vgg','BSD googlenet'};
 set(ax,'Ytick',0:20:100)
 
 fig = gcf;

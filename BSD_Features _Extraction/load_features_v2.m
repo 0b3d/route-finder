@@ -8,7 +8,7 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load features
-load('models/combined_v2/uq_features.mat','features')
+load('models/combined_v3/hd_features.mat','features')
 
 % correlate features
 load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
