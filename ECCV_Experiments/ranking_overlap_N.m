@@ -1,12 +1,12 @@
 clear all
 close all
 
-params.features_type = 'BSD';
+params.features_type = 'ES';
 params.datasets = {'hudsonriver5k','wallstreet5k','unionsquare5k'};
 
-params.zoom = 'z18';
-params.model = 'v1';
-turns = {'true','false','only'};
+params.zoom = 'z19';
+params.model = 'v2_2';
+turns = {'true','false'};
 params.probs = 'false';
 params.threshold_ = 60;
 ks = [1,5];
@@ -29,7 +29,8 @@ for t=1:length(turns)
             %% Load best estimated routes
             if strcmp(params.features_type, 'ES')
                 fileName = fullfile('results/ES', params.model, params.zoom, params.dataset,[option,'.mat']);
-                outName = ['ranking','.mat'];
+                outName_1 = ['ranking','.mat'];
+                outName_2 = ['best_estimated_routes.mat'];
             else
                 if strcmp(params.turns,'only')
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'.mat']); 

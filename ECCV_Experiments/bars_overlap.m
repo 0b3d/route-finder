@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-model = 'v1';
+model = 'v2_2';
 zoom = 'z18';
 
 % choose features type
@@ -33,6 +33,7 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 params.turns = 'false'; % 'true', 'false', 'only'
 params.probs = 'false'; % for 'BSD', set this to 'false'
 
+%ESresults_filename =  fullfile('sub_results/ES',dataset,params.top, params.turns,'ranking.mat');
 ESresults_filename =  fullfile('sub_results/ES',dataset,params.top, params.turns,'ranking.mat');
 load(ESresults_filename, 'res');
 
@@ -107,7 +108,7 @@ ylim([0,100]);
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
-filename = fullfile('results_for_bsd', 'charts_network', ['bars_',dataset,'_',params.network,'_',params.top]);
+filename = fullfile('results_for_eccv', 'charts_8d', ['bars_',dataset,'_',params.network,'_',params.top]);
 saveas(ax, filename,'epsc')
 
 
