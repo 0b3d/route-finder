@@ -1,4 +1,4 @@
-% correlate each image with features
+% correlate each image with features from seperated networks
 clear all
 close all
 parameters;
@@ -8,16 +8,16 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 % load features
-load('models/densenet161/hd_junctions_features.mat','features')
+load('models/alexnet/hd_junctions_features.mat','features')
 jc_features = features';
-load('models/densenet161/hd_gaps_features.mat','features')
+load('models/alexnet3/hd_gaps_features.mat','features')
 bd_features = features';
 clear features
 
 % load image paths
-load('models/densenet161/hd_junctions_ids_labels.mat','panoids')
+load('models/alexnet/hd_junctions_ids_labels.mat','panoids')
 jc_panoid = panoids;
-load('models/densenet161/hd_gaps_ids_labels.mat','panoids')
+load('models/alexnet3/hd_gaps_ids_labels.mat','panoids')
 bd_panoid = panoids;
 clear panoids
 

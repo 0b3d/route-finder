@@ -1,55 +1,51 @@
-function [location, location_, m_, flag] = RouteSearching_onlyT(routes, max_route_length, R_init, t, T, overlap, s_number, threshold)
+function [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT(routes, max_route_length, R_init, t, T, threshold)
 R = R_init;
-loop = 0;
+rank = zeros(max_route_length,1);
+best_routes = {max_route_length};
+best_top5_routes = {max_route_length};
 
 for m=1 : max_route_length
-    location = t(m);
     if m > 1
         turn = T(m-1);
         R_ = Turn_filter_v2(R, turn, routes, m, threshold);
     else
         R_ = R;
     end
+            
+    if m < max_route_length
+        R = RRextend_v2(R_, routes);
+    end  
     
+    % rank of the current route
+    gt_point = t(m);
+    [gt_indices, ~] = find(R_(:,m) == gt_point);
+    if size(gt_indices) > 0
+        point_rank = gt_indices(1);
+    else 
+        point_rank = [gt_indices,1];
+    end
+    rank(m,1) = point_rank;
+    
+    % current best estimated route
     if size(R_, 1) > 0
         t_ = R_(1,:);
     else
-        location_ = [];
-        m_ = m;
-        flag = 0;
-        % disp('couldn not find correct location!');
-        break;
+        t_ = [];
     end
+    best_routes{m} = t_; 
     
-    t_c = t(1:m);
-    count = 0;
-    for c=1:m
-        if(t_(c) == t_c(c))
-            count = count+1;
-        end
-    end
-    overlap_ = count/m;
-    if overlap_ >= overlap
-        loop = loop+1;
-    else 
-        loop = 0;
-    end
-    
-    if loop == s_number
-        location_ = t_(m);
-        m_ = m;
-        flag = 1;
-        break;
+    if size(R_, 1) > 5
+        top5 = R_(1:5,:);
     else
-        if m < max_route_length
-            R = RRextend_v6(R_, routes);
-        else
-            location_ = [];
-            m_ = m;
-            flag = 0;
-            % disp('could not find correct location!')
-        end
-    end       
+        top5 = R_;
+    end
+    best_top5_routes{m} = top5;
+end
+
+if ~isempty(t_)
+    location = t_(1, size(t_, 2));
+else 
+    location = [];
 end
 
 end

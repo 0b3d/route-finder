@@ -7,5 +7,6 @@ function pairwise_dist = pairwise_distances(routes)
         Y(i,:) = routes(i).y;
     end
 
-    pairwise_dist = pdist2(Y,X);
+    pairwise_dist = pdist2(Y,X); % Obed
+    % pairwise_dist_test = pdist2(X,Y); % Obed
 end

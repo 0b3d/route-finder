@@ -2,7 +2,7 @@ clear all
 close all 
 clc
 addpath(genpath(pwd));
-parameters; %load the parameters 
+parameters; % load the parameters 
 
 %% Map parsing and gsv download
 % To parse all map information, and generate route dataset just call the
@@ -31,19 +31,24 @@ map_processing;
 
 feature_generating;
 connectivity_correction;
-% assign_lables;
-assign_lables_better;
+assign_lables;
+
 simulate_cnn;    % simulated CNN
-load_features; % true CNN
+
+save_lable_csv;  % true CNN
+load_features; 
+load_features_v2;
 
 
 % Generate test routes and save then in Localization/test_routes/<dataset>.mat
 generate_random_routes;
 generate_turns;
 
-% Localization
+% Localisation
 localisation;
+% localisation_v2; % bootstrapping (need to be imporved further )
+% localisation_ds; % dense map sampling localisation (need to be implemented further)
 
-% Results
-statistic_results_v2;
+% Statistic Results
+statistic_results;
 

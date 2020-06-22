@@ -9,9 +9,11 @@ addpath(genpath(path));
 
 if strcmp(features_type, 'ES') 
     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat']);
+    % load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'_pr2 ','.mat']);
 else
     % real classifier
     load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
+    % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_pr','.mat'],'routes');
     % simulated classifier
     % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 end
@@ -36,9 +38,9 @@ if strcmp(features_type, 'ES')
     pairwise_dist = pairwise_distances(routes);
     matched_pairwise_probs = lognpdf(pairwise_dist,0.465901,0.309151);
     unmatched_pairwise_probs = evpdf(pairwise_dist, 4.34925, 0.489259);
-    %dxy_match_probs = norm
+    % dxy_match_probs = norm
     
-    %[gm, pairwise_probs] = fitgmmodel(pairwise_dist);
+    % [gm, pairwise_probs] = fitgmmodel(pairwise_dist);
 end
 
 test_num = size(test_route, 1);
@@ -63,13 +65,9 @@ for i=1:test_num
     t = test_route(i,1:max_route_length);
     T = test_turn(i,1:max_route_length-1);
     
-    option = [features_type, turns ,probs]; 
+    option = [features_type, turns, probs]; 
     switch option
         %% ES FEATURES
-        % ES with turns using distances
-        %case {'EStruefalse', 'ESfalsefalse'}
-        %    [location, rank, best_routes, route_dist] = RouteSearching_ES_withT_v2(routes, N, max_route_length, threshold, R_init, t, T, turns);        
-        % ES with turns using probs
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
             [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold_, R_init, t, T, turns, probs, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs);
             dist{i} = route_dist;
@@ -79,7 +77,7 @@ for i=1:test_num
             dist{i} = route_dist;
         %% JUST TURNS
         case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
-            [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT_v2(routes, max_route_length, R_init, t, T, threshold_);
+            [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT(routes, max_route_length, R_init, t, T, threshold_);
             
         otherwise
             warning('Unexpected configuration')      
@@ -101,8 +99,6 @@ for i = 1:size(rs,2)
     accuracy_with_different_length(1,i) = sum(ranking(:,r) == 1)/test_num;
     failed_estimated_routes{i} = find(ranking(:,r) ~= 1);
 end
-% real = 'simulated';
-% save(['results_for_bsd/',dataset,'_failed_routes_',real,'.mat'],'failed_estimated_routes');
 
 % Accuracy with different route length based on overlap
 for i = 1:size(rs,2)
@@ -183,3 +179,5 @@ else
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
+
+% endofscript;
