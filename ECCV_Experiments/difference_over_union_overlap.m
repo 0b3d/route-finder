@@ -2,8 +2,8 @@
 clear all
 close all
 
-model = 'v1';
-zoom = 'z18';
+model = 'v2_2';
+zoom = 'z19';
 route_length = 40;
 datasets = {'unionsquare5k'}; 
 test_num = 500;
@@ -12,8 +12,12 @@ union_accuracy = zeros(length(datasets),route_length);
 
 params.turns = 'false';
 params.probs = 'false';
-params.top = 'top1';
-networks = {'resnet18','resnet50','densenet161','alexnet3','vgg','googlenet'};
+params.top = 'top5';
+networks = {'resnet18','resnet50','densenet161','alexnet','vgg','googlenet'};
+option = 1; % 1-> (S_ES \ S_BSD) / S_ES 
+            % 2-> (S_BSD \ S_ES) / S_BSD 
+            % 3-> (S_ES \ S_BSD) / S_(ES U BSD)
+            % 4-> (S_BSD \ S_ES) / S_(ES U BSD)
 
 for dataset_index=1:length(datasets)
     for a = 1:length(networks)
@@ -58,11 +62,34 @@ for dataset_index=1:length(datasets)
                 ES(i,:) = current_route; 
             end
 
-            union_set = union(BSD, ES, 'rows');
-            intersect_set = intersect(BSD, ES, 'rows');
-            difference_set = setdiff(ES,BSD,'rows'); 
-            % union_accuracy(dataset_index, m) = size(union_set, 1)/test_num;
-            score(dataset_index,m) = size(difference_set,1) / size(ES,1);% size(union_set, 1);    
+            switch option
+                case 1
+                    union_set = union(BSD, ES, 'rows');
+                    intersect_set = intersect(BSD, ES, 'rows');
+                    difference_set = setdiff(ES,BSD,'rows'); 
+                    % union_accuracy(dataset_index, m) = size(union_set, 1)/test_num;
+                    score(dataset_index,m) = size(difference_set,1) / size(ES,1);% size(union_set, 1);  
+                case 2 
+                    union_set = union(ES, BSD, 'rows');
+                    intersect_set = intersect(ES, BSD, 'rows');
+                    difference_set = setdiff(BSD,ES,'rows'); 
+                    % union_accuracy(dataset_index, m) = size(union_set, 1)/test_num;
+                    score(dataset_index,m) = size(difference_set,1) / size(BSD,1);% size(union_set, 1);  
+                case 3
+                    union_set = union(BSD, ES, 'rows');
+                    intersect_set = intersect(BSD, ES, 'rows');
+                    difference_set = setdiff(ES,BSD,'rows'); 
+                    % union_accuracy(dataset_index, m) = size(union_set, 1)/test_num;
+                    score(dataset_index,m) = size(difference_set,1) / size(union_set,1);% size(union_set, 1);    
+                case 4
+                    union_set = union(ES, BSD, 'rows');
+                    intersect_set = intersect(ES, BSD, 'rows');
+                    difference_set = setdiff(BSD,ES,'rows'); 
+                    % union_accuracy(dataset_index, m) = size(union_set, 1)/test_num;
+                    score(dataset_index,m) = size(difference_set,1) / size(union_set,1); 
+                otherwise
+                    error('Option not found')
+            end
         end
         plot(score', 'LineStyle','-', 'LineWidth',1)
         hold on
@@ -84,5 +111,5 @@ fig = gcf;
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'southeast')
-filename = fullfile('results_for_bsd', 'charts_network', ['difference_over_union_',params.turns,'_',params.top,'_',dataset]);
+filename = fullfile('results_for_eccv', 'charts_8d', ['difference_over_union_',params.turns,'_',params.top,'_',dataset,'_option_',num2str(option)]);
 saveas(ax, filename,'epsc')
