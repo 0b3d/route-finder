@@ -14,9 +14,10 @@ for i=1:sz1      % slow
         disp('error');
     end
 end
-%criteria: sort, find the k nearest neighbors
+% criteria: sort, find the k nearest neighbors
 dist(dist > 1000) = [];
 [~, I] = sort(dist); % core
+% histogram(sorted_dist);
 p = floor(size(I,1)/100*N);  % not slow
 I = I(1:p,1);    
 R_ = R(I,:);
