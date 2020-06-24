@@ -6,8 +6,8 @@ model = 'v2_2';
 zoom = 'z18';
 
 % choose features type
-params.network = 'alexnet3';
-params.top = 'top1';
+params.network = 'alexnet';
+params.top = 'top5';
 % option = {features_type,turns, probs};
 
 dataset = 'unionsquare5k';
@@ -100,8 +100,8 @@ b(5).FaceColor  = [0 0 1];
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
-title('Alexnet');
-
+%title('Alexnet');
+title(params.network)
 ax = gca;
 set(ax,'Ytick',0:10:100)
 ylim([0,100]);

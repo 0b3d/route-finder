@@ -11,7 +11,7 @@ params.probs = 'false'; % for 'BSD', set this to 'false'
 params.top = 'top1';
 % option = {features_type,turns, probs};
 
-dataset = 'unionsquare5k';
+dataset = 'wallstreet5k';
 range = 5:1:40;
 
 % load ES data
