@@ -20,7 +20,7 @@ for m=1 : max_route_length
     else
         [R_, dist_] = Nclosest_bsd(bad,R,routes,dist,N(m)); % filter based on sorting
     end
-    
+        
     if m < max_route_length
         [R, dist] = RRextend(R_, dist_, routes); 
     end

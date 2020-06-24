@@ -2,6 +2,7 @@ mat-results/
 features/
 images/
 results/
+results_bs/
 *.m~
 *.pgw
 Results/demo_london_BSD.avi
@@ -32,3 +33,4 @@ Results/
 
 OSM Files
 results_version_v1/
+results_bs/BSD/unionsquare5k/BSDfalsefalse_resnet18.mat

@@ -38,8 +38,7 @@ if strcmp(features_type, 'ES')
     pairwise_dist = pairwise_distances(routes);
     matched_pairwise_probs = lognpdf(pairwise_dist,0.465901,0.309151);
     unmatched_pairwise_probs = evpdf(pairwise_dist, 4.34925, 0.489259);
-    % dxy_match_probs = norm
-    
+    % dxy_match_probs = norm   
     % [gm, pairwise_probs] = fitgmmodel(pairwise_dist);
 end
 
@@ -77,8 +76,7 @@ for i=1:test_num
             dist{i} = route_dist;
         %% JUST TURNS
         case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
-            [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT(routes, max_route_length, R_init, t, T, threshold_);
-            
+            [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT(routes, max_route_length, R_init, t, T, threshold_);            
         otherwise
             warning('Unexpected configuration')      
     end
@@ -104,7 +102,7 @@ end
 for i = 1:size(rs,2)
     r = rs(i);
     for j = 1:test_num
-        t = test_route(j,1:r);
+        t = test_route(j,1:r); 
         t_e = best_estimated_routes{1,j}{1,r};
         idx = find(ismember(t, t_e));
         overlap_ = size(idx,2)/size(t_e,2);   
@@ -143,7 +141,7 @@ for i = 1:size(rs, 2)
                     accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j) + 1;
                 end
             else
-                accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j) + 1; % !!!!check
+                accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j) + 1; 
             end
         end
         accuracy_with_threshold(i,j) = accuracy_with_threshold(i,j)/test_num;        
@@ -161,7 +159,7 @@ if strcmp(features_type, 'ES')
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
-    save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
+    % save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
 else
 
     if strcmp(dataset,"cmu5k")
@@ -175,9 +173,9 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+    % save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
 
-% endofscript;
+endofscript;

@@ -90,14 +90,14 @@ for key_frame = 1:loops
         bsd_estimates = bsd_ber{1, route_index}{key_frame};
         min_dist = 0;
     else        
-        [bsd_estimates, min_dist] = Bootstrapping_v3(gt(key_frame), bsd_estimates, min_dist, bsd_routes, successful_route_length_bsd, 'BSD');
+        [bsd_estimates, min_dist] = boot_strapping(gt(key_frame), bsd_estimates, min_dist, bsd_routes, successful_route_length_bsd, 'BSD');
     end
 
     if key_frame <= successful_route_length_es
         es_estimates = es_ber{1, route_index}{key_frame};
         min_dist = 0;
     else        
-        [es_estimates, min_dist] = Bootstrapping_v3(gt(key_frame),es_estimates, min_dist, es_routes, successful_route_length_es, 'ES');
+        [es_estimates, min_dist] = boot_strapping(gt(key_frame),es_estimates, min_dist, es_routes, successful_route_length_es, 'ES');
     end
     
     
