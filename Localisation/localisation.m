@@ -159,13 +159,13 @@ if strcmp(features_type, 'ES')
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
-    % save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
+    save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
 else
 
     if strcmp(dataset,"cmu5k")
-        resultsPath = ['results/', features_type,'/',dataset,'_',subset];
+        resultsPath = ['results_th/', features_type,'/',dataset,'_',subset];
     else
-        resultsPath = ['results/', features_type,'/',dataset];
+        resultsPath = ['results_th/', features_type,'/',dataset];
     end
     
 
@@ -173,9 +173,9 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    % save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
 
-endofscript;
+% endofscript;

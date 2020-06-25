@@ -1,12 +1,12 @@
 clear all
 close all
 
-params.features_type = 'ES';
+params.features_type = 'BSD';
 params.datasets = {'hudsonriver5k','wallstreet5k','unionsquare5k'};
 
 params.zoom = 'z19';
 params.model = 'v2_2';
-turns = {'true','false'};
+turns = {'false'};
 params.probs = 'false';
 params.threshold_ = 60;
 ks = [1,5];
@@ -30,15 +30,15 @@ for t=1:length(turns)
             if strcmp(params.features_type, 'ES')
                 fileName = fullfile('results/ES', params.model, params.zoom, params.dataset,[option,'.mat']);
                 outName_1 = ['ranking','.mat'];
-                outName_2 = ['best_estimated_routes.mat'];
+                outName_2 = ['best_estimated_routes','.mat'];
             else
                 if strcmp(params.turns,'only')
                     fileName = fullfile(['results/BSD/',params.dataset,'/',option,'.mat']); 
                     outName_1 = ['ranking','.mat'];
                     outName_2 = ['best_estimated_routes','.mat'];
                 else
-                    network = 'combined3';
-                    fileName = fullfile(['results/BSD/',params.dataset,'/',option,'_', network,'.mat']); 
+                    network = 'alexnet3';
+                    fileName = fullfile(['results_th/BSD/',params.dataset,'/',option,'_', network,'.mat']); 
                     outName_1 = ['ranking_',network,'.mat'];
                     outName_2 = ['best_estimated_routes_', network,'.mat'];
                 end
@@ -46,7 +46,10 @@ for t=1:length(turns)
             load(fileName, 'best_estimated_top5_routes');
             load (fileName, 'best_estimated_routes');
             
-            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
+            sub_resultsPath = ['sub_results_th/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
+            if ~exist(sub_resultsPath,'dir')
+                mkdir(sub_resultsPath);
+            end
             save([sub_resultsPath,'/',outName_2],  'best_estimated_routes');
 
             %% Compute accuracy checking if last N points match gt
@@ -64,9 +67,6 @@ for t=1:length(turns)
                 end
             end
 
-            if ~exist(sub_resultsPath,'dir')
-                mkdir(sub_resultsPath);
-            end
             save([sub_resultsPath,'/',outName_1],  'res');
         end
     end

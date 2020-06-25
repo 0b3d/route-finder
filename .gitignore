@@ -3,6 +3,7 @@ features/
 images/
 results/
 results_bs/
+results_th/
 *.m~
 *.pgw
 Results/demo_london_BSD.avi
