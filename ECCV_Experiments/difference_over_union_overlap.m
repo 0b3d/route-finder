@@ -14,7 +14,7 @@ params.turns = 'false';
 params.probs = 'false';
 params.top = 'top5';
 networks = {'resnet18','resnet50','densenet161','alexnet','vgg','googlenet'};
-option = 1; % 1-> (S_ES \ S_BSD) / S_ES 
+option = 4; % 1-> (S_ES \ S_BSD) / S_ES 
             % 2-> (S_BSD \ S_ES) / S_BSD 
             % 3-> (S_ES \ S_BSD) / S_(ES U BSD)
             % 4-> (S_BSD \ S_ES) / S_(ES U BSD)
@@ -110,6 +110,6 @@ legend_text= {'BSD resnet18','BSD resnet50','BSD densenet161','BSD alexnet','BSD
 fig = gcf;
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
-legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'southeast')
+legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
 filename = fullfile('results_for_eccv', 'charts_8d', ['difference_over_union_',params.turns,'_',params.top,'_',dataset,'_option_',num2str(option)]);
 saveas(ax, filename,'epsc')
