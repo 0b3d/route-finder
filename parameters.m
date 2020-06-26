@@ -47,8 +47,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
 model = 'v2_2';
 tile_test_zoom = 'z19' ;
 turns = 'false'; % 'true', 'false', 'only'
-probs = 'false'; % for 'BSD', set this to 'false'
+probs = 'false'; % not implemented anymore, keep only for naming compatibility
