@@ -1,9 +1,7 @@
 function [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns_flag, pairwise_dist)
 
 R = R_init;
-
 metric = zeros(size(routes,2),1);
-    
 rank = zeros(max_route_length,1);
 best_routes = {max_route_length};
 best_top5_routes = {max_route_length};
@@ -15,7 +13,7 @@ for m=1 : max_route_length
     if m > 1 
             if strcmp(turns_flag, 'true')
                 turn = T(m-1); 
-                [R_, metric_] = Turn_filter(R, metric, turn, routes, m, threshold); % filter based on turn (normal) 
+                [R_, metric_] = Turn_filter(R, metric, turn, routes, m, threshold); % turn filter
                 [R_, metric_] = Nclosest_es( t(m), R_, metric_, N(m), pairwise_dist); % filter based on sorting
             else
                 [R_, metric_] = Nclosest_es( t(m), R, metric, N(m), pairwise_dist); % filter based on sorting
