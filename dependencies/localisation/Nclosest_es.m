@@ -1,4 +1,4 @@
-function [R_, dist_] = Nclosest_es(y_index, R, dist, N, pairwise_distances)
+function [R_, dist_] = Nclosest_es(y_index, R, dist, N, pairwise_distances, min_num_candidates)
 sz1 = size(R, 1);
 sz2 = size(R, 2);
 for i=1:sz1      

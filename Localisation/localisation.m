@@ -63,7 +63,7 @@ for i=1:test_num
     switch option
         %% ES FEATURES
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
-            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold_, R_init, t, T, turns, pairwise_dist);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold_, R_init, t, T, turns, pairwise_dist,min_num_candidates);
             dist{i} = route_dist;
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
