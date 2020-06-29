@@ -32,14 +32,9 @@ for i = 1:size(routes,2)
     R_init(i) = i;   
 end
 
-% For eficiency pre-compute all pairwise distances in the dataset and its probabilities
-% This arrays are only used in case of ES features
+% in case of ES precompute pairwise distances 
 if strcmp(features_type, 'ES') 
     pairwise_dist = pairwise_distances(routes);
-    matched_pairwise_probs = lognpdf(pairwise_dist,0.465901,0.309151);
-    unmatched_pairwise_probs = evpdf(pairwise_dist, 4.34925, 0.489259);
-    % dxy_match_probs = norm   
-    % [gm, pairwise_probs] = fitgmmodel(pairwise_dist);
 end
 
 test_num = size(test_route, 1);
@@ -68,7 +63,7 @@ for i=1:test_num
     switch option
         %% ES FEATURES
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
-            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold_, R_init, t, T, turns, probs, pairwise_dist, matched_pairwise_probs, unmatched_pairwise_probs);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold_, R_init, t, T, turns, pairwise_dist,min_num_candidates);
             dist{i} = route_dist;
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    

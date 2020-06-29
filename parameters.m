@@ -12,14 +12,15 @@ network = 'densenet161';
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
-threshold_ = 30;
+threshold_ = 60;
 road_dense_distance = 10;
 % drop threshold for routes
 % N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
 %    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
-N = [100, 100, 100, 100, 100, 90, 90, 90, 90, 90, 80, 80, 80, 80, 80, 70, 70, 70,...
-    70, 70, 70, 70, 70, 70, 70, 80, 80, 80, 80, 80, 90, 90, 90, 90, 90, 100, 100, 100, 100, 100];
-%N = ones(1,40) * 80;
+%N = [100, 100, 100, 100, 100, 90, 90, 90, 90, 90, 80, 80, 80, 80, 80, 70, 70, 70,...
+%    70, 70, 70, 70, 70, 70, 70, 80, 80, 80, 80, 80, 90, 90, 90, 90, 90, 100, 100, 100, 100, 100];
+N = ones(1,40) * 50;
+min_num_candidates = 100; % Don't drop routes if the number of candidates is less than this number
 % consistency metric
 overlap = 0.8; % 80%
 s_number = 5; % 5 successive locations
@@ -47,8 +48,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
 model = 'v2_2';
 tile_test_zoom = 'z19' ;
 turns = 'false'; % 'true', 'false', 'only'
-probs = 'false'; % for 'BSD', set this to 'false'
+probs = 'false'; % not implemented anymore, keep only for naming compatibility
