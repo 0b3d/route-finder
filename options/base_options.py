@@ -2,7 +2,6 @@ import argparse
 import os
 from utils import util
 import time
-import torch
 import localizer
 
 
@@ -19,35 +18,36 @@ class BaseOptions():
            or in the localization subclasses"""
         
         # directories and name
-        parser.add_argument('-fdir','--features_dir', type=str, required=False, default='./features', help='path to features')
-        parser.add_argument('-rdir','--results_dir', type=str, required=False, default='./results', help='path to results')
+        parser.add_argument('--features_dir', type=str, default='./features', help='path to features')
+        parser.add_argument('--results_dir', type=str, default='./results', help='path to results')
         parser.add_argument('-n','--name', type=str, default='unnamed', help='name of the experiment. It decides where to store results')
 
         # localize options
         parser.add_argument('-l', '--localizer', type=str, default='esrf', help='Name of the algorithm for localization')
-        parser.add_argument('-rd', '--culling_percentage', type=float, default=0.5, help='Percentage of routes to drop in each iteration 0-1')         #N
+        parser.add_argument('-N', '--culling_percentage', type=float, default=0.5, help='Percentage of routes to drop in each iteration 0-1')        
         parser.add_argument('-t', '--turn_threshold', type=int, default=60, help='Turn threshold')
-        parser.add_argument('-k', '--topk', type=int, default=5, help='Top-k')
-        parser.add_argument('-o', '--overlap', type=int, default=5, help='N overlap for given a route as localized')
-        parser.add_argument('-T', '--num_test_routes', type=int, default=500, help='number of routes for testing') # Currently it only supports 500
-        parser.add_argument('-mrl', '--max_route_length', type=int, default=40, help='Maximum route length')
-        parser.add_argument('-dir','--direction', type=str, nargs='+', default=['i','m'], choices={'i','m'}, help='Direction')
-        parser.add_argument('--no_turns', action='store_true', help='If set disable turns pattern conparation')
-        parser.add_argument('--routes', type=int, nargs='+', help='If set disable turns pattern conparation')
+        parser.add_argument('-k', '--topk', type=int, default=1, help='Top-k')
+        parser.add_argument('-o', '--overlap', type=int, default=1, help='N overlap for given a route as localized')
+        parser.add_argument('-r', '--routes', type=int, nargs='+', help='If set disable turns pattern conparation')
+        parser.add_argument('-T', '--num_test_routes', type=int, default=500, help='number of routes for testing 0-500') 
+        parser.add_argument('-L', '--max_route_length', type=int, default=40, help='Maximum route length')
+        parser.add_argument('-c', '--min_num_candidates', type=int, default=100, help='Minimun number of route candidates to keep in localization process')
+        parser.add_argument('-m', '--metric', type=str, default='hamming', help='Distance metric to use in localization')
+        parser.add_argument('--direction', type=str, nargs='+', default=['i','m'], choices={'i','m'}, help='Direction')
+        parser.add_argument('--no_turns', action='store_true', help='If set disable turns pattern comparation')
 
         # model and dataset
-        parser.add_argument('-nets','--networks', type=str, nargs='+', default=['v2_2'], help='A list of networks (models) to use for localization')
+        parser.add_argument('-M','--networks', type=str, nargs='+', default=['v2_2'], help='A list of networks (models) to use for localization')
         parser.add_argument('-d','--datasets', type=str, nargs='+', default=['unionsquare5k'], choices={'hudsonriver5k','unionsquare5k', 'wallstreet5k'}, help=' A list of datasets to test')
         parser.add_argument('-f','--features_type', type=str, default='BSD', choices={'BSD','ES'}, help='Features type to use for localization')
-        parser.add_argument('--phase', type=str, default='localize', help='phase of the task')
+        parser.add_argument('-p','--phase', type=str, default='localize', help='phase of the task')
         
         # additional options 
-        parser.add_argument('--seed', type=int, default=442, help='Set the seed')
+        #parser.add_argument('--seed', type=int, default=442, help='Set the seed')
+        parser.add_argument('-w','--workers', type=int, default=4, help='Number of workers')
         parser.add_argument('-s','--save', action='store_true',help='If set save results in disk')
-        parser.add_argument('-v', '--verbose', action='count', default=0, help='Verbose')
+        parser.add_argument('-v', '--verbose', action='store_true', help='Verbose')
         parser.add_argument('--suffix', default='', type=str, help='customized suffix: opt.name = opt.name + suffix: e.g., {model}_{netG}_size{load_size}')
-        #num_devices = torch.cuda.device_count()
-        #parser.add_argument('--gpu_ids', type=str, default=str(num_devices-1), help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')  # GPU not implemented yet
         
         self.initialized = True
         return parser
@@ -66,7 +66,6 @@ class BaseOptions():
         opt, _ = parser.parse_known_args()
         localizer_option_setter = localizer.get_option_setter(opt.localizer)
         parser = localizer_option_setter(parser)
-
 
         # save and return the parser
         self.parser = parser
@@ -101,7 +100,6 @@ class BaseOptions():
     def parse(self):
         """Parse our options, create checkpoints directory suffix, and set up gpu device."""
         opt = self.gather_options()
-        #opt.isTrain = self.isTrain   # train or test
 
         # process opt.suffix
         if opt.suffix:
@@ -109,16 +107,6 @@ class BaseOptions():
             opt.name = opt.name + suffix
 
         self.print_options(opt)
-
-        # set gpu ids
-        # str_ids = opt.gpu_ids.split(',')
-        # opt.gpu_ids = []
-        # for str_id in str_ids:
-        #     id = int(str_id)
-        #     if id >= 0:
-        #         opt.gpu_ids.append(id)
-        # if len(opt.gpu_ids) > 0:
-        #     torch.cuda.set_device(opt.gpu_ids[0])
 
         self.opt = opt
         return self.opt

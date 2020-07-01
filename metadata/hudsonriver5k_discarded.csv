@@ -1,0 +1,480 @@
+city,highway,highway_flag,index,lat,lon,pano_id,yaw
+manhattan,"['motorway', 'motorway']",1,34581,40.781149,-73.987263,PreXwwylmG23hnheZ__zGw,35
+manhattan,['motorway'],1,6571,40.781212,-73.987202,KvVpitc2A3TGm62WMnWezA,35
+manhattan,['motorway'],1,16733,40.781087,-73.987323,z2NHNmEClTbKyRHYDy3SrA,35
+manhattan,['motorway'],1,55382,40.781275,-73.987141,qsl5om--I0kZi23Usl3loA,36
+manhattan,['motorway'],1,50190,40.781025,-73.987384,zy6cLa1Vj1mQMaoKQUpDQQ,35
+manhattan,['motorway'],1,23800,40.780962,-73.987444,XETBvcvgMGXy98zM0aUxIA,35
+manhattan,['motorway'],1,15444,40.7809,-73.987505,XSqq-fNLRumeAB_mWOcoqg,35
+manhattan,['motorway'],1,38782,40.780839,-73.987564,ttmEjmYpMpUuU5rKxKBDtQ,35
+manhattan,['motorway'],1,3879,40.780777,-73.987623,PHLnPXkKg6lMTsoNDiqCVw,35
+manhattan,['motorway'],1,25487,40.780716,-73.987681,8915v3hjpC7kz_c5qugSzw,34
+manhattan,"['motorway_link', 'footway', 'motorway']",1,8178,40.781497,-73.9868,usR8sESazS4f1rKiJIXxPw,29
+manhattan,['motorway'],1,49552,40.780654,-73.987739,lRAycEeukH-IupvtSja-GA,34
+manhattan,"['motorway', 'motorway_link']",0,37302,40.78144,-73.986839,NFGgkW5pl6SNlkuSvReP2w,28
+manhattan,['motorway'],1,19954,40.780593,-73.987795,6wZdZyWckoedGblEQ6rKcw,33
+manhattan,['motorway_link'],0,28570,40.781368,-73.986888,FQF4emWeFI5rzGgh620bGg,27
+manhattan,['motorway'],1,54361,40.780532,-73.98785,UiS37gOWKtwddzvRxh5yIw,33
+manhattan,['motorway_link'],0,27787,40.781295,-73.986939,ydVSl66WE8d0ejFrtdd2pg,28
+manhattan,['motorway'],1,25120,40.780471,-73.987904,0BxQg7RoyZd-RS85ayO10w,32
+manhattan,['motorway_link'],0,9999,40.781209,-73.987003,ZpRr1Vh21OjK_1wQNfYF0A,31
+manhattan,['motorway'],1,44906,40.78041,-73.987957,5itoawYR0V4MeaAOINQ6eQ,32
+manhattan,['motorway_link'],0,33039,40.781142,-73.987056,ruymbvoKYmWAUqQki9eJ4w,28
+manhattan,['motorway'],1,13483,40.780285,-73.988061,p423zXT2JFC555yhL2QEQg,31
+manhattan,['motorway_link'],0,19006,40.781043,-73.987108,lVE0Z6W76wNp0OD0QFI8aQ,7
+manhattan,['motorway'],1,19005,40.78022,-73.988112,lRvanwUumC6FM4Ra8FsuHQ,30
+manhattan,['motorway_link'],0,12951,40.780947,-73.987109,cv2dLvpkTHA0SUX21pQLbA,351
+manhattan,['motorway'],1,8600,40.780156,-73.988162,2gGIg84kfQ5V-vodtH_4iw,29
+manhattan,['motorway_link'],0,26649,40.780822,-73.987054,Yr4qq4QmJjsLwQyt2C101w,322
+manhattan,['motorway'],1,7570,40.780091,-73.988212,htBGGHMwp6Cr_ICzZ8qmew,29
+manhattan,['motorway'],1,25140,40.780026,-73.98826,0SJs4Gdw6B1UYxEiEMlQWg,29
+manhattan,['motorway_link'],0,55321,40.780784,-73.986998,p_GV3vlvIq0-3q4Oo4JuKg,289
+manhattan,['motorway'],1,4265,40.779962,-73.988308,XGR323d0QgXHsSSZjZsSMw,28
+manhattan,['motorway'],1,46467,40.782496,-73.986147,do_pFJvwPIq33XskXkflVA,28
+manhattan,['motorway'],1,14735,40.779899,-73.988355,GJx2afiJwMfG0_pWhrRAPA,28
+manhattan,['motorway'],1,38780,40.782568,-73.986094,tpjvyyBkIx1aEyKHrKK6Ew,28
+manhattan,['motorway'],1,53001,40.779835,-73.988402,0yweVgw00IJPaF_qtvmWBw,28
+manhattan,['motorway'],1,41677,40.782639,-73.986041,vnOFPPbjpVs64fjHvzZXfg,28
+manhattan,"['footway', 'motorway']",1,9651,40.779772,-73.988448,RJyWBPGwsPSiRCcAdKTbBw,28
+manhattan,['motorway'],1,22601,40.782711,-73.985988,4RXjRY9kf-gIz7vQaBnqWg,28
+manhattan,"['footway', 'motorway']",1,30105,40.779709,-73.988495,p1yvKLPR9V6pu2qZQ07RWQ,28
+manhattan,['motorway'],1,9775,40.782783,-73.985936,U64MKlKfMTBqvJOUEywx5g,28
+manhattan,"['footway', 'motorway']",1,45139,40.779646,-73.988541,BW7IF7dJBAB3iBgrDV-pQg,28
+manhattan,['motorway'],1,38244,40.782855,-73.985884,ht2ZCr-OeqamEsrRvrWQaQ,28
+manhattan,['motorway'],1,12716,40.779582,-73.988588,Y5QhBEhfKAyb43tfA62I6w,28
+manhattan,['motorway'],1,31144,40.782927,-73.985831,CKK9BsU45V-6EF_Yb-Br2A,28
+manhattan,['motorway'],1,3242,40.779518,-73.988634,A5dOy1jSU9USUWCJ7O6iWw,28
+manhattan,['motorway'],1,45967,40.783,-73.985779,U80EwIfnNC-1Z38uZI-jbg,28
+manhattan,['motorway'],1,14094,40.779453,-73.988682,1fRQQkxbfFxHZswZ6lPyUw,28
+manhattan,['motorway'],1,3106,40.783072,-73.985727,6slPzEoGewQZw1t75E_MjQ,28
+manhattan,['motorway'],1,42870,40.779389,-73.988729,M6L4zTd-s7i3vfZRPzJBIQ,28
+manhattan,['motorway'],1,5375,40.783145,-73.985675,umLQ4mkucz1r7Jk8g6X6Cg,28
+manhattan,['motorway'],1,50476,40.779323,-73.988777,5gBA5AUNivtapIiy8ZzxgA,28
+manhattan,['motorway'],1,29327,40.783217,-73.985623,YIGT168Txbl_UmnCc2MT1A,28
+manhattan,['motorway'],1,52553,40.779258,-73.988825,ql7-oWRr0RtkPDGwU-0pOQ,28
+manhattan,['motorway'],1,14778,40.783289,-73.98557,H_JGAGkC4i7aF7sbXAYypA,28
+manhattan,['motorway'],1,6014,40.779193,-73.988873,94b_R7s0eAlk7gg6PQ4jqA,28
+manhattan,['motorway'],1,15414,40.783361,-73.985518,WxCZZqfyQ1HloVjPxtUCqg,28
+manhattan,['motorway'],1,30945,40.779127,-73.98892,7Sj1cTzCN4JzpATqe169Tw,28
+manhattan,['motorway'],1,264,40.783433,-73.985465,4xW1nji6gZptB3M2mNHGLA,28
+manhattan,['motorway'],1,12248,40.779061,-73.988968,MZMKd_lPyAOyOFB9CGxk6Q,28
+manhattan,['motorway'],1,39831,40.783505,-73.985412,GCIyVN-DKGfIFE-Aqn6fMg,28
+manhattan,['motorway'],1,45354,40.778995,-73.989016,Gk3xiMpy1iGyTrQmmG1NKw,28
+manhattan,['motorway'],1,9287,40.783576,-73.98536,IbXyjRNqZV9OMAOw0TzZ3w,28
+manhattan,['motorway'],1,23294,40.778929,-73.989063,Kb3I90FGiSgX6yMKKAYYJA,28
+manhattan,"['motorway', 'motorway_link']",0,23208,40.783648,-73.985308,I_rn0-V6r2dQneMoEbIrAg,28
+manhattan,['motorway'],1,11927,40.778863,-73.989111,F7Hs8vPmHSGnFSf4ueVzEw,28
+manhattan,"['motorway', 'motorway_link']",0,465,40.783671,-73.985172,9Imm7vvnAzyzICn9kSJG1w,33
+manhattan,['motorway'],1,28138,40.783719,-73.985255,5zOAah6MCYA0YBJJ7RMfmw,28
+manhattan,['motorway'],1,42884,40.778797,-73.989158,MMc4aymQtz5YTLT_9eHhcg,28
+manhattan,['motorway_link'],0,3234,40.783752,-73.985098,A-1US3fB8SirnfpiAiHKjA,34
+manhattan,['motorway'],1,36807,40.78379,-73.985204,CFY5zb7cyf2POHrlYMumDQ,28
+manhattan,['motorway'],1,27677,40.77873,-73.989206,wDrQydGiiZUiGJRSC7t5rg,28
+manhattan,['motorway_link'],0,23699,40.783833,-73.985023,UuVznKNopkGqjecsd0c8jg,35
+manhattan,['motorway'],1,29123,40.783861,-73.985151,U2ZCeS6tAD5XzV8-c3tJNg,28
+manhattan,['motorway'],1,51881,40.778664,-73.989253,b0GwyUK3eBq6KuFjgECpZA,28
+manhattan,['motorway_link'],0,32537,40.783911,-73.984947,gxowHBGqOaMHZuDE_VBLkw,37
+manhattan,['motorway'],1,10462,40.783932,-73.9851,ivnxudTdTSlqgb56YNnbhA,28
+manhattan,['motorway'],1,19288,40.778598,-73.989301,s-UNQ_GUqlsVta-QpprLuA,28
+manhattan,['motorway_link'],0,32062,40.783989,-73.984867,XFwJmcDJLmYfluFFZyNZug,38
+manhattan,['motorway'],1,52077,40.784002,-73.985048,fr7aavHQKPra2bLKlVjKwQ,28
+manhattan,"['footway', 'motorway']",1,53507,40.778533,-73.989349,CaWuoOwAYbxZ_doHqKVeKg,28
+manhattan,['motorway_link'],0,2727,40.784064,-73.984786,zk6aY-kMJHWDvDvDqxB07A,40
+manhattan,['motorway'],1,25672,40.784072,-73.984997,CVp8cXltz7TzwZdNKfRXdA,28
+manhattan,['motorway'],1,22727,40.778467,-73.989397,7lDCC8-XRK_6oDz0vHFZUQ,28
+manhattan,['motorway_link'],0,30438,40.784136,-73.984704,x2k1eB6wagZohCaRINDgqA,41
+manhattan,['motorway'],1,4082,40.784141,-73.984946,TUWpHUEhNcGfeWmQvrRcYg,28
+manhattan,['motorway'],1,54038,40.778402,-73.989445,O9Gay2hAP1U31Pb8kMwgsA,28
+manhattan,['motorway_link'],0,16498,40.784206,-73.984618,u78zeQ3rUakpSB-fz8CQYw,43
+manhattan,['motorway'],1,36814,40.78421,-73.984896,CUP4vTwyNvwOJXgSW9yvfQ,28
+manhattan,['motorway'],1,17596,40.778336,-73.989494,GnnAthEQVzFQlA-dLi-9Lg,28
+manhattan,['motorway_link'],0,18826,40.784274,-73.984532,hD5u8ou4Dn8FaZhGabbi0w,44
+manhattan,['motorway'],1,7306,40.784279,-73.984846,bJ-il68_Y68tC8UV1s6C9g,28
+manhattan,['motorway'],1,5566,40.77827,-73.989542,z_97jUFeG-KgvbsZadgxUQ,28
+manhattan,['motorway_link'],0,16065,40.78434,-73.984444,ksBjt6aF2SSZszhR_X0Otg,46
+manhattan,['motorway'],1,46369,40.784348,-73.984796,bl0gm_nqksVlYuoAe8ZaiQ,28
+manhattan,['motorway'],1,19184,40.778205,-73.98959,pcznrkkALJ9tiPpJY4dGIQ,28
+manhattan,['motorway_link'],0,7200,40.784405,-73.984354,ZjgQt5ParWd2moP0Xv9uMw,47
+manhattan,['motorway'],1,16974,40.784418,-73.984746,3I9AvrmaaHL2D5ZjksJBSg,28
+manhattan,['motorway'],1,41051,40.778139,-73.989638,gXujtJD0n8PunZ1-pCc1VA,28
+manhattan,['motorway_link'],0,19374,40.784467,-73.984261,uAlijuCGjiNEdtGlKZbpQQ,48
+manhattan,['motorway'],1,9729,40.784488,-73.984696,TAbBwDrDnIaA36gKT2OkKw,27
+manhattan,['motorway'],1,50530,40.778074,-73.989686,7-0VfuJLiDxZhliMi2JTMg,28
+manhattan,['motorway_link'],0,16726,40.784528,-73.984168,yuXQW_w8TA7CeMMDLxlHKQ,49
+manhattan,['motorway'],1,50230,40.784558,-73.984646,-mrShPVN0CqIue1sLMphOw,27
+manhattan,['motorway'],1,20232,40.778008,-73.989734,CQ0sSEtO0WcYqQlPXZHSBg,28
+manhattan,['motorway_link'],0,55712,40.784586,-73.984075,yj_Z3eT33MPkDm9QK5xb-A,51
+manhattan,['motorway'],1,40016,40.784628,-73.984596,KhcYNwHdnbfK3OuX7jXrug,27
+manhattan,['motorway'],1,28896,40.777942,-73.989782,ORZMgmp29YwoVzwjHo54RA,28
+manhattan,['motorway_link'],0,37937,40.784641,-73.983982,aZ5o4bO8J5sCDkKtiMuBhQ,53
+manhattan,['motorway'],1,28909,40.784699,-73.984547,OtHW_9Rud7ix3JrPAf2xLA,27
+manhattan,['motorway'],1,46244,40.777877,-73.989829,_-XR2b6FYFjf8updZhaIKw,28
+manhattan,['motorway_link'],0,42737,40.784693,-73.983887,IehEOZVNd5oImHBdjIUtfg,55
+manhattan,['motorway'],1,2993,40.78477,-73.984498,4UlwJO-uFFJvb1vBQ_Lx5Q,27
+manhattan,['motorway'],1,12868,40.777811,-73.989877,aiwefBTRMdDfBCMlC0cFdA,28
+manhattan,"['motorway_link', 'motorway_link']",0,40787,40.784743,-73.983785,adNs2VbVpcDJt6q3Ik_L1A,58
+manhattan,['motorway'],1,35491,40.78484,-73.984449,jctB7fQ776unXUmhHM07yw,26
+manhattan,['motorway'],1,22886,40.777745,-73.989925,BJw8PrSoxRykqTdFwpmSxw,28
+manhattan,"['motorway_link', 'footway']",0,37967,40.78481,-73.983638,bOqiClWX5tVBZusZl2E1JA,60
+manhattan,['motorway'],1,43100,40.784911,-73.984401,RIp1sO_YKJkk3uGbDmQ9gQ,26
+manhattan,['motorway'],1,50337,40.77768,-73.989973,2PVh6n0SqyFPgFdnMH2Ajg,28
+manhattan,"['motorway_link', 'footway']",0,25059,40.784829,-73.983591,ziEOXKcH8XEWLYGl86-8_g,60
+manhattan,['motorway'],1,49742,40.784981,-73.984353,pY_m0YNHckGwNkqSWWi9bg,26
+manhattan,['motorway'],1,28003,40.777614,-73.99002,2lCVYBYHjQE2lllGezvIUw,28
+manhattan,"['motorway_link', 'motorway_link']",0,38653,40.784866,-73.9835,rJJhDSBsKWhUw_mK2ZV__A,62
+manhattan,['motorway'],1,53473,40.785052,-73.984306,BgMYB2tF7oyThpolgR4BQA,26
+manhattan,['motorway'],1,23820,40.777548,-73.990068,Xfi05BGZZA-yQGl3l2edaQ,28
+manhattan,['motorway_link'],0,5684,40.784902,-73.983412,1Lfmv-pYfV_oPmLvtbvjgg,63
+manhattan,"['motorway', 'motorway_link']",0,4178,40.785122,-73.984259,VTkLX5NW6FP4OsztaKJc7g,26
+manhattan,['motorway'],1,18548,40.777483,-73.990116,bWka5jdrc6WLtQiVVeiUUQ,28
+manhattan,['motorway_link'],0,14529,40.784919,-73.983365,AyABqQ3KwmGpTxbzbVk-8A,64
+manhattan,['motorway'],1,41080,40.785192,-73.984211,hInHbCe9V_mAtbrRMUnkNQ,26
+manhattan,"['motorway', 'motorway_link']",0,55672,40.785007,-73.98422,xpVtd4LrQk1TRk_Q_-Ps3Q,2
+manhattan,['motorway'],1,3449,40.777418,-73.990164,EgpsUdmdx7iUXaYPDnqMGQ,28
+manhattan,['motorway_link'],0,37379,40.784953,-73.983262,P3IBXwoBdvXpOGuHZlH19g,67
+manhattan,['motorway'],1,23060,40.785262,-73.984164,EtboaN_cZQ4rheDlbOZoZw,26
+manhattan,['motorway_link'],0,2139,40.78492,-73.984203,lilFoNGKMtTy_Ef8L1ySYw,337
+manhattan,['motorway'],1,20184,40.777352,-73.990212,BSawRAy89Ic0b3DVbAMblg,28
+manhattan,['motorway_link'],0,37167,40.784981,-73.983165,KCsiTfgyoUAZxNOuPRcW_A,70
+manhattan,['motorway'],1,14013,40.785331,-73.984117,-jGDWULuSbLBKQyGhIZf2w,27
+manhattan,['motorway_link'],0,2828,40.784855,-73.984146,0wV5sGZhntX3UMLqhpcQMQ,313
+manhattan,['motorway'],1,11132,40.777286,-73.990261,yZkRDN9J1E4B-KMfxbn5Lw,28
+manhattan,"['motorway_link', 'footway']",0,54464,40.785011,-73.983034,X5rxNzMPTvViL3a9x79g1Q,74
+manhattan,['motorway'],1,33116,40.7854,-73.984069,tlNQAs46Z0v_7ksqmuG8Gg,27
+manhattan,['motorway_link'],0,17000,40.784811,-73.984052,3hEsgu64uQuIZJhUNc82lA,287
+manhattan,['motorway'],1,28178,40.77722,-73.990309,711rs01u1H6T13h9NcPRMg,28
+manhattan,"['motorway_link', 'footway']",0,19931,40.785026,-73.982929,6RYGIb4DaZ4vEk0vtZRdbg,86
+manhattan,"['footway', 'motorway']",1,37009,40.78547,-73.984021,GtVfZ-9PwhJMWO1PtLU7pw,27
+manhattan,['motorway_link'],0,9457,40.7848,-73.983942,MHtLtpFnKmbeJOUk_CN19Q,267
+manhattan,['motorway'],1,7217,40.777155,-73.990357,_5sOOj0qn_dxAcYpfBFITg,28
+manhattan,['motorway_link'],0,7056,40.785125,-73.982886,WltS8wRFaWixmWz36ll1Ug,288
+manhattan,"['secondary', 'secondary', 'motorway']",1,4107,40.785538,-73.983973,U0T7XcoY6Vh0YfQlpQ4PjQ,27
+manhattan,"['motorway_link', 'motorway_link']",0,22283,40.784814,-73.98383,yAuql56j-tHEG3F66Mw2Xw,250
+manhattan,['motorway'],1,7770,40.777089,-73.990405,lw_wbu-eNQCpAdVXUQhscA,28
+manhattan,['motorway_link'],0,20250,40.785109,-73.982815,Cwq_6ZjH2ZmDpUniA5tH_Q,284
+manhattan,['motorway_link'],0,25793,40.785162,-73.982851,FVevf0PHpvPSot-sWSdZsg,338
+manhattan,"['motorway', 'footway']",0,4430,40.785607,-73.983925,_v5h8q86FwIQg1-ssyMjhg,27
+manhattan,['motorway_link'],0,44416,40.784835,-73.983767,uOzV14q7ZEwDkTOdHN794A,243
+manhattan,['motorway'],1,34560,40.777023,-73.990453,POufck4UWwyfHMAYbO-eag,28
+manhattan,['motorway_link'],0,23721,40.785217,-73.982884,VE3P9o2FN6peCE16rESr7A,334
+manhattan,['motorway'],1,55141,40.785676,-73.983878,lfgptBPl6qPplNSRYCwklA,27
+manhattan,"['motorway_link', 'footway']",0,9793,40.78486,-73.983708,UVV2ll9Utu6bWa5EmIyZFQ,238
+manhattan,['motorway'],1,13168,40.776956,-73.990501,hlrrYvvbi2Rki6vwVX2ldA,28
+manhattan,['motorway_link'],0,695,40.785263,-73.982911,EXdnRItRMa6HuaaSnP6VIA,338
+manhattan,['motorway'],1,46250,40.785745,-73.98383,_73GfFOEH1T2LBiIG_Fqag,26
+manhattan,"['motorway_link', 'footway']",0,50087,40.784891,-73.983648,xjnnNqE92sIIcVjNkZAkrA,232
+manhattan,['motorway'],1,22722,40.77689,-73.990549,7dWRcR-NVSCqcepOn1wIHQ,28
+manhattan,['motorway_link'],0,13572,40.785373,-73.982951,r-CnW65W0gZc9FkK8cZdlQ,348
+manhattan,['motorway'],1,25589,40.785815,-73.983784,AR3sCWVjyJcFy_ubKOGvfQ,25
+manhattan,['motorway_link'],0,23541,40.784966,-73.983544,RHTx3HBtSuuiGwEq-nKDCw,218
+manhattan,['motorway'],1,10617,40.776824,-73.990598,n5yXzH2fD5Gadbd5ko0TVg,28
+manhattan,['motorway_link'],0,8568,40.785478,-73.982973,27Ghs_uJmdG1KNySnjo6-w,353
+manhattan,['motorway'],1,277,40.785886,-73.983739,5Aol3Y4wh6APhWhqGTygfA,25
+manhattan,['motorway_link'],0,19557,40.785009,-73.983505,yzL68VeAyCOB4hLdA-vqOw,206
+manhattan,['motorway'],1,39219,40.776757,-73.990647,2TMYwtrJY3_zNB4cYx0lqA,28
+manhattan,['motorway_link'],0,16965,40.785526,-73.982981,31nYQKC6J4mdDtcCiisFyA,353
+manhattan,"['motorway_link', 'secondary']",0,38848,40.785339,-73.983447,vKKwcqXXk6abHT2sjrJXgA,300
+manhattan,['motorway'],1,8238,40.785957,-73.983694,wOnFQln9UG3TokF3BK8f_A,24
+manhattan,['motorway_link'],0,22373,40.785943,-73.983568,-BJmrew_ujUqDGmV-eOZ-g,49
+manhattan,['motorway_link'],0,6102,40.785108,-73.983465,Au2pbW67cx1Q8SRxsrlfpg,183
+manhattan,['motorway'],1,9588,40.776691,-73.990696,PeEo1ER1OUl5vdjZ0Upq2Q,28
+manhattan,['motorway_link'],0,25550,40.785624,-73.982998,9eSSxQotN4FTvBtePa1PBg,353
+manhattan,"['secondary', 'motorway_link']",0,11309,40.785388,-73.983562,18XfUW1mzo26lYZGoeOuQg,299
+manhattan,['motorway'],1,38366,40.786029,-73.983651,kr0djPoBve7tW9MUu_BtUA,23
+manhattan,['motorway_link'],0,13231,40.785981,-73.983477,izt9MBM9KMvcDIyrret8fw,68
+manhattan,"['motorway_link', 'footway']",0,6976,40.785201,-73.983475,UhwyTkzjFXVivf0jkA2DSw,160
+manhattan,['motorway'],1,24447,40.776624,-73.990744,lD00LEorazMEvC7kJs4_9A,28
+manhattan,"['footway', 'footway', 'motorway_link']",0,27078,40.785724,-73.983015,hiyccVBpINyPDRD_0zRnNg,354
+manhattan,"['motorway_link', 'secondary']",0,44009,40.785392,-73.983571,kuyRZAfnFpB3RQq7JK7c5Q,286
+manhattan,['motorway'],1,25406,40.786101,-73.983608,6bLpiU8V-G2swv0Uw1LH5A,23
+manhattan,['motorway_link'],0,28142,40.785989,-73.983347,6JjeX5Uso4P3Ci5i1lwAwg,97
+manhattan,['motorway_link'],0,34612,40.785273,-73.983524,QS1jOH_pKKpO8Rz86GGFiw,139
+manhattan,['motorway'],1,46181,40.776556,-73.990793,Yl4MntWtxDnMbv3eqVs29Q,28
+manhattan,['motorway_link'],0,20692,40.785825,-73.983025,OAiKFxril-zD3B-4Uzb0Kw,356
+manhattan,['motorway_link'],0,29384,40.785377,-73.983482,ZcuFT2-nT4LjKHRnsYwbcw,274
+manhattan,"['motorway_link', 'motorway_link', 'secondary']",0,39854,40.785412,-73.983619,GmOBHJ4UK49GEIJSygPOlg,299
+manhattan,"['motorway_link', 'secondary']",0,51380,40.785339,-73.983609,Qiz6Kt5IeWBZaMiWUXhm7Q,128
+manhattan,['motorway'],1,48876,40.786173,-73.983567,Wd5GAZAdBzxsW_b6IdQcMw,22
+manhattan,['motorway_link'],0,7744,40.785949,-73.983229,lMI12h9XCQbtVPslmhzcvQ,123
+manhattan,['motorway'],1,8214,40.776488,-73.990843,vn2DLwXRzxt5R2L_953gcA,28
+manhattan,['motorway_link'],0,34738,40.785875,-73.983029,TGD1lShqaYgwxWKXfhBU0A,357
+manhattan,['motorway_link'],0,19729,40.785385,-73.983374,1TNsuQlBc30fzEVEYWcVHw,253
+manhattan,"['motorway_link', 'secondary', 'motorway_link']",0,40645,40.785437,-73.983676,YlSAlj04GAPUWeIKlL1sdA,300
+manhattan,['motorway'],1,39004,40.786246,-73.983527,ybli3Tb59iB9V9Uf_yrOAQ,21
+manhattan,['motorway_link'],0,48793,40.785873,-73.983143,Ut-8MCE3JzDTsbppv-cVYg,148
+manhattan,['motorway'],1,29140,40.776421,-73.990892,UMwq4ZFmoQB637ybVkfHtw,28
+manhattan,['motorway_link'],0,18059,40.785974,-73.983033,Rr_odF5biW8JQ1tpbvq2BA,359
+manhattan,['motorway_link'],0,52072,40.785391,-73.983346,fgrJbvf6g-GpQ1OjUFk8Aw,251
+manhattan,['motorway'],1,34140,40.786319,-73.983488,FLxxZT5avZ8W1-xLLbivoQ,21
+manhattan,['motorway_link'],0,44065,40.78578,-73.983103,mA0yTTSwruDh9jnptNg9Kw,169
+manhattan,['motorway'],1,6385,40.776352,-73.990942,Gv2jozVPA61Qpty322TcHA,28
+manhattan,['motorway_link'],0,15484,40.78607,-73.983033,YMGZ6pKEFRnkr0uhQ3SoQA,0
+manhattan,['motorway_link'],0,15086,40.785416,-73.983266,OvhKFk_o_V6Dh0Y0BSwKiw,237
+manhattan,"['motorway', 'secondary']",0,45632,40.785528,-73.983886,N0XdH29mgYRrahziKrr_vw,300
+manhattan,['motorway'],1,36193,40.786392,-73.98345,zydmMhkPJi2kJRKJ6-exNA,20
+manhattan,"['footway', 'motorway_link', 'footway']",0,53131,40.785731,-73.983098,3qTAYyV5PtyQEoUaQQ9Tdg,175
+manhattan,['motorway'],1,44890,40.776284,-73.990991,5AnLd1Mtm2NrPP_9cXPLiA,28
+manhattan,['motorway_link'],0,46883,40.786167,-73.983032,nY5xrxnqFsEqeclHjIO0zQ,0
+manhattan,['motorway_link'],0,53861,40.785468,-73.983183,KLhIsKU3PmPdANjrHEjd8Q,218
+manhattan,['motorway'],1,44383,40.786466,-73.983413,tli3kN8ElkPknHPvNAEb9A,19
+manhattan,['motorway_link'],0,3364,40.785632,-73.9831,Cs27QgjOvt8N1mxbIJVaZw,185
+manhattan,['motorway'],1,13503,40.776215,-73.99104,pbweu14ZbwOKeBQ8HqIX6A,28
+manhattan,['motorway_link'],0,31391,40.786266,-73.98303,I4C_xcxSw31DfSHbmhTbvQ,0
+manhattan,['motorway_link'],0,4980,40.78554,-73.983127,lYcVBKflr_CkEztWr8M4Jw,199
+manhattan,"['secondary', 'motorway', 'footway']",0,13480,40.785612,-73.984066,p2ds-8IZuhxErQbxsGlk7w,304
+manhattan,['motorway'],1,26696,40.78654,-73.983377,_-JRaSNjuU6-qanyWSS4gQ,19
+manhattan,['motorway'],1,21778,40.776146,-73.99109,mF6BHM3fScpRJC92Mc2euQ,28
+manhattan,['motorway_link'],0,26235,40.786367,-73.983028,PjViahYsyL_B8oTaYCq2Rg,1
+manhattan,['motorway'],1,509,40.786615,-73.983343,AF0ylFTCdhXSvJ4Bw_lRZg,18
+manhattan,['motorway'],1,52161,40.776078,-73.991139,hqbTp3cvOs5cuIIaI4v1qA,28
+manhattan,['motorway_link'],0,47988,40.786467,-73.983024,BvV8MAqhoDcaDrQACyOoRg,2
+manhattan,['motorway'],1,21067,40.78669,-73.983309,Wx7uMEDGxfYTmqVELXDTjg,17
+manhattan,['motorway'],1,42548,40.776008,-73.991188,EWeJ9BcQgyYqNU4atlA7Kg,28
+manhattan,['motorway_link'],0,48731,40.786563,-73.983017,TT5_yrccMSZ0a6BWPo7WXA,3
+manhattan,['motorway'],1,3225,40.786765,-73.983276,9iE3279ctw0RZmWBmjc2kA,17
+manhattan,['motorway'],1,41251,40.77594,-73.991238,lrDhUgDAS8klgGTPwku7WQ,28
+manhattan,['motorway_link'],0,28288,40.786658,-73.983007,9dkPgtkbPNqoLFZQr-0ZDA,4
+manhattan,['motorway'],1,55303,40.786841,-73.983244,p8-6lJxDq59UHvR_On9pxg,16
+manhattan,['motorway'],1,39270,40.775871,-73.991288,3WMHcThI7UqzAxMIxEkEYA,28
+manhattan,['motorway_link'],0,38140,40.786753,-73.982997,fgcX2XKe7FXXjzfkR76Q6g,5
+manhattan,"['secondary', 'footway', 'motorway_link']",0,31317,40.785958,-73.984486,GKjSXQ25c_RzJ49dtvaDaQ,276
+manhattan,['motorway'],1,29842,40.786917,-73.983213,jYPjIDzLC4LY_w5UeTeqpA,16
+manhattan,['motorway'],1,10991,40.775802,-73.991338,vgUREq_WMh6WDe33yKrMqg,28
+manhattan,['motorway_link'],0,20244,40.786848,-73.982984,CoRvoGIbDmOpeQECr16yCQ,5
+manhattan,"['secondary', 'motorway_link']",0,22444,40.785955,-73.98455,17cwqilrWia723DNsxFfcg,263
+manhattan,['motorway'],1,24240,40.786994,-73.983182,g5VIkbg5lSnATRgXZZ2W-Q,16
+manhattan,['motorway'],1,39248,40.775732,-73.991389,32OQDJcPUBkN5FtVSsbOSQ,28
+manhattan,['motorway_link'],0,14703,40.786944,-73.98297,FUO_Tn7YMa4YMfMIPiw6kg,6
+manhattan,"['motorway_link', 'secondary']",0,41218,40.785652,-73.984671,knbArGGvF5JZIOBDtfYEyw,143
+manhattan,"['secondary', 'motorway_link']",0,34858,40.785994,-73.984502,W-ha6K8DZc-YWaOpvldtvw,243
+manhattan,['motorway'],1,26193,40.78707,-73.983152,OWG58E25rIWlXMGgYD5aYg,15
+manhattan,['motorway'],1,46479,40.775663,-73.99144,e4qI9dqLLZ1so59AtBd_LA,28
+manhattan,['motorway_link'],0,6782,40.787039,-73.982954,QEJBlRW8nttFBvv0_w5HAA,7
+manhattan,"['motorway_link', 'secondary']",0,46759,40.785686,-73.984729,kgpsbM3Bzg4uBXRkvLnltQ,172
+manhattan,['motorway_link'],0,17260,40.786028,-73.984418,9Nu2jEzsfIKU7zmpvTQHyQ,243
+manhattan,['motorway'],1,15585,40.787147,-73.983122,_bB54lFx6-Sy80qzY5rZRQ,15
+manhattan,['motorway'],1,5006,40.775594,-73.991492,m4ZfpBpQY7o--sKoRxvkJg,28
+manhattan,['motorway_link'],0,37566,40.787133,-73.982937,TG3Y412w8nksqcF_VWZXeg,7
+manhattan,"['motorway_link', 'secondary']",0,803,40.785626,-73.984719,GoPem60MopmiHjcGLZTklw,171
+manhattan,['motorway_link'],0,10657,40.786071,-73.984313,o313_Kf1km7IT_3hbDU0_Q,242
+manhattan,['motorway'],1,40024,40.775524,-73.991543,KvwgL8sBq-JjhSQV9fqEIA,28
+manhattan,"['motorway_link', 'secondary']",0,27766,40.785571,-73.984711,xzpU60Dwjx0qFP3g_IkQkw,173
+manhattan,['motorway_link'],0,34709,40.786108,-73.984228,STTn_PcFgyhuxghUOk57iQ,239
+manhattan,['motorway'],1,51997,40.775454,-73.991595,df7T0W2v8Wk-2Dxt7LvHow,28
+manhattan,['motorway_link'],0,4664,40.785468,-73.984704,epWrfiiWAExS3TNI_noB5w,177
+manhattan,"['service', 'service', 'motorway_link']",0,48805,40.786148,-73.984144,VE_fqUaSBtGKCvNg9PUtCA,234
+manhattan,['motorway'],1,43061,40.775383,-73.991647,QMURKzOuiOjD1EuPHqDd1w,28
+manhattan,"['motorway_link', 'service']",0,8286,40.785368,-73.984703,xO3_kw9fa6Wi8AhfnlZkEQ,179
+manhattan,"['service', 'motorway_link']",0,55470,40.786166,-73.984112,t0lT44cahDuJuIllmKXeoQ,232
+manhattan,['motorway'],1,19675,40.775313,-73.991699,0P1T7FLBR65DtcXjMXHM_A,28
+manhattan,['motorway_link'],0,4323,40.785271,-73.984708,Ybu4QjOhnI3Xwnv3kyMPJA,184
+manhattan,['motorway_link'],0,22929,40.78622,-73.98403,CLA9fFKo3gfB_MSMgLO7xw,227
+manhattan,['motorway'],1,38946,40.775241,-73.991752,xQre-2AujYSsmrJ6Z1CvyA,28
+manhattan,['motorway_link'],0,42514,40.785174,-73.984721,DlTV7AdRDNoX9sAHPMVJKw,188
+manhattan,['motorway_link'],0,47923,40.786279,-73.983953,AgTiK8fh_JHKUbHSs2yEWw,223
+manhattan,['motorway'],1,50042,40.77517,-73.991804,wpa-6jvtzOJpZClvXzAWzg,28
+manhattan,['motorway_link'],0,10214,40.785074,-73.984745,d_-eLVhzaNlMXmdLwy8wcg,191
+manhattan,['motorway_link'],0,41783,40.786345,-73.983878,yB-Awr3ukbaFSoQElX5WLg,219
+manhattan,['motorway'],1,15624,40.775098,-73.991855,aGZAFVlGtZD33n-iB5iaYA,28
+manhattan,['motorway_link'],0,25776,40.785025,-73.984758,F8fCTSO4s9WvxrAtMwvT4A,192
+manhattan,['motorway_link'],0,39353,40.786413,-73.983812,4zk3pg1yqG8xoFqCNcuJUQ,216
+manhattan,['motorway'],1,53040,40.775026,-73.991906,1ksImxU9BJKv0NNStsqA9g,27
+manhattan,['motorway_link'],0,13340,40.784926,-73.984786,lbK_-P-DuOonQk0vRf-Gqw,193
+manhattan,['motorway_link'],0,15403,40.786483,-73.983752,Wh4m0k01PqB9a1AyLqdNsA,212
+manhattan,['motorway'],1,18087,40.774953,-73.991957,SZCl-loZqr1tN9alnoHomw,27
+manhattan,['motorway_link'],0,48273,40.784827,-73.984819,IF1OCTQud1BWRZ_s7nIDQg,195
+manhattan,['motorway_link'],0,50844,40.786554,-73.983698,EHMh4_TBmI3UUG5-T6YeFg,210
+manhattan,['motorway'],1,46076,40.774881,-73.992007,WgKMFfrmsGa2sr-M1VpH3w,27
+manhattan,['motorway_link'],0,55593,40.784731,-73.984857,vogRs8H5wDFA2Lcnyijg_w,197
+manhattan,['motorway_link'],0,29089,40.786631,-73.983644,TEy4xARvTt4JqG-ejOalyQ,208
+manhattan,['motorway'],1,8128,40.774809,-73.992057,tWdpzfmK4WYOLCawanuRjg,27
+manhattan,['motorway_link'],0,4164,40.784634,-73.984897,VA77pVm1rEED_l2wqNNPPw,199
+manhattan,['motorway_link'],0,11224,40.786709,-73.983594,-duJsogTwGtiOsl7At2K-Q,207
+manhattan,['motorway'],1,44330,40.774737,-73.992106,sW4t4wXU2ImPgoatzOd9Hg,27
+manhattan,['motorway_link'],0,6804,40.784539,-73.984942,QjUD4PM7mDGDKHtOzsampw,200
+manhattan,['motorway_link'],0,512,40.786781,-73.98355,AIG4rR9wpA2Ib-omG-2Vtw,206
+manhattan,['motorway'],1,21813,40.774665,-73.992155,nDqnBzP7YtpiHDPvGKcwsw,26
+manhattan,['motorway_link'],0,39666,40.784445,-73.984989,CTk3cot41HL4jx3nMzj-ng,201
+manhattan,['motorway_link'],0,36951,40.786856,-73.983506,FTaNf9_QUGkEHHNzAWh8nQ,204
+manhattan,['motorway'],1,55099,40.774593,-73.992203,kV8t6zkX4pTDCUDsfuJmEw,26
+manhattan,['motorway_link'],0,11652,40.784351,-73.985037,8UAi0dxv60hh8G-RaA-7cg,202
+manhattan,['motorway_link'],0,3889,40.786942,-73.983457,Pb6cm8mrka9OsdN4KkFWDA,203
+manhattan,['motorway'],1,40111,40.77452,-73.99225,N8ZLdBsDQ10VISIzWWnHVw,25
+manhattan,"['motorway_link', 'motorway_link']",0,41703,40.784261,-73.985087,wF6s2SRMP-Yhstd0vZPJeA,203
+manhattan,['motorway_link'],0,6690,40.787037,-73.983406,Nw1B87rogpbRwu-r9ohY4Q,202
+manhattan,['motorway'],1,37373,40.774449,-73.992296,OzUKHi1km3OM06hEnM9llA,25
+manhattan,['motorway_link'],0,8931,40.784172,-73.985136,AFDyfiK4O1O5r_1SC1TY9A,203
+manhattan,['motorway'],1,37447,40.774377,-73.992342,Qhc2B1mnObnQqCYW0FmjoQ,25
+manhattan,['motorway_link'],0,11713,40.784079,-73.985187,9x7KyuOucmgNlNx9_g8jmA,202
+manhattan,"['motorway', 'motorway_link']",0,21906,40.787136,-73.983264,pCAGSMTLsUUItK9lMbsJDQ,196
+manhattan,['motorway'],1,45127,40.774306,-73.992388,BITMQKJW6nmkdUEBLrUTxw,25
+manhattan,['motorway_link'],0,42488,40.784031,-73.985213,D8Ff2oMQgoaHpawAtlqceg,202
+manhattan,['motorway'],1,32143,40.787206,-73.983238,Z3cEulqKn7-khhExNwgFPw,196
+manhattan,"['motorway', 'motorway_link']",0,35348,40.787067,-73.98329,fz_ga4h5kqt7OLD6N5ETZA,196
+manhattan,['motorway'],1,15196,40.774235,-73.992434,RhhbvZvvdo1e8GngfdBHxA,25
+manhattan,['motorway'],1,15366,40.784086,-73.985103,Vw-ttYjd5b9mhrCLhZWSzA,209
+manhattan,"['motorway', 'motorway_link']",0,29944,40.783984,-73.985239,lp8EwvT-iQWSBXhf0M8mxA,203
+manhattan,['motorway'],1,53575,40.786998,-73.983316,EBnPUV8tVYgMNRqrbae5iA,196
+manhattan,['motorway'],1,19455,40.774164,-73.99248,wVW_bAT-05Rqprm5VOGEog,25
+manhattan,['motorway'],1,53384,40.784154,-73.985053,9eYRQFhM9lHdV5a85tY3qg,209
+manhattan,"['motorway', 'motorway_link']",0,24003,40.783889,-73.985298,ajNjsJP-ItTp9mv3pqWxig,205
+manhattan,['motorway'],1,5222,40.786928,-73.983343,rTqxUHZTsq_s48mCyxERyQ,197
+manhattan,['motorway'],1,42404,40.774094,-73.992525,BEHfFIh-yr1tKSuc8xS3OQ,26
+manhattan,['motorway'],1,17765,40.784222,-73.985004,KfOfgwc307qlv1kOivnvEw,209
+manhattan,"['motorway', 'motorway_link']",0,26183,40.783791,-73.985364,OO70xraCOb0rMa4C9ZBgjw,207
+manhattan,['motorway'],1,47267,40.786859,-73.98337,wDeiHEDv8OvsUROwRb1pPg,197
+manhattan,['motorway'],1,51447,40.774025,-73.992571,STI4NjlrshFWEnXRCsLlZg,26
+manhattan,['motorway'],1,4552,40.78429,-73.984955,cIyGLMgnxrhyQds7RK1zVg,209
+manhattan,"['motorway', 'motorway_link']",0,2276,40.783694,-73.985433,ouOQAgNThc2SCCHZM8puEQ,208
+manhattan,['motorway'],1,28309,40.786791,-73.983398,AG4g1IytFcK3bax0FOaPog,197
+manhattan,['motorway'],1,41057,40.773956,-73.992617,ghhoRKkKGp2cHOMt_n55yg,26
+manhattan,['motorway'],1,35799,40.784358,-73.984906,qxWQFcQr7ElCu-a7NsUWhA,208
+manhattan,['motorway'],1,43745,40.783593,-73.985506,f3SAPLLE5aAw9Tjx20Wm5Q,208
+manhattan,['motorway'],1,8489,40.786722,-73.983426,0Jh6diYbTCT-nix-Tld6jw,198
+manhattan,['motorway'],1,16159,40.773887,-73.992663,n2GdOsh6DvKER8oCAXnyNg,26
+manhattan,['motorway'],1,19106,40.784426,-73.984857,o1ba3fMDYBXZoiD2tMiaEQ,208
+manhattan,['motorway'],1,50583,40.78349,-73.985579,88Jk2iXT4HeILmaAfzOAuw,208
+manhattan,['motorway'],1,19830,40.786654,-73.983456,41-_-SvrzesyWuL-qQZsrg,198
+manhattan,['motorway'],1,43973,40.773819,-73.992709,k1ae1yK9TWgAzaeXrzdp_g,26
+manhattan,['motorway'],1,17904,40.784494,-73.984809,OECLugxnj6x2vh13xhtPVA,208
+manhattan,['motorway'],1,31258,40.783438,-73.985616,F3rmdzx-nRgIyUy8A02Z-Q,208
+manhattan,['motorway'],1,34275,40.786586,-73.983486,ISjsnjMwcU65FBvwVK2H7Q,199
+manhattan,['motorway'],1,43471,40.773752,-73.992755,ZGM9LpsTYcgWZTkaG5gc3g,26
+manhattan,['motorway'],1,44475,40.784562,-73.984762,vdCQ6_3l2o14CVhhDP3MDg,208
+manhattan,['motorway'],1,49479,40.783334,-73.985691,jZ8Sz0WLY-4W761FWyaQJg,208
+manhattan,['motorway'],1,51551,40.786519,-73.983517,Ui1SC2Tg0Ub9LnUESeht6w,199
+manhattan,['motorway'],1,36508,40.773685,-73.992801,5XCuwGYeb44Pxp1RkvtlsQ,27
+manhattan,['motorway'],1,36802,40.78463,-73.984715,C3ebd7DqFDAgHiGqlGDx-Q,207
+manhattan,['motorway'],1,17338,40.783229,-73.985767,BLwwYAjleE7NXfnIqL1LoA,208
+manhattan,['motorway'],1,41872,40.786451,-73.983548,-MsYjYUBhgg5zr9dhsXhQg,200
+manhattan,['motorway'],1,51440,40.773618,-73.992848,SGWrpfCwiHNDftyLrll8YQ,27
+manhattan,['motorway'],1,6320,40.784697,-73.984668,F_DKsDLYifRMM2CfGhM1Kg,207
+manhattan,['motorway'],1,37806,40.783122,-73.985844,YeCYZyGZze4VxdRVMe-cLw,208
+manhattan,['motorway'],1,42570,40.786384,-73.98358,EoqXUhFe60bRD0_LfzEcgg,200
+manhattan,['motorway'],1,2536,40.773552,-73.992894,v8wntlySYbPF_xsh3256Bg,27
+manhattan,['motorway'],1,21623,40.784765,-73.984622,j7n4vKeqwO3xGI0Aztwomw,207
+manhattan,['motorway'],1,37801,40.783015,-73.985921,YTaTAgm6GAY8xYrr6BB0uQ,208
+manhattan,['motorway'],1,9675,40.786317,-73.983613,RvKkNBqZxtRhCJskkF3xaQ,201
+manhattan,['motorway'],1,54762,40.773485,-73.99294,cLom9chbI2mdLZjBJuofEA,27
+manhattan,['motorway'],1,34833,40.784832,-73.984576,VJdC_GzvBNC5SNjt5aJV1w,207
+manhattan,['motorway'],1,7717,40.782907,-73.986,kmkvk-2llpNISmvQYmbdbw,209
+manhattan,['motorway'],1,50609,40.786251,-73.983648,8hDlUeAx66bLqm_HNi0o6w,202
+manhattan,['motorway'],1,43983,40.77342,-73.992985,k9m4yBP-DCHSf3fNfyTzZw,27
+manhattan,['motorway'],1,26712,40.784898,-73.98453,_G1l2vFev851aHeNKJBy2Q,207
+manhattan,['motorway'],1,11201,40.782798,-73.986078,-7c0gKuUqs_IOj2iQ_EFOw,209
+manhattan,['motorway'],1,20190,40.786184,-73.983683,B_CGnq4Jlzn4J9OqcbjZmQ,202
+manhattan,['motorway'],1,1291,40.773354,-73.993031,SeIbQBEDT-W_ALib6E6KVQ,27
+manhattan,['motorway'],1,43543,40.784965,-73.984484,_wYoYkiRZElVKzXU-rGQvA,207
+manhattan,['motorway'],1,35143,40.782689,-73.986158,b77O04PhQSlmvv9oUsQH7w,209
+manhattan,['motorway'],1,28105,40.786119,-73.983719,5EYkUnG8YD6mz2Stp0whRg,203
+manhattan,['motorway'],1,6505,40.773289,-73.993076,JTh_2INc6yOhrZq4TfSYzg,27
+manhattan,['motorway'],1,38585,40.785031,-73.984439,pjHnqmBWMH4H5vGiFQNw3Q,207
+manhattan,['motorway'],1,15266,40.782579,-73.986238,TdNe6P2hs20vWm8chDaJTw,209
+manhattan,['motorway'],1,28432,40.786054,-73.983756,CTMx3SXQQMhuP3ZdTxqg5Q,204
+manhattan,['motorway'],1,26419,40.773224,-73.993121,TjWq0gnP0Wx6MDaOz3gfBQ,27
+manhattan,['motorway'],1,33594,40.785097,-73.984395,3VSwsDT270FMVgCSlcGtTg,207
+manhattan,['motorway'],1,28918,40.782469,-73.98632,P8zXI-p-MWa-gdWz1W8VPA,209
+manhattan,['motorway'],1,53308,40.78599,-73.983794,7WezX33yF9HGMBa99knfkg,205
+manhattan,['motorway'],1,8967,40.77316,-73.993166,AzUA_W0G88oAfGWY-lQvuA,27
+manhattan,['motorway'],1,9293,40.785162,-73.98435,Ikd9eqUnyhgl6r_PvVMeyg,207
+manhattan,['motorway'],1,49851,40.785925,-73.983834,s0HAlLP349SkMILsH7v2Ig,205
+manhattan,['motorway'],1,22712,40.773096,-73.99321,7OUNFm3eJpKuvZNtFoQLhQ,27
+manhattan,['motorway'],1,23990,40.785226,-73.984306,aTm7Zm_3SPLKX3TXUvaCqg,207
+manhattan,['motorway'],1,19294,40.785862,-73.983874,sABXsIWwWr8jvrvYH0JFRw,206
+manhattan,"['motorway', 'motorway']",1,48691,40.773033,-73.993254,SMLaEoTkn85SjwEVd0l55w,27
+manhattan,['motorway'],1,25167,40.78529,-73.984262,16jl3A1oi8AUS-VEKlURJw,208
+manhattan,['motorway'],1,2035,40.785798,-73.983916,jV8uj7KgB1RhZ617jALZog,206
+manhattan,['motorway'],1,36819,40.772971,-73.993298,Calhy5-0x5xnj4PA0xX1wQ,27
+manhattan,['motorway'],1,35068,40.785354,-73.984217,_RkkELfJVeZq6RhL4aM9Ag,208
+manhattan,['motorway'],1,6522,40.785734,-73.983957,Jf6PLNj1O9MTgTeswH_36A,207
+manhattan,['motorway'],1,50045,40.772909,-73.993342,wycV-V9QFuo3E5M1MdRceg,27
+manhattan,['motorway'],1,626,40.785417,-73.984173,CjxEOCP4zbDPhOxThzsm3w,208
+manhattan,"['motorway', 'motorway', 'footway']",0,48136,40.785671,-73.984,FPnEQEj5SKHWCEl6BmqVJQ,207
+manhattan,"['residential', 'motorway']",1,12469,40.772847,-73.993386,R_2jvP-0hMEuZ1zLjpusMw,27
+manhattan,"['motorway', 'footway', 'motorway']",1,6574,40.78548,-73.98413,L-Dl1YbAbBoFaosf6xZbSw,207
+manhattan,"['motorway', 'footway']",0,8387,40.785607,-73.984043,zItltlPv0nlYTdYpkTE_GA,207
+manhattan,"['motorway', 'footway']",0,16233,40.772787,-73.993429,ohlqp4xT3Wqh-oT3Tp5v7Q,28
+manhattan,"['secondary', 'motorway']",1,19891,40.785544,-73.984086,5_Q9V9dvhFBW8eWr-ZgVTQ,207
+manhattan,['motorway'],1,3200,40.772725,-73.993473,91nKrVLBJ89wKJ8pljc8QQ,28
+manhattan,['motorway'],1,7403,40.772665,-73.993516,dYq2PMSd2d2yP87deHBKFQ,28
+manhattan,['motorway'],1,40476,40.772545,-73.993605,UsFc6E4S_Vow-OVuqBVI9w,28
+manhattan,['motorway'],1,31961,40.772484,-73.993649,UawHE5lieMMgW-6udCEizw,28
+manhattan,['motorway'],1,7620,40.781434,-73.987158,j-DNeatAqHNH0fU9OSA8qQ,216
+manhattan,['motorway'],1,35560,40.772424,-73.993693,lURQ1kvdHXTv1BlE7a0m2g,28
+manhattan,['motorway'],1,28967,40.78133,-73.987258,Pyk2kAOo_PNHiT8Kyshxnw,216
+manhattan,['motorway'],1,17219,40.772363,-73.993737,8XdJysrdryv6TsYo3Rc7MA,28
+manhattan,['motorway'],1,37059,40.781225,-73.987358,HolhZ9BTV1EYwe-RhZDy6A,216
+manhattan,['motorway'],1,20559,40.772242,-73.993823,KQnLR3eMtrj_8n9Fyd-XFw,28
+manhattan,['motorway'],1,48607,40.78112,-73.987459,QVphXJgI5RR2fwGLut568w,216
+manhattan,['motorway'],1,53594,40.772122,-73.993909,EXfagIw0f3l8WY0PmkpnEg,28
+manhattan,"['motorway', 'cycleway', 'motorway']",1,36115,40.781015,-73.98756,yV4FrNj1AQP3ywix8kpvzg,217
+manhattan,['motorway'],1,32363,40.771878,-73.99408,dEX7CPpTUVifA4SDtPzYlw,25
+manhattan,['motorway'],1,35907,40.771754,-73.994156,tklCzZNMh8dJih5qaG9axw,23
+manhattan,['motorway'],1,2393,40.771629,-73.994222,rwjjIDwzFAqRw0E3yiYjyw,20
+manhattan,['motorway'],1,20066,40.771566,-73.994253,9Fi1Bs1Pn8PwjX5GJrFxDw,19
+manhattan,"['motorway', 'cycleway']",0,45544,40.779239,-73.988996,Kg41DIBkgVEBtPF-BNtnrA,208
+manhattan,"['footway', 'motorway', 'cycleway']",0,26115,40.779177,-73.989039,Mtc0kV9mDesQVP6rqnqqUQ,208
+manhattan,"['motorway', 'footway', 'cycleway']",0,753,40.779116,-73.989082,FrjMqCajCMU_htvEbsER4A,208
+manhattan,"['motorway', 'footway', 'cycleway']",0,40918,40.779054,-73.989126,dpcVhlLLgpH2tbvlAqihjg,208
+manhattan,"['residential', 'motorway']",1,36628,40.772855,-73.993335,8QBg_VC-W3AVRKaV4RhxIA,299
+manhattan,"['motorway', 'cycleway', 'footway']",0,11252,40.778931,-73.989212,07u0vfckQ04_5NgOOM0IOQ,208
+manhattan,"['footway', 'motorway', 'cycleway']",0,38559,40.778809,-73.989301,p8By5X1DshUjJrPncscjiw,209
+manhattan,"['residential', 'residential', 'motorway']",1,51160,40.77293,-73.993549,LkHvieoWU9KE9zBX8g3EXw,285
+manhattan,"['footway', 'motorway', 'cycleway']",0,9904,40.778686,-73.98939,XA6ScBozy4rVzt-wUyoESQ,209
+manhattan,"['motorway', 'cycleway']",0,6967,40.778625,-73.989435,UUQhnifUnTNxeogLkCaaSw,209
+manhattan,"['footway', 'motorway', 'cycleway']",0,4167,40.778564,-73.98948,VGytaOqm_ATRL62xPebZmA,209
+manhattan,"['motorway', 'cycleway']",0,44054,40.778441,-73.98957,lszdChU8Z7C4KtHvzm0L6w,209
+manhattan,"['motorway', 'cycleway']",0,21655,40.77838,-73.989615,js4iKodJKPvgHjMhuO8NlQ,209
+manhattan,"['motorway', 'cycleway']",0,11028,40.778319,-73.98966,wWLUbP2gdxSLdpSjJWlXJg,209
+manhattan,"['motorway', 'cycleway']",0,5934,40.778257,-73.989706,7AamkHPKTPKBzATvW8gAkw,209
+manhattan,"['motorway', 'cycleway']",0,13662,40.778196,-73.989751,t638uWZ8uACdjOBQBrSUzg,210
+manhattan,"['trunk', 'residential', 'motorway']",1,37870,40.770814,-73.994712,_1BRmQvuP21865fO4eAC5w,186
+manhattan,"['footway', 'motorway', 'cycleway']",0,38907,40.778135,-73.989797,wmc5DmWNL6c9sG5BBHkKtw,210
+manhattan,['motorway'],1,34390,40.770911,-73.9947,LGxZOA_DW-m_-Ea9euH8Pg,186
+manhattan,"['motorway', 'cycleway', 'footway']",0,45873,40.778073,-73.989842,S1LTz5tLuKfMG6u065JZVA,210
+manhattan,['motorway'],1,36603,40.771011,-73.994686,7YxWBEI_vxSTpKMS86KSPg,187
+manhattan,"['motorway', 'cycleway', 'footway']",0,3492,40.778012,-73.989888,FmyOGPoRE-zZEWsqu9wCbg,209
+manhattan,['motorway'],1,19987,40.771061,-73.994677,7kC8KRsWx2M6cZgfFfoyjQ,188
+manhattan,"['motorway', 'cycleway', 'footway']",0,27349,40.777951,-73.989933,oLie0Ze8Vn8x1-oMHmlw4g,210
+manhattan,"['motorway', 'cycleway', 'footway']",0,14567,40.777889,-73.989979,BaZ63xCEzIkFYoVuU7qINg,209
+manhattan,"['motorway', 'cycleway', 'footway']",0,21208,40.777828,-73.990024,_4610Eri8gg5fRrQ9tRyNA,209
+manhattan,"['motorway', 'cycleway', 'footway']",0,49957,40.777766,-73.99007,ulQ_MvtGTMAZ0VATEXX7Ew,209
+manhattan,['motorway'],1,1683,40.771485,-73.994555,aph3fgJmtVhCUt64LFxT_A,197
+manhattan,"['motorway', 'footway', 'cycleway']",0,35761,40.777705,-73.990115,pzNfUqGz2Xpvcj8T0lboxQ,209
+manhattan,['motorway'],1,14866,40.771596,-73.994507,JjEhw6t7xpgWL3qMCJ8FbA,199
+manhattan,"['footway', 'motorway', 'cycleway']",0,11529,40.777643,-73.99016,5sviTgzmLkPTJNajcAPbgg,209
+manhattan,['motorway_link'],0,11100,40.771707,-73.994454,xtOeWrTM_woNRONtmwCJzA,201
+manhattan,"['footway', 'motorway', 'cycleway']",0,44485,40.777581,-73.990204,vxaqqPMuW4qObDf2gd9Skw,209
+manhattan,['motorway_link'],0,54303,40.771818,-73.994394,Tg6576bliPxE_yeV2LEKqg,204
+manhattan,"['footway', 'motorway', 'cycleway']",0,28034,40.777519,-73.990249,3OyF9sTqprWcA5ygPKpvow,209
+manhattan,['motorway_link'],0,5818,40.771872,-73.994361,4SZ2dtNw8rooM0sWK3qwkw,205
+manhattan,"['motorway', 'cycleway']",0,52479,40.777457,-73.990294,p6ARoTO4tovhmN5YQA6Zww,209
+manhattan,"['unclassified', 'motorway_link']",0,47401,40.771518,-73.994701,zRrtqdwkwsU1sUT29Qso8A,200
+manhattan,"['motorway', 'cycleway']",0,28242,40.777396,-73.990338,8eq5whGuE3hBXOM8BtUZzQ,209
+manhattan,"['unclassified', 'motorway_link']",0,26181,40.771429,-73.994738,ONaCz02QDq7pc6u5JWjDGA,197
+manhattan,"['motorway', 'cycleway', 'footway']",0,46821,40.777334,-73.990383,mPGoAju3eJa5WCsDOIakFQ,209
+manhattan,"['unclassified', 'motorway_link']",0,4828,40.771841,-73.994406,iPjEzvn7LzGfqLj5edQ4bA,213
+manhattan,"['motorway', 'cycleway']",0,50,40.777272,-73.990427,00mqYVljIfyXSbYSQ-SMYQ,209
+manhattan,"['unclassified', 'motorway_link']",0,36118,40.771767,-73.994464,yYKFkDLjwN1SA5YcaYbcQA,211
+manhattan,"['motorway', 'cycleway']",0,11698,40.777211,-73.990471,9_g2AeKuej9TGIcJx5OjaQ,209
+manhattan,"['unclassified', 'motorway_link']",0,35543,40.771698,-73.994514,l5fEWeHzKK_yB1Xv6bHw7Q,208
+manhattan,"['motorway', 'cycleway']",0,11495,40.77715,-73.990515,5G5dIayaIlnbzYlrhhygAw,209
+manhattan,"['unclassified', 'motorway_link']",0,1206,40.771587,-73.994585,QV7LP1OVc2vHdORFCWlXyQ,206
+manhattan,"['motorway', 'cycleway']",0,34440,40.777089,-73.990559,MX5wzonizTvLc5HHibCThg,209
+manhattan,"['unclassified', 'motorway_link']",0,3849,40.771509,-73.994634,OdqUX03ojqzb5U_BQvc26w,205
+manhattan,"['motorway', 'cycleway']",0,47412,40.777028,-73.990603,ziBa7916erUdnlyZSvjmAw,209
+manhattan,"['unclassified', 'motorway_link']",0,42124,40.771427,-73.994681,509I8MDa2FpxKlnFmYgYCw,202
+manhattan,"['motorway', 'cycleway']",0,41992,40.776968,-73.990646,23Eldy6r9js_26lSgyitkg,209
+manhattan,"['motorway', 'cycleway']",0,34547,40.776907,-73.99069,P7XqMjVWll014MyaZl9WTw,209
+manhattan,"['motorway', 'cycleway']",0,34400,40.776848,-73.990734,Las979cAwXchPUtfoP6fMQ,209
+manhattan,"['motorway', 'cycleway']",0,2642,40.776788,-73.990778,xSJSEQqsxSIoYKqTbU7h4Q,209
+manhattan,"['motorway', 'cycleway']",0,13974,40.776729,-73.990822,zhgQ2TnfOhQitg9G1pL3fQ,209
+manhattan,"['motorway', 'cycleway']",0,44807,40.77667,-73.990866,2s-H8TPRe10LbIvON8LHLA,209
+manhattan,"['motorway', 'cycleway']",0,24576,40.776611,-73.990909,oCU0JuN9zlfnawxyuhyObg,209
+manhattan,"['motorway', 'cycleway']",0,27606,40.776552,-73.990953,ul1odhyaqmQ5J1Z3VD7EoA,209
+manhattan,"['motorway', 'cycleway']",0,54835,40.776494,-73.990996,e71NfFzWheYGsSBDuKmprQ,209
+manhattan,"['motorway', 'cycleway']",0,53942,40.776377,-73.991082,M5yrhyayiG_znkrg13U0pw,209
+manhattan,"['motorway', 'cycleway']",0,27197,40.77626,-73.991167,kqkQCmqZryYZU_vfHKG21w,209
+manhattan,"['motorway', 'cycleway']",0,21838,40.776144,-73.991251,nnNk0ywlORDe5XQqNbGJEg,209
+manhattan,"['motorway', 'cycleway']",0,12825,40.776028,-73.991335,_e1D5d1xTDvN1qyddk2H6w,209
+manhattan,"['motorway', 'cycleway']",0,49554,40.775911,-73.991419,lSlR9vHrwNFProd2I8HPbQ,209

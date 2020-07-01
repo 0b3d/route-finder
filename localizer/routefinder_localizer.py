@@ -13,9 +13,9 @@ import scipy.io as sio
 from matplotlib import pyplot as plt
 from sklearn.metrics import pairwise_distances
 from itertools import compress
-import multiprocessing
-
 from localizer import BaseLocalizer
+
+
 
 class RouteFinderLocalizer(BaseLocalizer):
     """ This class implements methods commun for ES and BSD route finding """
@@ -126,9 +126,10 @@ class RouteFinderLocalizer(BaseLocalizer):
             rank = ind[0] + 1 if is_in_top_k else 0
             route_ranking[m] = rank
             #route_ranking.append(rank)
-                
+            
+            
             if self.opt.verbose > 2:
-                message = 'route {} step {} rank {} routes {}'.format(route_index, m, rank, R_.shape[0])
+                message = 'route {} step {} rank {} routes {} pid {}'.format(route_index, m, rank, R_.shape[0], getpid())
                 print(message)
         
         route_ranking = np.stack(route_ranking, 0)
@@ -159,7 +160,7 @@ class RouteFinderLocalizer(BaseLocalizer):
                 for route_index in tqdm(route_indexes):
                     route_ranking = self.localize_route(route_index)
                     dataset_rankings.append(route_ranking)
-                
+            
                 ranking = np.stack(dataset_rankings, axis=0)
                 nets_rankings.append(ranking)
             
@@ -185,7 +186,7 @@ class RouteFinderLocalizer(BaseLocalizer):
                 legends.append(net+'_'+dataset)
                 count = (self.ranking[i,j,:,:] > 0).sum(axis=0)
                 accuracy = count / nsamples
-                indices = np.arange(0, accuracy.size, 5)
+                indices = np.arange(4, self.opt.max_route_length, 5)
                 print('Accuracy ', legends[-1], accuracy[indices])
                 plt.plot(accuracy)
 
