@@ -249,6 +249,7 @@ class RouteFinderLocalizer(BaseLocalizer):
                 print('Accuracy ', legends[-1], accuracy[indices])
                 plt.plot(accuracy)
 
+        plt.ylim(0, 1)
         plt.grid()        
         plt.legend(legends)
         plt.title(self.opt.name)
