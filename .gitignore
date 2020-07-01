@@ -6,6 +6,7 @@ results_bs/
 results_th/
 *.m~
 *.pgw
+*.pyc
 Results/demo_london_BSD.avi
 Results/demo_london_BSD (Converted).mov
 
