@@ -4,7 +4,7 @@ import numpy as np
 import random
 import scipy.io as sio
 
-from .routefinder2_localizer import RouteFinderLocalizer
+from .routefinder_localizer import RouteFinderLocalizer
 from sklearn.metrics import pairwise_distances
 
 

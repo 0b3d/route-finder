@@ -6,7 +6,7 @@ import scipy.io as sio
 from sklearn.metrics import pairwise_distances
 from scipy.spatial.distance import pdist
 
-from .routefinder2_localizer import RouteFinderLocalizer
+from .routefinder_localizer import RouteFinderLocalizer
 
 class BSDRFLocalizer(RouteFinderLocalizer):
     def __init__(self, opt):

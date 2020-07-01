@@ -23,7 +23,7 @@ class BaseOptions():
         parser.add_argument('-n','--name', type=str, default='unnamed', help='name of the experiment. It decides where to store results')
 
         # localize options
-        parser.add_argument('-l', '--localizer', type=str, default='esrf', help='Name of the algorithm for localization')
+        parser.add_argument('-l', '--localizer', type=str, default='esrf', choices={'bsdrf','esrf'}, help='Name of the algorithm for localization')
         parser.add_argument('-N', '--culling_percentage', type=float, default=0.5, help='Percentage of routes to drop in each iteration 0-1')        
         parser.add_argument('-t', '--turn_threshold', type=int, default=60, help='Turn threshold')
         parser.add_argument('-k', '--topk', type=int, default=1, help='Top-k')
@@ -39,15 +39,16 @@ class BaseOptions():
         # model and dataset
         parser.add_argument('-M','--networks', type=str, nargs='+', default=['v2_2'], help='A list of networks (models) to use for localization')
         parser.add_argument('-d','--datasets', type=str, nargs='+', default=['unionsquare5k'], choices={'hudsonriver5k','unionsquare5k', 'wallstreet5k'}, help=' A list of datasets to test')
-        parser.add_argument('-f','--features_type', type=str, default='BSD', choices={'BSD','ES'}, help='Features type to use for localization')
+        #parser.add_argument('-f','--features_type', type=str, default='BSD', choices={'BSD','ES'}, help='Features type to use for localization')
         parser.add_argument('-p','--phase', type=str, default='localize', help='phase of the task')
         
         # additional options 
-        #parser.add_argument('--seed', type=int, default=442, help='Set the seed')
+        #parser.add_argument('--seed', type=int, default=442, help='Set the seed') # At the moment there are no random processes in this code.
         parser.add_argument('-w','--workers', type=int, default=4, help='Number of workers')
         parser.add_argument('-s','--save', action='store_true',help='If set save results in disk')
         parser.add_argument('-v', '--verbose', action='store_true', help='Verbose')
-        parser.add_argument('--suffix', default='', type=str, help='customized suffix: opt.name = opt.name + suffix: e.g., {model}_{netG}_size{load_size}')
+        parser.add_argument('--suffix', default='', type=str, help='customized suffix: opt.name = opt.name + suffix: e.g., {network}_{dataset}_zoom{19}')
+        parser.add_argument('--format', default='mat', type=str, choices={'mat','npy'}, help='Results file format')
         
         self.initialized = True
         return parser
@@ -90,7 +91,7 @@ class BaseOptions():
         print(message)
 
         # save to the disk
-        expr_dir = os.path.join(opt.results_dir, opt.name)
+        expr_dir = os.path.join(opt.results_dir)
         util.mkdirs(expr_dir)
         file_name = os.path.join(expr_dir, '{}_opt.txt'.format(opt.phase))
         with open(file_name, 'a') as opt_file:   #with open(file_name, 'wt') as opt_file:
