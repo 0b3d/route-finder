@@ -67,7 +67,7 @@ for i=1:test_num
             dist{i} = route_dist;
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
-            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold_, R_init, t, T, turns);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold_, R_init, t, T, turns, min_num_candidates);
             dist{i} = route_dist;
         %% JUST TURNS
         case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
@@ -158,9 +158,9 @@ if strcmp(features_type, 'ES')
 else
 
     if strcmp(dataset,"cmu5k")
-        resultsPath = ['results_th/', features_type,'/',dataset,'_',subset];
+        resultsPath = ['results_th3/', features_type,'/',dataset,'_',subset];
     else
-        resultsPath = ['results_th/', features_type,'/',dataset];
+        resultsPath = ['results_th3/', features_type,'/',dataset];
     end
     
 
