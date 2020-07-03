@@ -6,7 +6,7 @@ params.datasets = {'hudsonriver5k','wallstreet5k','unionsquare5k'};
 
 params.zoom = 'z19';
 params.model = 'v2_2';
-turns = {'false'};
+turns = {'true','false'};
 params.probs = 'false';
 params.threshold_ = 60;
 ks = [1,5];
@@ -37,16 +37,16 @@ for t=1:length(turns)
                     outName_1 = ['ranking','.mat'];
                     outName_2 = ['best_estimated_routes','.mat'];
                 else
-                    network = 'alexnet3';
-                    fileName = fullfile(['results_th/BSD/',params.dataset,'/',option,'_', network,'.mat']); 
-                    outName_1 = ['ranking_',network,'.mat'];
-                    outName_2 = ['best_estimated_routes_', network,'.mat'];
+                    network = 'resnet18';
+                    fileName = fullfile(['results_th3/BSD/',params.dataset,'/',option,'_', network,'.mat']); 
+                    outName_1 = ['ranking_',network,'N','.mat'];
+                    outName_2 = ['best_estimated_routes_', network,'N','.mat'];
                 end
             end
             load(fileName, 'best_estimated_top5_routes');
             load (fileName, 'best_estimated_routes');
             
-            sub_resultsPath = ['sub_results_th/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
+            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
             if ~exist(sub_resultsPath,'dir')
                 mkdir(sub_resultsPath);
             end

@@ -4,6 +4,8 @@ images/
 results/
 results_bs/
 results_th/
+results_th2/
+results_th3/
 *.m~
 *.pgw
 Results/demo_london_BSD.avi

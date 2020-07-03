@@ -1,4 +1,4 @@
-function [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns)
+function [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, min_num_candidates)
 R = R_init;
 dist = zeros(size(routes,2),1);
 rank = zeros(max_route_length,1);
@@ -13,12 +13,12 @@ for m=1 : max_route_length
         if strcmp(turns, 'true')
             turn = T(m-1);
             [R_, dist_] = Turn_filter(R, dist, turn, routes, m, threshold); % filter based on turn
-            [R_, dist_] = Nclosest_bsd(bad,R_,routes,dist_,N(m)); % filter based on sorting
+            [R_, dist_] = Nclosest_bsd(bad,R_,routes,dist_,N(m),min_num_candidates); % filter based on sorting
         else
-            [R_, dist_] = Nclosest_bsd(bad,R,routes,dist,N(m)); % filter based on sorting
+            [R_, dist_] = Nclosest_bsd(bad,R,routes,dist,N(m),min_num_candidates); % filter based on sorting
         end
     else
-        [R_, dist_] = Nclosest_bsd(bad,R,routes,dist,N(m)); % filter based on sorting
+        [R_, dist_] = Nclosest_bsd(bad,R,routes,dist,N(m),min_num_candidates); % filter based on sorting
     end
         
     if m < max_route_length
