@@ -6,7 +6,7 @@ model = 'v2_2';
 zoom = 'z18';
 
 % choose features type
-params.network = 'alexnet';
+params.network = 'resnet18';
 params.top = 'top5';
 % option = {features_type,turns, probs};
 

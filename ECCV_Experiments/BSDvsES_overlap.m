@@ -11,7 +11,7 @@ params.probs = 'false'; % for 'BSD', set this to 'false'
 params.top = 'top1';
 % option = {features_type,turns, probs};
 
-dataset = 'wallstreet5k';
+dataset = 'unionsquare5k';
 range = 5:1:40;
 
 % load ES data
@@ -23,7 +23,7 @@ plot(range, 100*ranking(range),  'LineStyle','-', 'LineWidth',2.0)
 hold on 
 
 % load BSD data
-networks = {'resnet18','resnet50','densenet161','alexnet3','vgg','googlenet'};
+networks = {'resnet18','resnet18N','resnet50','densenet161','alexnet3','vgg','googlenet'};
 ax = gca;
 for i = 1:length(networks)
     network = networks{i};
@@ -38,13 +38,13 @@ grid on
 title('Union Square')
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
 ylabel(ax, 'Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
-legend_text = {'ES','BSD resnet18','BSD resnet50','BSD densenet161','BSD alexnet','BSD vgg','BSD googlenet'};
+legend_text = {'ES','BSD resnet18','BSD resnet18N','BSD resnet50','BSD densenet161','BSD alexnet','BSD vgg','BSD googlenet'};
 set(ax,'Ytick',0:20:100)
 
 fig = gcf;
 basic_plot_configuration;
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7)
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'charts_8d', ['ESvsBSD_turns_',params.turns,'_',dataset,'_',params.top]);
+filename = fullfile('results_for_eccv', 'charts_th', ['ESvsBSD_turns_',params.turns,'_',dataset,'_',params.top]);
 saveas(ax, filename,'epsc')
 
