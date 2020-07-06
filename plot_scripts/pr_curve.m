@@ -3,11 +3,11 @@ clear all;
 close all;
 parameters;
 
-model = 'v1';
-zoom = 'z18'
+model = 'v2_2';
+zoom = 'z19'
 
 datasets = {'hudsonriver5k','unionsquare5k', 'wallstreet5k'}
-legend_text = {'Random','Hudson River', 'Union Square', 'Wall Street'}
+legend_text = {'Hudson River', 'Union Square', 'Wall Street'}
 
 fig_title = 'Euclidean';
 [~, ndatasets] = size(datasets);
@@ -18,8 +18,8 @@ for k=1:ndatasets
     %load(['features/',features_type,'/',features_type,'_', dataset,'.mat']);
     features_filename = ['features/ES/',model,'/', zoom, '/',dataset,'.mat'];
     % regenerate to be sure to use latest features
-    load(features_filename, 'X', 'Y', 'pano_id');
-    [pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
+    load(features_filename, 'X', 'Y');
+    %[pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
     
     distances = pdist2(Y,X);
     n = size(X,1);
@@ -39,8 +39,8 @@ for k=1:ndatasets
     target = [ones(1,n), zeros(1,n)];
 
     % change scale
-    new_score = 1 - score / 6.0;
-    prec_rec(new_score, target, 'holdFigure', 1, 'plotROC', 0, 'plotPR', 1, 'plotBaseline', 1, 'holdFigure', 1);
+    new_score = 1 - score / 64.0;
+    prec_rec(new_score, target, 'holdFigure', 1, 'plotROC', 0, 'plotPR', 1, 'plotBaseline', 0, 'holdFigure', 1);
 end
 ax =gca
 legend(legend_text)
@@ -48,9 +48,9 @@ ylim([0.4 1])
 set(ax,'Ytick',0.5:0.1:1)
 grid on
 basic_plot_configuration;
-legend(ax,legend_text, 'Location','west','FontName', 'Times', 'FontSize', 8)
+legend(ax,legend_text, 'Location','southwest','FontName', 'Times', 'FontSize', 8)
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'charts', 'precision_recall');
+filename = fullfile('results_for_eccv', 'final', 'precision_recall');
 saveas(ax, filename,'epsc')
 
 
