@@ -3,11 +3,11 @@ clear all
 close all
 
 model = 'v2_2';
-zoom = 'z18';
+zoom = 'z19';
 
 % choose features type
 params.network = 'resnet18';
-params.top = 'top5';
+params.top = 'top1';
 % option = {features_type,turns, probs};
 
 dataset = 'unionsquare5k';
@@ -101,14 +101,14 @@ xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
 %title('Alexnet');
-title(params.network)
+%title(params.network)
 ax = gca;
 set(ax,'Ytick',0:10:100)
 ylim([0,100]);
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 legend({'Turns', 'BSD', 'BSD+T', 'ES', 'ES+T'}, 'FontName', 'Times', 'Location', 'northwest','FontSize', 7)
-filename = fullfile('results_for_eccv', 'charts_8d', ['bars_',dataset,'_',params.network,'_',params.top]);
+filename = fullfile('results_for_eccv', 'final', ['bars_',dataset,'_',params.network,'_',params.top]);
 saveas(ax, filename,'epsc')
 
 

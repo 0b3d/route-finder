@@ -1,7 +1,7 @@
 % parameters of BSD Extraction and Lolcaisation
 mapfile = 'manhattan.osm';
 city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'unionsquare5k'; % The name of the dataset, creates a folder in /Data
+dataset = 'hudsonriver5k'; % The name of the dataset, creates a folder in /Data
 subset = 'combined'; % combined
 network = 'resnet18';
 % lowerlat = 40.7171;
@@ -15,11 +15,11 @@ threshold = 60; % turn threshold
 threshold_ = 30;
 road_dense_distance = 10;
 % drop threshold for routes
-% N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
-%    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
-% N = [100, 100, 100, 100, 100, 90, 90, 90, 90, 90, 80, 80, 80, 80, 80, 70, 70, 70,...
+N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
+   100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
+%N = [100, 100, 100, 100, 100, 90, 90, 90, 90, 90, 80, 80, 80, 80, 80, 70, 70, 70,...
 %    70, 70, 70, 70, 70, 70, 70, 80, 80, 80, 80, 80, 90, 90, 90, 90, 90, 100, 100, 100, 100, 100];
-N = ones(1,40) * 50;
+%N = ones(1,40) * 50;
 % N = [ones(1,5)*100 ones(1,5)*90 ones(1,5)*80 ones(1,5)*70 ones(1,5)*60 ones(1,15)*50];
 min_num_candidates = 100; % Don't drop routes if the number of candidates is less than this number
 % consistency metric
@@ -49,8 +49,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
-model = 'v2_2';
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
+model = 'v2_4';
 tile_test_zoom = 'z19' ;
 turns = 'false'; % 'true', 'false', 'only'
 probs = 'false'; % not implemented anymore, keep only for naming compatibility

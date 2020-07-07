@@ -6,12 +6,12 @@ norm = 'count';
 % parameters;
 dataset = datasets{1};
 fig_title = 'Union Square';
-model = 'v1';
-zoom = 'z18';
+model = 'v2_2';
+zoom = 'z19';
 
-bins = 30
-step = 100
-lim = 500
+bins = 100
+step = 20
+lim = 200
 
 %Read the features
 load(['features/ES/',model,'/',zoom, '/', dataset,'.mat'], 'X', 'Y', 'pano_id');
@@ -44,7 +44,7 @@ ax = ancestor(hm, 'axes');
 set(gca,'Ytick',0:step:lim)
 %title(ax, fig_title);
 ylim([0, lim]);
-xlim([0, 6]);
+xlim([0, 64]);
 %title(ax, 'Union Square')
 xlabel(ax, 'Distance')
 ylabel(ax, 'Number of pairs')
@@ -58,7 +58,7 @@ fig_title = 'Wallstreet';
 
 %Read the features
 subplot(1,2,2)
-load(['features/ES/',model,'/', zoom, '/', dataset,'.mat'], 'X', 'Y', 'pano_id');
+load(['features/ES/',model,'/', zoom, '/', dataset,'.mat'], 'X', 'Y');
 %[pano_ids,X,Y] = remove_duplicated_points(pano_id, X, Y);
 n = size(Y,1);
 matched_pairs = zeros(1,n);
@@ -86,7 +86,7 @@ ax = ancestor(hm, 'axes');
 set(gca,'Ytick',0:step:lim)
 %title(ax, fig_title);
 ylim([0, lim]);
-xlim([0, 6]);
+xlim([0, 64]);
 %title(ax, 'Wallstreet')
 xlabel(ax, 'Distance')
 %ylabel(ax, 'Number of pairs','FontName', 'Times','FontSize',12)
@@ -96,5 +96,5 @@ grid on
 fig = gcf 
 basic_plot_configuration;
 fig.PaperPosition = [0 0 12 6]; % 12 x 6  cm 
-filename = fullfile('results_for_eccv', 'charts', 'ES_distance_histogram');
+filename = fullfile('results_for_eccv', 'final', 'ES_distance_histogram');
 saveas(ax, filename,'epsc')
