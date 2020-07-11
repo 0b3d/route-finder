@@ -2,12 +2,12 @@ clc
 clear all
 close all
 
-model = 'v2_2';
+model = 'v2_12';
 % choose features type
 params.features_type = {'ES','BSD'}; % 'BSD' 'ES' or 'none'
-params.turns = 'false';
+params.turns = 'true';
 params.probs = 'false'; % for 'BSD', set this to 'false'
-params.zoom = 'z19';
+params.zoom = 'z18';
 params.top = 'top1';
 
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'};
@@ -24,7 +24,7 @@ for t = 1:2
         dataset = datasets{dset_index};
         if strcmp(feature, 'ES')
             linestyle = '-';
-            results_filename = fullfile('sub_results/',feature,'/',dataset, params.top,params.turns,'ranking.mat');
+            results_filename = fullfile('sub_results_v2_12/',feature,'/',dataset, params.top,params.turns,'ranking.mat');
         else
             linestyle = '--';
             results_filename = fullfile('sub_results/',feature,'/',dataset, params.top,params.turns,'ranking_resnet18.mat');
@@ -47,10 +47,10 @@ ylim([0,100]);
 
 grid on
 basic_plot_configuration;
-legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 4)
+legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 7)
 fig = gcf;
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'final', ['ESvsBSD_turns_',params.turns,'_',params.top]);
+filename = fullfile('results_for_eccv', 'charts_16d', ['ESvsBSD_turns_',params.turns,'_',params.top]);
 saveas(ax, filename,'epsc')
 
 

@@ -3,7 +3,6 @@ clear all
 close all
 
 
-
 % culling es parameters
 p.results_dir = 'sub_results_th/ES';
 p.datasets = {'hudsonriver5k','unionsquare5k','wallstreet5k'};
@@ -49,7 +48,7 @@ grid on
 %title('Localisation accuracy with 50% by iteration')
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
 ylabel(ax, ['Top-',num2str(p.k),' Localisations (%)'], 'FontName', 'Times', 'FontSize', 10)
-legend_text = {'Hudson River','Union Square','Wall Street','Hudson River RI','Union Square RI','Wall Street RI'};           
+legend_text = {'ES-I Hudson River','ES-I Union Square','ES-I Wall Street','ES-II Hudson River','ES-II Union Square','ES-II Wall Street'};           
 
 set(ax,'Ytick',0:20:100)
 % 
@@ -67,12 +66,12 @@ ax.FontSize = 10;
 %set(ax, 'defaultAxesTickLabelInterpreter','latex'); set(ax, 'defaultLegendInterpreter','latex');
 grid on
 fig.PaperUnits = 'centimeters';
-fig.PaperPosition = [0 0 8 6];
 set(ax,'Ytick',0:20:100)
 ylim([0,100]);
 basic_plot_configuration;
+%fig.PaperPosition = [0 0 4 3];
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7,'Orientation','horizontal','NumColumns',1)
 %fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'final', ['ES_rotational_invariant_model',p.turns,'_top',num2str(p.k)]);
+filename = fullfile('results_for_eccv', 'final', ['ES_rotational_invariant_model_2',p.turns,'_top',num2str(p.k)]);
 saveas(ax, filename,'epsc')
 

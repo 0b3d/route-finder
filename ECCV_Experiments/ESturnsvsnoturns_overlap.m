@@ -2,12 +2,12 @@ clc
 clear all
 close all
 
-model = 'v2_2';
+model = 'v2_12';
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 turns = {'true','false'};
 params.probs = 'false'; % for 'BSD', set this to 'false'
-params.zoom = 'z19';
+params.zoom = 'z18';
 params.top = 'top5';
 
 %option = {features_type,turns, probs};
@@ -42,7 +42,7 @@ for t = 1:2
 end
 
 xlabel(ax, 'Route length')
-ylabel(ax, 'Top-1 Localisations (%)')
+ylabel(ax, 'Top-5 Localisations (%)')
 set(ax,'Ytick',0:20:100)
 ylim([0,100]);
 
@@ -51,7 +51,7 @@ basic_plot_configuration;
 legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 7)
 fig = gcf;
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'final', ['ES_turns_vs_noturns_', params.top]);
+filename = fullfile('results_for_eccv', 'charts_16d', ['ES_turns_vs_noturns_', params.top]);
 saveas(ax, filename,'epsc')
 
 

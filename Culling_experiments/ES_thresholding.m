@@ -5,19 +5,19 @@ close all
 % culling es parameters
 p.results_dir = 'sub_results_th/ES';
 p.datasets = {'hudsonriver5k','unionsquare5k','wallstreet5k'};
-p.network = 'v2_2';
+p.network = 'v2_12';
 p.k = 1;
 p.N = '0.5';
 p.overlap = 1;
 p.turns = 'false';
 p.o = 5;
-p.z = '19';
+p.z = '18';
 
 x = 5:5:40;
 ax = gca;
 
 %% ES N 100
-p.results_dir = 'sub_results/ES';
+p.results_dir = 'sub_results_v2_12/ES';
 filename = 'ranking.mat';
 for i=1:length(p.datasets)
     path = fullfile(p.results_dir,p.datasets{i}, ['top',num2str(p.k)], p.turns,filename);
@@ -71,6 +71,6 @@ ylim([0,100]);
 basic_plot_configuration;
 legend(ax, legend_text,'FontName', 'Times', 'Location', 'southeast','FontSize', 7,'Orientation','horizontal','NumColumns',1)
 %fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'final', ['ESN',p.turns,'_top',num2str(p.k)]);
+filename = fullfile('results_for_eccv', 'charts_16d', ['ESN',p.turns,'_top',num2str(p.k)]);
 saveas(ax, filename,'epsc')
 

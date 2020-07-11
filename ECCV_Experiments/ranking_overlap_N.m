@@ -1,11 +1,11 @@
 clear all
 close all
 
-params.features_type = 'BSD';
+params.features_type = 'ES';
 params.datasets = {'hudsonriver5k','wallstreet5k','unionsquare5k'};
 
-params.zoom = 'z19';
-params.model = 'v2_2';
+params.zoom = 'z18';
+params.model = 'v2_12';
 turns = {'true','false'};
 params.probs = 'false';
 params.threshold_ = 60;
@@ -46,7 +46,7 @@ for t=1:length(turns)
             load(fileName, 'best_estimated_top5_routes');
             load (fileName, 'best_estimated_routes');
             
-            sub_resultsPath = ['sub_results/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
+            sub_resultsPath = ['sub_results_v2_12/', params.features_type,'/',params.dataset,'/','top',num2str(topk),'/',params.turns];
             if ~exist(sub_resultsPath,'dir')
                 mkdir(sub_resultsPath);
             end

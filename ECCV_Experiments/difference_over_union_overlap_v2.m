@@ -2,8 +2,8 @@
 clear all
 close all
 
-model = 'v2_2';
-zoom = 'z19';
+model = 'v2_12';
+zoom = 'z18';
 route_length = 40;
 datasets = {'unionsquare5k'}; 
 test_num = 500;
@@ -29,9 +29,10 @@ for dataset_index=1:length(datasets)
 
         % load ES results
         params.features_type = 'ES';
-        es_results_file = fullfile('sub_results/ES',dataset,params.top,params.turns,'ranking.mat');
+        es_results_file = fullfile('sub_results_v2_12/ES',dataset,params.top,params.turns,'ranking.mat');
         load(es_results_file, 'res');
-        es_results_file =  fullfile('results/ES', model, zoom, dataset,['ES',params.turns,params.probs,'.mat']);
+        es_results_file = fullfile('sub_results_v2_12/ES',dataset,params.top,params.turns,'best_estimated_routes.mat');
+        %es_results_file =  fullfile('sub_results_v2_12/ES', model, zoom, dataset,['ES',params.turns,params.probs,'.mat']);
         load(es_results_file, 'best_estimated_routes');
     
         ranking_es = res;
@@ -75,7 +76,7 @@ end
 ax = gca;
 % plot(union_accuracy')
 xlabel(ax,'Route length', 'FontName', 'Times', 'FontSize', 10)
-ylabel(ax,'S_{diff}', 'FontName', 'Times', 'FontSize', 10)
+ylabel(ax,'S_d', 'FontName', 'Times', 'FontSize', 10)
 ylim([0, 1]);
 set(ax,'Ytick',0:0.2:1)
 grid on
@@ -83,12 +84,12 @@ grid on
 
 %legend_text= {'$|S_{ES}\S_{BSD}|/|SES|$','|SBSD\SE|\|SBSD|'}; 
 
-h=legend('$S_{ES,BSD}$','$S_{BSD,ES}$');
+h=legend('$S_d(ES,BSD)$','$S_d(BSD,ES)$');
 set(h,'Interpreter','latex')
 
 fig = gcf;
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
 %legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
-filename = fullfile('results_for_eccv', 'final', ['difference_over_union_',params.turns,'_',params.top,'_',dataset]);
+filename = fullfile('results_for_eccv', 'charts_16d', ['difference_over_union_',params.turns,'_',params.top,'_',dataset]);
 saveas(ax, filename,'epsc')
