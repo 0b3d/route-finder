@@ -11,7 +11,7 @@ params.zoom = 'z18';
 params.top = 'top1';
 
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'};
-legend_text = {'Hudson River ES', 'Union Square ES', 'Wall Street ES','Hudson River BSD', 'Union Square BSD', 'Wall Street BSD'};
+legend_text = {'Hudson River ES+T', 'Union Square ES+T', 'Wall Street ES+T','Hudson River BSD+T', 'Union Square BSD+T', 'Wall Street BSD+T'};
 
 ndatasets = length(datasets);
 

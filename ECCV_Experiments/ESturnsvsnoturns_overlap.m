@@ -5,10 +5,10 @@ close all
 model = 'v2_12';
 % choose features type
 params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
-turns = {'true','false'};
+turns = {'true'};
 params.probs = 'false'; % for 'BSD', set this to 'false'
 params.zoom = 'z18';
-params.top = 'top5';
+params.top = 'top1';
 
 %option = {features_type,turns, probs};
 

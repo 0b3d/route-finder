@@ -3,7 +3,7 @@ clear all;
 close all;
 parameters;
 
-models = {'v2_12','v2_4_no_aligned'};
+models = {'v2_12','v2_12i'};
 zoom = 'z18'
 
 datasets = {'hudsonriver5k','unionsquare5k', 'wallstreet5k'}

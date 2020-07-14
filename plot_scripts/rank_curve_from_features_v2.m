@@ -2,10 +2,10 @@ clc
 clear all
 close all
 
-models = {'v2_12','v2_4_no_aligned'};
-zoom = 'z19'
+models = {'v2_12','v2_12i'};
+zoom = 'z18'
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
-legend_text = {'ES-I Hudson River (69.2 %)','ES-I Union Square (71.7 %)', 'ES-I Wall Street (58.3 %)','ES-II Hudson River (58.0 %)','ES-II Union Square (59.2 %)', 'ES-II Wall Street (47.9 %)'};
+legend_text = {'ES-I Hudson River (79.4 %)','ES-I Union Square (82.06 %)', 'ES-I Wall Street (72.3 %)','ES-II Hudson River (62.5 %)','ES-II Union Square (67.1 %)', 'ES-II Wall Street (54.2 %)'};
 %colormap = {'r','b','o'};
 
 top1p = zeros(1, length(dataset));
@@ -41,7 +41,7 @@ for mdl=1:length(models)
 
         x = labels / size(labels,2);
 
-        if strcmp(model, 'v2_2')
+        if strcmp(model, 'v2_12')
             linestyle = '-';
         else
             linestyle = '--';
@@ -63,6 +63,6 @@ ylabel(ax,'Top k recall')
 basic_plot_configuration;
 legend(ax,legend_text, 'Location','southeast','FontName', 'Times', 'FontSize', 8)
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'final', 'ESTopK_v2');
+filename = fullfile('results_for_eccv', 'charts_16d', 'ESTopK_v2');
 saveas(ax, filename,'epsc')
 
