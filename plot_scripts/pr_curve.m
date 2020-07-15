@@ -3,11 +3,13 @@ clear all;
 close all;
 parameters;
 
-model = 'v2_2';
-zoom = 'z19'
+model = 'v2_12';
+zoom = 'z18'
 
 datasets = {'hudsonriver5k','unionsquare5k', 'wallstreet5k'}
 legend_text = {'Hudson River', 'Union Square', 'Wall Street'}
+%legend_text = {'HR', 'US', 'WS'}
+
 
 fig_title = 'Euclidean';
 [~, ndatasets] = size(datasets);
@@ -50,7 +52,7 @@ grid on
 basic_plot_configuration;
 legend(ax,legend_text, 'Location','southwest','FontName', 'Times', 'FontSize', 8)
 fig.PaperPosition = [0 0 8 6];
-filename = fullfile('results_for_eccv', 'final', 'precision_recall');
+filename = fullfile('results_for_eccv', 'charts_16d', 'precision_recall');
 saveas(ax, filename,'epsc')
 
 

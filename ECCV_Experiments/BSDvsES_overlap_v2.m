@@ -11,7 +11,8 @@ params.zoom = 'z18';
 params.top = 'top1';
 
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'};
-legend_text = {'Hudson River ES+T', 'Union Square ES+T', 'Wall Street ES+T','Hudson River BSD+T', 'Union Square BSD+T', 'Wall Street BSD+T'};
+legend_text = {'HR ES+T (93.0 %)', 'US ES+T (96.6 %)', 'WS ES+T (98.2 %)','HR BSD+T (59.0 %)', 'US BSD+T (52.2 %)', 'WS BSD+T (82.0 %)'};
+%legend_text = {'HR ES (91.8 %)', 'US ES (95.8 %)', 'WS ES (93.0 %)','HR BSD (32.4 %)', 'US BSD (26.2 %)', 'WS BSD (37.4 %)'};
 
 ndatasets = length(datasets);
 
@@ -35,6 +36,8 @@ for t = 1:2
 
         x = 5:5:40;
         plot(ax, x, 100*ranking(x), 'LineStyle', linestyle, 'LineWidth',1.5)
+        dataset
+        100*ranking(x)
         grid on
         hold on
     end
@@ -47,7 +50,7 @@ ylim([0,100]);
 
 grid on
 basic_plot_configuration;
-legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 7)
+legend(ax, legend_text, 'location', 'southeast','FontName', 'Times', 'FontSize', 6)
 fig = gcf;
 fig.PaperPosition = [0 0 8 6];
 filename = fullfile('results_for_eccv', 'charts_16d', ['ESvsBSD_turns_',params.turns,'_',params.top]);

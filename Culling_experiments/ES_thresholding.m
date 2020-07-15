@@ -25,6 +25,8 @@ for i=1:length(p.datasets)
     acc = sum(ranking <= p.k & ranking > 0 )/size(ranking,1);
     plot(ax,x,100*acc(x),'LineStyle', '-', 'LineWidth',1.0);
     hold on
+    p.datasets{i}
+    acc(x)
 end
 
 %% ES N 50 % 
@@ -37,6 +39,8 @@ for d=1:length(p.datasets)
     acc = sum(ranking <= p.k & ranking > 0 )/size(ranking,1);
     plot(ax,x,100*acc(x),'LineStyle', '--', 'LineWidth',1.5);
     hold on
+    p.datasets{d}
+    acc(x)
 end
 
 
@@ -47,7 +51,9 @@ grid on
 xlabel(ax, 'Route length', 'FontName', 'Times', 'FontSize', 10)
 ylabel(ax, ['Top-',num2str(p.k),' Localisations (%)'], 'FontName', 'Times', 'FontSize', 10)
 
-legend_text = {'Hudson River 100%','Union Square 100%','Wall Street 100%','Hudson River 50%','Union Square 50%','Wall Street 50%'};           
+%legend_text = {'Hudson River 100%','Union Square 100%','Wall Street 100%','Hudson River 50%','Union Square 50%','Wall Street 50%'};
+legend_text = {'HR 100% (91.8%)','US 100% (95.8%)','WS 100% (93.0%)','HR 50% (91.6%)','US 50% (94.8%)','WS 50% (90.6%)'};
+
 
 set(ax,'Ytick',0:20:100)
 % 
