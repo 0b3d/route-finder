@@ -1,7 +1,7 @@
 % parameters of BSD Extraction and Lolcaisation
 mapfile = 'manhattan.osm';
 city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'hudsonriver5k'; % The name of the dataset, creates a folder in /Data
+dataset = 'wallstreet5k'; % The name of the dataset, creates a folder in /Data
 subset = 'combined'; % combined
 network = 'resnet18';
 % lowerlat = 40.7171;
