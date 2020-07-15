@@ -9,7 +9,7 @@ network = 'resnet18';
 % lowerlon = -74.028;
 % upperlon = -73.940;
 
-test_num = 500; % The number of test routes
+test_num = 50; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
 threshold_ = 30;
@@ -17,9 +17,9 @@ road_dense_distance = 10;
 % drop threshold for routes
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...
    100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100];
-%N = [100, 100, 100, 100, 100, 90, 90, 90, 90, 90, 80, 80, 80, 80, 80, 70, 70, 70,...
+% N = [100, 100, 100, 100, 100, 90, 90, 90, 90, 90, 80, 80, 80, 80, 80, 70, 70, 70,...
 %    70, 70, 70, 70, 70, 70, 70, 80, 80, 80, 80, 80, 90, 90, 90, 90, 90, 100, 100, 100, 100, 100];
-%N = ones(1,40) * 50;
+% N = ones(1,40) * 50;
 % N = [ones(1,5)*100 ones(1,5)*90 ones(1,5)*80 ones(1,5)*70 ones(1,5)*60 ones(1,15)*50];
 min_num_candidates = 100; % Don't drop routes if the number of candidates is less than this number
 % consistency metric
@@ -49,8 +49,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'ES'; % 'BSD' 'ES' or 'none'
+features_type = 'BSD'; % 'BSD' 'ES' or 'none'
 model = 'v2_12i';
 tile_test_zoom = 'z18' ;
-turns = 'false'; % 'true', 'false', 'only'
+turns = 'true'; % 'true', 'false', 'only'
 probs = 'false'; % not implemented anymore, keep only for naming compatibility
