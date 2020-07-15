@@ -19,12 +19,13 @@ else
 end
 
 % run 'Generate_random_routes' to get random test routes and turns
+directory = 'Localisation/test_routes_special/';
 if strcmp(dataset,"cmu5k")
-    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) , '_', subset,'.mat']);
-    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat']);
+    load([directory, dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) , '_', subset,'.mat']);
+    load([directory, dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat']);
 else
-    load(['Localisation/test_routes/',dataset,'_turns_', num2str(test_num), '_' , num2str(threshold_),'.mat']);
-    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
+    load([directory, dataset,'_turns_', num2str(test_num), '_' , num2str(threshold_),'.mat']);
+    load([directory, dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
 end
 
 R_init = zeros(size(routes,2),1);
@@ -154,13 +155,13 @@ if strcmp(features_type, 'ES')
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
-    save( [resultsPath,'/', option ,'.mat'],  '-v7.3')
+%     save([resultsPath,'/', option ,'.mat'],  '-v7.3')
 else
 
     if strcmp(dataset,"cmu5k")
-        resultsPath = ['results_th3/', features_type,'/',dataset,'_',subset];
+        resultsPath = ['results/', features_type,'/',dataset,'_',subset];
     else
-        resultsPath = ['results_th3/', features_type,'/',dataset];
+        resultsPath = ['results/', features_type,'/',dataset];
     end
     
 
@@ -168,7 +169,7 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+%     save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
     % simulated classifier
     % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end

@@ -39,7 +39,7 @@ else
 
     test_route = [];
     test_turn = [];
-    while size(test_route, 1) < 50 % 50 test routes
+    while size(test_route, 1) < test_num % 50 test routes
         [t, max_route_length] = RandomRoutes(R_init, routes, max_route_length_init);
         if (~isempty(test_route) && sum(ismember(test_route, t, 'rows'))) || ~sum(highway_flag(t))% check the uniqueness 
             continue;
