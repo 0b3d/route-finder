@@ -2,8 +2,7 @@
 clear all
 close all
 parameters;
-% load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
-load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
+load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
 
 T = struct2table(routes);
 I = T.id;
@@ -41,5 +40,10 @@ end
 bar(counts')
 ax = gca;
 ylim([0,1600]);
-filename = fullfile('results_for_bsd', ['BSD_distribution',dataset,'_v3']);
-saveas(ax, filename,'png')
+grid on
+title('Wall Street');
+legend_text= {'Ground Truth','Resnet18'}; 
+legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
+
+filename = fullfile('results_for_bsd/charts_network', ['BSD_distribution_',dataset]);
+saveas(ax, filename,'epsc')

@@ -3,7 +3,7 @@ clear all
 close all
 
 model = 'v2_2';
-zoom = 'z19';
+zoom = 'z18';
 route_length = 40;
 datasets = {'unionsquare5k'}; 
 test_num = 500;
@@ -12,9 +12,9 @@ union_accuracy = zeros(length(datasets),route_length);
 
 params.turns = 'false';
 params.probs = 'false';
-params.top = 'top5';
+params.top = 'top1';
 networks = {'resnet18','resnet50','densenet161','alexnet3','vgg','googlenet'};
-option = 4; % 1-> (S_ES \ S_BSD) / S_ES 
+option = 1; % 1-> (S_ES \ S_BSD) / S_ES 
             % 2-> (S_BSD \ S_ES) / S_BSD 
             % 3-> (S_ES \ S_BSD) / S_(ES U BSD)
             % 4-> (S_BSD \ S_ES) / S_(ES U BSD)
@@ -33,9 +33,10 @@ for dataset_index=1:length(datasets)
 
         % load ES results
         params.features_type = 'ES';
-        es_results_file = fullfile('sub_results/ES',dataset,params.top,params.turns,'ranking.mat');
+        es_results_file = fullfile('sub_results_v2_12/ES',dataset,params.top,params.turns,'ranking.mat');
         load(es_results_file, 'res');
-        es_results_file =  fullfile('results/ES', model, zoom, dataset,['ES',params.turns,params.probs,'.mat']);
+        es_results_file = fullfile('sub_results_v2_12/ES',dataset,params.top,params.turns,'best_estimated_routes.mat');
+        % es_results_file =  fullfile('results/ES', model, zoom, dataset,['ES',params.turns,params.probs,'.mat']);
         load(es_results_file, 'best_estimated_routes');
     
         ranking_es = res;
@@ -99,7 +100,7 @@ end
 ax = gca;
 % plot(union_accuracy')
 xlabel(ax,'Route length', 'FontName', 'Times', 'FontSize', 10)
-ylabel(ax,'S_{diff}', 'FontName', 'Times', 'FontSize', 10)
+ylabel(ax,'S_d(ES,BSD)', 'FontName', 'Times', 'FontSize', 10)
 ylim([0, 1]);
 set(ax,'Ytick',0:0.2:1)
 grid on
@@ -110,6 +111,6 @@ legend_text= {'BSD resnet18','BSD resnet50','BSD densenet161','BSD alexnet','BSD
 fig = gcf;
 basic_plot_configuration;
 fig.PaperPosition = [0 0 8 6];
-legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'northeast')
-filename = fullfile('results_for_eccv', 'charts_8d', ['difference_over_union_',params.turns,'_',params.top,'_',dataset,'_option_',num2str(option)]);
+legend(legend_text,'FontName', 'Times', 'FontSize', 7, 'location', 'southwest')
+filename = fullfile('results_for_bsd', 'charts_network', ['difference_over_union_',params.turns,'_',params.top,'_',dataset,'_option_',num2str(option)]);
 saveas(ax, filename,'epsc')
