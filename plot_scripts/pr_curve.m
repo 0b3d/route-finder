@@ -7,8 +7,8 @@ model = 'v2_12';
 zoom = 'z18'
 
 datasets = {'hudsonriver5k','unionsquare5k', 'wallstreet5k'}
-legend_text = {'Hudson River', 'Union Square', 'Wall Street'}
-%legend_text = {'HR', 'US', 'WS'}
+%legend_text = {'Hudson River', 'Union Square', 'Wall Street'}
+legend_text = {'HR', 'US', 'WS'}
 
 
 fig_title = 'Euclidean';
@@ -46,8 +46,12 @@ for k=1:ndatasets
 end
 ax =gca
 legend(legend_text)
-ylim([0.4 1])
-set(ax,'Ytick',0.5:0.1:1)
+ylim([0.5 1])
+%set(ax,'Ytick',0:0.1:1)
+set(ax,'Xtick',0:0.25:1)
+yticks([0.5 0.6 0.7 0.8 0.9 1.0])
+yticklabels({'0.5','0.6','0.7','0.8','0.9','1.0'})
+xticklabels({'0.0','0.25','0.50','0.75','1.0'})
 grid on
 basic_plot_configuration;
 legend(ax,legend_text, 'Location','southwest','FontName', 'Times', 'FontSize', 8)

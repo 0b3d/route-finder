@@ -6,7 +6,9 @@ models = {'v2_12'};
 zoom = 'z18'
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'}
 %legend_text = {'Hudson River (69.2 %)','Union Square (71.7 %)', 'Wall Street (58.3 %)'};
-legend_text = {'Hudson River (79.4 %)','Union Square (82.0 %)', 'Wall Street (72.3 %)'};
+%legend_text = {'Hudson River (79.4 %)','Union Square (82.0 %)', 'Wall Street (72.3 %)'};
+legend_text = {'HR (79.4 %)','US (82.1 %)', 'WS (72.3 %)'};
+
 %colormap = {'r','b','o'};
 
 top1p = zeros(1, length(dataset));
@@ -40,7 +42,7 @@ for mdl=1:length(models)
             end
         end
 
-        x = labels / size(labels,2);
+        x = labels / size(labels,2)*100;
 
         if strcmp(model, 'v2_12')
             linestyle = '-';
@@ -56,11 +58,25 @@ for mdl=1:length(models)
     end
 end
 
-xlim(ax,[0,0.1]);
-set(ax,'Ytick',0:0.2:1)
 
-xlabel(ax,'k (as a fraction of the dataset size)')
-ylabel(ax,'Top k recall')
+
+
+
+%yticklabels({'0.0','0.2','0.4','0.6','0.8','1.0'})
+
+%set(ax,'Ytick',0:0.2:1)
+
+xlim(ax,[0.0,2.0]);
+xticks([0.0,0.5, 1.0, 1.5, 2.0])
+xticklabels({'0.0','0.5', '1.0', '1.5', '2.0'})
+
+ylim(ax,[0.0,1.0]);
+yticks([0.0 0.2 0.4 0.6 0.8 1.0])
+yticklabels({'0.0','0.2', '0.4', '0.6', '0.8','1.0'})
+
+
+xlabel(ax,'k (% of the dataset)')
+ylabel(ax,'Top-k% recall')
 basic_plot_configuration;
 legend(ax,legend_text, 'Location','southeast','FontName', 'Times', 'FontSize', 10)
 fig.PaperPosition = [0 0 8 6];

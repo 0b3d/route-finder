@@ -8,16 +8,16 @@ params.features_type = 'ES'; % 'BSD' 'ES' or 'none'
 turns = {'true','false'};
 params.probs = 'false'; % for 'BSD', set this to 'false'
 params.zoom = 'z18';
-params.top = 'top5';
+params.top = 'top1';
 
 %option = {features_type,turns, probs};
 
 datasets = {'hudsonriver5k', 'unionsquare5k', 'wallstreet5k'};
 %legend_text = {'Hudson River ES+T', 'Union Square ES+T', 'Wall Street ES+T','Hudson River ES', 'Union Square ES', 'Wall Street ES'};
 % legend top1
-%legend_text = {'Hudson River ES+T (93.0 %)', 'Union Square ES+T (96.6 %)', 'Wall Street ES+T (98.2 %)','Hudson River ES (91.8 %)', 'Union Square ES (95.8 %)', 'Wall Street ES (93.0 %)'};
+legend_text = {'HR ES+T (93.0 %)', 'US ES+T (96.6 %)', 'WS ES+T (98.2 %)','HR ES (91.8 %)', 'US ES (95.8 %)', 'WS ES (93.0 %)'};
 % legend top5
-legend_text = {'Hudson River ES+T (97.2 %)', 'Union Square ES+T (99.2 %)', 'Wall Street ES+T (99.6 %)','Hudson River ES (96.8 %)', 'Union Square ES (99.0 %)', 'Wall Street ES (96.8 %)'};
+%legend_text = {'HR ES+T (97.2 %)', 'US ES+T (99.2 %)', 'WS ES+T (99.6 %)','HR ES (96.8 %)', 'US ES (99.0 %)', 'WS ES (96.8 %)'};
 
 ndatasets = length(datasets);
 
@@ -49,7 +49,7 @@ for t = 1:2
 end
 
 xlabel(ax, 'Route length')
-ylabel(ax, 'Top-5 Localisations (%)')
+ylabel(ax, 'Top-1 Localisations (%)')
 set(ax,'Ytick',0:20:100)
 ylim([0,100]);
 

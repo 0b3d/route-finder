@@ -1,7 +1,7 @@
 % parameters of BSD Extraction and Lolcaisation
 mapfile = 'manhattan.osm';
 city = 'manhattan'; % manhattan, pittsburgh, train
-dataset = 'hudsonriver5k'; % The name of the dataset, creates a folder in /Data
+dataset = 'wallstreet5k'; % The name of the dataset, creates a folder in /Data
 subset = 'combined'; % combined
 network = 'resnet18';
 % lowerlat = 40.7171;
@@ -49,8 +49,8 @@ max_rays = 43; % 90/2 - 2
 
 
 % choose features type
-features_type = 'BSD'; % 'BSD' 'ES' or 'none'
-model = 'v2_12i';
+features_type = 'ES'; % 'BSD' 'ES' or 'none'
+model = 'v2_12';
 tile_test_zoom = 'z18' ;
-turns = 'true'; % 'true', 'false', 'only'
+turns = 'false'; % 'true', 'false', 'only'
 probs = 'false'; % not implemented anymore, keep only for naming compatibility
