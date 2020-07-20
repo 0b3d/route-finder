@@ -100,7 +100,7 @@ b(5).FaceColor  = [0 0 1];
 xlabel('Route length', 'FontName', 'Times','FontSize', 10)
 ylabel('Top-1 Localisations (%)', 'FontName', 'Times', 'FontSize', 10)
 grid on 
-%title('Alexnet');
+title('Resnet18');
 %title(params.network)
 ax = gca;
 set(ax,'Ytick',0:10:100)
