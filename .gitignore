@@ -1,5 +1,4 @@
 *.json
-sub_results_es/
 mat-results/
 features/
 images/
