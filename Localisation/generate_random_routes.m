@@ -11,10 +11,10 @@ directory = 'Localisation/test_routes/';
 
 if strcmp(dataset,'cmu5k')
     turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat'];
-    route_filename = ['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat'];
+    route_filename = ['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_', subset,'.mat'];
 else
     turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
-    route_filename = ['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+    route_filename = ['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'.mat'];
 end
 
 

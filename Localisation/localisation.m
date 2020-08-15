@@ -9,11 +9,9 @@ addpath(genpath(path));
 
 if strcmp(features_type, 'ES') 
     load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'.mat'],'routes');
-    % load(['features/',features_type,'/',model,'/', tile_test_zoom, '/',features_type,'_', dataset,'_pr2 ','.mat']);
 else
     % real classifier
     load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',network,'.mat'],'routes');
-    % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_pr','.mat'],'routes');
     % simulated classifier
     % load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'_',num2str(accuracy*100),'.mat'],'routes');
 end
@@ -21,11 +19,11 @@ end
 % run 'Generate_random_routes' to get random test routes and turns
 directory = 'Localisation/test_routes_special/';
 if strcmp(dataset,"cmu5k")
-    load([directory, dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) , '_', subset,'.mat']);
-    load([directory, dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat']);
+    load([directory, dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat']);
+    load([directory, dataset,'_routes_', num2str(test_num),'_', subset,'.mat']);
 else
-    load([directory, dataset,'_turns_', num2str(test_num), '_' , num2str(threshold_),'.mat']);
-    load([directory, dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']); 
+    load([directory, dataset,'_turns_', num2str(test_num), '_' , num2str(threshold),'.mat']);
+    load([directory, dataset,'_routes_', num2str(test_num),'.mat']); 
 end
 
 R_init = zeros(size(routes,2),1);
@@ -64,15 +62,15 @@ for i=1:test_num
     switch option
         %% ES FEATURES
         case {'EStruetrue', 'ESfalsetrue', 'EStruefalse', 'ESfalsefalse'}
-            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold_, R_init, t, T, turns, pairwise_dist,min_num_candidates);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_ES_Gen(routes, N, max_route_length, threshold, R_init, t, T, turns, pairwise_dist,min_num_candidates);
             dist{i} = route_dist;
         %% BSD FEATURES
         case {'BSDtruefalse', 'BSDfalsefalse'}    
-            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold_, R_init, t, T, turns, min_num_candidates);
+            [location, rank, best_routes, best_top5_routes, route_dist] = RouteSearching_BSD(routes, N, max_route_length, threshold, R_init, t, T, turns, min_num_candidates);
             dist{i} = route_dist;
         %% JUST TURNS
         case {'BSDonlyfalse', 'ESonlytrue', 'ESonlyfalse'}
-            [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT(routes, max_route_length, R_init, t, T, threshold_);            
+            [location, rank, best_routes, best_top5_routes] = RouteSearching_onlyT(routes, max_route_length, R_init, t, T, threshold);            
         otherwise
             warning('Unexpected configuration')      
     end
@@ -155,7 +153,7 @@ if strcmp(features_type, 'ES')
     if ~exist(resultsPath, 'dir')
         mkdir(resultsPath)
     end
-%     save([resultsPath,'/', option ,'.mat'],  '-v7.3')
+    save([resultsPath,'/', option ,'.mat'],  '-v7.3')
 else
 
     if strcmp(dataset,"cmu5k")
@@ -169,9 +167,8 @@ else
         mkdir(resultsPath)
     end
     % real classifier
-%     save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
+    save([resultsPath,'/', option,'_', network,'.mat'],  '-v7.3')
     % simulated classifier
-    % save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
+    save([resultsPath,'/', option ,'_',num2str(accuracy*100),'.mat'],  '-v7.3')
 end
 
-% endofscript;

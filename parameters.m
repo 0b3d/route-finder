@@ -11,8 +11,7 @@ network = 'resnet18';
 
 test_num = 50; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
-threshold = 60; % turn threshold
-threshold_ = 30;
+threshold = 30; % turn threshold
 road_dense_distance = 10;
 % drop threshold for routes
 N = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,...

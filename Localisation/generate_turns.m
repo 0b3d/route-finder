@@ -8,11 +8,11 @@ path =  fullfile(pwd);
 addpath(genpath(path));
 
 if strcmp(dataset,'cmu5k')
-    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat']);
-    turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) , '_', subset,'.mat'];
+    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , subset,'.mat']);
+    turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat'];
 else
-    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat']);
-    turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) ,'.mat'];
+    load(['Localisation/test_routes/',dataset,'_routes_', num2str(test_num),'.mat']);
+    turn_filename = ['Localisation/test_routes/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
 end
 
 load(['Data/','streetlearn/',dataset,'_new','.mat'],'routes');

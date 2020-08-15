@@ -10,11 +10,11 @@ addpath(genpath(path));
 directory = 'Localisation/test_routes_special/';
 
 if strcmp(dataset,'cmu5k')
-    turn_filename = ['Localisation/test_routes_special/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) , '_', subset,'.mat'];
-    route_filename = ['Localisation/test_routes_special/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) '_', subset,'.mat'];
+    turn_filename = ['Localisation/test_routes_special/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat'];
+    route_filename = ['Localisation/test_routes_special/',dataset,'_routes_', num2str(test_num),'_', subset,'.mat'];
 else
-    turn_filename = ['Localisation/test_routes_special/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold_) ,'.mat'];
-    route_filename = ['Localisation/test_routes_special/',dataset,'_routes_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+    turn_filename = ['Localisation/test_routes_special/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+    route_filename = ['Localisation/test_routes_special/',dataset,'_routes_', num2str(test_num),'.mat'];
 end
 
 
@@ -48,7 +48,7 @@ else
             for i=1:size(t, 2)-1
                 theta1 = routes(t(i)).gsv_yaw;
                 theta2 = routes(t(i+1)).gsv_yaw;
-                T(i) = turn_pattern(theta1, theta2, threshold_);
+                T(i) = turn_pattern(theta1, theta2, threshold);
             end
             test_route = [test_route; t];
             test_turn = [test_turn; T];
