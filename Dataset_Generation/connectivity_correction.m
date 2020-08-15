@@ -1,4 +1,4 @@
-% correct neighbors before localisation
+% correct neighbors and bearings before localisation
 clear all
 close all
 parameters;

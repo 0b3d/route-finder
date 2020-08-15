@@ -17,12 +17,16 @@ classdef Localiser
             % load test_routes
             filename = [params.dataset,'_routes_',num2str(500),'_', num2str(params.threshold),'.mat'];
             path = fullfile('Localisation','test_routes',filename);
-            obj.test_routes = load(path).test_route;
+            test_routes = load(path);
+            obj.test_routes = test_routes.test_route;
+            % obj.test_routes = load(path).test_route;
             % load test turns
             if params.turns
                 filename = [params.dataset,'_turns_',num2str(500),'_', num2str(params.threshold_),'.mat'];
                 path = fullfile('Localisation','test_routes',filename);
-                obj.test_turns = load(path).test_turn;                
+                test_turns = load(path);
+                obj.test_turns = test_turns.test_turn; 
+                % obj.test_turns = load(path).test_turn;                
             end
             obj.ranking = zeros(params.T, params.mrl);
             obj.topk_estimated_routes = {params.T};
@@ -102,7 +106,7 @@ classdef Localiser
                     obj = obj.turn_filter(route_index,m);
                 end
                 
-                if size(obj.R,1) == 0   %If no candidate routes
+                if size(obj.R,1) == 0   % If no candidate routes
                     break
                 end
                 

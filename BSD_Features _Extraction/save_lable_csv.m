@@ -11,8 +11,7 @@ load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',data
 
 filename = ['CSV_Files/',dataset,'.csv'];
 fid = fopen(filename, 'w');
-% fprintf(fid, [ '%s',',','%s',',','%s',',','%s',',','%s',',','%s',',','%s', ',', '%s', ',' ,'%s', '\n'], ...
-%               'pano_id', 'gsv_lat', 'gsv_lon', 'gsv_yaw','front','right','back','left','city');   
+  
 for i=1:length(routes)
     pano_id = routes(i).id;
     gsv_lat = routes(i).gsv_coords(1);

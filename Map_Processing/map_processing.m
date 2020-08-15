@@ -1,4 +1,4 @@
-% map parsing and map processing
+% openstreet map parsing and map processing
 clear all
 close all
 parameters;

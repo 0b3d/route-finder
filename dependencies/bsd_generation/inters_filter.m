@@ -1,5 +1,5 @@
 function new_inters = inters_filter(inters, ways, thresh)
-% filter junctions whose turns angle are below a threshold
+%% filter junctions whose turns angle are below a threshold
 count = 0;
 
 for i=1:size(inters,1)

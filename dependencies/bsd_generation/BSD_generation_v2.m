@@ -1,5 +1,5 @@
 function panos = BSD_generation_v2(panos, inters, buildings, radius, range)
-
+%% get key parameters for BSD
 arclen = radius / (2*earthRadius*pi) * 360;  
 
 parfor_progress('BSD extraction', size(panos,2));

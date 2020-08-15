@@ -11,10 +11,6 @@ addpath(genpath(path));
 load(['features/',features_type,'/',dataset,'/',features_type,'_', city,'_',dataset,'.mat'],'routes');
 load(['Data/',city,'/buildings.mat']);
 load(['Data/',city,'/inters_after_filter.mat']);
-% load(['Data/',city,'/ways.mat']);
-% load(['Data/',city,'/naturals.mat']);
-% load(['Data/',city,'/leisures.mat']);
-% load(['Data/',city,'/boundary.mat']);
 
 % input the id
 % id = '--2c7yawIqdmNp7pzjIqoQ';
@@ -39,7 +35,7 @@ hold on
 buildings_in_circle = [];
 junctions_in_circle = [];
     
-for i=1:size(buildings,2)  % i=1:size(buildings,1)
+for i=1:size(buildings,2)  % or i=1:size(buildings,1)
     curcoord = buildings(i).coords;
     in = inpolygon(curcoord(:,1),curcoord(:,2),circle(:,1), circle(:,2));
     if(sum(in)) >= 1 && size(buildings(i).coords, 1) > 2
@@ -77,7 +73,7 @@ display_searchcircles(location, yaw, radius, BSD, range); % need to comment circ
 % hold off
     
 % display images
-% filepath = 'images/london_10_19/snaps/';
+% filepath = 'images/...';
 % filename_f = strcat(filepath, id, '_front.jpg');
 % filename_r = strcat(filepath, id, '_right.jpg');
 % filename_b = strcat(filepath, id, '_back.jpg');

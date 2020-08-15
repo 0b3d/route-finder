@@ -1,7 +1,7 @@
 classdef BaseParams
     properties
         mrl = 40;                   % maximum route length
-        T = 500;                    % number of turns to test
+        T = 500;                    % number of routes to test
         threshold = 60;             % turn threshold
         threshold_ = 30;
         dataset = 'hudsonriver5k';  % name of the dataset to process
