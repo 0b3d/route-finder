@@ -10,11 +10,11 @@ addpath(genpath(path));
 directory = 'Localisation/test_routes_special/';
 
 if strcmp(dataset,'cmu5k')
-    turn_filename = ['Localisation/test_routes_special/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat'];
-    route_filename = ['Localisation/test_routes_special/',dataset,'_routes_', num2str(test_num),'_', subset,'.mat'];
+    turn_filename = [ directory, dataset, '_turns_', num2str(test_num),'_' , num2str(threshold) , '_', subset,'.mat'];
+    route_filename = [ directory, dataset, '_routes_', num2str(test_num),'_', subset,'.mat'];
 else
-    turn_filename = ['Localisation/test_routes_special/',dataset,'_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
-    route_filename = ['Localisation/test_routes_special/',dataset,'_routes_', num2str(test_num),'.mat'];
+    turn_filename = [ directory, dataset, '_turns_', num2str(test_num),'_' , num2str(threshold) ,'.mat'];
+    route_filename = [ directory, dataset, '_routes_', num2str(test_num),'.mat'];
 end
 
 
