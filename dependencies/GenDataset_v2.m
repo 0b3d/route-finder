@@ -68,11 +68,12 @@ end
 
 % find associated pano_id, gsv_yaw, gsv_coords for each location
 download_num = length(routes);
-panos = gsv_download_v4(routes, download_num, dataset); 
+panos = gsv_download_v5(routes, download_num, dataset); 
 for i=1:length(routes)
     routes(i).id = panos(i).id;
     routes(i).gsv_coords = panos(i).coords_t;
-    routes(i).gsv_yaw = panos(i).yaw;   
+    routes(i).gsv_yaw = panos(i).yaw; 
+    routes(i).status = panos(i).status;
 end
 
 end

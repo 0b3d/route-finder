@@ -1,45 +1,55 @@
 function panos = gsv_download_v4(panos, download_num, dataset)
 count = 0;
 city = dataset;
+key = 'AIzaSyCtqNCE0Fmmk2xpP4E4zOwqrNnUGYXxoiM';
 
 panoidAll = {'start'};
 
 for i=1:length(panos)
     tic;
     curroad = panos(i).coords;
-    panos(i).yaw = [];
+    % panos(i).yaw = [];
+    curyaw = panos(i).yaw;
         
     try
         lat = num2str(curroad(1), '%.20f');
         lon = num2str(curroad(2), '%.20f');
-        url = strcat('http://maps.google.com/cbk?output=xml&ll=',lat,',',lon); 
-        filename = 'tmp.xml';
+        heading = num2str(curyaw, '%.20f');
+        % url = strcat('http://maps.google.com/cbk?output=xml&ll=',lat,',',lon); 
+        url = strcat('https://maps.googleapis.com/maps/api/streetview/metadata?','location=',lat,',',lon,'&heading=',heading,'&key=',key); 
+        filename = 'metadata.json';
         folder = websave(filename,url);
-
-        str = fileread(fullfile(folder));
-        pano_ind = strfind(str, 'pano_id=');
-        panoid = panoExtract(pano_ind(1), str); 
+        str = fileread(folder);
+        data = jsondecode(str);
+        panoid = data.pano_id;
         panos(i).id = panoid;
-        panos(i).remove = false;
+        panos(i).coords_t = [data.location.lat, data.location.lng];
+        panos(i).yaw = curyaw;
+
+%         str = fileread(fullfile(folder));
+%         pano_ind = strfind(str, 'pano_id=');
+%         panoid = panoExtract(pano_ind(1), str); 
+%         panos(i).id = panoid;
+%         panos(i).remove = false;
         
-        lat_ind = strfind(str, 'lat='); lng_ind = strfind(str, 'lng=');
-        llat = str2double(panoExtract(lat_ind(1), str)); llng = str2double(panoExtract(lng_ind(1), str));
-        panos(i).coords_t = [llat, llng];
+%         lat_ind = strfind(str, 'lat='); lng_ind = strfind(str, 'lng=');
+%         llat = str2double(panoExtract(lat_ind(1), str)); llng = str2double(panoExtract(lng_ind(1), str));
+%         panos(i).coords_t = [llat, llng];
         
-        yaw_ind = strfind(str, 'pano_yaw_deg=');        
-        yaw = str2double(panoExtract(yaw_ind, str));
-        panos(i).yaw = yaw;
-        yaw = yaw * pi / 180;
+%         yaw_ind = strfind(str, 'pano_yaw_deg=');        
+%         yaw = str2double(panoExtract(yaw_ind, str));
+%         panos(i).yaw = yaw;
+%         yaw = yaw * pi / 180;
         
-        tiltyaw_ind = strfind(str, 'tilt_yaw_deg=');
-        tiltyaw = str2double(panoExtract(tiltyaw_ind, str));
-        panos(i).tiltyaw = tiltyaw;
-        tiltyaw = tiltyaw * pi / 180;
+%         tiltyaw_ind = strfind(str, 'tilt_yaw_deg=');
+%         tiltyaw = str2double(panoExtract(tiltyaw_ind, str));
+%         panos(i).tiltyaw = tiltyaw;
+%         tiltyaw = tiltyaw * pi / 180;
         
-        tiltpitch_ind = strfind(str, 'tilt_pitch_deg=');
-        tiltpitch = str2double(panoExtract(tiltpitch_ind, str));
-        panos(i).tiltpitch = tiltpitch;
-        tiltpitch = tiltpitch * pi / 180;
+%         tiltpitch_ind = strfind(str, 'tilt_pitch_deg=');
+%         tiltpitch = str2double(panoExtract(tiltpitch_ind, str));
+%         panos(i).tiltpitch = tiltpitch;
+%         tiltpitch = tiltpitch * pi / 180;
         
         % fname = fullfile(outfolder,sprintf('%s.xml',panoid));
         % [~] = websave(fname,url);

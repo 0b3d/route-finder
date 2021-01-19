@@ -1,5 +1,5 @@
-mapfile = 'london.osm';
-dataset = 'london_10_19'; %The name of the dataset, creates a folder in /Data
+mapfile = 'bristol1.osm';
+dataset = 'bristol1'; %The name of the dataset, creates a folder in /Data
 test_num = 500; % The number of test routes
 max_route_length_init = 40; % the lenght of the routes
 threshold = 60; % turn threshold
